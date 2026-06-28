@@ -1,0 +1,92 @@
+.star-border-container {
+  display: inline-flex;
+  position: relative;
+  border-radius: 999px;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*
+ * Thin animated glow strips that ride exactly on the top & bottom border lines.
+ * The strips are only 2px tall so the light never bleeds into the button interior.
+ */
+.border-gradient-bottom {
+  position: absolute;
+  width: 250%;
+  height: 2px;
+  bottom: 0;
+  right: -150%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--star-color, white) 15%,
+    var(--star-color, white) 35%,
+    transparent 60%
+  );
+  animation: star-movement-bottom linear infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.border-gradient-top {
+  position: absolute;
+  width: 250%;
+  height: 2px;
+  top: 0;
+  left: -150%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--star-color, white) 15%,
+    var(--star-color, white) 35%,
+    transparent 60%
+  );
+  animation: star-movement-top linear infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.inner-content {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  width: 100%;
+  min-height: inherit;
+  background: transparent;
+  border: none;
+  color: inherit;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+/*
+ * Keyframes: a glowing "star" spot slides along the edge.
+ * Bottom strip moves right-to-left, top strip moves left-to-right,
+ * creating a chasing / orbiting illusion around the pill.
+ */
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-60%, 0);
+    opacity: 0.3;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(60%, 0);
+    opacity: 0.3;
+  }
+}
