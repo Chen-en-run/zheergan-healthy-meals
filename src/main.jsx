@@ -28,7 +28,51 @@ import StarBorder from './components/StarBorder';
 import Galaxy from './components/Galaxy';
 import ShinyText from './components/ShinyText';
 import ElectricBorder from './components/ElectricBorder';
+import FeaturesPage from './pages/Features';
 import './styles.css';
+
+/* ================================================================
+   轻量 hash 路由
+   #/features → 功能介绍子页
+   其余所有 hash(包括空/锚点) → 首页(原 App)
+   ================================================================ */
+function useRoute() {
+  const resolve = () => {
+    const h = window.location.hash;
+    if (h.startsWith('#/features')) return 'features';
+    return 'home';
+  };
+  const [route, setRoute] = useState(resolve);
+
+  useEffect(() => {
+    const onHash = () => {
+      setRoute(resolve());
+      // 切回首页时如果目标是有名锚点则滚动,否则置顶
+      if (resolve() === 'home') {
+        const id = window.location.hash.replace(/^#/, '');
+        if (id && !id.startsWith('/')) {
+          // 等 React 渲染完再滚
+          requestAnimationFrame(() => {
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+          });
+        } else {
+          requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+        }
+      } else {
+        // 进入子页:滚到顶部
+        requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+      }
+    };
+    window.addEventListener('hashchange', onHash);
+    // 首次加载时滚到顶部(除非有锚点)
+    if (!window.location.hash || window.location.hash.startsWith('#/')) {
+      window.scrollTo({ top: 0 });
+    }
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  return route;
+}
 
 const meals = [
   {
@@ -54,7 +98,7 @@ const meals = [
   },
 ];
 
-function App() {
+function HomePage() {
   return (
     <main className="site-shell">
       <div className="galaxy-bg">
@@ -88,9 +132,72 @@ function App() {
   );
 }
 
+/* ================================================================
+   MealCarousel — 三张餐卡点击切换轮播
+   ================================================================ */
+function MealCarousel({ meals }) {
+  const [active, setActive] = useState(0);
+  const paused = useRef(false);
+
+  const getPos = (i) => {
+    const diff = (i - active + meals.length) % meals.length;
+    if (diff === 0) return 'center';
+    if (diff === 1) return 'right';
+    return 'left';
+  };
+
+  const handleClick = (pos) => {
+    if (pos === 'left') setActive((prev) => (prev - 1 + meals.length) % meals.length);
+    if (pos === 'right') setActive((prev) => (prev + 1) % meals.length);
+  };
+
+  /* 自动轮播：每 3 秒向右切换 */
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!paused.current) {
+        setActive((prev) => (prev + 1) % meals.length);
+      }
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [meals.length]);
+
+  return (
+    <div
+      className="meal-carousel"
+      onMouseEnter={() => { paused.current = true; }}
+      onMouseLeave={() => { paused.current = false; }}
+    >
+      {meals.map((meal, i) => {
+        const pos = getPos(i);
+        return (
+          <article
+            className={`meal-card meal-card--${pos}`}
+            key={meal.title}
+            onClick={() => handleClick(pos)}
+          >
+            <img src={meal.image} alt={meal.title} />
+            <div>
+              <h2>{meal.title}</h2>
+              <p>{meal.kcal} / {meal.protein}</p>
+            </div>
+          </article>
+        );
+      })}
+
+    </div>
+  );
+}
+
 function Hero() {
   return (
-    <section className="hero section-panel panel-cream" aria-label="健康餐 App 首页">
+    <section className="hero section-panel panel-cream hero--liquid" aria-label="健康餐 App 首页">
+      {/* 液态玻璃:流动暖色光斑,作为玻璃层背后的"折射内容" */}
+      <div className="hero-blobs" aria-hidden="true">
+        <span className="blob blob-1" />
+        <span className="blob blob-2" />
+        <span className="blob blob-3" />
+        <span className="blob blob-4" />
+      </div>
       <div className="texture" />
       <header className="nav max-frame">
         <a className="brand" href="#top" aria-label="折耳根健康餐">
@@ -100,6 +207,7 @@ function Hero() {
           <span>折耳根健康餐</span>
         </a>
         <nav className="nav-links" aria-label="主导航">
+          <a href="#/features">功能介绍</a>
           <a href="#menu">今日餐单</a>
           <a href="#download">下载 App</a>
         </nav>
@@ -112,74 +220,29 @@ function Hero() {
             折耳根健康餐 App
           </div>
           <h1>
-            <ShinyText text="好好吃饭，" color="#15180f" shineColor="#c0592c" speed={3} spread={110} direction="left" />
-            <ShinyText text="也可以很轻松。" color="#15180f" shineColor="#3f7d4e" speed={3} spread={110} direction="left" className="hero-shiny-line" />
+            <ShinyText text="人间烟火，" color="#15180f" shineColor="#c0592c" speed={3} spread={110} direction="left" />
+            <ShinyText text="热乎到桌的健康餐。" color="#15180f" shineColor="#3f7d4e" speed={3} spread={110} direction="left" className="hero-shiny-line" />
           </h1>
           <p className="hero-lede">
             折耳根健康餐是一款面向城市日常的健康餐配送 App。把热量、蛋白质、口味偏好和配送节奏整合起来，让每一天的健康饮食更稳定、更省心，也更有食欲。
           </p>
 
           <div className="hero-actions">
-            <StarBorder as="a" className="primary-button" color="#d5ff66" speed="5s" href="#download">
+            <a className="primary-button" href="#download">
               下载体验
               <ArrowDownRight size={18} />
-            </StarBorder>
-            <StarBorder as="a" className="secondary-button" color="#8fffc2" speed="7s" href="#menu">
+            </a>
+            <a className="secondary-button" href="#menu">
               浏览本周餐单
-            </StarBorder>
+            </a>
           </div>
         </div>
 
         <div className="hero-visual" aria-label="菜品与应用界面展示">
           <div className="plate-orbit">
-            {meals.slice(0, 2).map((meal, index) => (
-              <article className={`meal-card meal-card-${index + 1}`} key={meal.title}>
-                <img src={meal.image} alt={meal.title} />
-                <div>
-                  <h2>{meal.title}</h2>
-                  <p>
-                    {meal.kcal} / {meal.protein}
-                  </p>
-                </div>
-              </article>
-            ))}
+            <MealCarousel meals={meals} />
           </div>
 
-          <div className="phone-mockup" aria-label="手机端应用界面概览">
-            <div className="phone-bar">
-              <span className="signal-dot" />
-            </div>
-            <div className="app-top">
-              <div>
-                <span>Today</span>
-                <strong>今日轻食</strong>
-              </div>
-              <div className="avatar">折</div>
-            </div>
-            <div className="hero-dish">
-              <img src={meals[1].image} alt="柑香鸡肉谷物碗" />
-              <div className="dish-badge">
-                <Star size={13} fill="currentColor" />
-                97% 适配
-              </div>
-            </div>
-            <div className="macro-panel">
-              <span>蛋白质 42g</span>
-              <span>碳水 48g</span>
-              <span>脂肪 16g</span>
-            </div>
-            <div className="route-card">
-              <Truck size={18} />
-              <div>
-                <strong>骑手即将送达</strong>
-              </div>
-            </div>
-            <div className="menu-strip">
-              <img src={meals[0].image} alt="烟熏三文鱼平衡碗" />
-              <img src={meals[2].image} alt="牛油果绿蔬蛋碗" />
-              <div className="plus-tile">+8</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -766,7 +829,7 @@ const footerCols = [
   {
     title: '产品',
     links: [
-      { label: '功能介绍', href: '#about' },
+      { label: '功能介绍', href: '#/features' },
       { label: '本周餐单', href: '#menu' },
       { label: '价格方案', href: '#faq' },
       { label: '下载 App', href: '#download' },
@@ -859,6 +922,12 @@ function Footer() {
       </div>
     </footer>
   );
+}
+
+function App() {
+  const route = useRoute();
+  if (route === 'features') return <FeaturesPage />;
+  return <HomePage />;
 }
 
 createRoot(document.getElementById('root')).render(<App />);

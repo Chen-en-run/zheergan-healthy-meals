@@ -395,15 +395,29 @@ img {
 .plate-orbit {
   position: absolute;
   inset: 0;
-  filter: drop-shadow(0 28px 70px rgba(0, 0, 0, 0.5));
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Meal Carousel — 三卡点击切换 ---- */
+.meal-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+  height: 400px;
 }
 
 .meal-card {
   position: absolute;
   display: grid;
-  gap: 14px;
-  width: clamp(250px, 17vw, 330px);
-  padding: 12px;
+  gap: 16px;
+  width: clamp(280px, 21vw, 380px);
+  padding: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-sm);
   background: rgba(12, 14, 12, 0.76);
@@ -411,6 +425,73 @@ img {
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 18px 60px rgba(0, 0, 0, 0.38);
   backdrop-filter: blur(24px);
+  cursor: default;
+  transition:
+    transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1.2),
+    opacity 0.45s ease,
+    z-index 0s step-end;
+  will-change: transform, opacity;
+}
+
+/* 中间 — 全尺寸突出 */
+.meal-card--center {
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 3;
+  filter: drop-shadow(0 32px 80px rgba(0, 0, 0, 0.55));
+}
+
+/* 左侧 — 缩小偏移 */
+.meal-card--left {
+  left: -10%;
+  transform: scale(0.8);
+  opacity: 0.45;
+  z-index: 2;
+  cursor: pointer;
+  filter: drop-shadow(0 14px 36px rgba(0, 0, 0, 0.3));
+}
+
+/* 右侧 — 缩小偏移 */
+.meal-card--right {
+  right: -10%;
+  transform: scale(0.8);
+  opacity: 0.45;
+  z-index: 2;
+  cursor: pointer;
+  filter: drop-shadow(0 14px 36px rgba(0, 0, 0, 0.3));
+}
+
+.meal-card--left:hover,
+.meal-card--right:hover {
+  opacity: 0.7;
+  transform: scale(0.84);
+}
+
+/* 底部指示点 */
+.meal-carousel-dots {
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.meal-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.meal-dot.is-active {
+  background: #d5ff66;
+  transform: scale(1.5);
 }
 
 .meal-card img {
@@ -432,23 +513,6 @@ img {
   font-size: 13px;
 }
 
-.meal-card-1 {
-  top: 20px;
-  left: 28px;
-  transform: rotate(-7deg);
-}
-
-.meal-card-2 {
-  right: 0;
-  top: 112px;
-  transform: rotate(5deg);
-}
-
-.meal-card-3 {
-  left: 86px;
-  bottom: 24px;
-  transform: rotate(4deg);
-}
 
 .phone-mockup {
   position: absolute;
@@ -1144,21 +1208,27 @@ img {
   }
 
   .meal-card {
-    width: 210px;
+    width: 240px;
   }
 
-  .meal-card-1 {
-    left: -8px;
+  .meal-carousel {
+    max-width: 380px;
+    height: 310px;
   }
 
-  .meal-card-2 {
-    right: -12px;
-    top: 96px;
+  .meal-card--left {
+    left: -16%;
+    transform: scale(0.78);
   }
 
-  .meal-card-3 {
-    left: 6px;
-    bottom: 0;
+  .meal-card--right {
+    right: -16%;
+    transform: scale(0.78);
+  }
+
+  .meal-card--left:hover,
+  .meal-card--right:hover {
+    transform: scale(0.83);
   }
 
   .phone-mockup {
@@ -1195,16 +1265,8 @@ img {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .meal-card {
-    animation: floatMeal 7s ease-in-out infinite;
-  }
-
-  .meal-card-2 {
-    animation-delay: -2s;
-  }
-
-  .meal-card-3 {
-    animation-delay: -4s;
+  .meal-card--center {
+    animation: floatMeal 5s ease-in-out infinite;
   }
 
   .floating-chip {
@@ -3022,4 +3084,222 @@ img {
 .site-footer.panel-cream .footer-top-link:hover,
 .site-footer.panel-cream .footer-top-link svg {
   color: var(--ember-ink);
+}
+
+/* ================================================================ */
+/* Liquid Glass Hero — 首屏液态玻璃试验版                            */
+/* 思路:奶油底上铺流动暖色光斑(玻璃背后的折射内容),               */
+/* 导航/眉标/按钮/餐卡改为通透玻璃层:高光描边 + 内发光 + 镜面扫光   */
+/* ================================================================ */
+
+/* 底色:比通用奶油底更亮一档,让玻璃的白色高光有落点 */
+.hero.hero--liquid {
+  background: linear-gradient(180deg, #f8f4e9 0%, var(--cream) 100%);
+}
+
+/* 网格纹理与玻璃气质相悖,液态版隐藏 */
+.hero.hero--liquid .texture {
+  display: none;
+}
+
+/* ---- 流动光斑 ---- */
+.hero-blobs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-blobs .blob {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform;
+}
+
+.blob-1 {
+  width: clamp(380px, 44vw, 760px);
+  left: -10%;
+  top: -18%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 187, 106, 0.85), rgba(255, 187, 106, 0) 68%);
+  animation: blob-drift-a 28s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  width: clamp(320px, 36vw, 640px);
+  right: -8%;
+  top: 4%;
+  background: radial-gradient(circle at 60% 40%, rgba(226, 122, 60, 0.6), rgba(226, 122, 60, 0) 66%);
+  animation: blob-drift-b 34s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  width: clamp(300px, 32vw, 560px);
+  left: 14%;
+  bottom: -18%;
+  background: radial-gradient(circle at 40% 40%, rgba(104, 156, 88, 0.5), rgba(104, 156, 88, 0) 66%);
+  animation: blob-drift-c 30s ease-in-out infinite alternate;
+}
+
+.blob-4 {
+  width: clamp(240px, 24vw, 420px);
+  right: 22%;
+  bottom: 2%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 214, 140, 0.65), rgba(255, 214, 140, 0) 70%);
+  animation: blob-drift-b 24s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes blob-drift-a {
+  to {
+    transform: translate3d(7vw, 5vw, 0) scale(1.14);
+  }
+}
+
+@keyframes blob-drift-b {
+  to {
+    transform: translate3d(-6vw, 6vw, 0) scale(1.1);
+  }
+}
+
+@keyframes blob-drift-c {
+  to {
+    transform: translate3d(5vw, -5vw, 0) scale(1.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-blobs .blob {
+    animation: none;
+  }
+}
+
+/* ---- 玻璃导航栏:悬浮胶囊 ---- */
+.hero.hero--liquid .nav {
+  margin-top: 20px;
+  min-height: 0;
+  padding: 13px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--r-pill);
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.22));
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  backdrop-filter: blur(24px) saturate(1.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2),
+    0 12px 40px rgba(27, 29, 21, 0.1);
+}
+
+/* logo:摘掉酸性绿光晕,换暖橙柔光 */
+.hero.hero--liquid .brand-mark {
+  background: linear-gradient(135deg, var(--ember), var(--ember-ink));
+  box-shadow: 0 0 28px rgba(255, 180, 92, 0.35);
+}
+
+/* ---- 眉标:玻璃小胶囊 ---- */
+.hero.hero--liquid .eyebrow {
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.38);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 24px rgba(27, 29, 21, 0.08);
+}
+
+/* ---- 主按钮:暖橙 tinted glass + 镜面扫光 ---- */
+.hero.hero--liquid .primary-button {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(135deg, rgba(232, 138, 74, 0.82), rgba(194, 97, 31, 0.88));
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  backdrop-filter: blur(14px) saturate(1.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -10px 20px rgba(255, 255, 255, 0.16),
+    0 18px 44px rgba(194, 97, 31, 0.3);
+}
+
+.hero.hero--liquid .primary-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.5) 46%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.7s var(--ease-out);
+  pointer-events: none;
+}
+
+.hero.hero--liquid .primary-button:hover::after {
+  transform: translateX(130%);
+}
+
+/* ---- 次按钮:透明清玻璃 ---- */
+.hero.hero--liquid .secondary-button {
+  color: var(--ink-cream);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.18));
+  -webkit-backdrop-filter: blur(20px) saturate(1.7);
+  backdrop-filter: blur(20px) saturate(1.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 14px 34px rgba(27, 29, 21, 0.1);
+}
+
+.hero.hero--liquid .secondary-button:hover {
+  border-color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.3));
+}
+
+/* ---- 餐卡轮播:液态玻璃面板 ---- */
+.hero.hero--liquid .meal-card {
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: var(--r-xl);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.24));
+  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+  backdrop-filter: blur(28px) saturate(1.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.25),
+    0 26px 70px rgba(27, 29, 21, 0.16);
+}
+
+/* 左上角镜面高光,模拟玻璃反射 */
+.hero.hero--liquid .meal-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 36%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.hero.hero--liquid .meal-card img {
+  border-radius: 14px;
+}
+
+/* 投影统一为墨色调,替换原纯黑 drop-shadow */
+.hero.hero--liquid .meal-card--center {
+  filter: drop-shadow(0 30px 56px rgba(27, 29, 21, 0.2));
+}
+
+.hero.hero--liquid .meal-card--left,
+.hero.hero--liquid .meal-card--right {
+  filter: drop-shadow(0 14px 30px rgba(27, 29, 21, 0.12));
+}
+
+/* ---- 无 backdrop-filter 兜底:提高底色不透明度保证可读 ---- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .hero.hero--liquid .nav,
+  .hero.hero--liquid .eyebrow,
+  .hero.hero--liquid .secondary-button,
+  .hero.hero--liquid .meal-card {
+    background: rgba(251, 249, 241, 0.92);
+  }
 }

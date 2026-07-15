@@ -1,0 +1,345 @@
+- main [ref=e3]:
+  - region "健康餐 App 首页" [ref=e4]:
+    - generic [ref=e5]:
+      - link "折耳根健康餐" [ref=e6] [cursor=pointer]:
+        - /url: "#top"
+        - img "折耳根" [ref=e8]
+      - navigation "主导航" [ref=e10]:
+        - link "今日餐单" [ref=e11] [cursor=pointer]:
+          - /url: "#menu"
+        - link "下载 App" [ref=e12] [cursor=pointer]:
+          - /url: "#download"
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: 折耳根健康餐 App
+        - heading "人间烟火， 热乎到桌的健康餐。" [level=1] [ref=e18]:
+          - generic [ref=e19]: 人间烟火，
+          - generic [ref=e20]: 热乎到桌的健康餐。
+        - paragraph [ref=e21]: 折耳根健康餐是一款面向城市日常的健康餐配送 App。把热量、蛋白质、口味偏好和配送节奏整合起来，让每一天的健康饮食更稳定、更省心，也更有食欲。
+        - generic [ref=e22]:
+          - link [ref=e23] [cursor=pointer]:
+            - /url: "#download"
+          - link "浏览本周餐单" [ref=e28] [cursor=pointer]:
+            - /url: "#menu"
+      - generic "菜品与应用界面展示" [ref=e30]:
+        - generic [ref=e32]:
+          - article [ref=e33]:
+            - img "烟熏三文鱼平衡碗" [ref=e34]
+            - generic [ref=e35]:
+              - heading "烟熏三文鱼平衡碗" [level=2] [ref=e36]
+              - paragraph [ref=e37]: 486 kcal / 36g protein
+          - article [ref=e38] [cursor=pointer]:
+            - img "柑香鸡肉谷物碗" [ref=e39]
+            - generic [ref=e40]:
+              - heading "柑香鸡肉谷物碗" [level=2] [ref=e41]
+              - paragraph [ref=e42]: 532 kcal / 42g protein
+          - article [ref=e43] [cursor=pointer]:
+            - img "牛油果绿蔬蛋碗" [ref=e44]
+            - generic [ref=e45]:
+              - heading "牛油果绿蔬蛋碗" [level=2] [ref=e46]
+              - paragraph [ref=e47]: 418 kcal / 28g protein
+  - region "健康饮食的困扰" [ref=e48]:
+    - generic [ref=e49]:
+      - generic [ref=e50]: 我们太懂那种感觉
+      - heading "想吃得健康，怎么就这么难？" [level=2] [ref=e54]
+      - list [ref=e55]:
+        - listitem [ref=e56]:
+          - generic [ref=e61]: 外卖油盐超标，健身餐又难吃到坚持不下去
+        - listitem [ref=e62]:
+          - generic [ref=e67]: 想自己做，光是“今天吃啥、怎么配”就先累了
+        - listitem [ref=e68]:
+          - generic [ref=e73]: 立志三天，第四天又点了炸鸡
+  - region "折耳根健康餐是什么" [ref=e74]:
+    - generic [ref=e75]:
+      - generic [ref=e76]: 所以，有了折耳根健康餐
+      - heading "把「吃得健康」， 变成一件你不用操心的事。" [level=2] [ref=e79]:
+        - generic [ref=e80]: 把「吃得健康」，
+        - generic [ref=e81]: 变成一件你不用操心的事。
+      - paragraph [ref=e82]:
+        - text: 营养师配比、主厨调味，按你的热量目标算好每一餐，新鲜现做、当天送达。
+        - strong [ref=e83]: 你只管吃，剩下的交给我们。
+      - generic "不用操心的三个理由" [ref=e84]:
+        - figure "营养由我们算好" [ref=e85]:
+          - img "营养均衡的健康碗 — 蛋白质、碳水、脂肪已配平" [ref=e87]
+        - figure "味道交给主厨" [ref=e89]:
+          - img "主厨调味的健康餐 — 好吃才能坚持" [ref=e91]
+        - figure "新鲜准时送到" [ref=e93]:
+          - img "新鲜准时送达的健康餐 — 到手还是热的" [ref=e95]
+  - region "使用流程" [ref=e97]:
+    - generic [ref=e98]:
+      - generic [ref=e99]:
+        - generic [ref=e100]: 简单三步
+        - heading "三步，开启你的健康饮食" [level=2] [ref=e106]
+      - list [ref=e107]:
+        - listitem [ref=e108]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: "01"
+            - heading "设定目标" [level=3] [ref=e118]
+            - paragraph [ref=e119]: 告诉我们你的口味、热量目标和用餐时间
+        - listitem [ref=e120]:
+          - generic [ref=e123]:
+            - generic [ref=e124]: "02"
+            - heading "智能配餐" [level=3] [ref=e128]
+            - paragraph [ref=e129]: 营养师 + 算法为你搭好整周餐单
+        - listitem [ref=e130]:
+          - generic [ref=e133]:
+            - generic [ref=e134]: "03"
+            - heading "准时送达" [level=3] [ref=e141]
+            - paragraph [ref=e142]: 新鲜现做，当天送到你手边
+  - region "为什么信任我们" [ref=e143]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]: 为什么值得托付
+        - heading "把餐交给我们，你在信任什么？" [level=2] [ref=e150]
+      - generic "平台数据" [ref=e151]:
+        - generic [ref=e152]:
+          - strong [ref=e153]: 0万+
+          - generic [ref=e154]: 用户正在好好吃饭
+        - generic [ref=e155]:
+          - strong [ref=e156]: 0万+
+          - generic [ref=e157]: 份健康餐已送达
+        - generic [ref=e158]:
+          - strong [ref=e159]: 0+
+          - generic [ref=e160]: 营养师 & 主厨团队
+        - generic [ref=e161]:
+          - strong [ref=e162]: "0.0"
+          - generic [ref=e163]: App Store 评分
+      - list [ref=e164]:
+        - listitem [ref=e165]:
+          - paragraph [ref=e169]: 以前减脂靠饿，现在靠吃。三个月瘦了 8 斤，还没反弹。
+          - generic [ref=e170]:
+            - generic [ref=e171]: 林
+            - generic [ref=e172]:
+              - strong [ref=e173]: 林小满
+              - generic [ref=e174]: 健身爱好者
+        - listitem [ref=e175]:
+          - paragraph [ref=e179]: 上班太忙，它把「吃得健康」这件事，彻底帮我自动化了。
+          - generic [ref=e180]:
+            - generic [ref=e181]: A
+            - generic [ref=e182]:
+              - strong [ref=e183]: Amanda
+              - generic [ref=e184]: 产品经理
+        - listitem [ref=e185]:
+          - paragraph [ref=e189]: 给爸妈订的低盐餐，终于不用我每天操心怎么搭配了。
+          - generic [ref=e190]:
+            - generic [ref=e191]: 老
+            - generic [ref=e192]:
+              - strong [ref=e193]: 老周
+              - generic [ref=e194]: 程序员
+  - region "本周餐单" [ref=e195]:
+    - generic [ref=e196]:
+      - generic [ref=e197]:
+        - generic [ref=e198]: 本周精选餐单
+        - heading "每周焕新， 把食欲交给厨师。" [level=2] [ref=e202]:
+          - text: 每周焕新，
+          - generic [ref=e203]: 把食欲交给厨师。
+        - paragraph [ref=e204]: 38+ 道由营养师与主厨共同设计的健康餐，按你的热量目标与口味偏好轮换上新。下滑浏览本周在售餐品。
+      - link "查看完整餐单" [ref=e205] [cursor=pointer]:
+        - /url: "#download"
+    - generic [ref=e209]:
+      - article [ref=e210]:
+        - img "烟熏三文鱼平衡碗" [ref=e212]
+        - generic [ref=e213]: "01"
+        - generic [ref=e214]: 高蛋白
+        - generic [ref=e215]:
+          - heading "烟熏三文鱼平衡碗" [level=3] [ref=e216]
+          - generic [ref=e217]:
+            - generic [ref=e218]: 486 kcal
+            - generic [ref=e219]: 36g 蛋白质
+      - article [ref=e220]:
+        - img "柑香鸡肉谷物碗" [ref=e222]
+        - generic [ref=e223]: "02"
+        - generic [ref=e224]: 本周主推
+        - generic [ref=e225]:
+          - heading "柑香鸡肉谷物碗" [level=3] [ref=e226]
+          - generic [ref=e227]:
+            - generic [ref=e228]: 532 kcal
+            - generic [ref=e229]: 42g 蛋白质
+      - article [ref=e230]:
+        - img "牛油果绿蔬蛋碗" [ref=e232]
+        - generic [ref=e233]: "03"
+        - generic [ref=e234]: 低卡
+        - generic [ref=e235]:
+          - heading "牛油果绿蔬蛋碗" [level=3] [ref=e236]
+          - generic [ref=e237]:
+            - generic [ref=e238]: 418 kcal
+            - generic [ref=e239]: 28g 蛋白质
+      - article [ref=e240]:
+        - img "藜麦能量碗" [ref=e242]
+        - generic [ref=e243]: "04"
+        - generic [ref=e244]: 高纤维
+        - generic [ref=e245]:
+          - heading "藜麦能量碗" [level=3] [ref=e246]
+          - generic [ref=e247]:
+            - generic [ref=e248]: 462 kcal
+            - generic [ref=e249]: 24g 蛋白质
+      - article [ref=e250]:
+        - img "田园时蔬沙拉" [ref=e252]
+        - generic [ref=e253]: "05"
+        - generic [ref=e254]: 轻食
+        - generic [ref=e255]:
+          - heading "田园时蔬沙拉" [level=3] [ref=e256]
+          - generic [ref=e257]:
+            - generic [ref=e258]: 320 kcal
+            - generic [ref=e259]: 18g 蛋白质
+      - article [ref=e260]:
+        - img "金枪鱼波奇碗" [ref=e262]
+        - generic [ref=e263]: "06"
+        - generic [ref=e264]: 高蛋白
+        - generic [ref=e265]:
+          - heading "金枪鱼波奇碗" [level=3] [ref=e266]
+          - generic [ref=e267]:
+            - generic [ref=e268]: 508 kcal
+            - generic [ref=e269]: 38g 蛋白质
+    - generic [ref=e270]:
+      - generic [ref=e271]: 更多餐品在 App 内按口味与目标定制
+      - link "下载查看全部" [ref=e272] [cursor=pointer]:
+        - /url: "#download"
+  - region "我们的信念" [ref=e274]:
+    - generic [ref=e276]:
+      - generic [ref=e277]:
+        - generic [ref=e278]: 我们为什么做这件事
+        - paragraph [ref=e281]: 说到底，我们只想帮你做到一件事——
+        - heading "好好吃饭， 也可以很轻松。" [level=2] [ref=e282]:
+          - generic [ref=e283]: 好好吃饭，
+          - generic [ref=e284]: 也可以很轻松。
+        - paragraph [ref=e285]: 我们相信 ——
+        - list [ref=e286]:
+          - listitem [ref=e287]: 健康，不必是一场靠意志硬扛的苦行
+          - listitem [ref=e288]: 好好吃饭，不该再抢走你本就不够用的精力
+          - listitem [ref=e289]: 被认真对待的每一餐，都值得
+        - paragraph [ref=e290]: 少一点纠结，多一点踏实。你的下一餐，就从这里开始。
+        - paragraph [ref=e291]: —— 折耳根团队 · 20 位营养师与主厨，替你把关每一餐
+        - link "现在就开始" [ref=e292] [cursor=pointer]:
+          - /url: "#download"
+      - generic [ref=e295]:
+        - img "在自然光下轻松享受健康餐的美好时刻" [ref=e296]
+        - generic [ref=e297]:
+          - generic [ref=e298]: 智能配餐引擎
+          - strong [ref=e304]: 94%
+          - generic [ref=e305]: 热量目标匹配度
+          - paragraph [ref=e308]: 算法根据你的身体数据，精准配平每一餐
+  - region "常见问题" [ref=e309]:
+    - generic [ref=e310]:
+      - generic [ref=e311]:
+        - generic [ref=e312]: 还有些小顾虑？
+        - heading "你想问的，我们先答了。" [level=2] [ref=e316]
+        - paragraph [ref=e317]: 关于配送、价格、食材与忌口，这里是最常被问到的六个问题。
+      - list [ref=e318]:
+        - listitem [ref=e319]:
+          - group [ref=e320]:
+            - generic "配送范围覆盖哪些城市？" [ref=e321] [cursor=pointer]
+        - listitem [ref=e325]:
+          - group [ref=e326]:
+            - generic "一餐大概多少钱？" [ref=e327] [cursor=pointer]
+        - listitem [ref=e331]:
+          - group [ref=e332]:
+            - generic "可以随时取消或暂停吗？" [ref=e333] [cursor=pointer]
+        - listitem [ref=e337]:
+          - group [ref=e338]:
+            - generic "食材新鲜吗？来源可靠吗？" [ref=e339] [cursor=pointer]
+        - listitem [ref=e343]:
+          - group [ref=e344]:
+            - generic "有过敏原或忌口怎么办？" [ref=e345] [cursor=pointer]
+        - listitem [ref=e349]:
+          - group [ref=e350]:
+            - generic "到手怎么加热更好吃？" [ref=e351] [cursor=pointer]
+  - region "下载健康餐 App" [ref=e355]:
+    - generic [ref=e357]:
+      - generic [ref=e358]:
+        - generic [ref=e359]: 开始你的第一周健康餐
+        - heading "把下一餐， 交给折耳根健康餐。" [level=2] [ref=e365]:
+          - text: 把下一餐，
+          - generic [ref=e366]: 交给折耳根健康餐。
+        - paragraph [ref=e367]: 下载 App，设置你的口味、目标和用餐时间。折耳根健康餐会生成每周餐食计划，并把新鲜、克制、好吃的健康餐准时送到你身边。
+        - generic "应用下载链接" [ref=e368]:
+          - link [ref=e369] [cursor=pointer]:
+            - /url: https://www.apple.com/app-store/
+            - generic [ref=e374]:
+              - text: Download on
+              - strong [ref=e375]: App Store
+          - link "▶ Get it on Google Play" [ref=e376] [cursor=pointer]:
+            - /url: https://play.google.com/store
+            - generic [ref=e377]:
+              - generic [ref=e378]: ▶
+              - generic [ref=e379]:
+                - text: Get it on
+                - strong [ref=e380]: Google Play
+      - generic "扫码下载" [ref=e381]:
+        - generic [ref=e389]:
+          - generic [ref=e390]: Scan to download
+          - strong [ref=e391]: 折耳根健康餐 iOS & Android
+        - generic [ref=e392]:
+          - generic [ref=e393]: 个性营养目标
+          - generic [ref=e394]: 新鲜配送
+          - generic [ref=e395]: 每周餐食计划
+  - generic "页脚" [ref=e396]:
+    - generic [ref=e397]:
+      - generic [ref=e398]:
+        - generic [ref=e399]:
+          - link "折耳根健康餐" [ref=e400] [cursor=pointer]:
+            - /url: "#top"
+            - img "折耳根" [ref=e402]
+          - paragraph [ref=e404]: 好好吃饭，也可以很轻松。把每一餐，交给认真对待它的人。
+          - generic "关注我们" [ref=e405]:
+            - generic [ref=e406] [cursor=pointer]: 微信公众号
+            - generic [ref=e407] [cursor=pointer]: 微博
+            - generic [ref=e408] [cursor=pointer]: 小红书
+            - generic [ref=e409] [cursor=pointer]: 抖音
+        - navigation "页脚导航" [ref=e410]:
+          - generic [ref=e411]:
+            - heading "产品" [level=3] [ref=e412]
+            - list [ref=e413]:
+              - listitem [ref=e414]:
+                - link "功能介绍" [ref=e415] [cursor=pointer]:
+                  - /url: "#about"
+              - listitem [ref=e416]:
+                - link "本周餐单" [ref=e417] [cursor=pointer]:
+                  - /url: "#menu"
+              - listitem [ref=e418]:
+                - link "价格方案" [ref=e419] [cursor=pointer]:
+                  - /url: "#faq"
+              - listitem [ref=e420]:
+                - link "下载 App" [ref=e421] [cursor=pointer]:
+                  - /url: "#download"
+          - generic [ref=e422]:
+            - heading "公司" [level=3] [ref=e423]
+            - list [ref=e424]:
+              - listitem [ref=e425]:
+                - link "关于我们" [ref=e426] [cursor=pointer]:
+                  - /url: "#about"
+              - listitem [ref=e427]:
+                - link "品牌故事" [ref=e428] [cursor=pointer]:
+                  - /url: "#about"
+              - listitem [ref=e429]:
+                - link "加入我们" [ref=e430] [cursor=pointer]:
+                  - /url: "#top"
+              - listitem [ref=e431]:
+                - link "商务合作" [ref=e432] [cursor=pointer]:
+                  - /url: "#top"
+          - generic [ref=e433]:
+            - heading "支持" [level=3] [ref=e434]
+            - list [ref=e435]:
+              - listitem [ref=e436]:
+                - link "常见问题" [ref=e437] [cursor=pointer]:
+                  - /url: "#faq"
+              - listitem [ref=e438]:
+                - link "联系客服" [ref=e439] [cursor=pointer]:
+                  - /url: "#download"
+              - listitem [ref=e440]:
+                - link "配送范围" [ref=e441] [cursor=pointer]:
+                  - /url: "#faq"
+              - listitem [ref=e442]:
+                - link "意见反馈" [ref=e443] [cursor=pointer]:
+                  - /url: "#faq"
+      - generic [ref=e444]:
+        - generic [ref=e445]: 现已覆盖 上海 · 北京 · 深圳 · 杭州 · 成都
+        - generic [ref=e449]:
+          - generic [ref=e450]: © 2026 折耳根健康餐
+          - link "隐私政策" [ref=e451] [cursor=pointer]:
+            - /url: "#top"
+          - link "服务条款" [ref=e452] [cursor=pointer]:
+            - /url: "#top"
+          - generic [ref=e453]: 沪ICP备 2026XXXXXX 号
+        - link "回到顶部" [ref=e454] [cursor=pointer]:
+          - /url: "#top"
