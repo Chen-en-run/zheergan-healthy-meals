@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Apple,
   ArrowUp,
   Check,
   PauseCircle,
@@ -93,7 +92,7 @@ export default function PricingPage() {
             <a href="#/">首页</a>
             <a href="#/features">功能介绍</a>
             <a href="#/pricing" className="is-active" aria-current="page">价格方案</a>
-            <a href="#/menu">今日餐单</a>
+            <a href="#/menu">每月餐单</a>
             <a href="#download">下载 App</a>
           </nav>
         </div>
@@ -115,7 +114,7 @@ export default function PricingPage() {
           <h1>
             <ShinyText
               text="好好吃饭,"
-              color="#1b1d15"
+              color="#2b1f14"
               shineColor="#c2611f"
               speed={3}
               spread={120}
@@ -123,8 +122,8 @@ export default function PricingPage() {
             />
             <ShinyText
               text="其实没那么贵。"
-              color="#1b1d15"
-              shineColor="#3f7d4e"
+              color="#2b1f14"
+              shineColor="#e88a4a"
               speed={3}
               spread={120}
               direction="left"
@@ -202,21 +201,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── 底部 CTA ── */}
-      <section className="f-cta" aria-label="下载引导">
-        <div className="f-cta-inner max-frame">
-          <h2>
-            不确定合不合口味?
-            <span>先从 3 天开始。</span>
-          </h2>
-          <p>体验装 6 餐,吃完再决定要不要继续——所有方案都在 App 内下单。</p>
-          <a className="f-cta-button" href="#download">
-            <Apple size={20} />
-            下载 App 订购
-          </a>
-        </div>
-      </section>
-
       {/* ── 页脚(与功能页共用样式) ── */}
       <footer className="features-footer" aria-label="页脚">
         <div className="max-frame features-footer-inner">
@@ -233,7 +217,7 @@ export default function PricingPage() {
           <div className="features-footer-links">
             <a href="#/">首页</a>
             <a href="#/features">功能介绍</a>
-            <a href="#/menu">今日餐单</a>
+            <a href="#/menu">每月餐单</a>
             <a href="#faq">常见问题</a>
             <a href="#download">下载 App</a>
           </div>

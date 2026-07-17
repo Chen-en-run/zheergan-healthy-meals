@@ -22,11 +22,10 @@ import {
   Target,
   TrendingDown,
   Truck,
+  Utensils,
 } from 'lucide-react';
-import StarBorder from './components/StarBorder';
 import Galaxy from './components/Galaxy';
 import ShinyText from './components/ShinyText';
-import ElectricBorder from './components/ElectricBorder';
 import FeaturesPage from './pages/Features';
 import PricingPage from './pages/Pricing';
 import MenuPage from './pages/Menu';
@@ -128,6 +127,7 @@ function HomePage() {
       <AnswerSection />
       <StepsSection />
       <TrustSection />
+      <MenuShowcase />
       <BeliefSection />
       <FaqSection />
       <DownloadSection />
@@ -213,7 +213,7 @@ function Hero() {
         <nav className="nav-links" aria-label="主导航">
           <a href="#/features">功能介绍</a>
           <a href="#/pricing">价格方案</a>
-          <a href="#/menu">今日餐单</a>
+          <a href="#/menu">每月餐单</a>
           <a href="#download">下载 App</a>
         </nav>
       </header>
@@ -225,8 +225,8 @@ function Hero() {
             折耳根健康餐 App
           </div>
           <h1>
-            <ShinyText text="人间烟火，" color="#15180f" shineColor="#c0592c" speed={3} spread={110} direction="left" />
-            <ShinyText text="热乎到桌的健康餐。" color="#15180f" shineColor="#3f7d4e" speed={3} spread={110} direction="left" className="hero-shiny-line" />
+            <ShinyText text="人间烟火，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" />
+            <ShinyText text="热乎到桌的健康餐。" color="#2b1f14" shineColor="#e88a4a" speed={3} spread={110} direction="left" className="hero-shiny-line" />
           </h1>
           <p className="hero-lede">
             折耳根健康餐是一款面向城市日常的健康餐配送 App。把热量、蛋白质、口味偏好和配送节奏整合起来，让每一天的健康饮食更稳定、更省心，也更有食欲。
@@ -329,11 +329,11 @@ function AnswerSection() {
           所以，有了折耳根健康餐
         </span>
         <h2 className="answer-line">
-          <ShinyText text="把「吃得健康」，" color="#15180f" shineColor="#c0592c" speed={3} spread={120} direction="left" />
+          <ShinyText text="把「吃得健康」，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
           <ShinyText
             text="变成一件你不用操心的事。"
-            color="#15180f"
-            shineColor="#3f7d4e"
+            color="#2b1f14"
+            shineColor="#e88a4a"
             speed={3}
             spread={120}
             direction="left"
@@ -382,22 +382,14 @@ function StepsSection() {
             const Icon = step.icon;
             return (
               <li key={step.no}>
-                <ElectricBorder
-                  color="#d5ff66"
-                  speed={0.8}
-                  chaos={0.08}
-                  borderRadius={20}
-                  className="step-border"
-                >
-                  <div className="step-card">
-                    <span className="step-no">{step.no}</span>
-                    <span className="step-icon">
-                      <Icon size={26} />
-                    </span>
-                    <h3>{step.title}</h3>
-                    <p>{step.desc}</p>
-                  </div>
-                </ElectricBorder>
+                <div className="step-card">
+                  <span className="step-no">{step.no}</span>
+                  <span className="step-icon">
+                    <Icon size={26} />
+                  </span>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </div>
               </li>
             );
           })}
@@ -548,11 +540,11 @@ function BeliefSection() {
             </span>
             <p className="belief-pre">说到底，我们只想帮你做到一件事——</p>
             <h2 className="belief-line">
-              <ShinyText text="好好吃饭，" color="#15180f" shineColor="#c0592c" speed={3} spread={120} direction="left" />
+              <ShinyText text="好好吃饭，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
               <ShinyText
                 text="也可以很轻松。"
-                color="#15180f"
-                shineColor="#3f7d4e"
+                color="#2b1f14"
+                shineColor="#e88a4a"
                 speed={3}
                 spread={120}
                 direction="left"
@@ -598,12 +590,111 @@ function BeliefSection() {
           </div>
         </div>
       </div>
-      <img
-        className="belief-watermark"
-        src="/zheergan-healthy-meals/brand-icon.jpg"
-        alt=""
-        aria-hidden="true"
-      />
+    </section>
+  );
+}
+
+const menuItems = [
+  {
+    no: '01',
+    title: '烟熏三文鱼平衡碗',
+    kcal: '486 kcal',
+    protein: '36g 蛋白质',
+    tag: '高蛋白',
+    image: '/zheergan-healthy-meals/images/salmon.jpg',
+  },
+  {
+    no: '02',
+    title: '柑香鸡肉谷物碗',
+    kcal: '532 kcal',
+    protein: '42g 蛋白质',
+    tag: '本周主推',
+    image: '/zheergan-healthy-meals/images/chicken.jpg',
+  },
+  {
+    no: '03',
+    title: '牛油果绿蔬蛋碗',
+    kcal: '418 kcal',
+    protein: '28g 蛋白质',
+    tag: '低卡',
+    image: '/zheergan-healthy-meals/images/avocado.jpg',
+  },
+  {
+    no: '04',
+    title: '藜麦能量碗',
+    kcal: '462 kcal',
+    protein: '24g 蛋白质',
+    tag: '高纤维',
+    image: '/zheergan-healthy-meals/images/quinoa.jpg',
+  },
+  {
+    no: '05',
+    title: '田园时蔬沙拉',
+    kcal: '320 kcal',
+    protein: '18g 蛋白质',
+    tag: '轻食',
+    image: '/zheergan-healthy-meals/images/salad.jpg',
+  },
+  {
+    no: '06',
+    title: '金枪鱼波奇碗',
+    kcal: '508 kcal',
+    protein: '38g 蛋白质',
+    tag: '高蛋白',
+    image: '/zheergan-healthy-meals/images/tuna.jpg',
+  },
+];
+
+/* 首页餐单预告区:完整餐单与筛选在 #/menu 子页 */
+function MenuShowcase() {
+  return (
+    <section className="menu-showcase section-panel panel-cream" id="menu" aria-label="本周餐单">
+      <div className="menu-showcase-bg" />
+      <div className="menu-head max-frame">
+        <div className="menu-head-copy">
+          <span className="section-kicker">
+            <Utensils size={16} />
+            本周精选餐单
+          </span>
+          <h2>
+            每周焕新，
+            <span>把食欲交给厨师。</span>
+          </h2>
+          <p>
+            38+ 道由营养师与主厨共同设计的健康餐，按你的热量目标与口味偏好轮换上新。下滑浏览本周在售餐品。
+          </p>
+        </div>
+        <a className="menu-head-cta" href="#/menu">
+          查看完整餐单
+          <ArrowDownRight size={18} />
+        </a>
+      </div>
+
+      <div className="menu-grid max-frame">
+        {menuItems.map((item, index) => (
+          <article className={`menu-card menu-card-${index + 1}`} key={item.title}>
+            <div className="menu-card-media">
+              <img src={item.image} alt={item.title} loading="lazy" />
+            </div>
+            <span className="menu-card-no">{item.no}</span>
+            <span className="menu-card-tag">{item.tag}</span>
+            <div className="menu-card-info">
+              <h3>{item.title}</h3>
+              <div className="menu-card-meta">
+                <span>{item.kcal}</span>
+                <span>{item.protein}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="menu-foot max-frame">
+        <span>更多餐品在 App 内按口味与目标定制</span>
+        <a className="secondary-button" href="#/menu">
+          浏览完整餐单
+        </a>
+      </div>
     </section>
   );
 }
@@ -684,20 +775,20 @@ function DownloadSection() {
           </p>
 
           <div className="download-actions" aria-label="应用下载链接">
-            <StarBorder as="a" className="store-button" color="#d5ff66" speed="6s" href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer">
+            <a className="store-button" href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer">
               <Apple size={22} />
               <span>
                 Download on
                 <strong>App Store</strong>
               </span>
-            </StarBorder>
-            <StarBorder as="a" className="store-button" color="#d5ff66" speed="6s" href="https://play.google.com/store" target="_blank" rel="noreferrer">
+            </a>
+            <a className="store-button" href="https://play.google.com/store" target="_blank" rel="noreferrer">
               <span className="play-icon">▶</span>
               <span>
                 Get it on
                 <strong>Google Play</strong>
               </span>
-            </StarBorder>
+            </a>
           </div>
         </div>
 

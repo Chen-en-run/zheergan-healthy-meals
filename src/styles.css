@@ -1,6 +1,6 @@
 :root {
   color: #f7f7ef;
-  background: #070807;
+  background: #fbf9f1; /* 暖白底:同步新色库,消除加载暗闪 */
   --font-sans:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -22,15 +22,31 @@
   --mint: #8fffc2;
   --ember: #ffb45c;
   --ink: #070807;
-  /* 暖化混合:奶油浅色版块 + 暖橙第二强调色 */
-  --cream: #f3efe4;
-  --cream-card: #fbf9f1;
-  --ink-cream: #1b1d15;
-  --muted-cream: rgba(27, 29, 21, 0.66);
-  --soft-cream: rgba(27, 29, 21, 0.46);
-  --line-cream: rgba(27, 29, 21, 0.12);
-  --ember-ink: #c2611f;
-  --olive: #3f7d4e;
+  /* ============ 暖白底色库 v1:以 #FBF9F1 为锚点 ============ */
+  /* 底面族:白-米-沙三档海拔 */
+  --cream: #fbf9f1; /* surface-base 全站底色 */
+  --cream-card: #ffffff; /* surface-raised 卡片/悬浮面板 */
+  --cream-sunken: #f3efe4; /* surface-sunken 分区/下沉面 */
+  --ember-100: #f7e3cf; /* 暖橙浅衬底 */
+  --olive-100: #f7e3cf; /* 原橄榄浅衬底,已并入暖橙 */
+  /* 字色族:咖啡暖墨(与暖白底同温),对 #FBF9F1 实测对比度 */
+  --ink-cream: #2b1f14; /* 15.2:1 AAA 标题:深咖啡 */
+  --ink-body: #52443a; /* 8.9:1 AAA 正文:暖褐 */
+  --muted-cream: #77675a; /* 5.2:1 AA 辅助:浅咖 */
+  --soft-cream: #93857a; /* 3.4:1 仅限大字/装饰 */
+  --line-cream: rgba(43, 31, 20, 0.12);
+  --line-strong: rgba(43, 31, 20, 0.16);
+  --shadow-ink: rgba(43, 31, 20, 0.14); /* 全站唯一阴影色 */
+  /* 强调色:纯暖橙单色系(应品牌要求去绿,olive token 重指向暖橙保持兼容) */
+  --ember-ink: #a54e12; /* 5.4:1 橙色文字/主强调 */
+  --ember-600: #c2611f; /* 按钮实底/大号文字(≥18px) */
+  --olive: #c2611f; /* 原橄榄绿,已并入暖橙 */
+  --olive-700: #a54e12; /* 原深绿文字,已并入暖橙 */
+  /* 功能色 */
+  --danger-600: #a93f35;
+  --danger-100: #f6e0dd;
+  --warn-700: #8a6117;
+  --warn-100: #f6e8c8;
 
   /* ============ Design tokens · 设计系统底座 ============ */
   /* 圆角 */
@@ -100,7 +116,7 @@ img {
   min-height: 100vh;
   background:
     radial-gradient(circle at 72% 8%, rgba(255, 180, 92, 0.14), transparent 29rem),
-    radial-gradient(circle at 20% 25%, rgba(63, 125, 78, 0.08), transparent 24rem),
+    radial-gradient(circle at 20% 25%, rgba(255, 180, 92, 0.08), transparent 24rem),
     radial-gradient(circle at 90% 82%, rgba(255, 180, 92, 0.08), transparent 26rem),
     var(--cream);
 }
@@ -198,10 +214,10 @@ img {
   width: 38px;
   height: 38px;
   place-items: center;
-  color: var(--ink);
+  color: #fff;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--acid), var(--mint));
-  box-shadow: 0 0 34px rgba(213, 255, 102, 0.28);
+  background: linear-gradient(135deg, var(--ember), var(--ember-600));
+  box-shadow: 0 0 30px rgba(255, 180, 92, 0.35);
 }
 
 .brand-icon-img {
@@ -267,7 +283,7 @@ img {
   align-items: center;
   gap: 9px;
   width: fit-content;
-  color: var(--acid);
+  color: var(--ember-ink);
   font-size: 13px;
   font-weight: 650;
   text-transform: uppercase;
@@ -1086,7 +1102,7 @@ img {
   width: 22px;
   height: 22px;
   place-items: center;
-  color: var(--acid) !important;
+  color: var(--ember) !important;
   font-size: 16px !important;
 }
 
@@ -1107,11 +1123,12 @@ img {
   display: grid;
   aspect-ratio: 1;
   place-items: center;
-  color: var(--ink);
+  color: var(--ink-cream);
   border-radius: var(--r-sm);
+  border: 1px solid var(--ember-100);
   background:
-    linear-gradient(135deg, rgba(213, 255, 102, 0.96), rgba(143, 255, 194, 0.92)),
-    #d5ff66;
+    linear-gradient(135deg, var(--ember-100), #fffdf8),
+    #fffdf8;
 }
 
 .download-card-copy {
@@ -1545,10 +1562,6 @@ img {
   gap: 22px;
 }
 
-.step-border {
-  width: 100%;
-}
-
 .step-card {
   position: relative;
   padding: 40px 34px 38px;
@@ -1924,7 +1937,7 @@ img {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--acid);
+  color: var(--ember);
   font-size: 12px;
   font-weight: 650;
   letter-spacing: 0.06em;
@@ -1939,7 +1952,7 @@ img {
   font-weight: 680;
   line-height: 1;
   color: transparent;
-  background: linear-gradient(135deg, #ffffff 0%, var(--acid) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--ember) 100%);
   background-clip: text;
 }
 
@@ -1962,8 +1975,8 @@ img {
   width: 94%;
   height: 100%;
   border-radius: 4px;
-  background: linear-gradient(90deg, var(--acid), var(--mint));
-  box-shadow: 0 0 10px rgba(213, 255, 102, 0.4);
+  background: linear-gradient(90deg, var(--ember), var(--olive));
+  box-shadow: 0 0 10px rgba(255, 180, 92, 0.4);
 }
 
 .proof-card-note {
@@ -1971,21 +1984,6 @@ img {
   color: var(--soft);
   font-size: 12px;
   line-height: 1.5;
-}
-
-.belief-watermark {
-  position: absolute;
-  left: 50%;
-  bottom: 7%;
-  transform: translateX(-50%);
-  width: clamp(120px, 13vw, 190px);
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 50%;
-  opacity: 0.05;
-  filter: grayscale(1) brightness(1.5);
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* --- 滚动淡入（仅在支持的浏览器启用；不支持则默认可见做兜底） --- */
@@ -2161,7 +2159,7 @@ img {
 .panel-cream {
   color: var(--ink-cream);
   background: var(--cream);
-  border-top: 1px solid rgba(27, 29, 21, 0.08);
+  border-top: 1px solid rgba(43, 31, 20, 0.08);
 }
 
 .panel-cream .section-kicker {
@@ -2172,12 +2170,12 @@ img {
 .story-answer.panel-cream {
   background:
     radial-gradient(circle at 82% 10%, rgba(255, 180, 92, 0.16), transparent 42%),
-    radial-gradient(circle at 10% 92%, rgba(63, 125, 78, 0.1), transparent 40%),
+    radial-gradient(circle at 10% 92%, rgba(255, 180, 92, 0.1), transparent 40%),
     var(--cream);
 }
 
 .panel-cream .answer-lede {
-  color: var(--muted-cream);
+  color: var(--ink-body);
 }
 
 .panel-cream .answer-lede strong {
@@ -2187,7 +2185,7 @@ img {
 .panel-cream .answer-visual-card {
   border-color: var(--line-cream);
   background: var(--cream-card);
-  box-shadow: 0 18px 50px rgba(27, 29, 21, 0.06);
+  box-shadow: 0 18px 50px rgba(43, 31, 20, 0.06);
 }
 
 .panel-cream .answer-visual-card:hover {
@@ -2203,7 +2201,7 @@ img {
 .story-trust.panel-cream {
   background:
     radial-gradient(circle at 16% 14%, rgba(255, 180, 92, 0.16), transparent 44%),
-    radial-gradient(circle at 88% 86%, rgba(63, 125, 78, 0.1), transparent 42%),
+    radial-gradient(circle at 88% 86%, rgba(255, 180, 92, 0.1), transparent 42%),
     var(--cream);
 }
 
@@ -2218,7 +2216,7 @@ img {
 .story-trust.panel-cream .trust-stat {
   border-color: var(--line-cream);
   background: var(--cream-card);
-  box-shadow: 0 18px 50px rgba(27, 29, 21, 0.06);
+  box-shadow: 0 18px 50px rgba(43, 31, 20, 0.06);
 }
 
 .story-trust.panel-cream .trust-stat strong {
@@ -2232,7 +2230,7 @@ img {
 .story-trust.panel-cream .testimonial-card {
   border-color: var(--line-cream);
   background: var(--cream-card);
-  box-shadow: 0 18px 50px rgba(27, 29, 21, 0.06);
+  box-shadow: 0 18px 50px rgba(43, 31, 20, 0.06);
 }
 
 .story-trust.panel-cream .testimonial-quote-mark {
@@ -2355,7 +2353,7 @@ img {
   max-width: 660px;
   margin: 0;
   padding: 0 6px 28px;
-  color: var(--muted-cream);
+  color: var(--ink-body);
   font-size: clamp(15px, 1.05vw, 18px);
   line-height: 1.8;
 }
@@ -2577,7 +2575,7 @@ img {
 /* ---- 痛点共鸣屏 ---- */
 /* 情绪照背景改暖调轻处理,蒙版从压暗改为奶油柔洗,文字/卡片转深色 */
 .story-pain.panel-cream {
-  border-top: 1px solid rgba(27, 29, 21, 0.08);
+  border-top: 1px solid rgba(43, 31, 20, 0.08);
 }
 
 .story-pain.panel-cream .story-pain-bg img {
@@ -2588,14 +2586,14 @@ img {
   background:
     radial-gradient(
       circle at 50% 42%,
-      rgba(243, 239, 228, 0.6),
-      rgba(243, 239, 228, 0.82) 72%
+      rgba(251, 249, 241, 0.6),
+      rgba(251, 249, 241, 0.82) 72%
     ),
     linear-gradient(
       to bottom,
-      rgba(243, 239, 228, 0.9) 0%,
-      rgba(243, 239, 228, 0.7) 28%,
-      rgba(243, 239, 228, 0.86) 100%
+      rgba(251, 249, 241, 0.9) 0%,
+      rgba(251, 249, 241, 0.7) 28%,
+      rgba(251, 249, 241, 0.86) 100%
     );
 }
 
@@ -2615,7 +2613,7 @@ img {
   color: var(--ink-cream);
   border-color: var(--line-cream);
   background: var(--cream-card);
-  box-shadow: 0 18px 50px rgba(27, 29, 21, 0.06);
+  box-shadow: 0 18px 50px rgba(43, 31, 20, 0.06);
 }
 
 .story-pain.panel-cream .pain-item::before {
@@ -2636,7 +2634,7 @@ img {
 .hero.panel-cream {
   background:
     radial-gradient(circle at 78% 12%, rgba(255, 180, 92, 0.18), transparent 40%),
-    radial-gradient(circle at 10% 88%, rgba(63, 125, 78, 0.1), transparent 42%),
+    radial-gradient(circle at 10% 88%, rgba(255, 180, 92, 0.1), transparent 42%),
     var(--cream);
   border-top: none;
 }
@@ -2644,8 +2642,8 @@ img {
 .hero.panel-cream .texture {
   opacity: 0.5;
   background-image:
-    linear-gradient(rgba(27, 29, 21, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(27, 29, 21, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(43, 31, 20, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 31, 20, 0.04) 1px, transparent 1px);
 }
 
 .hero.panel-cream .brand {
@@ -2665,7 +2663,7 @@ img {
 }
 
 .hero.panel-cream .hero-lede {
-  color: var(--muted-cream);
+  color: var(--ink-body);
 }
 
 /* 主按钮:暖橙实底;次按钮:浅底描边 */
@@ -2678,7 +2676,7 @@ img {
 .hero.panel-cream .secondary-button {
   color: var(--ink-cream);
   border-color: var(--line-cream);
-  background: rgba(27, 29, 21, 0.04);
+  background: rgba(43, 31, 20, 0.04);
 }
 
 .hero.panel-cream .secondary-button:hover {
@@ -2695,7 +2693,7 @@ img {
     var(--cream-card);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 22px 60px rgba(27, 29, 21, 0.16);
+    0 22px 60px rgba(43, 31, 20, 0.16);
   backdrop-filter: blur(20px);
 }
 
@@ -2714,8 +2712,8 @@ img {
     linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(251, 249, 241, 0.6)),
     var(--cream-card);
   box-shadow:
-    inset 0 0 0 8px rgba(27, 29, 21, 0.03),
-    0 40px 110px rgba(27, 29, 21, 0.2),
+    inset 0 0 0 8px rgba(43, 31, 20, 0.03),
+    0 40px 110px rgba(43, 31, 20, 0.2),
     0 0 70px rgba(255, 180, 92, 0.12);
 }
 
@@ -2724,7 +2722,7 @@ img {
 }
 
 .hero.panel-cream .signal-dot {
-  background: rgba(27, 29, 21, 0.1);
+  background: rgba(43, 31, 20, 0.1);
 }
 
 .hero.panel-cream .app-top span,
@@ -2746,7 +2744,7 @@ img {
 .hero.panel-cream .macro-panel span {
   color: var(--muted-cream);
   border-color: var(--line-cream);
-  background: rgba(27, 29, 21, 0.04);
+  background: rgba(43, 31, 20, 0.04);
 }
 
 /* 送达卡:暖橙浅底 */
@@ -2773,7 +2771,7 @@ img {
 .story-steps.panel-cream {
   background:
     radial-gradient(circle at 14% 16%, rgba(255, 180, 92, 0.15), transparent 44%),
-    radial-gradient(circle at 86% 84%, rgba(63, 125, 78, 0.1), transparent 42%),
+    radial-gradient(circle at 86% 84%, rgba(255, 180, 92, 0.1), transparent 42%),
     var(--cream);
 }
 
@@ -2795,13 +2793,25 @@ img {
 }
 
 .story-steps.panel-cream .step-card p {
-  color: var(--muted-cream);
+  color: var(--ink-body);
 }
 
-/* ElectricBorder 卡片在浅底上给一个奶油卡底,让内容浮起来 */
-.story-steps.panel-cream .eb-content {
+/* 三步卡:白卡 + 暖橙阴影(原电流边框特效已移除) */
+.story-steps.panel-cream .step-card {
   background: var(--cream-card);
+  border: 1px solid var(--ember-100);
   border-radius: 20px;
+  box-shadow:
+    0 22px 52px rgba(194, 97, 31, 0.14),
+    0 4px 14px rgba(194, 97, 31, 0.07);
+  transition: transform 220ms var(--ease-std), box-shadow 220ms var(--ease-std);
+}
+
+.story-steps.panel-cream .step-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 30px 64px rgba(194, 97, 31, 0.2),
+    0 6px 18px rgba(194, 97, 31, 0.09);
 }
 
 /* ---- 本周餐单 ---- */
@@ -2809,14 +2819,14 @@ img {
   background:
     radial-gradient(circle at 82% 8%, rgba(255, 180, 92, 0.14), transparent 42%),
     var(--cream);
-  border-top: 1px solid rgba(27, 29, 21, 0.08);
+  border-top: 1px solid rgba(43, 31, 20, 0.08);
 }
 
 .menu-showcase.panel-cream .menu-showcase-bg {
   opacity: 0.5;
   background-image:
-    linear-gradient(rgba(27, 29, 21, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(27, 29, 21, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(43, 31, 20, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 31, 20, 0.03) 1px, transparent 1px);
 }
 
 .menu-showcase.panel-cream .section-kicker {
@@ -2846,7 +2856,7 @@ img {
 
 /* 菜品卡本身是深色图片卡,保留;仅让标签/描边更贴合暖色主题 */
 .menu-showcase.panel-cream .menu-card {
-  border-color: rgba(27, 29, 21, 0.1);
+  border-color: rgba(43, 31, 20, 0.1);
 }
 
 .menu-showcase.panel-cream .menu-card:hover {
@@ -2869,7 +2879,7 @@ img {
 .menu-showcase.panel-cream .menu-foot .secondary-button {
   color: var(--ink-cream);
   border-color: var(--line-cream);
-  background: rgba(27, 29, 21, 0.04);
+  background: rgba(43, 31, 20, 0.04);
 }
 
 .menu-showcase.panel-cream .menu-foot .secondary-button:hover {
@@ -2888,7 +2898,7 @@ img {
   background: radial-gradient(
     circle at 50% 44%,
     rgba(255, 180, 92, 0.16),
-    rgba(243, 239, 228, 0) 60%
+    rgba(251, 249, 241, 0) 60%
   );
 }
 
@@ -2898,7 +2908,7 @@ img {
 
 .story-belief.panel-cream .belief-pre,
 .story-belief.panel-cream .belief-sub {
-  color: var(--muted-cream);
+  color: var(--ink-body);
 }
 
 .story-belief.panel-cream .belief-creed-intro,
@@ -2934,27 +2944,21 @@ img {
   color: var(--ember-ink);
 }
 
-/* 品牌水印在浅底改深墨低透明 */
-.story-belief.panel-cream .belief-watermark {
-  filter: grayscale(1) brightness(0.4);
-  opacity: 0.05;
-}
-
 /* 信念右侧图片卡与其上的玻璃证明卡:图片卡保留深玻璃质感做锚点 */
 
 /* ---- 下载 CTA ---- */
 .download.panel-cream {
   background:
     radial-gradient(circle at 22% 72%, rgba(255, 180, 92, 0.16), transparent 42%),
-    radial-gradient(circle at 78% 26%, rgba(63, 125, 78, 0.12), transparent 44%),
+    radial-gradient(circle at 78% 26%, rgba(255, 180, 92, 0.12), transparent 44%),
     var(--cream);
-  border-top: 1px solid rgba(27, 29, 21, 0.08);
+  border-top: 1px solid rgba(43, 31, 20, 0.08);
 }
 
 .download.panel-cream .download-bg {
   opacity: 0.5;
   background:
-    linear-gradient(115deg, rgba(27, 29, 21, 0.045) 0 1px, transparent 1px 100%),
+    linear-gradient(115deg, rgba(43, 31, 20, 0.045) 0 1px, transparent 1px 100%),
     linear-gradient(180deg, transparent, rgba(194, 97, 31, 0.05));
   background-size: 84px 84px, 100% 100%;
 }
@@ -2972,13 +2976,13 @@ img {
 }
 
 .download.panel-cream .download-copy p {
-  color: var(--muted-cream);
+  color: var(--ink-body);
 }
 
 /* App Store / Google Play 按钮:官方惯例保持深色药丸,浅底上对比清晰 */
 .download.panel-cream .store-button {
   color: #f9f9ed;
-  border-color: rgba(27, 29, 21, 0.14);
+  border-color: rgba(43, 31, 20, 0.14);
   background: #14160f;
 }
 
@@ -2999,7 +3003,7 @@ img {
 .download.panel-cream .download-card {
   border-color: var(--line-cream);
   background: var(--cream-card);
-  box-shadow: 0 34px 90px rgba(27, 29, 21, 0.12);
+  box-shadow: 0 34px 90px rgba(43, 31, 20, 0.12);
 }
 
 .download.panel-cream .download-card-copy strong {
@@ -3013,16 +3017,16 @@ img {
 .download.panel-cream .tiny-specs span {
   color: var(--muted-cream);
   border-color: var(--line-cream);
-  background: rgba(27, 29, 21, 0.04);
+  background: rgba(43, 31, 20, 0.04);
 }
 
 /* ---- 页脚 ---- */
 .site-footer.panel-cream {
   background:
     radial-gradient(circle at 14% 0%, rgba(255, 180, 92, 0.08), transparent 40%),
-    radial-gradient(circle at 86% 24%, rgba(63, 125, 78, 0.06), transparent 44%),
+    radial-gradient(circle at 86% 24%, rgba(255, 180, 92, 0.06), transparent 44%),
     var(--cream);
-  border-top: 1px solid rgba(27, 29, 21, 0.1);
+  border-top: 1px solid rgba(43, 31, 20, 0.1);
 }
 
 .site-footer.panel-cream .footer-top {
@@ -3040,7 +3044,7 @@ img {
 .site-footer.panel-cream .footer-social-pill {
   color: var(--muted-cream);
   border-color: var(--line-cream);
-  background: rgba(27, 29, 21, 0.04);
+  background: rgba(43, 31, 20, 0.04);
 }
 
 .site-footer.panel-cream .footer-social-pill:hover {
@@ -3094,7 +3098,7 @@ img {
 
 /* 底色:比通用奶油底更亮一档,让玻璃的白色高光有落点 */
 .hero.hero--liquid {
-  background: linear-gradient(180deg, #f8f4e9 0%, var(--cream) 100%);
+  background: linear-gradient(180deg, #fffef9 0%, var(--cream) 100%);
 }
 
 /* 网格纹理与玻璃气质相悖,液态版隐藏 */
@@ -3138,7 +3142,7 @@ img {
   width: clamp(300px, 32vw, 560px);
   left: 14%;
   bottom: -18%;
-  background: radial-gradient(circle at 40% 40%, rgba(104, 156, 88, 0.5), rgba(104, 156, 88, 0) 66%);
+  background: radial-gradient(circle at 40% 40%, rgba(230, 168, 96, 0.5), rgba(230, 168, 96, 0) 66%);
   animation: blob-drift-c 30s ease-in-out infinite alternate;
 }
 
@@ -3187,7 +3191,7 @@ img {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.85),
     inset 0 -1px 1px rgba(255, 255, 255, 0.2),
-    0 12px 40px rgba(27, 29, 21, 0.1);
+    0 12px 40px rgba(43, 31, 20, 0.1);
 }
 
 /* logo:摘掉酸性绿光晕,换暖橙柔光 */
@@ -3206,7 +3210,7 @@ img {
   backdrop-filter: blur(18px) saturate(1.6);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 8px 24px rgba(27, 29, 21, 0.08);
+    0 8px 24px rgba(43, 31, 20, 0.08);
 }
 
 /* ---- 主按钮:暖橙 tinted glass + 镜面扫光 ---- */
@@ -3248,7 +3252,7 @@ img {
   backdrop-filter: blur(20px) saturate(1.7);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    0 14px 34px rgba(27, 29, 21, 0.1);
+    0 14px 34px rgba(43, 31, 20, 0.1);
 }
 
 .hero.hero--liquid .secondary-button:hover {
@@ -3266,7 +3270,7 @@ img {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     inset 0 -1px 1px rgba(255, 255, 255, 0.25),
-    0 26px 70px rgba(27, 29, 21, 0.16);
+    0 26px 70px rgba(43, 31, 20, 0.16);
 }
 
 /* 左上角镜面高光,模拟玻璃反射 */
@@ -3286,12 +3290,12 @@ img {
 
 /* 投影统一为墨色调,替换原纯黑 drop-shadow */
 .hero.hero--liquid .meal-card--center {
-  filter: drop-shadow(0 30px 56px rgba(27, 29, 21, 0.2));
+  filter: drop-shadow(0 30px 56px rgba(43, 31, 20, 0.2));
 }
 
 .hero.hero--liquid .meal-card--left,
 .hero.hero--liquid .meal-card--right {
-  filter: drop-shadow(0 14px 30px rgba(27, 29, 21, 0.12));
+  filter: drop-shadow(0 14px 30px rgba(43, 31, 20, 0.12));
 }
 
 /* ---- 无 backdrop-filter 兜底:提高底色不透明度保证可读 ---- */
@@ -3301,5 +3305,33 @@ img {
   .hero.hero--liquid .secondary-button,
   .hero.hero--liquid .meal-card {
     background: rgba(251, 249, 241, 0.92);
+  }
+}
+
+/* ================================================================ */
+/* 色库配套交互色:全局键盘焦点环 + 选区色                            */
+/* ================================================================ */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--ember-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--ember-100);
+  color: var(--ink-cream);
+}
+
+/* Hero 主标题:缩小一档并放宽行高,稳定两行呈现 */
+.hero.hero--liquid .hero-copy h1 {
+  font-size: clamp(44px, 4.6vw, 76px);
+  line-height: 1.12;
+}
+
+@media (max-width: 760px) {
+  .hero.hero--liquid .hero-copy h1 {
+    font-size: clamp(34px, 9.2vw, 48px);
   }
 }

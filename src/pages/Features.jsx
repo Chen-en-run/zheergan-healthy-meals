@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Apple,
   ArrowUp,
   BarChart3,
   ChefHat,
@@ -117,7 +116,7 @@ export default function FeaturesPage() {
             <a href="#/">首页</a>
             <a href="#/features" className="is-active" aria-current="page">功能介绍</a>
             <a href="#/pricing">价格方案</a>
-            <a href="#/menu">今日餐单</a>
+            <a href="#/menu">每月餐单</a>
             <a href="#download">下载 App</a>
           </nav>
         </div>
@@ -140,7 +139,7 @@ export default function FeaturesPage() {
             <h1>
               <ShinyText
                 text="算法 × 主厨,"
-                color="#1b1d15"
+                color="#2b1f14"
                 shineColor="#c2611f"
                 speed={3}
                 spread={120}
@@ -148,8 +147,8 @@ export default function FeaturesPage() {
               />
               <ShinyText
                 text="每一餐都是定制的。"
-                color="#1b1d15"
-                shineColor="#3f7d4e"
+                color="#2b1f14"
+                shineColor="#e88a4a"
                 speed={3}
                 spread={120}
                 direction="left"
@@ -245,21 +244,6 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* ── 底部 CTA ── */}
-      <section className="f-cta" aria-label="下载引导">
-        <div className="f-cta-inner max-frame">
-          <h2>
-            了解完了,
-            <span>把下一餐交给我们。</span>
-          </h2>
-          <p>下载折耳根健康餐 App,花 2 分钟设置你的营养目标,今天就开始好好吃饭。</p>
-          <a className="f-cta-button" href="#download">
-            <Apple size={20} />
-            下载体验 App
-          </a>
-        </div>
-      </section>
-
       {/* ── 页脚(精简版) ── */}
       <footer className="features-footer" aria-label="页脚">
         <div className="max-frame features-footer-inner">
@@ -276,7 +260,7 @@ export default function FeaturesPage() {
           <div className="features-footer-links">
             <a href="#/">首页</a>
             <a href="#/pricing">价格方案</a>
-            <a href="#/menu">今日餐单</a>
+            <a href="#/menu">每月餐单</a>
             <a href="#faq">常见问题</a>
             <a href="#download">下载 App</a>
           </div>
