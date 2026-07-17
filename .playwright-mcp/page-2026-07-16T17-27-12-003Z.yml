@@ -1,0 +1,170 @@
+- main [ref=f10e456]:
+  - generic [ref=f10e458]:
+    - link "折耳根健康餐 · 返回首页" [ref=f10e459] [cursor=pointer]:
+      - /url: "#/"
+      - img "折耳根" [ref=f10e461]
+      - generic [ref=f10e462]: 折耳根健康餐
+    - navigation "主导航" [ref=f10e463]:
+      - link "首页" [ref=f10e464] [cursor=pointer]:
+        - /url: "#/"
+      - link "功能介绍" [ref=f10e465] [cursor=pointer]:
+        - /url: "#/features"
+      - link "今日餐单" [ref=f10e466] [cursor=pointer]:
+        - /url: "#menu"
+      - link "下载 App" [ref=f10e467] [cursor=pointer]:
+        - /url: "#download"
+  - region "功能总览" [ref=f10e468]:
+    - generic [ref=f10e469]:
+      - generic [ref=f10e470]:
+        - generic [ref=f10e471]: 功能介绍
+        - heading "算法 × 主厨, 每一餐都是定制的。" [level=1] [ref=f10e474]:
+          - generic [ref=f10e475]: 算法 × 主厨,
+          - generic [ref=f10e476]: 每一餐都是定制的。
+        - paragraph [ref=f10e477]: 折耳根健康餐不只是"送健康餐",而是把营养科学、主厨手艺和物流效率拼成一条完整的链路——从你打开 App 设置目标,到一口热饭入口,每一步都为「省心」而设计。
+      - generic "四大能力概览" [ref=f10e478]:
+        - generic [ref=f10e479]:
+          - strong [ref=f10e485]: 身体档案
+          - generic [ref=f10e486]: 算法认识你
+        - generic [ref=f10e487]:
+          - strong [ref=f10e491]: 智能引擎
+          - generic [ref=f10e492]: 自动排一周
+        - generic [ref=f10e493]:
+          - strong [ref=f10e497]: 主厨团队
+          - generic [ref=f10e498]: 好吃是底线
+        - generic [ref=f10e499]:
+          - strong [ref=f10e503]: 热链配送
+          - generic [ref=f10e504]: 到手上桌
+  - region "设定你的身体档案" [ref=f10e505]:
+    - generic [ref=f10e506]:
+      - generic [ref=f10e507]:
+        - generic [ref=f10e508]: "01"
+        - generic [ref=f10e509]: 告诉算法你是谁
+        - heading "设定你的身体档案" [level=2] [ref=f10e514]
+        - paragraph [ref=f10e515]: 输入你的基础代谢、体重目标(减脂/增肌/维持)、口味偏好和过敏原。算法会在 20 秒内生成一份专属营养画像——你的每日热量区间、三大宏量比例、以及应优先摄入与避开的食材清单。
+        - list [ref=f10e516]:
+          - listitem [ref=f10e517]:
+            - generic [ref=f10e518]: 热量目标
+            - generic [ref=f10e519]: 按身高·体重·活动量计算 BMR + TDEE
+          - listitem [ref=f10e520]:
+            - generic [ref=f10e521]: 口味偏好
+            - generic [ref=f10e522]: 12 类菜系 × 5 档辣度,越吃越准
+          - listitem [ref=f10e523]:
+            - generic [ref=f10e524]: 过敏与忌口
+            - generic [ref=f10e525]: 海鲜·坚果·乳糖·香菜等 28 项可标记
+      - generic [ref=f10e526]:
+        - img "在 App 中设置营养目标的界面示意" [ref=f10e528]
+        - generic [ref=f10e529]: 折耳根品控标准
+  - region "智能配餐引擎" [ref=f10e534]:
+    - generic [ref=f10e535]:
+      - generic [ref=f10e536]:
+        - generic [ref=f10e537]: "02"
+        - generic [ref=f10e538]: 营养师 × 算法,每餐有据可依
+        - heading "智能配餐引擎" [level=2] [ref=f10e541]
+        - paragraph [ref=f10e542]: 引擎根据你的营养画像,从 200+ 道由营养师与主厨联合设计的健康餐中,按「热量匹配度 → 蛋白质达标率 → 口味吻合度 → 本周食材多样性」四层优先级排序,为你自动排好一周餐单。
+        - list [ref=f10e543]:
+          - listitem [ref=f10e544]:
+            - generic [ref=f10e545]: 热量匹配度
+            - generic [ref=f10e546]: 平均 94%,算法逐餐逐克配平
+          - listitem [ref=f10e547]:
+            - generic [ref=f10e548]: 蛋白质达标
+            - generic [ref=f10e549]: 按体重与目标自动计算,不靠感觉
+          - listitem [ref=f10e550]:
+            - generic [ref=f10e551]: 口味学习
+            - generic [ref=f10e552]: 你每一次"换一道",都在训练自己的口味模型
+      - generic [ref=f10e553]:
+        - img "智能配餐引擎生成每周餐单" [ref=f10e555]
+        - generic [ref=f10e556]: 折耳根品控标准
+  - region "主厨调味,好吃才能坚持" [ref=f10e561]:
+    - generic [ref=f10e562]:
+      - generic [ref=f10e563]:
+        - generic [ref=f10e564]: "03"
+        - generic [ref=f10e565]: 健康餐不需要"吃草"
+        - heading "主厨调味,好吃才能坚持" [level=2] [ref=f10e568]
+        - paragraph [ref=f10e569]: 20 位主厨团队来自中餐、日料、轻西餐背景,每道菜经过至少 3 轮盲测——热量达标但不好吃,照样打回。调味用天然香料替代工业酱料,低卡不等于寡淡。
+        - list [ref=f10e570]:
+          - listitem [ref=f10e571]:
+            - generic [ref=f10e572]: 20 位
+            - generic [ref=f10e573]: 全职主厨,非外包中央工厂
+          - listitem [ref=f10e574]:
+            - generic [ref=f10e575]: 3 轮盲测
+            - generic [ref=f10e576]: 每道新菜上架前必须通过团队品控
+          - listitem [ref=f10e577]:
+            - generic [ref=f10e578]: 天然调味
+            - generic [ref=f10e579]: 香料·发酵·低温慢煮,拒绝工业酱料包
+      - generic [ref=f10e580]:
+        - img "主厨在调味健康餐" [ref=f10e582]
+        - generic [ref=f10e583]: 折耳根品控标准
+  - region "热链配送,到手上桌" [ref=f10e588]:
+    - generic [ref=f10e589]:
+      - generic [ref=f10e590]:
+        - generic [ref=f10e591]: "04"
+        - generic [ref=f10e592]: 不是冷冰冰的餐包,是热乎饭
+        - heading "热链配送,到手上桌" [level=2] [ref=f10e595]
+        - paragraph [ref=f10e596]: 每日凌晨 5:00 中央厨房开始现做,装入保温热链箱,7:00–11:00 分批出车。从出锅到送达控制在 90 分钟内,到手中心温度 ≥60°C——开盖即食,无需微波复热。
+        - list [ref=f10e597]:
+          - listitem [ref=f10e598]:
+            - generic [ref=f10e599]: 90 分钟
+            - generic [ref=f10e600]: 出锅 → 装车 → 到手,极限时效
+          - listitem [ref=f10e601]:
+            - generic [ref=f10e602]: ≥60°C
+            - generic [ref=f10e603]: 到手中心温度,开盖热气不骗人
+          - listitem [ref=f10e604]:
+            - generic [ref=f10e605]: 保温热链箱
+            - generic [ref=f10e606]: 专业保温箱体,不是泡沫饭盒
+      - generic [ref=f10e607]:
+        - img "保温热链配送箱与新鲜送达的健康餐" [ref=f10e609]
+        - generic [ref=f10e610]: 折耳根品控标准
+  - region "热链与冷链对比" [ref=f10e615]:
+    - generic [ref=f10e616]:
+      - generic [ref=f10e617]: 为什么是热链
+      - heading "同样是配送,热链和冷链差在哪?" [level=2] [ref=f10e620]
+      - table "热链与传统冷链对比表" [ref=f10e621]:
+        - row [ref=f10e622]:
+          - columnheader "对比维度"
+          - columnheader "折耳根 · 热链" [ref=f10e623]
+          - columnheader "传统冷链" [ref=f10e624]
+        - row [ref=f10e625]:
+          - cell "出餐方式" [ref=f10e626]
+          - cell "当日凌晨现做" [ref=f10e627]
+          - cell "提前 1–3 天预制" [ref=f10e628]
+        - row [ref=f10e629]:
+          - cell "配送温度" [ref=f10e630]
+          - cell "保温箱 ≥60°C" [ref=f10e631]
+          - cell "冰袋 0–4°C" [ref=f10e632]
+        - row [ref=f10e633]:
+          - cell "到手状态" [ref=f10e634]
+          - cell "开盖即食,不用加热" [ref=f10e635]
+          - cell "需微波复热 2–3 分钟" [ref=f10e636]
+        - row [ref=f10e637]:
+          - cell "口感" [ref=f10e638]
+          - cell "现做锅气,肉质鲜嫩" [ref=f10e639]
+          - cell "复热后口感下降明显" [ref=f10e640]
+        - row [ref=f10e641]:
+          - cell "食材限制" [ref=f10e642]
+          - cell "新鲜蔬菜、嫩肉均可" [ref=f10e643]
+          - cell "很多绿叶菜不适合冷藏" [ref=f10e644]
+  - region "下载引导" [ref=f10e645]:
+    - generic [ref=f10e646]:
+      - heading "了解完了, 把下一餐交给我们。" [level=2] [ref=f10e647]:
+        - text: 了解完了,
+        - generic [ref=f10e648]: 把下一餐交给我们。
+      - paragraph [ref=f10e649]: 下载折耳根健康餐 App,花 2 分钟设置你的营养目标,今天就开始好好吃饭。
+      - link "下载体验 App" [ref=f10e650] [cursor=pointer]:
+        - /url: "#download"
+  - generic "页脚" [ref=f10e654]:
+    - generic [ref=f10e655]:
+      - link "折耳根健康餐" [ref=f10e656] [cursor=pointer]:
+        - /url: "#/"
+        - img "折耳根" [ref=f10e658]
+      - generic [ref=f10e660]:
+        - link "首页" [ref=f10e661] [cursor=pointer]:
+          - /url: "#/"
+        - link "今日餐单" [ref=f10e662] [cursor=pointer]:
+          - /url: "#menu"
+        - link "常见问题" [ref=f10e663] [cursor=pointer]:
+          - /url: "#faq"
+        - link "下载 App" [ref=f10e664] [cursor=pointer]:
+          - /url: "#download"
+      - generic [ref=f10e665]: 好好吃饭,也可以很轻松。© 2026 折耳根健康餐
+      - link "回到顶部" [ref=f10e666] [cursor=pointer]:
+        - /url: "#/features"

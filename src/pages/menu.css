@@ -1,0 +1,299 @@
+/* ================================================================
+   今日餐单页 — 复用 features.css 的页面壳(导航/光斑/CTA/页脚),
+   本文件只放餐单页特有样式
+   ================================================================ */
+
+/* ---- Hero:居中版 + 筛选条 ---- */
+.menu-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-hero-inner h1 {
+  margin: 22px 0 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 680;
+  line-height: 1.1;
+}
+
+.menu-hero-line-2 {
+  display: block;
+}
+
+.menu-hero-lede {
+  max-width: 620px;
+  margin: 26px 0 0;
+  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+  line-height: 1.85;
+}
+
+/* 筛选胶囊条 */
+.menu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.menu-filter-chip {
+  min-height: 44px;
+  padding: 10px 20px;
+  color: var(--muted-cream);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.22));
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 22px rgba(27, 29, 21, 0.07);
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 180ms ease, color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.menu-filter-chip:hover {
+  transform: translateY(-2px);
+  color: var(--ember-ink);
+}
+
+.menu-filter-chip:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* 选中态:暖橙着色玻璃 */
+.menu-filter-chip.is-on {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: linear-gradient(135deg, rgba(232, 138, 74, 0.85), rgba(194, 97, 31, 0.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 12px 30px rgba(194, 97, 31, 0.26);
+}
+
+/* ---- 餐品网格 ---- */
+.m-dishes {
+  position: relative;
+  padding: 0 0 clamp(56px, 7vw, 96px);
+}
+
+.m-dish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1280px;
+}
+
+/* 主推菜:横跨两列,靠版面而非装饰突出 */
+.m-dish--featured {
+  grid-column: span 2;
+}
+
+.m-dish {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: var(--r-2xl);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.28));
+  -webkit-backdrop-filter: blur(22px) saturate(1.7);
+  backdrop-filter: blur(22px) saturate(1.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 22px 58px rgba(27, 29, 21, 0.12);
+  transition: transform 240ms var(--ease-std), box-shadow 240ms var(--ease-std);
+}
+
+.m-dish:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 32px 74px rgba(27, 29, 21, 0.17);
+}
+
+/* 图片区 */
+.m-dish-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.m-dish--featured .m-dish-media {
+  aspect-ratio: 21 / 10;
+}
+
+.m-dish-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms var(--ease-out);
+}
+
+.m-dish:hover .m-dish-media img {
+  transform: scale(1.05);
+}
+
+.m-dish-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 6px 12px;
+  color: var(--ink-cream);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.m-dish-tag--hot {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--ember), var(--ember-ink));
+  box-shadow: 0 8px 20px rgba(194, 97, 31, 0.32);
+}
+
+.m-dish-no {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: var(--r-pill);
+  background: rgba(27, 29, 21, 0.45);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-display);
+  font-feature-settings: "tnum", "lnum";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* 信息区 */
+.m-dish-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 24px 22px;
+}
+
+.m-dish-info h2 {
+  margin: 0;
+  font-size: clamp(18px, 1.4vw, 22px);
+  font-weight: 700;
+  color: var(--ink-cream);
+}
+
+.m-dish--featured .m-dish-info h2 {
+  font-size: clamp(20px, 1.8vw, 27px);
+}
+
+.m-dish-info p {
+  margin: 10px 0 0;
+  color: var(--muted-cream);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* 营养 meta:钉在底部,卡片间对齐 */
+.m-dish-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.m-dish-kcal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  color: var(--ember-ink);
+  border-radius: var(--r-pill);
+  background: rgba(194, 97, 31, 0.1);
+  font-size: 13px;
+  font-weight: 700;
+  font-feature-settings: "tnum", "lnum";
+}
+
+.m-dish-protein {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  color: var(--olive);
+  border-radius: var(--r-pill);
+  background: rgba(63, 125, 78, 0.1);
+  font-size: 13px;
+  font-weight: 700;
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* 空态与说明 */
+.m-dish-empty {
+  margin-top: 32px;
+  color: var(--muted-cream);
+  font-size: 15px;
+  text-align: center;
+}
+
+.m-dish-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+  max-width: 1280px;
+  color: var(--soft-cream);
+  font-size: 13px;
+}
+
+.m-dish-note svg {
+  color: var(--ember-ink);
+  flex: none;
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 1024px) {
+  .m-dish-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .m-dish--featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .m-dish-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .m-dish--featured {
+    grid-column: span 1;
+  }
+
+  .m-dish--featured .m-dish-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .menu-filters {
+    gap: 8px;
+  }
+
+  .menu-filter-chip {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+}

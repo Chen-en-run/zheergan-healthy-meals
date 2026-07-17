@@ -22,24 +22,29 @@ import {
   Target,
   TrendingDown,
   Truck,
-  Utensils,
 } from 'lucide-react';
 import StarBorder from './components/StarBorder';
 import Galaxy from './components/Galaxy';
 import ShinyText from './components/ShinyText';
 import ElectricBorder from './components/ElectricBorder';
 import FeaturesPage from './pages/Features';
+import PricingPage from './pages/Pricing';
+import MenuPage from './pages/Menu';
 import './styles.css';
 
 /* ================================================================
    轻量 hash 路由
    #/features → 功能介绍子页
+   #/pricing  → 价格方案子页
+   #/menu     → 今日餐单子页
    其余所有 hash(包括空/锚点) → 首页(原 App)
    ================================================================ */
 function useRoute() {
   const resolve = () => {
     const h = window.location.hash;
     if (h.startsWith('#/features')) return 'features';
+    if (h.startsWith('#/pricing')) return 'pricing';
+    if (h.startsWith('#/menu')) return 'menu';
     return 'home';
   };
   const [route, setRoute] = useState(resolve);
@@ -123,7 +128,6 @@ function HomePage() {
       <AnswerSection />
       <StepsSection />
       <TrustSection />
-      <MenuShowcase />
       <BeliefSection />
       <FaqSection />
       <DownloadSection />
@@ -208,7 +212,8 @@ function Hero() {
         </a>
         <nav className="nav-links" aria-label="主导航">
           <a href="#/features">功能介绍</a>
-          <a href="#menu">今日餐单</a>
+          <a href="#/pricing">价格方案</a>
+          <a href="#/menu">今日餐单</a>
           <a href="#download">下载 App</a>
         </nav>
       </header>
@@ -232,7 +237,7 @@ function Hero() {
               下载体验
               <ArrowDownRight size={18} />
             </a>
-            <a className="secondary-button" href="#menu">
+            <a className="secondary-button" href="#/menu">
               浏览本周餐单
             </a>
           </div>
@@ -603,116 +608,6 @@ function BeliefSection() {
   );
 }
 
-const menuItems = [
-  {
-    no: '01',
-    title: '烟熏三文鱼平衡碗',
-    kcal: '486 kcal',
-    protein: '36g 蛋白质',
-    tag: '高蛋白',
-    image:
-      '/zheergan-healthy-meals/images/salmon.jpg',
-  },
-  {
-    no: '02',
-    title: '柑香鸡肉谷物碗',
-    kcal: '532 kcal',
-    protein: '42g 蛋白质',
-    tag: '本周主推',
-    image:
-      '/zheergan-healthy-meals/images/chicken.jpg',
-  },
-  {
-    no: '03',
-    title: '牛油果绿蔬蛋碗',
-    kcal: '418 kcal',
-    protein: '28g 蛋白质',
-    tag: '低卡',
-    image:
-      '/zheergan-healthy-meals/images/avocado.jpg',
-  },
-  {
-    no: '04',
-    title: '藜麦能量碗',
-    kcal: '462 kcal',
-    protein: '24g 蛋白质',
-    tag: '高纤维',
-    image:
-      '/zheergan-healthy-meals/images/quinoa.jpg',
-  },
-  {
-    no: '05',
-    title: '田园时蔬沙拉',
-    kcal: '320 kcal',
-    protein: '18g 蛋白质',
-    tag: '轻食',
-    image:
-      '/zheergan-healthy-meals/images/salad.jpg',
-  },
-  {
-    no: '06',
-    title: '金枪鱼波奇碗',
-    kcal: '508 kcal',
-    protein: '38g 蛋白质',
-    tag: '高蛋白',
-    image:
-      '/zheergan-healthy-meals/images/tuna.jpg',
-  },
-];
-
-function MenuShowcase() {
-  return (
-    <section className="menu-showcase section-panel panel-cream" id="menu" aria-label="本周餐单">
-      <div className="menu-showcase-bg" />
-      <div className="menu-head max-frame">
-        <div className="menu-head-copy">
-          <span className="section-kicker">
-            <Utensils size={16} />
-            本周精选餐单
-          </span>
-          <h2>
-            每周焕新，
-            <span>把食欲交给厨师。</span>
-          </h2>
-          <p>
-            38+ 道由营养师与主厨共同设计的健康餐，按你的热量目标与口味偏好轮换上新。下滑浏览本周在售餐品。
-          </p>
-        </div>
-        <a className="menu-head-cta" href="#download">
-          查看完整餐单
-          <ArrowDownRight size={18} />
-        </a>
-      </div>
-
-      <div className="menu-grid max-frame">
-        {menuItems.map((item, index) => (
-          <article className={`menu-card menu-card-${index + 1}`} key={item.title}>
-            <div className="menu-card-media">
-              <img src={item.image} alt={item.title} loading="lazy" />
-            </div>
-            <span className="menu-card-no">{item.no}</span>
-            <span className="menu-card-tag">{item.tag}</span>
-            <div className="menu-card-info">
-              <h3>{item.title}</h3>
-              <div className="menu-card-meta">
-                <span>{item.kcal}</span>
-                <span>{item.protein}</span>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <div className="menu-foot max-frame">
-        <span>更多餐品在 App 内按口味与目标定制</span>
-        <StarBorder as="a" className="secondary-button" color="#8fffc2" speed="7s" href="#download">
-          下载查看全部
-        </StarBorder>
-      </div>
-    </section>
-  );
-}
-
 const faqs = [
   {
     q: '配送范围覆盖哪些城市？',
@@ -830,8 +725,8 @@ const footerCols = [
     title: '产品',
     links: [
       { label: '功能介绍', href: '#/features' },
-      { label: '本周餐单', href: '#menu' },
-      { label: '价格方案', href: '#faq' },
+      { label: '本周餐单', href: '#/menu' },
+      { label: '价格方案', href: '#/pricing' },
       { label: '下载 App', href: '#download' },
     ],
   },
@@ -927,6 +822,8 @@ function Footer() {
 function App() {
   const route = useRoute();
   if (route === 'features') return <FeaturesPage />;
+  if (route === 'pricing') return <PricingPage />;
+  if (route === 'menu') return <MenuPage />;
   return <HomePage />;
 }
 

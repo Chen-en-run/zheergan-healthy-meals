@@ -116,7 +116,8 @@ export default function FeaturesPage() {
           <nav className="nav-links" aria-label="主导航">
             <a href="#/">首页</a>
             <a href="#/features" className="is-active" aria-current="page">功能介绍</a>
-            <a href="#menu">今日餐单</a>
+            <a href="#/pricing">价格方案</a>
+            <a href="#/menu">今日餐单</a>
             <a href="#download">下载 App</a>
           </nav>
         </div>
@@ -274,7 +275,8 @@ export default function FeaturesPage() {
           </a>
           <div className="features-footer-links">
             <a href="#/">首页</a>
-            <a href="#menu">今日餐单</a>
+            <a href="#/pricing">价格方案</a>
+            <a href="#/menu">今日餐单</a>
             <a href="#faq">常见问题</a>
             <a href="#download">下载 App</a>
           </div>
