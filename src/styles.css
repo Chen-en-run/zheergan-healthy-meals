@@ -300,11 +300,12 @@ img {
   letter-spacing: 0;
 }
 
-.download-copy h2 span {
-  display: block;
-  color: transparent;
-  background: linear-gradient(95deg, #ffffff 0%, var(--acid) 42%, var(--mint) 100%);
-  background-clip: text;
+.download.panel-cream .download-copy h2 {
+  color: #000;
+}
+
+.download.panel-cream .download-copy h2 span {
+  color: #000;
 }
 
 .hero-shiny-line {
@@ -482,6 +483,40 @@ img {
 .meal-card--right:hover {
   opacity: 0.7;
   transform: scale(0.84);
+}
+
+/* 外圈第二张:更远更小更淡,营造纵深;点击跳 2 步 */
+.meal-card--left-2 {
+  left: -26%;
+  transform: scale(0.62);
+  opacity: 0.22;
+  z-index: 1;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 20px rgba(43, 31, 20, 0.12));
+}
+
+.meal-card--right-2 {
+  right: -26%;
+  transform: scale(0.62);
+  opacity: 0.22;
+  z-index: 1;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 20px rgba(43, 31, 20, 0.12));
+}
+
+.meal-card--left-2:hover,
+.meal-card--right-2:hover {
+  opacity: 0.42;
+  transform: scale(0.66);
+}
+
+/* 台下的卡:藏在中心卡正后方,透明缩小,轮换时从后面浮出 */
+.meal-card--hidden {
+  left: 50%;
+  transform: translateX(-50%) scale(0.66);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* 底部指示点 */
@@ -1123,12 +1158,16 @@ img {
   display: grid;
   aspect-ratio: 1;
   place-items: center;
-  color: var(--ink-cream);
   border-radius: var(--r-sm);
   border: 1px solid var(--ember-100);
-  background:
-    linear-gradient(135deg, var(--ember-100), #fffdf8),
-    #fffdf8;
+  background: #fff;
+  overflow: hidden;
+}
+
+.qr-shell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .download-card-copy {
@@ -1248,6 +1287,16 @@ img {
     transform: scale(0.83);
   }
 
+  /* 小屏收起外圈第二张,保留三张舞台 */
+  .meal-card--left-2,
+  .meal-card--right-2 {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) scale(0.66);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .phone-mockup {
     width: min(330px, 92vw);
     min-width: 0;
@@ -1330,40 +1379,7 @@ img {
   padding: 132px 0;
 }
 
-/* --- 痛点共鸣 --- */
-.story-pain-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.story-pain-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.15) brightness(0.72) saturate(0.6);
-  transform: scale(1.06);
-}
-
-.story-pain-veil {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 50% 42%,
-      rgba(7, 8, 7, 0.15),
-      rgba(7, 8, 7, 0.55) 72%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(7, 8, 7, 0.72) 0%,
-      rgba(7, 8, 7, 0.2) 28%,
-      rgba(7, 8, 7, 0.55) 100%
-    );
-}
+/* --- 痛点共鸣(液态玻璃版)--- */
 
 .story-pain-title {
   margin: 24px 0 0;
@@ -1403,30 +1419,12 @@ img {
   line-height: 1.55;
   transition:
     border-color 0.4s ease,
-    background 0.4s ease,
-    transform 0.35s ease;
-  overflow: hidden;
-  position: relative;
-}
-
-.pain-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  border-radius: 0 3px 3px 0;
-  background: linear-gradient(180deg, var(--acid), var(--mint));
-  opacity: 0;
-  transform: scaleY(0.6);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+    background 0.4s ease;
 }
 
 .pain-item:hover {
   border-color: rgba(213, 255, 102, 0.3);
   background: rgba(255, 255, 255, 0.055);
-  transform: translateX(6px);
 }
 
 .pain-item:hover::before {
@@ -1624,9 +1622,7 @@ img {
 }
 
 .trust-head h2 span {
-  color: transparent;
-  background: linear-gradient(95deg, #ffffff 0%, var(--acid) 58%, var(--mint) 100%);
-  background-clip: text;
+  color: #000;
 }
 
 .trust-stats {
@@ -2206,11 +2202,12 @@ img {
 }
 
 .story-trust.panel-cream .trust-head h2 {
-  color: var(--ink-cream);
+  color: #000;
 }
 
 .story-trust.panel-cream .trust-head h2 span {
-  background-image: linear-gradient(95deg, var(--ember-ink) 0%, var(--olive) 100%);
+  color: #000;
+  background-image: none;
 }
 
 .story-trust.panel-cream .trust-stat {
@@ -2572,29 +2569,9 @@ img {
 /* 追加在末尾,以更高优先级覆盖原深色配色                            */
 /* ================================================================ */
 
-/* ---- 痛点共鸣屏 ---- */
-/* 情绪照背景改暖调轻处理,蒙版从压暗改为奶油柔洗,文字/卡片转深色 */
+/* ---- 痛点共鸣(液态玻璃版,已无背景图) ---- */
 .story-pain.panel-cream {
   border-top: 1px solid rgba(43, 31, 20, 0.08);
-}
-
-.story-pain.panel-cream .story-pain-bg img {
-  filter: grayscale(0.1) brightness(1.02) saturate(0.72);
-}
-
-.story-pain.panel-cream .story-pain-veil {
-  background:
-    radial-gradient(
-      circle at 50% 42%,
-      rgba(251, 249, 241, 0.6),
-      rgba(251, 249, 241, 0.82) 72%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(251, 249, 241, 0.9) 0%,
-      rgba(251, 249, 241, 0.7) 28%,
-      rgba(251, 249, 241, 0.86) 100%
-    );
 }
 
 .story-pain.panel-cream .section-kicker {
@@ -2602,32 +2579,26 @@ img {
 }
 
 .story-pain.panel-cream .story-pain-title {
-  color: var(--ink-cream);
+  color: #000;
 }
 
 .story-pain.panel-cream .story-pain-title span {
-  background-image: linear-gradient(95deg, var(--ember-ink) 0%, var(--olive) 100%);
+  color: #000;
+  background-image: none;
 }
 
+/* 痛点卡片:文字 + 左侧强调线(玻璃背景由全局玻璃卡 selector 接管) */
 .story-pain.panel-cream .pain-item {
   color: var(--ink-cream);
-  border-color: var(--line-cream);
-  background: var(--cream-card);
-  box-shadow: 0 18px 50px rgba(43, 31, 20, 0.06);
-}
-
-.story-pain.panel-cream .pain-item::before {
-  background: linear-gradient(180deg, var(--ember), var(--olive));
 }
 
 .story-pain.panel-cream .pain-item:hover {
   border-color: rgba(194, 97, 31, 0.35);
-  background: #fff;
 }
 
 .story-pain.panel-cream .pain-icon {
   color: var(--ember-ink);
-  background: rgba(194, 97, 31, 0.1);
+  background: var(--ember-100);
 }
 
 /* ---- Hero 首屏 ---- */
@@ -2837,8 +2808,13 @@ img {
   color: var(--ink-cream);
 }
 
+.menu-showcase.panel-cream .menu-head-copy h2 {
+  color: #000;
+}
+
 .menu-showcase.panel-cream .menu-head-copy h2 span {
-  background-image: linear-gradient(95deg, var(--ember-ink) 0%, var(--olive) 100%);
+  color: #000;
+  background-image: none;
 }
 
 .menu-showcase.panel-cream .menu-head-copy p {
@@ -2857,6 +2833,10 @@ img {
 /* 菜品卡本身是深色图片卡,保留;仅让标签/描边更贴合暖色主题 */
 .menu-showcase.panel-cream .menu-card {
   border-color: rgba(43, 31, 20, 0.1);
+}
+
+.menu-showcase.panel-cream .menu-card-info h3 {
+  color: var(--ember-ink);
 }
 
 .menu-showcase.panel-cream .menu-card:hover {
@@ -2968,10 +2948,15 @@ img {
 }
 
 .download.panel-cream .download-copy h2 {
-  color: var(--ink-cream);
+  color: #000;
 }
 
 .download.panel-cream .download-copy h2 span {
+  color: #000;
+  background-image: none;
+}
+
+.download.panel-cream .download-copy h2 .unused {
   background-image: linear-gradient(95deg, var(--ember-ink) 0%, var(--olive) 100%);
 }
 
@@ -3299,6 +3284,97 @@ img {
 }
 
 /* ---- 无 backdrop-filter 兜底:提高底色不透明度保证可读 ---- */
+/* ================================================================ */
+/* 全站液态玻璃:可复用光斑 + 全局玻璃卡                             */
+/* ================================================================ */
+
+/* 版块级光斑容器:放在任何 section-panel 里即可 */
+.section-blobs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-blobs .s-blob {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(68px);
+  will-change: transform;
+}
+
+.s-blob-1 {
+  width: clamp(340px, 38vw, 620px);
+  left: -10%;
+  top: -14%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 187, 106, 0.55), rgba(255, 187, 106, 0) 68%);
+  animation: blob-drift-a 32s ease-in-out infinite alternate;
+}
+
+.s-blob-2 {
+  width: clamp(280px, 30vw, 500px);
+  right: -8%;
+  bottom: -12%;
+  background: radial-gradient(circle at 60% 40%, rgba(230, 168, 96, 0.45), rgba(230, 168, 96, 0) 66%);
+  animation: blob-drift-b 38s ease-in-out infinite alternate;
+}
+
+.s-blob-3 {
+  width: clamp(220px, 24vw, 400px);
+  left: 40%;
+  top: 40%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 214, 140, 0.40), rgba(255, 214, 140, 0) 70%);
+  animation: blob-drift-c 28s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-blobs .s-blob {
+    animation: none;
+  }
+}
+
+/* 全局玻璃卡:所有卡片型元素统一液态玻璃质感(需匹配旧覆写权重) */
+.story-pain.panel-cream .pain-item,
+.story-trust.panel-cream .trust-stat,
+.story-trust.panel-cream .testimonial-card,
+.panel-cream .answer-visual-card {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.26));
+  border-color: rgba(255, 255, 255, 0.68);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  backdrop-filter: blur(22px) saturate(1.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 20px 52px rgba(43, 31, 20, 0.12);
+}
+
+/* FAQ 条目:玻璃分隔线风格 */
+.faq-item {
+  border-color: rgba(255, 255, 255, 0.58);
+}
+
+/* 下载卡:面状玻璃 */
+.download.panel-cream .download-card {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.28));
+  border-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 64px rgba(43, 31, 20, 0.14);
+}
+
+/* hover 态:玻璃卡微浮 */
+.story-pain.panel-cream .pain-item:hover {
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.panel-cream .answer-visual-card:hover {
+  background: rgba(255, 255, 255, 0.58);
+}
+
+/* 无 backdrop-filter 兜底 */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .hero.hero--liquid .nav,
   .hero.hero--liquid .eyebrow,

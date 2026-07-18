@@ -52,16 +52,16 @@ const sections = [
     id: 'chef',
     no: '03',
     icon: ChefHat,
-    title: '主厨调味,好吃才能坚持',
+    title: '精选商家,好吃才能坚持',
     subtitle: '健康餐不需要"吃草"',
-    body: '20 位主厨团队来自中餐、日料、轻西餐背景,每道菜经过至少 3 轮盲测——热量达标但不好吃,照样打回。调味用天然香料替代工业酱料,低卡不等于寡淡。',
+    body: '我们严选本地优质健康餐商家入驻,营养师团队对每道菜进行 3 轮盲测——热量达标但不好吃,照样打回。商家用天然香料替代工业酱料,低卡不等于寡淡。',
     highlights: [
-      { label: '20 位', value: '全职主厨,非外包中央工厂' },
-      { label: '3 轮盲测', value: '每道新菜上架前必须通过团队品控' },
-      { label: '天然调味', value: '香料·发酵·低温慢煮,拒绝工业酱料包' },
+      { label: '严选商家', value: '只合作通过品控考核的健康餐商家' },
+      { label: '3 轮盲测', value: '每道新菜上架前必须通过营养师团队品控' },
+      { label: '天然调味', value: '商家使用香料·发酵·低温慢煮,拒绝工业酱料包' },
     ],
     image: '/zheergan-healthy-meals/images/answer-chef.jpg',
-    imageAlt: '主厨在调味健康餐',
+    imageAlt: '合作商家主厨在调味健康餐',
   },
   {
     id: 'delivery',
@@ -69,14 +69,14 @@ const sections = [
     icon: Thermometer,
     title: '热链配送,到手上桌',
     subtitle: '不是冷冰冰的餐包,是热乎饭',
-    body: '每日凌晨 5:00 中央厨房开始现做,装入保温热链箱,7:00–11:00 分批出车。从出锅到送达控制在 90 分钟内,到手中心温度 ≥60°C——开盖即食,无需微波复热。',
+    body: '合作商家接单后现做出餐,装入保温箱,通过美团骑手网络实时配送。从商家出锅到你的餐桌全程保温,到手中心温度 ≥60°C——开盖即食,无需微波复热。',
     highlights: [
-      { label: '90 分钟', value: '出锅 → 装车 → 到手,极限时效' },
+      { label: '商家现做', value: '接单后出餐,不是预制菜复热' },
       { label: '≥60°C', value: '到手中心温度,开盖热气不骗人' },
-      { label: '保温热链箱', value: '专业保温箱体,不是泡沫饭盒' },
+      { label: '美团骑手', value: '接入美团配送网络,实时追踪' },
     ],
     image: '/zheergan-healthy-meals/images/answer-delivery.jpg',
-    imageAlt: '保温热链配送箱与新鲜送达的健康餐',
+    imageAlt: '美团骑手配送保温热链健康餐',
     reverse: true,
   },
 ];
@@ -84,12 +84,12 @@ const sections = [
 const capabilities = [
   { icon: Target, label: '身体档案', desc: '算法认识你' },
   { icon: BarChart3, label: '智能引擎', desc: '自动排一周' },
-  { icon: ChefHat, label: '主厨团队', desc: '好吃是底线' },
+  { icon: ChefHat, label: '精选商家', desc: '好吃是底线' },
   { icon: Thermometer, label: '热链配送', desc: '到手上桌' },
 ];
 
 const compareRows = [
-  ['出餐方式', '当日凌晨现做', '提前 1–3 天预制'],
+  ['出餐方式', '商家接单现做', '提前 1–3 天预制'],
   ['配送温度', '保温箱 ≥60°C', '冰袋 0–4°C'],
   ['到手状态', '开盖即食,不用加热', '需微波复热 2–3 分钟'],
   ['口感', '现做锅气,肉质鲜嫩', '复热后口感下降明显'],
@@ -156,7 +156,7 @@ export default function FeaturesPage() {
               />
             </h1>
             <p className="features-hero-lede">
-              折耳根健康餐不只是"送健康餐",而是把营养科学、主厨手艺和物流效率拼成一条完整的链路——从你打开 App 设置目标,到一口热饭入口,每一步都为「省心」而设计。
+              输入身体数据 → 算法 20 秒出餐单 → 商家接单现做 → 美团骑手保温箱送到——每一步都不用你操心。
             </p>
           </div>
 
@@ -182,6 +182,11 @@ export default function FeaturesPage() {
         const Icon = sec.icon;
         return (
           <section className="f-section" id={sec.id} key={sec.id} aria-label={sec.title}>
+            <div className="section-blobs" aria-hidden="true">
+              <span className="s-blob s-blob-1" />
+              <span className="s-blob s-blob-2" />
+              <span className="s-blob s-blob-3" />
+            </div>
             <div
               className={`f-section-grid max-frame${sec.reverse ? ' f-section-grid--reverse' : ''}`}
             >
@@ -220,6 +225,11 @@ export default function FeaturesPage() {
 
       {/* ── 热链 vs 冷链对比 ── */}
       <section className="f-compare" aria-label="热链与冷链对比">
+        <div className="section-blobs" aria-hidden="true">
+          <span className="s-blob s-blob-1" />
+          <span className="s-blob s-blob-2" />
+          <span className="s-blob s-blob-3" />
+        </div>
         <div className="f-compare-inner max-frame">
           <span className="section-kicker">
             <Thermometer size={16} />
@@ -264,7 +274,7 @@ export default function FeaturesPage() {
             <a href="#faq">常见问题</a>
             <a href="#download">下载 App</a>
           </div>
-          <span className="features-footer-copy">好好吃饭,也可以很轻松。© 2026 折耳根健康餐</span>
+          <span className="features-footer-copy">算法认识你,商家做好饭,骑手送到手。© 2026 折耳根健康餐</span>
           <a
             className="features-footer-top"
             href="#/features"

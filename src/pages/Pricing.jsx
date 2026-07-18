@@ -131,13 +131,18 @@ export default function PricingPage() {
             />
           </h1>
           <p className="pricing-hero-lede">
-            单餐 32–45 元,和一顿普通外卖差不多——但热量配平、主厨调味、热链到手。按周订更省,随时暂停不扣钱。
+            单餐 32–45 元,和一顿普通外卖差不多——但算法定制、商家主厨现做、热链到手。按周订更省,随时暂停不扣钱。
           </p>
         </div>
       </section>
 
       {/* ── 三档方案 ── */}
       <section className="price-section" aria-label="订购方案">
+        <div className="section-blobs" aria-hidden="true">
+          <span className="s-blob s-blob-1" />
+          <span className="s-blob s-blob-2" />
+          <span className="s-blob s-blob-3" />
+        </div>
         <div className="price-grid max-frame">
           {plans.map((plan) => (
             <article
@@ -183,6 +188,11 @@ export default function PricingPage() {
 
       {/* ── 保障条 ── */}
       <section className="assure-section" aria-label="订购保障">
+        <div className="section-blobs" aria-hidden="true">
+          <span className="s-blob s-blob-1" />
+          <span className="s-blob s-blob-2" />
+          <span className="s-blob s-blob-3" />
+        </div>
         <div className="assure-strip max-frame">
           {assurances.map((item) => {
             const Icon = item.icon;
@@ -221,7 +231,7 @@ export default function PricingPage() {
             <a href="#faq">常见问题</a>
             <a href="#download">下载 App</a>
           </div>
-          <span className="features-footer-copy">好好吃饭,也可以很轻松。© 2026 折耳根健康餐</span>
+          <span className="features-footer-copy">和一顿外卖差不多的钱,换算法定制 + 热链到手。© 2026 折耳根健康餐</span>
           <a
             className="features-footer-top"
             href="#/pricing"

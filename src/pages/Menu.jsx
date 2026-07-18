@@ -96,7 +96,7 @@ export default function MenuPage() {
           </span>
           <h1>
             <ShinyText
-              text="每月焕新,"
+              text="每月焕新，"
               color="#2b1f14"
               shineColor="#c2611f"
               speed={3}
@@ -104,7 +104,7 @@ export default function MenuPage() {
               direction="left"
             />
             <ShinyText
-              text="把食欲交给厨师。"
+              text="道道都是硬菜。"
               color="#2b1f14"
               shineColor="#e88a4a"
               speed={3}
@@ -114,7 +114,7 @@ export default function MenuPage() {
             />
           </h1>
           <p className="menu-hero-lede">
-            本月在售 30 道,由营养师与主厨共同设计,按你的热量目标与口味偏好每月轮换上新。完整定制餐单在 App 内按你的身体数据生成。
+            本月在售 30 道,由营养师与合作商家主厨共同设计,按你的热量目标与口味偏好每月轮换上新。完整定制餐单在 App 内按你的身体数据生成。
           </p>
 
           {/* 标签筛选 */}
@@ -136,6 +136,11 @@ export default function MenuPage() {
 
       {/* ── 餐品网格 ── */}
       <section className="m-dishes" aria-label="本月在售餐品">
+        <div className="section-blobs" aria-hidden="true">
+          <span className="s-blob s-blob-1" />
+          <span className="s-blob s-blob-2" />
+          <span className="s-blob s-blob-3" />
+        </div>
         <div className="m-dish-grid max-frame">
           {shown.map((dish) => (
             <article
@@ -193,7 +198,7 @@ export default function MenuPage() {
             <a href="#/pricing">价格方案</a>
             <a href="#download">下载 App</a>
           </div>
-          <span className="features-footer-copy">好好吃饭,也可以很轻松。© 2026 折耳根健康餐</span>
+          <span className="features-footer-copy">每月 1 日焕新,30 道菜轮着吃。© 2026 折耳根健康餐</span>
           <a
             className="features-footer-top"
             href="#/menu"

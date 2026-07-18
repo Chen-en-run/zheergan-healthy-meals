@@ -36,10 +36,13 @@
 /* ---- 三档方案 ---- */
 .price-section {
   position: relative;
+  overflow: hidden;
   padding: 0 0 clamp(56px, 7vw, 96px);
 }
 
 .price-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
@@ -229,6 +232,8 @@
 
 /* 小字说明 */
 .price-note {
+  position: relative;
+  z-index: 1;
   margin-top: 26px;
   max-width: 1180px;
   color: var(--soft-cream);
@@ -239,10 +244,14 @@
 
 /* ---- 保障条 ---- */
 .assure-section {
+  position: relative;
+  overflow: hidden;
   padding: 0 0 clamp(48px, 6vw, 80px);
 }
 
 .assure-strip {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;

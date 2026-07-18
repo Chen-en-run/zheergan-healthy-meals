@@ -9,14 +9,8 @@ import {
   ChevronDown,
   Clock,
   Frown,
-  Heart,
-  HeartPulse,
-  HelpCircle,
   MapPin,
-  QrCode,
   Quote,
-  ScanLine,
-  ShieldCheck,
   Sparkles,
   Star,
   Target,
@@ -82,23 +76,44 @@ const meals = [
   {
     title: '烟熏三文鱼平衡碗',
     kcal: '486 kcal',
-    protein: '36g protein',
-    image:
-      '/zheergan-healthy-meals/images/salmon.jpg',
+    protein: '36g 蛋白质',
+    image: '/zheergan-healthy-meals/images/salmon.jpg',
   },
   {
     title: '柑香鸡肉谷物碗',
     kcal: '532 kcal',
-    protein: '42g protein',
-    image:
-      '/zheergan-healthy-meals/images/chicken.jpg',
+    protein: '42g 蛋白质',
+    image: '/zheergan-healthy-meals/images/chicken.jpg',
   },
   {
     title: '牛油果绿蔬蛋碗',
     kcal: '418 kcal',
-    protein: '28g protein',
-    image:
-      '/zheergan-healthy-meals/images/avocado.jpg',
+    protein: '28g 蛋白质',
+    image: '/zheergan-healthy-meals/images/avocado.jpg',
+  },
+  {
+    title: '藜麦能量碗',
+    kcal: '462 kcal',
+    protein: '24g 蛋白质',
+    image: '/zheergan-healthy-meals/images/quinoa.jpg',
+  },
+  {
+    title: '金枪鱼波奇碗',
+    kcal: '508 kcal',
+    protein: '38g 蛋白质',
+    image: '/zheergan-healthy-meals/images/tuna.jpg',
+  },
+  {
+    title: '黑椒牛肉能量盘',
+    kcal: '568 kcal',
+    protein: '44g 蛋白质',
+    image: '/zheergan-healthy-meals/images/dish-14.jpg',
+  },
+  {
+    title: '田园时蔬沙拉',
+    kcal: '320 kcal',
+    protein: '18g 蛋白质',
+    image: '/zheergan-healthy-meals/images/salad.jpg',
   },
 ];
 
@@ -128,7 +143,6 @@ function HomePage() {
       <StepsSection />
       <TrustSection />
       <MenuShowcase />
-      <BeliefSection />
       <FaqSection />
       <DownloadSection />
       <Footer />
@@ -147,12 +161,17 @@ function MealCarousel({ meals }) {
     const diff = (i - active + meals.length) % meals.length;
     if (diff === 0) return 'center';
     if (diff === 1) return 'right';
-    return 'left';
+    if (diff === 2) return 'right-2';
+    if (diff === meals.length - 1) return 'left';
+    if (diff === meals.length - 2) return 'left-2';
+    return 'hidden'; /* 台下的卡:藏在中心卡后面,轮到时浮出 */
   };
 
   const handleClick = (pos) => {
     if (pos === 'left') setActive((prev) => (prev - 1 + meals.length) % meals.length);
+    if (pos === 'left-2') setActive((prev) => (prev - 2 + meals.length) % meals.length);
     if (pos === 'right') setActive((prev) => (prev + 1) % meals.length);
+    if (pos === 'right-2') setActive((prev) => (prev + 2) % meals.length);
   };
 
   /* 自动轮播：每 3 秒向右切换 */
@@ -229,7 +248,7 @@ function Hero() {
             <ShinyText text="热乎到桌的健康餐。" color="#2b1f14" shineColor="#e88a4a" speed={3} spread={110} direction="left" className="hero-shiny-line" />
           </h1>
           <p className="hero-lede">
-            折耳根健康餐是一款面向城市日常的健康餐配送 App。把热量、蛋白质、口味偏好和配送节奏整合起来，让每一天的健康饮食更稳定、更省心，也更有食欲。
+            输入身高、体重和减脂目标,算法 20 秒算出一周餐单。合作商家接单现做,美团骑手保温箱送到——开盖还是烫的。
           </p>
 
           <div className="hero-actions">
@@ -263,20 +282,12 @@ const painPoints = [
 function PainSection() {
   return (
     <section className="story-section story-pain section-panel panel-cream" aria-label="健康饮食的困扰">
-      <div className="story-pain-veil" />
-      <div className="story-pain-bg">
-        <img
-          src="/zheergan-healthy-meals/images/pain-struggle.png"
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-        />
+      <div className="section-blobs" aria-hidden="true">
+        <span className="s-blob s-blob-1" />
+        <span className="s-blob s-blob-2" />
+        <span className="s-blob s-blob-3" />
       </div>
       <div className="story-inner story-pain-inner">
-        <span className="section-kicker">
-          <HeartPulse size={16} />
-          我们太懂那种感觉
-        </span>
         <h2 className="story-pain-title">
           想吃得健康，<span>怎么就这么难？</span>
         </h2>
@@ -306,13 +317,13 @@ const answerVisuals = [
   },
   {
     src: '/zheergan-healthy-meals/images/answer-chef.jpg',
-    alt: '主厨调味的健康餐 — 好吃才能坚持',
+    alt: '商家主厨调味的健康餐 — 好吃才能坚持',
     caption: '味道交给主厨',
   },
   {
     src: '/zheergan-healthy-meals/images/answer-delivery.jpg',
-    alt: '新鲜准时送达的健康餐 — 到手还是热的',
-    caption: '新鲜准时送到',
+    alt: '保温箱送到门口的健康餐 — 开盖热气扑脸',
+    caption: '到手还是烫的',
   },
 ];
 
@@ -321,13 +332,15 @@ function AnswerSection() {
     <section
       className="story-section story-answer section-panel panel-cream"
       id="about"
+    >
+      <div className="section-blobs" aria-hidden="true">
+        <span className="s-blob s-blob-1" />
+        <span className="s-blob s-blob-2" />
+        <span className="s-blob s-blob-3" />
+      </div>
+      <div className="story-inner story-answer-inner"
       aria-label="折耳根健康餐是什么"
     >
-      <div className="story-inner story-answer-inner">
-        <span className="section-kicker">
-          <Sparkles size={16} />
-          所以，有了折耳根健康餐
-        </span>
         <h2 className="answer-line">
           <ShinyText text="把「吃得健康」，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
           <ShinyText
@@ -341,8 +354,8 @@ function AnswerSection() {
           />
         </h2>
         <p className="answer-lede">
-          营养师配比、主厨调味，按你的热量目标算好每一餐，新鲜现做、当天送达。
-          <strong>你只管吃，剩下的交给我们。</strong>
+          营养师配比热量,商家主厨调味,出锅 90 分钟内保温送到——开盖直接吃。
+          <strong>你只管吃。</strong>
         </p>
 
         <div className="answer-visuals" aria-label="不用操心的三个理由">
@@ -363,18 +376,19 @@ function AnswerSection() {
 const steps = [
   { no: '01', icon: Target, title: '设定目标', desc: '告诉我们你的口味、热量目标和用餐时间' },
   { no: '02', icon: ChefHat, title: '智能配餐', desc: '营养师 + 算法为你搭好整周餐单' },
-  { no: '03', icon: Truck, title: '准时送达', desc: '新鲜现做，当天送到你手边' },
+  { no: '03', icon: Truck, title: '准时送达', desc: '开盖热气扑脸，不用微波炉' },
 ];
 
 function StepsSection() {
   return (
     <section className="story-section story-steps section-panel panel-cream" aria-label="使用流程">
+      <div className="section-blobs" aria-hidden="true">
+        <span className="s-blob s-blob-1" />
+        <span className="s-blob s-blob-2" />
+        <span className="s-blob s-blob-3" />
+      </div>
       <div className="story-inner story-steps-inner">
         <div className="steps-head">
-          <span className="section-kicker">
-            <ScanLine size={16} />
-            简单三步
-          </span>
           <h2>三步，开启你的健康饮食</h2>
         </div>
         <ol className="steps-track">
@@ -402,7 +416,7 @@ function StepsSection() {
 const trustStats = [
   { value: 12, suffix: '万+', label: '用户正在好好吃饭' },
   { value: 300, suffix: '万+', label: '份健康餐已送达' },
-  { value: 20, suffix: '+', label: '营养师 & 主厨团队' },
+  { value: 200, suffix: '+', label: '合作健康餐商家' },
   { value: 4.9, suffix: '', decimals: 1, label: 'App Store 评分' },
 ];
 
@@ -486,14 +500,15 @@ const testimonials = [
 function TrustSection() {
   return (
     <section className="story-section story-trust section-panel panel-cream" aria-label="为什么信任我们">
+      <div className="section-blobs" aria-hidden="true">
+        <span className="s-blob s-blob-1" />
+        <span className="s-blob s-blob-2" />
+        <span className="s-blob s-blob-3" />
+      </div>
       <div className="story-inner story-trust-inner">
         <div className="trust-head">
-          <span className="section-kicker">
-            <ShieldCheck size={16} />
-            为什么值得托付
-          </span>
           <h2>
-            把餐交给我们，<span>你在信任什么？</span>
+            凭什么<span>信任我们？</span>
           </h2>
         </div>
 
@@ -521,74 +536,6 @@ function TrustSection() {
             </li>
           ))}
         </ul>
-      </div>
-    </section>
-  );
-}
-
-function BeliefSection() {
-  return (
-    <section className="story-section story-belief section-panel panel-cream" aria-label="我们的信念">
-      <div className="story-belief-glow" />
-      <div className="story-inner story-belief-inner">
-        <div className="belief-grid">
-          {/* ── 左侧：信念文案 ── */}
-          <div className="belief-copy">
-            <span className="section-kicker">
-              <Heart size={16} />
-              我们为什么做这件事
-            </span>
-            <p className="belief-pre">说到底，我们只想帮你做到一件事——</p>
-            <h2 className="belief-line">
-              <ShinyText text="好好吃饭，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
-              <ShinyText
-                text="也可以很轻松。"
-                color="#2b1f14"
-                shineColor="#e88a4a"
-                speed={3}
-                spread={120}
-                direction="left"
-                className="belief-line-2"
-              />
-            </h2>
-
-            <p className="belief-creed-intro">我们相信 ——</p>
-            <ul className="belief-creed">
-              <li>健康，不必是一场靠意志硬扛的苦行</li>
-              <li>好好吃饭，不该再抢走你本就不够用的精力</li>
-              <li>被认真对待的每一餐，都值得</li>
-            </ul>
-
-            <p className="belief-sub">少一点纠结，多一点踏实。你的下一餐，就从这里开始。</p>
-            <p className="belief-sign">—— 折耳根团队 · 20 位营养师与主厨，替你把关每一餐</p>
-
-            <a className="belief-cue" href="#download">
-              现在就开始
-              <ArrowDown size={16} />
-            </a>
-          </div>
-
-          {/* ── 右侧：品牌视觉 + 数据证明卡 ── */}
-          <div className="belief-visual">
-            <img
-              src="/zheergan-healthy-meals/images/belief-lifestyle.jpg"
-              alt="在自然光下轻松享受健康餐的美好时刻"
-              loading="lazy"
-            />
-            <div className="belief-proof-card">
-              <div className="proof-card-head">
-                <Target size={17} />
-                <span>智能配餐引擎</span>
-              </div>
-              <strong className="proof-card-stat">94%</strong>
-              <span className="proof-card-label">热量目标匹配度</span>
-              <div className="proof-card-bar">
-                <div className="proof-card-fill" />
-              </div>
-              <p className="proof-card-note">算法根据你的身体数据，精准配平每一餐</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -658,10 +605,10 @@ function MenuShowcase() {
           </span>
           <h2>
             每周焕新，
-            <span>把食欲交给厨师。</span>
+            <span>道道都是硬菜。</span>
           </h2>
           <p>
-            38+ 道由营养师与主厨共同设计的健康餐，按你的热量目标与口味偏好轮换上新。下滑浏览本周在售餐品。
+            30 道由营养师与合作商家主厨共同设计的健康餐,按你的热量目标与口味偏好每月轮换上新。下滑浏览本月在售餐品。
           </p>
         </div>
         <a className="menu-head-cta" href="#/menu">
@@ -714,7 +661,7 @@ const faqs = [
   },
   {
     q: '食材新鲜吗？来源可靠吗？',
-    a: '当日现做、当日冷链直送，绝不隔夜。肉蛋来自可追溯供应商，蔬菜每日直采，每一批次留样检测。',
+    a: '合作商家接单后现做出餐,保温热链直送,到手还是热的,绝不隔夜。肉蛋来自可追溯供应商,蔬菜每日直采,每一批次留样检测。',
   },
   {
     q: '有过敏原或忌口怎么办？',
@@ -722,19 +669,20 @@ const faqs = [
   },
   {
     q: '到手怎么加热更好吃？',
-    a: '大部分餐品微波 2–3 分钟即可，包装上印有针对性的复热建议；沙拉类冷藏保存、开袋即食。',
+    a: '热链配送到手即食，开盖直接吃。万一凉了，大部分餐品微波 2–3 分钟即可恢复出锅口感，包装上印有针对性的复热建议；沙拉类为冷食设计，冷藏保存、开袋即食。',
   },
 ];
 
 function FaqSection() {
   return (
     <section className="faq section-panel panel-cream" id="faq" aria-label="常见问题">
+      <div className="section-blobs" aria-hidden="true">
+        <span className="s-blob s-blob-1" />
+        <span className="s-blob s-blob-2" />
+        <span className="s-blob s-blob-3" />
+      </div>
       <div className="story-inner faq-inner">
         <div className="faq-head">
-          <span className="section-kicker">
-            <HelpCircle size={16} />
-            还有些小顾虑？
-          </span>
           <h2 className="faq-title">你想问的，我们先答了。</h2>
           <p className="faq-sub">关于配送、价格、食材与忌口，这里是最常被问到的六个问题。</p>
         </div>
@@ -759,19 +707,19 @@ function FaqSection() {
 function DownloadSection() {
   return (
     <section className="download section-panel panel-cream" id="download" aria-label="下载健康餐 App">
-      <div className="download-bg" />
+      <div className="section-blobs" aria-hidden="true">
+        <span className="s-blob s-blob-1" />
+        <span className="s-blob s-blob-2" />
+        <span className="s-blob s-blob-3" />
+      </div>
       <div className="download-grid max-frame">
         <div className="download-copy">
-          <span className="section-kicker">
-            <ScanLine size={16} />
-            开始你的第一周健康餐
-          </span>
           <h2>
             把下一餐，
             <span>交给折耳根健康餐。</span>
           </h2>
           <p>
-            下载 App，设置你的口味、目标和用餐时间。折耳根健康餐会生成每周餐食计划，并把新鲜、克制、好吃的健康餐准时送到你身边。
+            下载 App → 填 3 个数字 → 明天中午,第一餐到。不好吃?随时停,没花完的钱全退。
           </p>
 
           <div className="download-actions" aria-label="应用下载链接">
@@ -794,7 +742,7 @@ function DownloadSection() {
 
         <div className="download-card" aria-label="扫码下载">
           <div className="qr-shell">
-            <QrCode size={126} strokeWidth={1.4} />
+            <img src="/zheergan-healthy-meals/images/qrcode.jpg" alt="扫码下载折耳根健康餐 App" />
           </div>
           <div className="download-card-copy">
             <span>Scan to download</span>
@@ -802,7 +750,7 @@ function DownloadSection() {
           </div>
           <div className="tiny-specs">
             <span>个性营养目标</span>
-            <span>新鲜配送</span>
+            <span>保温到手</span>
             <span>每周餐食计划</span>
           </div>
         </div>
@@ -862,7 +810,7 @@ function Footer() {
             <p className="footer-mission">
               好好吃饭，也可以很轻松。
               <br />
-              把每一餐，交给认真对待它的人。
+              算法定制 · 商家现做 · 美团保温配送
             </p>
             <div className="footer-social" aria-label="关注我们">
               {footerSocials.map((s) => (

@@ -196,6 +196,7 @@
 /* ---- 四大章节:图文交替 ---- */
 .f-section {
   position: relative;
+  overflow: hidden;
   padding: clamp(64px, 8vw, 120px) 0;
   border-top: 1px solid rgba(43, 31, 20, 0.08);
 }
@@ -206,6 +207,8 @@
 }
 
 .f-section-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
@@ -337,8 +340,15 @@
 
 /* ---- 热链 vs 冷链对比 ---- */
 .f-compare {
+  position: relative;
+  overflow: hidden;
   padding: clamp(64px, 8vw, 120px) 0;
   border-top: 1px solid rgba(43, 31, 20, 0.08);
+}
+
+.f-compare-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .f-compare-title {

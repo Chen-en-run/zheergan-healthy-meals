@@ -82,10 +82,13 @@
 /* ---- 餐品网格 ---- */
 .m-dishes {
   position: relative;
+  overflow: hidden;
   padding: 0 0 clamp(56px, 7vw, 96px);
 }
 
 .m-dish-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
