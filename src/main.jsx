@@ -742,7 +742,7 @@ function DownloadSection() {
 
         <div className="download-card" aria-label="扫码下载">
           <div className="qr-shell">
-            <img src="/zheergan-healthy-meals/images/qrcode.jpg" alt="扫码下载折耳根健康餐 App" />
+            <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载折耳根健康餐 App" />
           </div>
           <div className="download-card-copy">
             <span>Scan to download</span>

@@ -1982,52 +1982,136 @@ img {
   line-height: 1.5;
 }
 
-/* --- 滚动淡入（仅在支持的浏览器启用；不支持则默认可见做兜底） --- */
+/* ================================================================ */
+/* 差异化入场动画:按版块内容类型分组,替换全站 uniform rise         */
+/* 依赖 @supports (animation-timeline: view()) 兜底为默认可见      */
+/* ================================================================ */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
+
+    /* ── 纯文字型:柔和淡入,不位移 ── */
     .pain-item,
-    .answer-line,
-    .answer-lede,
-    .answer-visual-card,
-    .step-card,
-    .trust-stat,
     .testimonial-card,
-    .belief-pre,
-    .belief-line,
-    .belief-creed-intro,
-    .belief-creed li,
-    .belief-sub,
-    .belief-sign,
-    .belief-cue,
-    .belief-visual,
-    .belief-proof-card {
+    .faq-title,
+    .faq-sub,
+    .faq-item {
       opacity: 0;
-      animation: story-rise linear both;
+      animation: reveal-fade linear both;
       animation-timeline: view();
-      animation-range: entry 4% cover 28%;
+      animation-range: entry 8% cover 40%;
     }
 
-    .belief-creed li:nth-child(1) {
-      animation-range: entry 2% cover 22%;
+    /* ── 数据型:数字先到,盒子跟随 ── */
+    .trust-stat {
+      opacity: 0;
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 2% cover 30%;
     }
-    .belief-creed li:nth-child(2) {
-      animation-range: entry 6% cover 26%;
+
+    /* ── 图文混合型:图片先入场(早触发,长区间),文字跟随 ── */
+    .answer-visual-card {
+      opacity: 0;
+      animation: reveal-slide-in linear both;
+      animation-timeline: view();
+      animation-range: entry 2% cover 40%;
     }
-    .belief-creed li:nth-child(3) {
-      animation-range: entry 10% cover 30%;
+    .answer-line,
+    .answer-lede {
+      opacity: 0;
+      animation: reveal-fade linear both;
+      animation-timeline: view();
+      animation-range: entry 16% cover 44%;
+    }
+
+    /* ── 序列型:三步卡依次错峰(间隔拉大) ── */
+    .step-card {
+      opacity: 0;
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 40%;
+    }
+    .steps-track li:nth-child(2) .step-card {
+      animation-range: entry 12% cover 48%;
+    }
+    .steps-track li:nth-child(3) .step-card {
+      animation-range: entry 20% cover 56%;
+    }
+
+    /* ── 产品型:餐单卡从中心浮现 ── */
+    .menu-card {
+      opacity: 0;
+      animation: reveal-scale-in linear both;
+      animation-timeline: view();
+      animation-range: entry 2% cover 36%;
+    }
+    .menu-head-copy,
+    .menu-head-cta {
+      opacity: 0;
+      animation: reveal-fade linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 24%;
     }
   }
 }
 
-@keyframes story-rise {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+/* ── 下载区:从下方弹入(稍带弹性) ── */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .download-card {
+      opacity: 0;
+      animation: reveal-pop-up linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 40%;
+    }
+    .download-copy {
+      opacity: 0;
+      animation: reveal-fade linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+}
+
+/* ── Hero:页面加载即淡入,不依赖滚动 ── */
+.hero-copy {
+  animation: hero-load 0.7s var(--ease-out) both;
+}
+.hero-visual {
+  animation: hero-load 0.7s 0.15s var(--ease-out) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy,
+  .hero-visual {
+    animation: none;
   }
+}
+
+/* ── Keyframes 库(幅度翻倍,区别肉眼可见) ── */
+@keyframes reveal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes reveal-rise {
+  from { opacity: 0; transform: translateY(48px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal-slide-in {
+  from { opacity: 0; transform: translateX(80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes reveal-scale-in {
+  from { opacity: 0; transform: scale(0.82); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes reveal-pop-up {
+  from { opacity: 0; transform: translateY(60px); }
+  65%  { opacity: 1; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-load {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* --- 响应式 --- */
@@ -2550,19 +2634,7 @@ img {
   }
 }
 
-/* --- FAQ 滚动淡入 --- */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .faq-title,
-    .faq-sub,
-    .faq-item {
-      opacity: 0;
-      animation: story-rise linear both;
-      animation-timeline: view();
-      animation-range: entry 2% cover 26%;
-    }
-  }
-}
+/* FAQ 已在上方统一动画块中覆盖(纯文字型 fade) */
 
 /* ================================================================ */
 /* 全站浅色主题:除「痛点」屏外,全部版块改奶油浅底 + 深色文字         */

@@ -267,6 +267,18 @@
   flex: none;
 }
 
+/* ---- 菜品卡入场 ---- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .m-dish {
+      opacity: 0;
+      animation: reveal-scale-in linear both;
+      animation-timeline: view();
+      animation-range: entry 2% cover 34%;
+    }
+  }
+}
+
 /* ---- 响应式 ---- */
 @media (max-width: 1024px) {
   .m-dish-grid {
