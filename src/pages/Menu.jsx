@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {
-  ArrowUp,
   Flame,
-  Sparkles,
   Utensils,
 } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
@@ -74,9 +72,7 @@ export default function MenuPage() {
           <nav className="nav-links" aria-label="主导航">
             <a href="#/">首页</a>
             <a href="#/features">功能介绍</a>
-            <a href="#/pricing">价格方案</a>
             <a href="#/menu" className="is-active" aria-current="page">每月餐单</a>
-            <a href="#download">下载 App</a>
           </nav>
         </div>
       </header>
@@ -136,11 +132,6 @@ export default function MenuPage() {
 
       {/* ── 餐品网格 ── */}
       <section className="m-dishes" aria-label="本月在售餐品">
-        <div className="section-blobs" aria-hidden="true">
-          <span className="s-blob s-blob-1" />
-          <span className="s-blob s-blob-2" />
-          <span className="s-blob s-blob-3" />
-        </div>
         <div className="m-dish-grid max-frame">
           {shown.map((dish) => (
             <article
@@ -173,45 +164,8 @@ export default function MenuPage() {
           <p className="m-dish-empty max-frame">这个标签下本月暂无餐品,看看别的分类吧。</p>
         )}
 
-        <p className="m-dish-note max-frame">
-          <Sparkles size={14} aria-hidden="true" />
-          实际可订餐品以 App 内你的定制餐单为准——算法会按你的热量目标与忌口自动过滤。
-        </p>
       </section>
 
-      {/* ── 页脚 ── */}
-      <footer className="features-footer" aria-label="页脚">
-        <div className="max-frame features-footer-inner">
-          <a className="brand" href="#/" aria-label="折耳根健康餐">
-            <span className="brand-mark">
-              <img
-                src="/zheergan-healthy-meals/brand-icon.jpg"
-                alt="折耳根"
-                className="brand-icon-img"
-              />
-            </span>
-            <span>折耳根健康餐</span>
-          </a>
-          <div className="features-footer-links">
-            <a href="#/">首页</a>
-            <a href="#/features">功能介绍</a>
-            <a href="#/pricing">价格方案</a>
-            <a href="#download">下载 App</a>
-          </div>
-          <span className="features-footer-copy">每月 1 日焕新,30 道菜轮着吃。© 2026 折耳根健康餐</span>
-          <a
-            className="features-footer-top"
-            href="#/menu"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            回到顶部
-            <ArrowUp size={15} />
-          </a>
-        </div>
-      </footer>
     </main>
   );
 }

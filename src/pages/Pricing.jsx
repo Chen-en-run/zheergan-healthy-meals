@@ -93,7 +93,6 @@ export default function PricingPage() {
             <a href="#/features">功能介绍</a>
             <a href="#/pricing" className="is-active" aria-current="page">价格方案</a>
             <a href="#/menu">每月餐单</a>
-            <a href="#download">下载 App</a>
           </nav>
         </div>
       </header>
@@ -138,11 +137,6 @@ export default function PricingPage() {
 
       {/* ── 三档方案 ── */}
       <section className="price-section" aria-label="订购方案">
-        <div className="section-blobs" aria-hidden="true">
-          <span className="s-blob s-blob-1" />
-          <span className="s-blob s-blob-2" />
-          <span className="s-blob s-blob-3" />
-        </div>
         <div className="price-grid max-frame">
           {plans.map((plan) => (
             <article
@@ -188,11 +182,6 @@ export default function PricingPage() {
 
       {/* ── 保障条 ── */}
       <section className="assure-section" aria-label="订购保障">
-        <div className="section-blobs" aria-hidden="true">
-          <span className="s-blob s-blob-1" />
-          <span className="s-blob s-blob-2" />
-          <span className="s-blob s-blob-3" />
-        </div>
         <div className="assure-strip max-frame">
           {assurances.map((item) => {
             const Icon = item.icon;
@@ -229,7 +218,6 @@ export default function PricingPage() {
             <a href="#/features">功能介绍</a>
             <a href="#/menu">每月餐单</a>
             <a href="#faq">常见问题</a>
-            <a href="#download">下载 App</a>
           </div>
           <span className="features-footer-copy">和一顿外卖差不多的钱,换算法定制 + 热链到手。© 2026 折耳根健康餐</span>
           <a

@@ -3,9 +3,8 @@ import { createRoot } from 'react-dom/client';
 import {
   Apple,
   ArrowDown,
-  ArrowDownRight,
   ArrowUp,
-  ChefHat,
+  Check,
   ChevronDown,
   Clock,
   Frown,
@@ -13,15 +12,11 @@ import {
   Quote,
   Sparkles,
   Star,
-  Target,
   TrendingDown,
-  Truck,
-  Utensils,
 } from 'lucide-react';
 import Galaxy from './components/Galaxy';
 import ShinyText from './components/ShinyText';
 import FeaturesPage from './pages/Features';
-import PricingPage from './pages/Pricing';
 import MenuPage from './pages/Menu';
 import './styles.css';
 
@@ -36,7 +31,6 @@ function useRoute() {
   const resolve = () => {
     const h = window.location.hash;
     if (h.startsWith('#/features')) return 'features';
-    if (h.startsWith('#/pricing')) return 'pricing';
     if (h.startsWith('#/menu')) return 'menu';
     return 'home';
   };
@@ -49,12 +43,16 @@ function useRoute() {
       if (resolve() === 'home') {
         const id = window.location.hash.replace(/^#/, '');
         if (id && !id.startsWith('/')) {
-          // 等 React 渲染完再滚
           requestAnimationFrame(() => {
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+            const el = document.getElementById(id);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
           });
         } else {
-          requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+          requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
         }
       } else {
         // 进入子页:滚到顶部
@@ -137,12 +135,34 @@ function HomePage() {
         />
       </div>
       <div className="grain" aria-hidden="true" />
+      {/* 全局光斑:贯穿整页,无缝流动 */}
+      <div className="global-blobs" aria-hidden="true">
+        <span className="s-blob s-blob-1" />
+        <span className="s-blob s-blob-2" />
+        <span className="s-blob s-blob-3" />
+      </div>
+      {/* 全局玻璃导航:sticky 贯穿全页,与子页一致 */}
+      <header className="home-nav">
+        <div className="home-nav-inner max-frame">
+          <a className="brand" href="#top" aria-label="折耳根健康餐">
+            <span className="brand-mark">
+              <img src="/zheergan-healthy-meals/brand-icon.jpg" alt="折耳根" className="brand-icon-img" />
+            </span>
+            <span>折耳根健康餐</span>
+          </a>
+          <nav className="nav-links" aria-label="主导航">
+            <a href="#top">首页</a>
+            <a href="#/features">功能介绍</a>
+            <a href="#/menu">每月餐单</a>
+          </nav>
+        </div>
+      </header>
       <Hero />
       <PainSection />
       <AnswerSection />
       <StepsSection />
+      <PricingInline />
       <TrustSection />
-      <MenuShowcase />
       <FaqSection />
       <DownloadSection />
       <Footer />
@@ -222,27 +242,8 @@ function Hero() {
         <span className="blob blob-4" />
       </div>
       <div className="texture" />
-      <header className="nav max-frame">
-        <a className="brand" href="#top" aria-label="折耳根健康餐">
-          <span className="brand-mark">
-            <img src="/zheergan-healthy-meals/brand-icon.jpg" alt="折耳根" className="brand-icon-img" />
-          </span>
-          <span>折耳根健康餐</span>
-        </a>
-        <nav className="nav-links" aria-label="主导航">
-          <a href="#/features">功能介绍</a>
-          <a href="#/pricing">价格方案</a>
-          <a href="#/menu">每月餐单</a>
-          <a href="#download">下载 App</a>
-        </nav>
-      </header>
-
       <div className="hero-grid max-frame">
         <div className="hero-copy">
-          <div className="eyebrow">
-            <Sparkles size={16} />
-            折耳根健康餐 App
-          </div>
           <h1>
             <ShinyText text="人间烟火，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" />
             <ShinyText text="热乎到桌的健康餐。" color="#2b1f14" shineColor="#e88a4a" speed={3} spread={110} direction="left" className="hero-shiny-line" />
@@ -252,13 +253,26 @@ function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a className="primary-button" href="#download">
-              下载体验
-              <ArrowDownRight size={18} />
-            </a>
-            <a className="secondary-button" href="#/menu">
-              浏览本周餐单
-            </a>
+            <div className="download-btn-group">
+              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+                Android 下载
+              </a>
+              <div className="download-qr-pop">
+                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <span>手机扫码下载</span>
+              </div>
+            </div>
+            <div className="download-btn-group">
+              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
+                <Apple size={20} />
+                iOS 下载
+              </a>
+              <div className="download-qr-pop">
+                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <span>手机扫码下载</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -282,12 +296,7 @@ const painPoints = [
 function PainSection() {
   return (
     <section className="story-section story-pain section-panel panel-cream" aria-label="健康饮食的困扰">
-      <div className="section-blobs" aria-hidden="true">
-        <span className="s-blob s-blob-1" />
-        <span className="s-blob s-blob-2" />
-        <span className="s-blob s-blob-3" />
-      </div>
-      <div className="story-inner story-pain-inner">
+<div className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
           想吃得健康，<span>怎么就这么难？</span>
         </h2>
@@ -333,12 +342,7 @@ function AnswerSection() {
       className="story-section story-answer section-panel panel-cream"
       id="about"
     >
-      <div className="section-blobs" aria-hidden="true">
-        <span className="s-blob s-blob-1" />
-        <span className="s-blob s-blob-2" />
-        <span className="s-blob s-blob-3" />
-      </div>
-      <div className="story-inner story-answer-inner"
+<div className="story-inner story-answer-inner"
       aria-label="折耳根健康餐是什么"
     >
         <h2 className="answer-line">
@@ -374,39 +378,34 @@ function AnswerSection() {
 }
 
 const steps = [
-  { no: '01', icon: Target, title: '设定目标', desc: '告诉我们你的口味、热量目标和用餐时间' },
-  { no: '02', icon: ChefHat, title: '智能配餐', desc: '营养师 + 算法为你搭好整周餐单' },
-  { no: '03', icon: Truck, title: '准时送达', desc: '开盖热气扑脸，不用微波炉' },
+  { no: '01', title: '设定目标', desc: '告诉我们你的身高、体重、减脂或增肌目标,以及日常活动强度。', detail: '算法用 TDEE = BMR × PAL 推你的每日总消耗。一位 65kg 轻体力活动者,BMR 约 1500 kcal,乘 PAL 1.55,每日大约需要 2325 kcal——每公斤约 35.8 kcal。这个数字,就是你所有餐单的起点。', specs: ['BMR 基于身高·体重·年龄', 'PAL 五档:1.55/1.78/2.10', '28 项过敏忌口可标记'] },
+  { no: '02', title: '智能配餐', desc: '引擎根据你的 TDEE,从合作商家菜单中自动筛选匹配。', detail: '按热量匹配度 → 蛋白质达标率 → 口味吻合度 → 食材多样性四层排序。减脂者每日缺口 300–500 kcal,蛋白质按体重 × 1.6g/kg 锁定底线;每道菜上架前需营养师团队 3 轮盲测——热量达标但不好吃,照样打回。', specs: ['热量匹配度平均 94%', '蛋白质底线 1.2–2.0g/kg 自动计算', '严选商家 · 天然调味 · 拒绝工业酱料'] },
+  { no: '03', title: '准时送达', desc: '商家接单后现做出餐,装入保温箱,美团骑手实时配送。', detail: '从商家出锅到你的餐桌全程保温,到手中心温度 ≥60°C。开盖即食,不用微波炉——热链配送不是冷链复热,是刚出锅的样子。', specs: ['接单现做 · 不是预制菜', '到手 ≥60°C · 开盖热气不骗人', '接入美团配送网络 · 实时追踪'] },
 ];
 
 function StepsSection() {
   return (
     <section className="story-section story-steps section-panel panel-cream" aria-label="使用流程">
-      <div className="section-blobs" aria-hidden="true">
-        <span className="s-blob s-blob-1" />
-        <span className="s-blob s-blob-2" />
-        <span className="s-blob s-blob-3" />
-      </div>
-      <div className="story-inner story-steps-inner">
+<div className="story-inner story-steps-inner">
         <div className="steps-head">
           <h2>三步，开启你的健康饮食</h2>
         </div>
         <ol className="steps-track">
-          {steps.map((step) => {
-            const Icon = step.icon;
-            return (
-              <li key={step.no}>
-                <div className="step-card">
-                  <span className="step-no">{step.no}</span>
-                  <span className="step-icon">
-                    <Icon size={26} />
-                  </span>
-                  <h3>{step.title}</h3>
-                  <p>{step.desc}</p>
-                </div>
-              </li>
-            );
-          })}
+          {steps.map((step) => (
+            <li key={step.no}>
+              <div className="step-card">
+                <span className="step-no">{step.no}</span>
+                <h3>{step.title}</h3>
+                <p className="step-desc">{step.desc}</p>
+                <p className="step-detail">{step.detail}</p>
+                <ul className="step-specs">
+                  {step.specs.map((s) => (
+                    <li key={s}><Check size={14} />{s}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))}
         </ol>
       </div>
     </section>
@@ -497,15 +496,87 @@ const testimonials = [
   },
 ];
 
+const pricingPlans = [
+  { name: '体验装', price: 228, per: '¥38/餐', spec: '3天·6餐', feats: ['算法定制3日餐单', '午晚双餐热链配送', '随时暂停·无违约金'], cta: '试3天' },
+  { name: '周计划', price: 476, per: '¥34/餐', spec: '7天·14餐', feats: ['含体验装全部', '每周口味学习调优', '营养师周报', '免配送费'], cta: '最划算', hot: true },
+  { name: '月计划', price: 1792, per: '¥32/餐', spec: '28天·56餐', feats: ['含周计划全部', '1对1营养师咨询', '体重体脂追踪', '优先配送时段'], cta: '深度定制' },
+];
+
+function PricingInline() {
+  return (
+    <section className="story-section section-panel panel-cream" aria-label="价格方案">
+      <div className="story-inner" style={{ paddingBottom: '80px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '52px' }}>
+          好好吃饭，<span style={{ color: '#000' }}>其实没那么贵。</span>
+        </h2>
+        <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '18px', maxWidth: '1100px', margin: '0 auto' }}>
+          {pricingPlans.map((plan) => (
+            <article
+              key={plan.name}
+              style={{
+                display: 'flex', flexDirection: 'column', padding: '28px 24px 24px',
+                border: plan.hot ? '1px solid rgba(255,214,170,0.9)' : '1px solid rgba(255,255,255,0.68)',
+                borderRadius: 'var(--r-2xl)',
+                background: plan.hot
+                  ? 'linear-gradient(150deg, rgba(255,231,205,0.72), rgba(255,244,226,0.4))'
+                  : 'linear-gradient(150deg, rgba(255,255,255,0.55), rgba(255,255,255,0.26))',
+                backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
+                boxShadow: plan.hot
+                  ? 'inset 0 1px 0 rgba(255,255,255,0.95), 0 26px 68px rgba(194,97,31,0.2)'
+                  : 'inset 0 1px 0 rgba(255,255,255,0.9), 0 22px 60px rgba(43,31,20,0.12)',
+                transition: 'transform 220ms ease',
+              }}
+            >
+              <div style={{ marginBottom: '18px' }}>
+                <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: 'var(--ink-cream)' }}>{plan.name}</h3>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginTop: '14px' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--ember-ink)' }}>¥</span>
+                  <strong style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(38px, 3vw, 50px)', fontWeight: 700, lineHeight: 1, color: 'var(--ink-cream)' }}>{plan.price}</strong>
+                </div>
+                <div style={{ marginTop: '8px' }}>
+                  <span style={{ display: 'inline-block', padding: '4px 10px', color: 'var(--ember-ink)', borderRadius: '999px', background: 'rgba(194,97,31,0.1)', fontSize: '12px', fontWeight: 700 }}>{plan.per}</span>
+                  <span style={{ display: 'block', marginTop: '6px', color: 'var(--muted-cream)', fontSize: '13px' }}>{plan.spec}</span>
+                </div>
+              </div>
+              <ul style={{ listStyle: 'none', margin: '0 0 20px', padding: '16px 0 0', borderTop: '1px solid var(--line-cream)', display: 'grid', gap: '10px' }}>
+                {plan.feats.map((f) => (
+                  <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: 'var(--ink-body)', fontSize: '13.5px', lineHeight: 1.5 }}>
+                    <Check size={15} style={{ flex: 'none', marginTop: '2px', color: 'var(--ember-ink)' }} />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginTop: 'auto',
+                  minHeight: '46px', padding: '10px 18px', borderRadius: '999px',
+                  color: plan.hot ? '#fff' : 'var(--ink-cream)',
+                  border: plan.hot ? '1px solid rgba(255,255,255,0.55)' : '1px solid rgba(255,255,255,0.7)',
+                  background: plan.hot
+                    ? 'linear-gradient(135deg, rgba(232,138,74,0.85), rgba(194,97,31,0.9))'
+                    : 'linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.24))',
+                  fontWeight: 700, fontSize: '14px', textDecoration: 'none',
+                  boxShadow: plan.hot ? 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(194,97,31,0.3)' : 'inset 0 1px 0 rgba(255,255,255,0.85)',
+                }}
+              >
+                {plan.cta}
+              </a>
+            </article>
+          ))}
+        </div>
+        <p style={{ textAlign: 'center', marginTop: '20px', color: 'var(--soft-cream)', fontSize: '13px' }}>
+          价格已含包装与配送 · 随时暂停,未配送餐费全额保留
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function TrustSection() {
   return (
     <section className="story-section story-trust section-panel panel-cream" aria-label="为什么信任我们">
-      <div className="section-blobs" aria-hidden="true">
-        <span className="s-blob s-blob-1" />
-        <span className="s-blob s-blob-2" />
-        <span className="s-blob s-blob-3" />
-      </div>
-      <div className="story-inner story-trust-inner">
+<div className="story-inner story-trust-inner">
         <div className="trust-head">
           <h2>
             凭什么<span>信任我们？</span>
@@ -541,111 +612,6 @@ function TrustSection() {
   );
 }
 
-const menuItems = [
-  {
-    no: '01',
-    title: '烟熏三文鱼平衡碗',
-    kcal: '486 kcal',
-    protein: '36g 蛋白质',
-    tag: '高蛋白',
-    image: '/zheergan-healthy-meals/images/salmon.jpg',
-  },
-  {
-    no: '02',
-    title: '柑香鸡肉谷物碗',
-    kcal: '532 kcal',
-    protein: '42g 蛋白质',
-    tag: '本周主推',
-    image: '/zheergan-healthy-meals/images/chicken.jpg',
-  },
-  {
-    no: '03',
-    title: '牛油果绿蔬蛋碗',
-    kcal: '418 kcal',
-    protein: '28g 蛋白质',
-    tag: '低卡',
-    image: '/zheergan-healthy-meals/images/avocado.jpg',
-  },
-  {
-    no: '04',
-    title: '藜麦能量碗',
-    kcal: '462 kcal',
-    protein: '24g 蛋白质',
-    tag: '高纤维',
-    image: '/zheergan-healthy-meals/images/quinoa.jpg',
-  },
-  {
-    no: '05',
-    title: '田园时蔬沙拉',
-    kcal: '320 kcal',
-    protein: '18g 蛋白质',
-    tag: '轻食',
-    image: '/zheergan-healthy-meals/images/salad.jpg',
-  },
-  {
-    no: '06',
-    title: '金枪鱼波奇碗',
-    kcal: '508 kcal',
-    protein: '38g 蛋白质',
-    tag: '高蛋白',
-    image: '/zheergan-healthy-meals/images/tuna.jpg',
-  },
-];
-
-/* 首页餐单预告区:完整餐单与筛选在 #/menu 子页 */
-function MenuShowcase() {
-  return (
-    <section className="menu-showcase section-panel panel-cream" id="menu" aria-label="本周餐单">
-      <div className="menu-showcase-bg" />
-      <div className="menu-head max-frame">
-        <div className="menu-head-copy">
-          <span className="section-kicker">
-            <Utensils size={16} />
-            本周精选餐单
-          </span>
-          <h2>
-            每周焕新，
-            <span>道道都是硬菜。</span>
-          </h2>
-          <p>
-            30 道由营养师与合作商家主厨共同设计的健康餐,按你的热量目标与口味偏好每月轮换上新。下滑浏览本月在售餐品。
-          </p>
-        </div>
-        <a className="menu-head-cta" href="#/menu">
-          查看完整餐单
-          <ArrowDownRight size={18} />
-        </a>
-      </div>
-
-      <div className="menu-grid max-frame">
-        {menuItems.map((item, index) => (
-          <article className={`menu-card menu-card-${index + 1}`} key={item.title}>
-            <div className="menu-card-media">
-              <img src={item.image} alt={item.title} loading="lazy" />
-            </div>
-            <span className="menu-card-no">{item.no}</span>
-            <span className="menu-card-tag">{item.tag}</span>
-            <div className="menu-card-info">
-              <h3>{item.title}</h3>
-              <div className="menu-card-meta">
-                <span>{item.kcal}</span>
-                <span>{item.protein}</span>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <div className="menu-foot max-frame">
-        <span>更多餐品在 App 内按口味与目标定制</span>
-        <a className="secondary-button" href="#/menu">
-          浏览完整餐单
-        </a>
-      </div>
-    </section>
-  );
-}
-
 const faqs = [
   {
     q: '配送范围覆盖哪些城市？',
@@ -676,12 +642,7 @@ const faqs = [
 function FaqSection() {
   return (
     <section className="faq section-panel panel-cream" id="faq" aria-label="常见问题">
-      <div className="section-blobs" aria-hidden="true">
-        <span className="s-blob s-blob-1" />
-        <span className="s-blob s-blob-2" />
-        <span className="s-blob s-blob-3" />
-      </div>
-      <div className="story-inner faq-inner">
+<div className="story-inner faq-inner">
         <div className="faq-head">
           <h2 className="faq-title">你想问的，我们先答了。</h2>
           <p className="faq-sub">关于配送、价格、食材与忌口，这里是最常被问到的六个问题。</p>
@@ -707,12 +668,7 @@ function FaqSection() {
 function DownloadSection() {
   return (
     <section className="download section-panel panel-cream" id="download" aria-label="下载健康餐 App">
-      <div className="section-blobs" aria-hidden="true">
-        <span className="s-blob s-blob-1" />
-        <span className="s-blob s-blob-2" />
-        <span className="s-blob s-blob-3" />
-      </div>
-      <div className="download-grid max-frame">
+<div className="download-grid max-frame">
         <div className="download-copy">
           <h2>
             把下一餐，
@@ -723,20 +679,26 @@ function DownloadSection() {
           </p>
 
           <div className="download-actions" aria-label="应用下载链接">
-            <a className="store-button" href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer">
-              <Apple size={22} />
-              <span>
-                Download on
-                <strong>App Store</strong>
-              </span>
-            </a>
-            <a className="store-button" href="https://play.google.com/store" target="_blank" rel="noreferrer">
-              <span className="play-icon">▶</span>
-              <span>
-                Get it on
-                <strong>Google Play</strong>
-              </span>
-            </a>
+            <div className="download-btn-group">
+              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+                Android 下载
+              </a>
+              <div className="download-qr-pop">
+                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <span>手机扫码下载</span>
+              </div>
+            </div>
+            <div className="download-btn-group">
+              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
+                <Apple size={20} />
+                iOS 下载
+              </a>
+              <div className="download-qr-pop">
+                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <span>手机扫码下载</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -789,7 +751,6 @@ const footerCols = [
   },
 ];
 
-const footerSocials = ['微信公众号', '微博', '小红书', '抖音'];
 
 function Footer() {
   return (
@@ -812,13 +773,6 @@ function Footer() {
               <br />
               算法定制 · 商家现做 · 美团保温配送
             </p>
-            <div className="footer-social" aria-label="关注我们">
-              {footerSocials.map((s) => (
-                <span className="footer-social-pill" key={s}>
-                  {s}
-                </span>
-              ))}
-            </div>
           </div>
 
           <nav className="footer-cols" aria-label="页脚导航">
@@ -848,10 +802,6 @@ function Footer() {
             <a href="#top">服务条款</a>
             <span>沪ICP备 2026XXXXXX 号</span>
           </div>
-          <a className="footer-top-link" href="#top">
-            回到顶部
-            <ArrowUp size={15} />
-          </a>
         </div>
       </div>
     </footer>
@@ -861,8 +811,7 @@ function Footer() {
 function App() {
   const route = useRoute();
   if (route === 'features') return <FeaturesPage />;
-  if (route === 'pricing') return <PricingPage />;
-  if (route === 'menu') return <MenuPage />;
+if (route === 'menu') return <MenuPage />;
   return <HomePage />;
 }
 

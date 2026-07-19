@@ -114,11 +114,7 @@ img {
 .site-shell {
   position: relative;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 72% 8%, rgba(255, 180, 92, 0.14), transparent 29rem),
-    radial-gradient(circle at 20% 25%, rgba(255, 180, 92, 0.08), transparent 24rem),
-    radial-gradient(circle at 90% 82%, rgba(255, 180, 92, 0.08), transparent 26rem),
-    var(--cream);
+  background: var(--cream);
 }
 
 /* 浅色主题:暗色星空在奶油底上不再适用,隐藏(且已被不透明版块遮挡) */
@@ -163,7 +159,6 @@ img {
 .section-panel {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 .max-frame {
@@ -262,7 +257,7 @@ img {
   align-items: center;
   gap: clamp(38px, 5vw, 92px);
   min-height: calc(100vh - 92px);
-  padding: 34px 0 74px;
+  padding: 100px 0 74px; /* 顶部留出 fixed nav 的高度 */
 }
 
 /* 中宽屏:空间不足以同时装大标题和大手机,改为更均衡的比例,避免左栏文字被压瘪 */
@@ -1078,11 +1073,6 @@ img {
 .download {
   display: grid;
   place-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    radial-gradient(circle at 22% 72%, rgba(255, 180, 92, 0.12), transparent 26rem),
-    radial-gradient(circle at 78% 26%, rgba(143, 255, 194, 0.13), transparent 28rem),
-    #080907;
 }
 
 .download-bg {
@@ -1368,7 +1358,6 @@ img {
 .story-section {
   display: flex;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .story-inner {
@@ -1558,11 +1547,15 @@ img {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+  align-items: stretch;
 }
 
 .step-card {
   position: relative;
   padding: 40px 34px 38px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .step-no {
@@ -1575,17 +1568,6 @@ img {
   background-clip: text;
 }
 
-.step-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
-  margin-top: 24px;
-  border-radius: 14px;
-  color: var(--ink);
-  background: linear-gradient(135deg, var(--acid), var(--mint));
-}
-
 .step-card h3 {
   margin: 22px 0 0;
   font-size: var(--fs-h3);
@@ -1593,11 +1575,43 @@ img {
   letter-spacing: 0;
 }
 
-.step-card p {
+.step-desc {
   margin: 12px 0 0;
-  color: var(--muted);
-  font-size: clamp(15px, 1vw, 18px);
-  line-height: 1.65;
+  color: var(--ink-cream);
+  font-size: clamp(16px, 1.05vw, 19px);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.step-detail {
+  margin: 10px 0 0;
+  color: var(--ink-body);
+  font-size: clamp(14px, 0.9vw, 16px);
+  line-height: 1.72;
+}
+
+.step-specs {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--line-cream);
+  display: grid;
+  gap: 8px;
+}
+
+.step-specs li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--muted-cream);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.step-specs svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--ember-ink);
 }
 
 /* --- 信任背书 --- */
@@ -2238,21 +2252,13 @@ img {
 /* --- 浅色奶油版块:通用底色 + 局部反色 --- */
 .panel-cream {
   color: var(--ink-cream);
-  background: var(--cream);
-  border-top: 1px solid rgba(43, 31, 20, 0.08);
 }
 
 .panel-cream .section-kicker {
   color: var(--ember-ink);
 }
 
-/* 答案区:暖纸底 + 双色柔光 */
-.story-answer.panel-cream {
-  background:
-    radial-gradient(circle at 82% 10%, rgba(255, 180, 92, 0.16), transparent 42%),
-    radial-gradient(circle at 10% 92%, rgba(255, 180, 92, 0.1), transparent 40%),
-    var(--cream);
-}
+/* 答案区:底色统一,渐变由 section-blobs 提供 */
 
 .panel-cream .answer-lede {
   color: var(--ink-body);
@@ -2277,13 +2283,7 @@ img {
   color: var(--muted-cream);
 }
 
-/* 信任区:暖纸底 + 双色柔光(明暗节奏第二个浅色锚点,打断中段连续暗屏) */
-.story-trust.panel-cream {
-  background:
-    radial-gradient(circle at 16% 14%, rgba(255, 180, 92, 0.16), transparent 44%),
-    radial-gradient(circle at 88% 86%, rgba(255, 180, 92, 0.1), transparent 42%),
-    var(--cream);
-}
+/* 信任区:底色统一,渐变由 section-blobs 提供 */
 
 .story-trust.panel-cream .trust-head h2 {
   color: #000;
@@ -2346,11 +2346,6 @@ img {
   align-items: center;
 }
 
-.faq.panel-cream {
-  background:
-    radial-gradient(circle at 88% 6%, rgba(255, 180, 92, 0.14), transparent 40%),
-    var(--cream);
-}
 
 .faq-inner {
   display: grid;
@@ -2458,11 +2453,6 @@ img {
 .site-footer {
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    radial-gradient(circle at 14% 0%, rgba(213, 255, 102, 0.06), transparent 38%),
-    radial-gradient(circle at 86% 24%, rgba(255, 180, 92, 0.05), transparent 42%),
-    #060706;
 }
 
 .footer-inner {
@@ -2642,9 +2632,6 @@ img {
 /* ================================================================ */
 
 /* ---- 痛点共鸣(液态玻璃版,已无背景图) ---- */
-.story-pain.panel-cream {
-  border-top: 1px solid rgba(43, 31, 20, 0.08);
-}
 
 .story-pain.panel-cream .section-kicker {
   color: var(--ember-ink);
@@ -2811,12 +2798,7 @@ img {
 }
 
 /* ---- 三步流程 ---- */
-.story-steps.panel-cream {
-  background:
-    radial-gradient(circle at 14% 16%, rgba(255, 180, 92, 0.15), transparent 44%),
-    radial-gradient(circle at 86% 84%, rgba(255, 180, 92, 0.1), transparent 42%),
-    var(--cream);
-}
+/* 三步区:底色统一,渐变由 section-blobs 提供 */
 
 .story-steps.panel-cream .steps-head h2 {
   color: var(--ink-cream);
@@ -2826,16 +2808,12 @@ img {
   background-image: linear-gradient(120deg, var(--ember-ink), var(--olive));
 }
 
-.story-steps.panel-cream .step-icon {
-  color: #fff;
-  background: linear-gradient(135deg, var(--ember), var(--olive));
-}
 
 .story-steps.panel-cream .step-card h3 {
   color: var(--ink-cream);
 }
 
-.story-steps.panel-cream .step-card p {
+.story-steps.panel-cream .step-detail {
   color: var(--ink-body);
 }
 
@@ -2999,13 +2977,6 @@ img {
 /* 信念右侧图片卡与其上的玻璃证明卡:图片卡保留深玻璃质感做锚点 */
 
 /* ---- 下载 CTA ---- */
-.download.panel-cream {
-  background:
-    radial-gradient(circle at 22% 72%, rgba(255, 180, 92, 0.16), transparent 42%),
-    radial-gradient(circle at 78% 26%, rgba(255, 180, 92, 0.12), transparent 44%),
-    var(--cream);
-  border-top: 1px solid rgba(43, 31, 20, 0.08);
-}
 
 .download.panel-cream .download-bg {
   opacity: 0.5;
@@ -3078,13 +3049,6 @@ img {
 }
 
 /* ---- 页脚 ---- */
-.site-footer.panel-cream {
-  background:
-    radial-gradient(circle at 14% 0%, rgba(255, 180, 92, 0.08), transparent 40%),
-    radial-gradient(circle at 86% 24%, rgba(255, 180, 92, 0.06), transparent 44%),
-    var(--cream);
-  border-top: 1px solid rgba(43, 31, 20, 0.1);
-}
 
 .site-footer.panel-cream .footer-top {
   border-bottom-color: var(--line-cream);
@@ -3154,8 +3118,9 @@ img {
 /* ================================================================ */
 
 /* 底色:比通用奶油底更亮一档,让玻璃的白色高光有落点 */
+/* Hero 微渐变:仅顶部 30% 提亮,下方自然融入透明底 */
 .hero.hero--liquid {
-  background: linear-gradient(180deg, #fffef9 0%, var(--cream) 100%);
+  background: linear-gradient(180deg, rgba(255,254,249,1) 0%, rgba(251,249,241,0) 30%);
 }
 
 /* 网格纹理与玻璃气质相悖,液态版隐藏 */
@@ -3167,7 +3132,7 @@ img {
 .hero-blobs {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
 }
 
@@ -3360,13 +3325,26 @@ img {
 /* 全站液态玻璃:可复用光斑 + 全局玻璃卡                             */
 /* ================================================================ */
 
-/* 版块级光斑容器:放在任何 section-panel 里即可 */
+/* 版块级光斑容器(已废弃,改用全局 global-blobs) */
 .section-blobs {
-  position: absolute;
+  display: none;
+}
+
+/* 全局光斑:fixed 贯穿整页,无版块边界 */
+.global-blobs {
+  position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
+}
+
+.global-blobs .s-blob {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform;
 }
 
 .section-blobs .s-blob {
@@ -3380,24 +3358,24 @@ img {
 .s-blob-1 {
   width: clamp(340px, 38vw, 620px);
   left: -10%;
-  top: -14%;
-  background: radial-gradient(circle at 35% 35%, rgba(255, 187, 106, 0.55), rgba(255, 187, 106, 0) 68%);
+  top: 5%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 187, 106, 0.45), rgba(255, 187, 106, 0) 68%);
   animation: blob-drift-a 32s ease-in-out infinite alternate;
 }
 
 .s-blob-2 {
   width: clamp(280px, 30vw, 500px);
-  right: -8%;
-  bottom: -12%;
-  background: radial-gradient(circle at 60% 40%, rgba(230, 168, 96, 0.45), rgba(230, 168, 96, 0) 66%);
+  right: -6%;
+  top: 55%;
+  background: radial-gradient(circle at 60% 40%, rgba(230, 168, 96, 0.38), rgba(230, 168, 96, 0) 66%);
   animation: blob-drift-b 38s ease-in-out infinite alternate;
 }
 
 .s-blob-3 {
-  width: clamp(220px, 24vw, 400px);
-  left: 40%;
-  top: 40%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 214, 140, 0.40), rgba(255, 214, 140, 0) 70%);
+  width: clamp(240px, 26vw, 440px);
+  left: 35%;
+  top: 30%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 214, 140, 0.32), rgba(255, 214, 140, 0) 70%);
   animation: blob-drift-c 28s ease-in-out infinite alternate;
 }
 
@@ -3470,6 +3448,134 @@ summary:focus-visible {
 ::selection {
   background: var(--ember-100);
   color: var(--ink-cream);
+}
+
+/* 首页导航:fixed 浮在页面上方,不占文档流,贯穿全页 */
+.home-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding: 12px 0 0;
+  pointer-events: none; /* 让点击穿透到下层...不,导航本身需要可点 */
+}
+
+/* 导航本身可交互 */
+.home-nav .home-nav-inner {
+  pointer-events: auto;
+}
+
+/* ── 下载按钮 + hover 弹出二维码(Marvis 风格) ── */
+.download-btn-group {
+  position: relative;
+  display: inline-flex;
+}
+
+.download-qr-pop {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  border-radius: var(--r-lg);
+  background: #fff;
+  box-shadow: 0 20px 52px rgba(43, 31, 20, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, transform 0.22s var(--ease-out), visibility 0.22s;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.download-qr-pop img {
+  width: 140px;
+  min-width: 140px;
+  max-width: 140px;
+  height: 140px;
+  flex: none;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.download-qr-pop span {
+  font-size: 12px;
+  color: var(--muted-cream);
+  white-space: nowrap;
+}
+
+.download-btn-group:hover .download-qr-pop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* ── 统一下载按钮:暖橙玻璃(两按钮同色) ── */
+.hero-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 210px;
+  min-height: 54px;
+  padding: 12px 24px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, rgba(232, 138, 74, 0.88), rgba(194, 97, 31, 0.92));
+  box-shadow: 0 18px 40px rgba(194, 97, 31, 0.28);
+  font-weight: 700;
+  transition: transform 190ms ease, box-shadow 190ms ease;
+}
+
+.hero-dl-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(194, 97, 31, 0.4);
+}
+
+.home-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--r-pill);
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.28));
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  backdrop-filter: blur(24px) saturate(1.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 12px 40px rgba(43, 31, 20, 0.1);
+}
+
+.home-nav .brand {
+  color: var(--ink-cream);
+}
+
+.home-nav .brand-mark {
+  background: linear-gradient(135deg, var(--ember), var(--ember-ink));
+  box-shadow: 0 0 28px rgba(255, 180, 92, 0.35);
+}
+
+.home-nav .nav-links {
+  color: var(--muted-cream);
+}
+
+.home-nav .nav-links a:hover {
+  color: var(--ember-ink);
+}
+
+/* 首页内置定价卡:小屏堆叠 */
+@media (max-width: 900px) {
+  .price-grid-inline {
+    grid-template-columns: 1fr !important;
+    max-width: 420px !important;
+  }
 }
 
 /* Hero 主标题:缩小一档并放宽行高,稳定两行呈现 */
