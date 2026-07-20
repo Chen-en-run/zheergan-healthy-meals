@@ -97,14 +97,7 @@ export default function FeaturesPage() {
       <header className="features-nav">
         <div className="features-nav-inner max-frame">
           <a className="brand" href="#/" aria-label="折耳根健康餐 · 返回首页">
-            <span className="brand-mark">
-              <img
-                src="/zheergan-healthy-meals/brand-icon.jpg"
-                alt="折耳根"
-                className="brand-icon-img"
-              />
-            </span>
-            <span>折耳根健康餐</span>
+            <span className="home-nav-brand-text"><i>Ergen</i> 折耳根健康餐</span>
           </a>
           <nav className="nav-links" aria-label="主导航">
             <a href="#/">首页</a>

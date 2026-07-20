@@ -8,15 +8,14 @@ import {
   ChevronDown,
   Clock,
   Frown,
-  MapPin,
   Quote,
+  ShieldCheck,
   Sparkles,
   Star,
   TrendingDown,
 } from 'lucide-react';
 import Galaxy from './components/Galaxy';
 import ShinyText from './components/ShinyText';
-import FeaturesPage from './pages/Features';
 import MenuPage from './pages/Menu';
 import './styles.css';
 
@@ -30,7 +29,6 @@ import './styles.css';
 function useRoute() {
   const resolve = () => {
     const h = window.location.hash;
-    if (h.startsWith('#/features')) return 'features';
     if (h.startsWith('#/menu')) return 'menu';
     return 'home';
   };
@@ -145,15 +143,11 @@ function HomePage() {
       <header className="home-nav">
         <div className="home-nav-inner max-frame">
           <a className="brand" href="#top" aria-label="折耳根健康餐">
-            <span className="brand-mark">
-              <img src="/zheergan-healthy-meals/brand-icon.jpg" alt="折耳根" className="brand-icon-img" />
-            </span>
-            <span>折耳根健康餐</span>
+            <span className="home-nav-brand-text"><i>Ergen</i> 折耳根健康餐</span>
           </a>
           <nav className="nav-links" aria-label="主导航">
             <a href="#top">首页</a>
-            <a href="#/features">功能介绍</a>
-            <a href="#/menu">每月餐单</a>
+<a href="#/menu">每月餐单</a>
           </nav>
         </div>
       </header>
@@ -378,9 +372,10 @@ function AnswerSection() {
 }
 
 const steps = [
-  { no: '01', title: '设定目标', desc: '告诉我们你的身高、体重、减脂或增肌目标,以及日常活动强度。', detail: '算法用 TDEE = BMR × PAL 推你的每日总消耗。一位 65kg 轻体力活动者,BMR 约 1500 kcal,乘 PAL 1.55,每日大约需要 2325 kcal——每公斤约 35.8 kcal。这个数字,就是你所有餐单的起点。', specs: ['BMR 基于身高·体重·年龄', 'PAL 五档:1.55/1.78/2.10', '28 项过敏忌口可标记'] },
-  { no: '02', title: '智能配餐', desc: '引擎根据你的 TDEE,从合作商家菜单中自动筛选匹配。', detail: '按热量匹配度 → 蛋白质达标率 → 口味吻合度 → 食材多样性四层排序。减脂者每日缺口 300–500 kcal,蛋白质按体重 × 1.6g/kg 锁定底线;每道菜上架前需营养师团队 3 轮盲测——热量达标但不好吃,照样打回。', specs: ['热量匹配度平均 94%', '蛋白质底线 1.2–2.0g/kg 自动计算', '严选商家 · 天然调味 · 拒绝工业酱料'] },
-  { no: '03', title: '准时送达', desc: '商家接单后现做出餐,装入保温箱,美团骑手实时配送。', detail: '从商家出锅到你的餐桌全程保温,到手中心温度 ≥60°C。开盖即食,不用微波炉——热链配送不是冷链复热,是刚出锅的样子。', specs: ['接单现做 · 不是预制菜', '到手 ≥60°C · 开盖热气不骗人', '接入美团配送网络 · 实时追踪'] },
+  { no: '01', title: '设定你的身体档案', desc: '输入身高、体重、目标(减脂/增肌/维持)和日常活动强度。', detail: '算法用同一个底层公式——TDEE = BMR × PAL——推你的每日总消耗。比如一位 65kg 轻体力活动者,BMR 约 1500 kcal,乘 PAL 1.55,每日大约需要 2325 kcal,折合每公斤约 35.8 kcal。这个数字,就是你所有餐单的起点。', specs: ['BMR 估算:基于身高·体重·年龄,算出你的静息代谢', 'PAL 匹配:轻体力 1.55 / 中等 1.78 / 高强度 2.10,五档可选', '过敏与忌口:海鲜·坚果·乳糖·香菜等 28 项可标记,自动避开'], image: '/zheergan-healthy-meals/images/answer-nutrition.jpg', imageAlt: '在 App 中设置营养目标的界面示意' },
+  { no: '02', title: '智能配餐引擎', desc: '拿到你的 TDEE 后,引擎从合作商家的健康餐中筛选。', detail: '按「热量匹配度 → 蛋白质达标率 → 口味吻合度 → 食材多样性」四层优先级排序。比如减脂目标的人,每日热量缺口设在 300–500 kcal,蛋白质按每公斤体重 1.6g 下限锁定——不是拍脑袋,每一步都能倒推回那个公式。', specs: ['热量匹配度:平均 94%,逐餐逐克配平到目标区间', '蛋白质底线:按体重 × 系数(1.2–2.0g/kg)自动锁定,不靠感觉', '口味学习:你每一次"换一道",都在训练自己的口味模型'], image: '/zheergan-healthy-meals/images/answer-nutrition.jpg', imageAlt: '智能配餐引擎生成每周餐单' },
+  { no: '03', title: '精选商家,好吃才能坚持', desc: '我们严选本地优质健康餐商家入驻,营养师团队对每道菜进行 3 轮盲测——热量达标但不好吃,照样打回。', detail: '商家用天然香料替代工业酱料,低卡不等于寡淡。', specs: ['严选商家:只合作通过品控考核的健康餐商家', '3 轮盲测:每道新菜上架前必须通过营养师团队品控', '天然调味:商家使用香料·发酵·低温慢煮,拒绝工业酱料包'], image: '/zheergan-healthy-meals/images/answer-chef.jpg', imageAlt: '合作商家主厨在调味健康餐' },
+  { no: '04', title: '热链配送,到手上桌', desc: '合作商家接单后现做出餐,装入保温箱,通过美团骑手网络实时配送。', detail: '从商家出锅到你的餐桌全程保温,到手中心温度 ≥60°C——开盖即食,无需微波复热。', specs: ['商家现做:接单后出餐,不是预制菜复热', '≥60°C:到手中心温度,开盖热气不骗人', '美团骑手:接入美团配送网络,实时追踪'], image: '/zheergan-healthy-meals/images/answer-delivery.jpg', imageAlt: '美团骑手配送保温热链健康餐' },
 ];
 
 function StepsSection() {
@@ -388,16 +383,21 @@ function StepsSection() {
     <section className="story-section story-steps section-panel panel-cream" aria-label="使用流程">
 <div className="story-inner story-steps-inner">
         <div className="steps-head">
-          <h2>三步，开启你的健康饮食</h2>
+          <h2>开启你的健康饮食</h2>
         </div>
         <ol className="steps-track">
           {steps.map((step) => (
             <li key={step.no}>
               <div className="step-card">
                 <span className="step-no">{step.no}</span>
+                {step.image && (
+                  <div className="step-img">
+                    <img src={step.image} alt={step.imageAlt} loading="lazy" />
+                  </div>
+                )}
                 <h3>{step.title}</h3>
                 <p className="step-desc">{step.desc}</p>
-                <p className="step-detail">{step.detail}</p>
+                {step.detail && <p className="step-detail">{step.detail}</p>}
                 <ul className="step-specs">
                   {step.specs.map((s) => (
                     <li key={s}><Check size={14} />{s}</li>
@@ -710,18 +710,15 @@ function DownloadSection() {
             <span>Scan to download</span>
             <strong>折耳根健康餐 iOS & Android</strong>
           </div>
-          <div className="tiny-specs">
-            <span>个性营养目标</span>
-            <span>保温到手</span>
-            <span>每周餐食计划</span>
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
-const footerCols = [
+/* footerCols removed */
+
+const _oldFooterCols = [
   {
     title: '产品',
     links: [
@@ -756,52 +753,56 @@ function Footer() {
   return (
     <footer className="site-footer panel-cream" aria-label="页脚">
       <div className="footer-inner max-frame">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a className="brand" href="#top" aria-label="折耳根健康餐">
-              <span className="brand-mark">
-                <img
-                  src="/zheergan-healthy-meals/brand-icon.jpg"
-                  alt="折耳根"
-                  className="brand-icon-img"
-                />
-              </span>
-              <span>折耳根健康餐</span>
+        {/* 第一层:社交连接区 */}
+        <div className="footer-l1">
+          <span className="footer-l1-label">关注我们</span>
+          <div className="footer-l1-icons">
+            <a className="footer-soc" href="#" aria-label="微信">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.952-7.062-6.122zm-2.18 2.769c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982z"/></svg>
             </a>
-            <p className="footer-mission">
-              好好吃饭，也可以很轻松。
-              <br />
-              算法定制 · 商家现做 · 美团保温配送
-            </p>
+            <a className="footer-soc" href="#" aria-label="抖音">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a className="footer-soc" href="#" aria-label="小红书">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.52 3.5H5.48A1.98 1.98 0 0 0 3.5 5.48v13.04c0 1.1.88 1.98 1.98 1.98h13.04c1.1 0 1.98-.88 1.98-1.98V5.48c0-1.1-.88-1.98-1.98-1.98zm-3.04 7.91c.45-.2.95-.32 1.49-.32 1.78 0 3.22 1.44 3.22 3.22s-1.44 3.22-3.22 3.22-3.22-1.44-3.22-3.22v-5.2c-.52.28-1.1.44-1.72.44V7.82c1.14 0 2.13-.46 2.84-1.2h.61v4.79z"/></svg>
+            </a>
           </div>
-
-          <nav className="footer-cols" aria-label="页脚导航">
-            {footerCols.map((col) => (
-              <div className="footer-col" key={col.title}>
-                <h3>{col.title}</h3>
-                <ul>
-                  {col.links.map((link) => (
-                    <li key={link.label}>
-                      <a href={link.href}>{link.label}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </nav>
         </div>
 
-        <div className="footer-bottom">
-          <div className="footer-cities">
-            <MapPin size={15} />
-            现已覆盖 上海 · 北京 · 深圳 · 杭州 · 成都
+        {/* 第二层:核心导航区(三列网格) */}
+        <div className="footer-l2">
+          <div className="footer-l2-col">
+            <h3>加入我们</h3>
+            <a href="javascript:void(0)">社会招聘</a>
+            <a href="javascript:void(0)">校园招聘</a>
+            <a href="javascript:void(0)">国际招聘</a>
           </div>
-          <div className="footer-legal">
-            <span>© 2026 折耳根健康餐</span>
-            <a href="#top">隐私政策</a>
-            <a href="#top">服务条款</a>
-            <span>沪ICP备 2026XXXXXX 号</span>
+          <div className="footer-l2-col">
+            <h3>联系我们</h3>
+            <a href="javascript:void(0)">客户服务</a>
+            <a href="javascript:void(0)">合作洽谈</a>
+            <a href="javascript:void(0)">商务采购</a>
+            <a href="javascript:void(0)">诚信合规</a>
+            <a href="javascript:void(0)">媒体及投资者</a>
           </div>
+          <div className="footer-l2-col">
+            <h3>法律信息</h3>
+            <a href="javascript:void(0)">服务协议</a>
+            <a href="javascript:void(0)">隐私政策</a>
+          </div>
+          {/* 右下角品牌 */}
+          <span className="footer-l2-brand"><i>Ergen</i> 折耳根健康餐</span>
+        </div>
+
+        {/* 第三层:版权与合规区 */}
+        <div className="footer-l3">
+          <a href="javascript:void(0)">法律声明</a>
+          <a href="javascript:void(0)">阳光准则</a>
+          <a href="javascript:void(0)">网站地图</a>
+          <span>粤网文[2026]2882-203号</span>
+          <span>粤B2-20260059-1</span>
+          <span>粤公网安备 44030502008569号</span>
+          <span>Copyright © 2026 Ergen折耳根健康餐. 保留所有权利。</span>
         </div>
       </div>
     </footer>
@@ -810,8 +811,7 @@ function Footer() {
 
 function App() {
   const route = useRoute();
-  if (route === 'features') return <FeaturesPage />;
-if (route === 'menu') return <MenuPage />;
+  if (route === 'menu') return <MenuPage />;
   return <HomePage />;
 }
 
