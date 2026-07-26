@@ -10,8 +10,10 @@ import {
   Monitor,
   Quote,
   ShieldCheck,
+  Smartphone,
   Sparkles,
   Star,
+  Tablet,
   TrendingDown,
 } from 'lucide-react';
 import ShinyText from './components/ShinyText';
@@ -240,7 +242,7 @@ function HomePage() {
                 </a>
                 <span className="nav-dropdown-item nav-dropdown-item--qr">
                   <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-phone.svg" alt="手机" style={{width:32,height:32}} />
+                    <Smartphone size={32} strokeWidth={1.5} />
                     <span>手机</span>
                   </span>
                   <span className="ndi-hover">
@@ -250,7 +252,7 @@ function HomePage() {
                 </span>
                 <span className="nav-dropdown-item nav-dropdown-item--qr">
                   <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-tablet.svg" alt="平板" style={{width:32,height:32}} />
+                    <Tablet size={32} strokeWidth={1.5} />
                     <span>平板</span>
                   </span>
                   <span className="ndi-hover">
@@ -1149,8 +1151,8 @@ function FaqSection() {
 const downloadPlatforms = [
   { img: '/zheergan-healthy-meals/images/icon-win.svg', label: 'Windows', dl: '点击下载 Windows 版' },
   { img: '/zheergan-healthy-meals/images/icon-apple.svg', label: 'Mac OS', dl: '点击下载 Mac 版' },
-  { img: '/zheergan-healthy-meals/images/icon-phone.svg', label: '手机', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
-  { img: '/zheergan-healthy-meals/images/icon-tablet.svg', label: '平板', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
+  { Icon: Smartphone, label: '手机', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
+  { Icon: Tablet, label: '平板', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
 ];
 
 function DownloadSection() {
