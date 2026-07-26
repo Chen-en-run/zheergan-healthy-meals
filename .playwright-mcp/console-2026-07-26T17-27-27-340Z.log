@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 [  992284ms] [ERROR] You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it. @ http://localhost:5173/zheergan-healthy-meals/node_modules/.vite/deps/react-dom_client.js?v=40ccf78f:17253
 [  992458ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/zheergan-healthy-meals/node_modules/.vite/deps/react-dom_client.js?v=40ccf78f:20102
 [ 1509372ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/zheergan-healthy-meals/node_modules/.vite/deps/react-dom_client.js?v=40ccf78f:20102
+=======
+[      43ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/zheergan-healthy-meals/node_modules/.vite/deps/react-dom_client.js?v=40ccf78f:20102
+>>>>>>> parent of 26101b8 (Revert "手机平板icon修改")
