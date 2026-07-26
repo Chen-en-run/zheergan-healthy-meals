@@ -120,7 +120,7 @@ export default function PricingPage() {
               direction="left"
             />
             <ShinyText
-              text="其实没那么贵。"
+              text="其实没那么贵"
               color="#2b1f14"
               shineColor="#e88a4a"
               speed={3}

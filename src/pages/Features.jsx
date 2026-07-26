@@ -7,6 +7,7 @@ import {
   Thermometer,
 } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
+import RevealOnScroll from '../components/RevealOnScroll';
 import './features.css';
 
 /* ================================================================
@@ -116,8 +117,9 @@ export default function FeaturesPage() {
         </div>
 
         <div className="features-hero-inner max-frame">
-          <div className="features-hero-copy">
-            <h1>
+          <RevealOnScroll variant="fadeUp" amount={0.1}>
+            <div className="features-hero-copy">
+              <h1>
               <ShinyText
                 text="算法 × 主厨,"
                 color="#2b1f14"
@@ -127,7 +129,7 @@ export default function FeaturesPage() {
                 direction="left"
               />
               <ShinyText
-                text="每一餐都是定制的。"
+                text="每一餐都是定制的"
                 color="#2b1f14"
                 shineColor="#e88a4a"
                 speed={3}
@@ -140,18 +142,21 @@ export default function FeaturesPage() {
               输入身体数据 → 算法 20 秒出餐单 → 商家接单现做 → 美团骑手保温箱送到——每一步都不用你操心。
             </p>
           </div>
+          </RevealOnScroll>
 
           <div className="features-hero-visual" aria-label="四大能力概览">
-            {capabilities.map((item) => {
+            {capabilities.map((item, i) => {
               const I = item.icon;
               return (
-                <div className="f-cap-card" key={item.label}>
+                <RevealOnScroll key={item.label} delay={i * 0.12} amount={0.1} variant="popUp">
+                  <div className="f-cap-card">
                   <span className="f-cap-icon">
                     <I size={26} />
                   </span>
                   <strong>{item.label}</strong>
                   <span>{item.desc}</span>
                 </div>
+                </RevealOnScroll>
               );
             })}
           </div>
@@ -162,7 +167,8 @@ export default function FeaturesPage() {
       {sections.map((sec, idx) => {
         const Icon = sec.icon;
         return (
-          <section className="f-section" id={sec.id} key={sec.id} aria-label={sec.title}>
+          <RevealOnScroll key={sec.id} delay={idx * 0.1} amount={0.08} variant="fadeUp">
+            <section className="f-section" id={sec.id} aria-label={sec.title}>
             <div
               className={`f-section-grid max-frame${sec.reverse ? ' f-section-grid--reverse' : ''}`}
             >
@@ -192,6 +198,7 @@ export default function FeaturesPage() {
               </div>
             </div>
           </section>
+          </RevealOnScroll>
         );
       })}
 
@@ -203,7 +210,9 @@ export default function FeaturesPage() {
           <span className="s-blob s-blob-3" />
         </div>
         <div className="f-compare-inner max-frame">
-          <h2 className="f-compare-title">同样是配送,热链和冷链差在哪?</h2>
+          <RevealOnScroll variant="fadeUp" amount={0.1}>
+            <h2 className="f-compare-title">同样是配送,热链和冷链差在哪?</h2>
+          </RevealOnScroll>
 
           <div className="f-compare-table" role="table" aria-label="热链与传统冷链对比表">
             <div className="f-compare-row f-compare-header" role="row">
@@ -211,12 +220,14 @@ export default function FeaturesPage() {
               <strong className="f-compare-win" role="columnheader">折耳根 · 热链</strong>
               <strong role="columnheader">传统冷链</strong>
             </div>
-            {compareRows.map(([label, hot, cold]) => (
-              <div className="f-compare-row" role="row" key={label}>
+            {compareRows.map(([label, hot, cold], i) => (
+              <RevealOnScroll key={label} delay={i * 0.08} amount={0.06} variant="fadeIn">
+                <div className="f-compare-row" role="row">
                 <span className="f-compare-label" role="cell">{label}</span>
                 <span className="f-compare-cell f-compare-win" role="cell">{hot}</span>
                 <span className="f-compare-cell" role="cell">{cold}</span>
               </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>

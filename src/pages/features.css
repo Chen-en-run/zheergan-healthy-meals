@@ -24,6 +24,7 @@
 }
 
 .features-nav .features-nav-inner {
+  position: relative;
   width: 100%;
   max-width: none;
   margin: 0;
@@ -53,7 +54,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   line-height: 72px;
-  color: var(--ember-ink);
+  color: var(--ink-cream);
 }
 
 .features-nav .home-nav-brand-text i {
@@ -678,5 +679,77 @@
   .features-footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+
+/* ── Company Page ── */
+.company-page-body {
+  position: relative;
+  padding: 0;
+}
+
+.company-page-inner {
+  position: relative;
+  z-index: 1;
+  width: min(900px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 120px 0 0;
+}
+
+.company-hero-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.company-hero-head h1 {
+  font-size: var(--fs-h2);
+  font-weight: 680;
+}
+
+.company-hero-sub {
+  margin-top: 16px;
+  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+}
+
+.company-section {
+  margin-top: 56px;
+}
+
+.company-section:last-of-type {
+  margin-bottom: 80px;
+}
+
+.company-section:first-child {
+  margin-top: 0;
+}
+
+.company-section h3 {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 1.6vw, 28px);
+  font-weight: 680;
+  color: var(--ink-cream);
+}
+
+.company-section p {
+  font-size: clamp(15px, 1vw, 17px);
+  color: var(--ink-body);
+  line-height: 1.85;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .company-page-inner {
+    width: min(900px, calc(100% - 32px));
+    padding: 80px 0 72px;
+  }
+
+  .company-hero-head {
+    margin-bottom: 48px;
+  }
+
+  .company-section {
+    margin-top: 40px;
   }
 }

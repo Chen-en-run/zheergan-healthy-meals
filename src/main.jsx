@@ -1,22 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import { flushSync } from 'react-dom';
 import {
   Apple,
-  ArrowDown,
-  ArrowUp,
   Check,
   ChevronDown,
   Clock,
   Frown,
+  Monitor,
   Quote,
   ShieldCheck,
+  Smartphone,
   Sparkles,
   Star,
+  Tablet,
   TrendingDown,
 } from 'lucide-react';
-import Galaxy from './components/Galaxy';
 import ShinyText from './components/ShinyText';
+import RevealOnScroll from './components/RevealOnScroll';
 import MenuPage from './pages/Menu';
+import CompanyPage from './pages/Company';
 import './styles.css';
 
 /* ================================================================
@@ -30,6 +33,7 @@ function useRoute() {
   const resolve = () => {
     const h = window.location.hash;
     if (h.startsWith('#/menu')) return 'menu';
+    if (h.startsWith('#/company')) return 'company';
     return 'home';
   };
   const [route, setRoute] = useState(resolve);
@@ -111,27 +115,80 @@ const meals = [
     protein: '18g 蛋白质',
     image: '/zheergan-healthy-meals/images/salad.jpg',
   },
+  {
+    title: '香煎鸡胸藜麦饭',
+    kcal: '448 kcal',
+    protein: '40g 蛋白质',
+    image: '/zheergan-healthy-meals/images/dish-07.jpg',
+  },
+  {
+    title: '泰式青咖喱虾仁',
+    kcal: '392 kcal',
+    protein: '32g 蛋白质',
+    image: '/zheergan-healthy-meals/images/dish-08.jpg',
+  },
+  {
+    title: '日式照烧三文鱼',
+    kcal: '475 kcal',
+    protein: '35g 蛋白质',
+    image: '/zheergan-healthy-meals/images/dish-09.jpg',
+  },
+  {
+    title: '番茄牛腩糙米饭',
+    kcal: '542 kcal',
+    protein: '38g 蛋白质',
+    image: '/zheergan-healthy-meals/images/dish-10.jpg',
+  },
+  {
+    title: '柠檬蒜香鸡腿肉',
+    kcal: '498 kcal',
+    protein: '42g 蛋白质',
+    image: '/zheergan-healthy-meals/images/dish-11.jpg',
+  },
+  {
+    title: '麻辣香锅素菜碗',
+    kcal: '365 kcal',
+    protein: '22g 蛋白质',
+    image: '/zheergan-healthy-meals/images/dish-12.jpg',
+  },
 ];
 
 function HomePage() {
+  const [navHidden, setNavHidden] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const hero = document.querySelector('.hero');
+      const boundary = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
+      setNavHidden(y > boundary);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  /* IntersectionObserver：检测当前可见模块，高亮副导航按钮 */
+  useEffect(() => {
+    const ids = ['pain', 'answer', 'steps', 'pricing', 'trust', 'faq'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="site-shell">
-      <div className="galaxy-bg">
-        <Galaxy
-          density={0.8}
-          glowIntensity={0.35}
-          saturation={0.15}
-          hueShift={110}
-          starSpeed={0.4}
-          speed={0.6}
-          rotationSpeed={0.08}
-          twinkleIntensity={0.25}
-          mouseInteraction={true}
-          mouseRepulsion={true}
-          repulsionStrength={1.5}
-          transparent={true}
-        />
-      </div>
       <div className="grain" aria-hidden="true" />
       {/* 全局光斑:贯穿整页,无缝流动 */}
       <div className="global-blobs" aria-hidden="true">
@@ -140,17 +197,110 @@ function HomePage() {
         <span className="s-blob s-blob-3" />
       </div>
       {/* 全局玻璃导航:sticky 贯穿全页,与子页一致 */}
-      <header className="home-nav">
+      <header className={`home-nav${navHidden ? ' is-hidden' : ''}`}>
         <div className="home-nav-inner max-frame">
           <a className="brand" href="#top" aria-label="折耳根健康餐">
             <span className="home-nav-brand-text"><i>Ergen</i> 折耳根健康餐</span>
           </a>
           <nav className="nav-links" aria-label="主导航">
             <a href="#top">首页</a>
-<a href="#/menu">每月餐单</a>
+            <a href="#/company">公司简介</a>
+            <div className="nav-dropdown">
+              <span className="nav-dropdown-trigger">
+                下载中心 <ChevronDown size={14} />
+              </span>
+              <div className="nav-dropdown-panel">
+                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+                  <span className="ndi-default">
+                    <img src="/zheergan-healthy-meals/images/icon-win.svg" alt="Windows" style={{width:32,height:32}} />
+                    <span>Windows</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <span className="ndi-dl-circle">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <polyline points="19 12 12 19 5 12" />
+                      </svg>
+                    </span>
+                    <span>下载 Windows 版</span>
+                  </span>
+                </a>
+                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+                  <span className="ndi-default">
+                    <img src="/zheergan-healthy-meals/images/icon-apple.svg" alt="Mac OS" style={{width:32,height:32}} />
+                    <span>Mac OS</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <span className="ndi-dl-circle">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <polyline points="19 12 12 19 5 12" />
+                      </svg>
+                    </span>
+                    <span>下载 Mac OS 版</span>
+                  </span>
+                </a>
+                <span className="nav-dropdown-item nav-dropdown-item--qr">
+                  <span className="ndi-default">
+                    <Smartphone size={32} strokeWidth={1.5} />
+                    <span>手机</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
+                    <span>扫码下载 手机版</span>
+                  </span>
+                </span>
+                <span className="nav-dropdown-item nav-dropdown-item--qr">
+                  <span className="ndi-default">
+                    <Tablet size={32} strokeWidth={1.5} />
+                    <span>平板</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
+                    <span>扫码下载 平板版</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <a href="#/menu">每月餐单</a>
           </nav>
         </div>
       </header>
+      {/* 副导航栏：主导航隐藏时冒出，覆盖除 Hero 和下载外的 6 个模块 */}
+      <nav className={`sub-nav${navHidden ? ' is-visible' : ''}`} aria-label="页面模块导航">
+        <div className="sub-nav-inner">
+          {[
+            { id: 'pain', label: '饮食痛点' },
+            { id: 'answer', label: '智能省心' },
+            { id: 'steps', label: '定制热送' },
+            { id: 'pricing', label: '价格方案' },
+            { id: 'trust', label: '口碑见证' },
+            { id: 'faq', label: '常见问题' },
+          ].map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={activeSection === item.id ? 'is-active' : ''}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveSection(item.id);
+                document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk"
+            className="sub-nav-dl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            下载 App
+            <img src="/zheergan-healthy-meals/images/icon-download.svg" alt="" className="sub-nav-dl-icon" />
+          </a>
+        </div>
+      </nav>
       <Hero />
       <PainSection />
       <AnswerSection />
@@ -165,33 +315,203 @@ function HomePage() {
 }
 
 /* ================================================================
-   MealCarousel — 三张餐卡点击切换轮播
+   MealCarousel — 鼠标长按拖拽滑动 + 点击切换轮播
+   拖拽时每张卡片的位置/缩放/透明度实时插值，松手吸附到最近卡片
    ================================================================ */
+const DRAG_THRESHOLD = 0.35; /* 归一化拖拽超过 0.35 格触发切屏 */
+
+/* 每张卡与"虚拟中心"的槽位距离 → 视觉属性 (7 卡位) */
+const SLOT_DEFS = {
+  '-3': { off: -0.82, scale: 0.42, opacity: 0.08, zIndex: 0 },  /* left-3 */
+  '-2': { off: -0.58, scale: 0.56, opacity: 0.18, zIndex: 1 },  /* left-2 */
+  '-1': { off: -0.30, scale: 0.76, opacity: 0.42, zIndex: 2 },  /* left   */
+  '0':  { off:  0,    scale: 1.00, opacity: 1.00, zIndex: 3 },  /* center */
+  '1':  { off:  0.30, scale: 0.76, opacity: 0.42, zIndex: 2 },  /* right  */
+  '2':  { off:  0.58, scale: 0.56, opacity: 0.18, zIndex: 1 },  /* right-2*/
+  '3':  { off:  0.82, scale: 0.42, opacity: 0.08, zIndex: 0 },  /* right-3*/
+};
+
+/* 在相邻槽位之间线性插值 */
+function lerpSlot(slot) {
+  const lo = Math.floor(slot);
+  const a = SLOT_DEFS[String(Math.max(-3, Math.min(3, lo)))] || SLOT_DEFS['0'];
+  const b = SLOT_DEFS[String(Math.max(-3, Math.min(3, lo + 1)))] || SLOT_DEFS['3'];
+  const f = slot - lo; /* 小数部分 */
+  return {
+    off:     a.off     + (b.off     - a.off)     * f,
+    scale:   a.scale   + (b.scale   - a.scale)   * f,
+    opacity: a.opacity + (b.opacity - a.opacity) * f,
+    zIndex:  f < 0.5 ? a.zIndex : b.zIndex,
+  };
+}
+
 function MealCarousel({ meals }) {
   const [active, setActive] = useState(0);
+  const [dragging, setDragging] = useState(false);
   const paused = useRef(false);
+  const draggingRef = useRef(false);
+  const activeRef = useRef(0);
+  const carouselRef = useRef(null);
+  const dragState = useRef({ startX: 0, moved: false, cardW: 280, t: 0 });
 
-  const getPos = (i) => {
-    const diff = (i - active + meals.length) % meals.length;
-    if (diff === 0) return 'center';
-    if (diff === 1) return 'right';
-    if (diff === 2) return 'right-2';
-    if (diff === meals.length - 1) return 'left';
-    if (diff === meals.length - 2) return 'left-2';
-    return 'hidden'; /* 台下的卡:藏在中心卡后面,轮到时浮出 */
+  /* 同步 ref，供事件回调 & interval 读取最新值 */
+  useEffect(() => { draggingRef.current = dragging; }, [dragging]);
+  useEffect(() => { activeRef.current = active; }, [active]);
+
+  /* 纯函数：计算卡片槽位，不依赖组件闭包 */
+  const calcSlot = (i, act, len) => {
+    let diff = ((i - act) % len + len) % len;
+    if (diff > len / 2) diff -= len;
+    return diff;
   };
 
-  const handleClick = (pos) => {
-    if (pos === 'left') setActive((prev) => (prev - 1 + meals.length) % meals.length);
-    if (pos === 'left-2') setActive((prev) => (prev - 2 + meals.length) % meals.length);
-    if (pos === 'right') setActive((prev) => (prev + 1) % meals.length);
-    if (pos === 'right-2') setActive((prev) => (prev + 2) % meals.length);
+  /* 直接 DOM 操作：拖拽时用 !important 设样式，React 重渲染无法覆盖 */
+  const applyCardsDOM = (act, t) => {
+    const cards = carouselRef.current?.querySelectorAll('.meal-card');
+    if (!cards) return;
+    const len = meals.length;
+    cards.forEach((card, i) => {
+      const slot = calcSlot(i, act, len);
+      const effective = slot + t;
+      const vis = lerpSlot(effective);
+      const isHidden = Math.abs(effective) > 3.4;
+      card.style.setProperty('left', `${50 + vis.off * 100}%`, 'important');
+      card.style.setProperty('transform', `translateX(-50%) scale(${vis.scale})`, 'important');
+      card.style.setProperty('opacity', vis.opacity, 'important');
+      card.style.setProperty('z-index', vis.zIndex, 'important');
+      card.style.setProperty('pointer-events', isHidden ? 'none' : 'auto', 'important');
+    });
   };
 
-  /* 自动轮播：每 3 秒向右切换 */
+  /* 用槽位值覆写 DOM 样式（不带 !important），与 React 提交一致，无缝交接 */
+  const commitCardsDOM = (act) => {
+    const cards = carouselRef.current?.querySelectorAll('.meal-card');
+    if (!cards) return;
+    const len = meals.length;
+    cards.forEach((card, i) => {
+      const slot = calcSlot(i, act, len);
+      const vis = SLOT_DEFS[String(slot)] || SLOT_DEFS['0'];
+      const isHidden = Math.abs(slot) > 3;
+      card.style.left = `${50 + vis.off * 100}%`;
+      card.style.transform = `translateX(-50%) scale(${vis.scale})`;
+      card.style.opacity = vis.opacity;
+      card.style.zIndex = vis.zIndex;
+      card.style.pointerEvents = isHidden ? 'none' : 'auto';
+    });
+  };
+
+  const getSlot = (i) => calcSlot(i, active, meals.length);
+
+  const handleClick = (i) => {
+    if (dragState.current.moved) { dragState.current.moved = false; return; }
+    const slot = getSlot(i);
+    if (slot === -1)       setActive((p) => (p - 1 + meals.length) % meals.length);
+    else if (slot === -2)  setActive((p) => (p - 2 + meals.length) % meals.length);
+    else if (slot === -3)  setActive((p) => (p - 3 + meals.length) % meals.length);
+    else if (slot ===  1)  setActive((p) => (p + 1) % meals.length);
+    else if (slot ===  2)  setActive((p) => (p + 2) % meals.length);
+    else if (slot ===  3)  setActive((p) => (p + 3) % meals.length);
+  };
+
+  /* ---- 拖拽事件 ---- */
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const measure = () => {
+      const card = el.querySelector('.meal-card');
+      if (card) dragState.current.cardW = card.getBoundingClientRect().width || 280;
+    };
+    measure();
+    window.addEventListener('resize', measure);
+
+    const onDown = (e) => {
+      if (e.button !== 0) return;
+      e.preventDefault();
+      measure();
+      dragState.current.startX = e.clientX;
+      dragState.current.moved = false;
+      dragState.current.t = 0;
+      setDragging(true);
+    };
+
+    const onMove = (e) => {
+      if (!dragState.current.startX && dragState.current.startX !== 0) return;
+      const dx = e.clientX - dragState.current.startX;
+      if (Math.abs(dx) > 5) dragState.current.moved = true;
+      const t = Math.max(-1, Math.min(1, dx / dragState.current.cardW));
+      dragState.current.t = t;
+      /* 直接操作 DOM，零延迟跟手 */
+      applyCardsDOM(activeRef.current, t);
+    };
+
+    const onUp = () => {
+      const t = dragState.current.t;
+      const crossed = dragState.current.moved && Math.abs(t) > DRAG_THRESHOLD;
+      const nextActive = crossed
+        ? (activeRef.current + (t > 0 ? -1 : 1) + meals.length) % meals.length
+        : activeRef.current;
+      /* flushSync：React 同步提交后，覆写槽位值（无 !important），无缝交接 */
+      flushSync(() => {
+        if (crossed) setActive(nextActive);
+        setDragging(false);
+      });
+      commitCardsDOM(nextActive);
+      dragState.current.startX = 0;
+    };
+
+    /* Touch */
+    const onTouchStart = (e) => {
+      measure();
+      dragState.current.startX = e.touches[0].clientX;
+      dragState.current.moved = false;
+      dragState.current.t = 0;
+      setDragging(true);
+    };
+    const onTouchMove = (e) => {
+      if (!dragState.current.startX && dragState.current.startX !== 0) return;
+      const dx = e.touches[0].clientX - dragState.current.startX;
+      if (Math.abs(dx) > 5) dragState.current.moved = true;
+      const t = Math.max(-1, Math.min(1, dx / dragState.current.cardW));
+      dragState.current.t = t;
+      applyCardsDOM(activeRef.current, t);
+    };
+    const onTouchEnd = () => {
+      const t = dragState.current.t;
+      const crossed = dragState.current.moved && Math.abs(t) > DRAG_THRESHOLD;
+      const nextActive = crossed
+        ? (activeRef.current + (t > 0 ? -1 : 1) + meals.length) % meals.length
+        : activeRef.current;
+      flushSync(() => {
+        if (crossed) setActive(nextActive);
+        setDragging(false);
+      });
+      commitCardsDOM(nextActive);
+      dragState.current.startX = 0;
+    };
+
+    el.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd);
+
+    return () => {
+      window.removeEventListener('resize', measure);
+      el.removeEventListener('mousedown', onDown);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      el.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
+    };
+  }, [meals.length]);
+
+  /* 自动轮播：每 3 秒向右切换（拖拽中暂停） */
   useEffect(() => {
     const timer = setInterval(() => {
-      if (!paused.current) {
+      if (!paused.current && !draggingRef.current) {
         setActive((prev) => (prev + 1) % meals.length);
       }
     }, 3000);
@@ -200,19 +520,30 @@ function MealCarousel({ meals }) {
 
   return (
     <div
-      className="meal-carousel"
+      className={`meal-carousel${dragging ? ' is-dragging' : ''}`}
+      ref={carouselRef}
       onMouseEnter={() => { paused.current = true; }}
       onMouseLeave={() => { paused.current = false; }}
     >
       {meals.map((meal, i) => {
-        const pos = getPos(i);
+        const slot = getSlot(i);
+        const vis = SLOT_DEFS[String(slot)] || SLOT_DEFS['0'];
+        const isHidden = Math.abs(slot) > 3;
+
         return (
           <article
-            className={`meal-card meal-card--${pos}`}
+            className={`meal-card meal-card--${slotToPos(slot)}`}
             key={meal.title}
-            onClick={() => handleClick(pos)}
+            style={{
+              left: `${50 + vis.off * 100}%`,
+              transform: `translateX(-50%) scale(${vis.scale})`,
+              opacity: vis.opacity,
+              zIndex: vis.zIndex,
+              pointerEvents: isHidden ? 'none' : 'auto',
+            }}
+            onClick={() => handleClick(i)}
           >
-            <img src={meal.image} alt={meal.title} />
+            <img src={meal.image} alt={meal.title} draggable="false" />
             <div>
               <h2>{meal.title}</h2>
               <p>{meal.kcal} / {meal.protein}</p>
@@ -220,9 +551,20 @@ function MealCarousel({ meals }) {
           </article>
         );
       })}
-
     </div>
   );
+}
+
+/* slot 数字 → CSS 类名 */
+function slotToPos(s) {
+  if (s ===  0) return 'center';
+  if (s ===  1) return 'right';
+  if (s ===  2) return 'right-2';
+  if (s ===  3) return 'right-3';
+  if (s === -1) return 'left';
+  if (s === -2) return 'left-2';
+  if (s === -3) return 'left-3';
+  return 'hidden';
 }
 
 function Hero() {
@@ -239,132 +581,262 @@ function Hero() {
       <div className="hero-grid max-frame">
         <div className="hero-copy">
           <h1>
-            <ShinyText text="人间烟火，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" />
-            <ShinyText text="热乎到桌的健康餐。" color="#2b1f14" shineColor="#e88a4a" speed={3} spread={110} direction="left" className="hero-shiny-line" />
+            <ShinyText text="美味低脂的健康餐" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" />
           </h1>
           <p className="hero-lede">
-            输入身高、体重和减脂目标,算法 20 秒算出一周餐单。合作商家接单现做,美团骑手保温箱送到——开盖还是烫的。
+            算法按你的身体数据定制餐单，合作餐厅每日现炒，热链保温送到
           </p>
+        </div>
 
-          <div className="hero-actions">
-            <div className="download-btn-group">
-              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
-                Android 下载
-              </a>
-              <div className="download-qr-pop">
-                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
-                <span>手机扫码下载</span>
-              </div>
+        <FoodBanner />
+
+        <div className="hero-actions">
+          <div className="download-btn-group">
+            <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+              Android 下载
+            </a>
+            <div className="download-qr-pop">
+              <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+              <span>手机扫码下载</span>
             </div>
-            <div className="download-btn-group">
-              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
-                <Apple size={20} />
-                iOS 下载
-              </a>
-              <div className="download-qr-pop">
-                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
-                <span>手机扫码下载</span>
-              </div>
+          </div>
+          <div className="download-btn-group">
+            <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+              <img src="/zheergan-healthy-meals/images/icon-apple.svg" alt="" style={{width:20,height:20,filter:'brightness(0) invert(1)'}} />
+              iOS 下载
+            </a>
+            <div className="download-qr-pop">
+              <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+              <span>手机扫码下载</span>
             </div>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="菜品与应用界面展示">
-          <div className="plate-orbit">
-            <MealCarousel meals={meals} />
-          </div>
-
-        </div>
       </div>
     </section>
+  );
+}
+
+/* ================================================================
+   FoodBanner — Hero 内的健康轻食产品展示轮播
+   4 张宽幅食物图，毛玻璃标签，底部指示点，自动轮播
+   ================================================================ */
+
+const foodSlides = [
+  { src: '/zheergan-healthy-meals/images/food/1.png', tag: '低卡轻食 · 营养均衡' },
+  { src: '/zheergan-healthy-meals/images/food/2.png', tag: '鲜蔬蛋白 · 元气满满' },
+  { src: '/zheergan-healthy-meals/images/food/3.png', tag: '高蛋白餐 · 增肌优选' },
+  { src: '/zheergan-healthy-meals/images/food/4.png', tag: '抗氧化碗 · 活力一天' },
+];
+
+function FoodBanner() {
+  const [active, setActive] = useState(0);
+  const paused = useRef(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!paused.current) {
+        setActive((p) => (p + 1) % foodSlides.length);
+      }
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div
+      className="food-banner"
+      onMouseEnter={() => { paused.current = true; }}
+      onMouseLeave={() => { paused.current = false; }}
+    >
+      <div className="food-banner-stage">
+        {foodSlides.map((slide, i) => (
+          <div
+            key={i}
+            className={`food-banner-slide${i === active ? ' is-active' : ''}`}
+          >
+            <img src={slide.src} alt={slide.tag} loading="eager" />
+            <span className="food-banner-tag">{slide.tag}</span>
+          </div>
+        ))}
+      </div>
+      <div className="food-banner-dots">
+        {foodSlides.map((_, i) => (
+          <button
+            key={i}
+            className={`food-banner-dot${i === active ? ' is-active' : ''}`}
+            onClick={() => setActive(i)}
+            aria-label={`第 ${i + 1} 张`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
 const painPoints = [
-  { icon: Frown, text: '外卖油盐超标，健身餐又难吃到坚持不下去' },
-  { icon: Clock, text: '想自己做，光是“今天吃啥、怎么配”就先累了' },
-  { icon: TrendingDown, text: '立志三天，第四天又点了炸鸡' },
+  { keyword: '外卖难吃', tag: '饮食困境', desc: '外卖油盐超标不卫生，普通健身餐又难吃到坚持不下去', image: '/zheergan-healthy-meals/images/pain-chicken.png' },
+  { keyword: '做饭头疼', tag: '时间成本', desc: '想自己做，光是”今天要弄些什么菜吃”就头疼', image: '/zheergan-healthy-meals/images/pain-headache.png' },
+  { keyword: '越减越肥', tag: '恶性循环', desc: '每次下定决心，最后吃炸鸡这类外卖吃完后又怕长胖', image: '/zheergan-healthy-meals/images/pain-friedchicken.png' },
 ];
+
+function PainSplit() {
+  const [activeImg, setActiveImg] = useState(0);
+  const [direction, setDirection] = useState(1); /* 1=向下转入, -1=向上转出 */
+
+  const switchTo = (i) => {
+    setDirection(i > activeImg ? 1 : -1);
+    setActiveImg(i);
+  };
+
+  return (
+    <div className="pain-split">
+      <div className="pain-split-left">
+        <div className="pain-split-stage">
+          {painPoints.map((point, i) => (
+            <div
+              key={point.keyword}
+              className={`pain-split-slide${i === activeImg ? ' is-active' : ''}${direction > 0 ? ' slide-down' : ' slide-up'}`}
+            >
+              <img src={point.image} alt={point.desc} loading="eager" />
+              <span className="pain-split-tag">{point.tag}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="pain-split-right">
+        {painPoints.map((point, i) => (
+          <div
+            key={point.keyword}
+            className={`pain-split-row${i === activeImg ? ' is-active' : ''}`}
+            onMouseEnter={() => switchTo(i)}
+          >
+            <span className="pain-split-kw">{point.keyword}</span>
+            <span className="pain-split-desc">{point.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function PainSection() {
   return (
-    <section className="story-section story-pain section-panel panel-cream" aria-label="健康饮食的困扰">
+    <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <div className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          想吃得健康，<span>怎么就这么难？</span>
+          想吃健康，<span>太难</span>
         </h2>
-        <ul className="pain-list">
-          {painPoints.map((point) => {
-            const Icon = point.icon;
-            return (
-              <li className="pain-item" key={point.text}>
-                <span className="pain-icon">
-                  <Icon size={22} />
-                </span>
-                <span>{point.text}</span>
-              </li>
-            );
-          })}
-        </ul>
+        <p className="story-pain-sub">你不是一个人——每个减脂人都卡在这一关</p>
+        <PainSplit />
       </div>
     </section>
   );
 }
 
-const answerVisuals = [
+const foodCards = [
+  { name: '金汤酸菜鱼', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-7.png' },
+  { name: '青花椒鸡胸肉', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-8.png' },
+  { name: '番茄牛腩煲', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-9.png' },
+  { name: '黑椒牛肉粒', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-10.png' },
+  { name: '虾仁芦笋', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-5.png' },
+  { name: '菌菇时蔬碗', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-12.png' },
+  { name: '藜麦鸡腿肉', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-13.png' },
+  { name: '金枪鱼波奇饭', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-14.png' },
+];
+
+const answerVisuals_old = [
   {
     src: '/zheergan-healthy-meals/images/answer-nutrition.jpg',
     alt: '营养均衡的健康碗 — 蛋白质、碳水、脂肪已配平',
-    caption: '营养由我们算好',
+    caption: '算法替你算好热量',
   },
   {
     src: '/zheergan-healthy-meals/images/answer-chef.jpg',
     alt: '商家主厨调味的健康餐 — 好吃才能坚持',
-    caption: '味道交给主厨',
+    caption: '主厨替你管好味道',
   },
   {
     src: '/zheergan-healthy-meals/images/answer-delivery.jpg',
     alt: '保温箱送到门口的健康餐 — 开盖热气扑脸',
-    caption: '到手还是烫的',
+    caption: '骑手替你保温送到',
   },
 ];
 
 function AnswerSection() {
+  const scrollRef = useRef(null);
+  const paused = useRef(false);
+
+  /* 自动轮播：4 秒滑动一次 */
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!paused.current && scrollRef.current) {
+        const el = scrollRef.current;
+        if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 4) {
+          el.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          const cw = el.querySelector('.food-card')?.offsetWidth || 280;
+          el.scrollBy({ left: cw + 8, behavior: 'smooth' });
+        }
+      }
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const scroll = (dir) => {
+    if (scrollRef.current) {
+      const cardW = scrollRef.current.querySelector('.food-card')?.offsetWidth || 280;
+      const gap = 8;
+      scrollRef.current.scrollBy({ left: dir * (cardW + gap), behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       className="story-section story-answer section-panel panel-cream"
-      id="about"
+      id="answer"
     >
 <div className="story-inner story-answer-inner"
       aria-label="折耳根健康餐是什么"
     >
-        <h2 className="answer-line">
-          <ShinyText text="把「吃得健康」，" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
-          <ShinyText
-            text="变成一件你不用操心的事。"
-            color="#2b1f14"
-            shineColor="#e88a4a"
-            speed={3}
-            spread={120}
-            direction="left"
-            className="answer-line-2"
-          />
-        </h2>
-        <p className="answer-lede">
-          营养师配比热量,商家主厨调味,出锅 90 分钟内保温送到——开盖直接吃。
-          <strong>你只管吃。</strong>
-        </p>
+        <RevealOnScroll variant="fadeIn" amount={0.1}>
+          <h2 className="answer-line">
+            <ShinyText text="饮食健康，放心交给我们" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
+          </h2>
+        </RevealOnScroll>
+        <RevealOnScroll variant="fadeIn" delay={0.1} amount={0.1}>
+          <p className="answer-lede">
+            食材新鲜直采，源头可查；餐厅接单现做，锅气到家。每一口都放心
+          </p>
+        </RevealOnScroll>
 
-        <div className="answer-visuals" aria-label="不用操心的三个理由">
-          {answerVisuals.map((item) => (
-            <figure className="answer-visual-card" key={item.caption}>
-              <div className="answer-visual-img">
-                <img src={item.src} alt={item.alt} loading="lazy" />
-              </div>
-              <figcaption>{item.caption}</figcaption>
-            </figure>
-          ))}
+        <div className="food-card-stage">
+          <div
+            className="food-card-track"
+            ref={scrollRef}
+            onMouseEnter={() => { paused.current = true; }}
+            onMouseLeave={() => { paused.current = false; }}
+          >
+            {foodCards.map((card) => (
+              <article key={card.name} className="food-card">
+                <div className="food-card-img">
+                  <img src={card.image} alt={card.name} loading="lazy" draggable="false" />
+                </div>
+                <div className="food-card-info">
+                  <h3>{card.tag}</h3>
+                  {card.sub && <p>{card.sub}</p>}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="food-card-arrows">
+            <button className="food-card-arrow" onClick={() => scroll(-1)} aria-label="上一张">
+              <ChevronDown size={52} style={{ transform: 'rotate(90deg)' }} />
+            </button>
+            <button className="food-card-arrow" onClick={() => scroll(1)} aria-label="下一张">
+              <ChevronDown size={52} style={{ transform: 'rotate(-90deg)' }} />
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -372,51 +844,66 @@ function AnswerSection() {
 }
 
 const steps = [
-  { no: '01', title: '设定你的身体档案', desc: '输入身高、体重、目标(减脂/增肌/维持)和日常活动强度。', detail: '算法用同一个底层公式——TDEE = BMR × PAL——推你的每日总消耗。比如一位 65kg 轻体力活动者,BMR 约 1500 kcal,乘 PAL 1.55,每日大约需要 2325 kcal,折合每公斤约 35.8 kcal。这个数字,就是你所有餐单的起点。', specs: ['BMR 估算:基于身高·体重·年龄,算出你的静息代谢', 'PAL 匹配:轻体力 1.55 / 中等 1.78 / 高强度 2.10,五档可选', '过敏与忌口:海鲜·坚果·乳糖·香菜等 28 项可标记,自动避开'], image: '/zheergan-healthy-meals/images/answer-nutrition.jpg', imageAlt: '在 App 中设置营养目标的界面示意' },
-  { no: '02', title: '智能配餐引擎', desc: '拿到你的 TDEE 后,引擎从合作商家的健康餐中筛选。', detail: '按「热量匹配度 → 蛋白质达标率 → 口味吻合度 → 食材多样性」四层优先级排序。比如减脂目标的人,每日热量缺口设在 300–500 kcal,蛋白质按每公斤体重 1.6g 下限锁定——不是拍脑袋,每一步都能倒推回那个公式。', specs: ['热量匹配度:平均 94%,逐餐逐克配平到目标区间', '蛋白质底线:按体重 × 系数(1.2–2.0g/kg)自动锁定,不靠感觉', '口味学习:你每一次"换一道",都在训练自己的口味模型'], image: '/zheergan-healthy-meals/images/answer-nutrition.jpg', imageAlt: '智能配餐引擎生成每周餐单' },
-  { no: '03', title: '精选商家,好吃才能坚持', desc: '我们严选本地优质健康餐商家入驻,营养师团队对每道菜进行 3 轮盲测——热量达标但不好吃,照样打回。', detail: '商家用天然香料替代工业酱料,低卡不等于寡淡。', specs: ['严选商家:只合作通过品控考核的健康餐商家', '3 轮盲测:每道新菜上架前必须通过营养师团队品控', '天然调味:商家使用香料·发酵·低温慢煮,拒绝工业酱料包'], image: '/zheergan-healthy-meals/images/answer-chef.jpg', imageAlt: '合作商家主厨在调味健康餐' },
-  { no: '04', title: '热链配送,到手上桌', desc: '合作商家接单后现做出餐,装入保温箱,通过美团骑手网络实时配送。', detail: '从商家出锅到你的餐桌全程保温,到手中心温度 ≥60°C——开盖即食,无需微波复热。', specs: ['商家现做:接单后出餐,不是预制菜复热', '≥60°C:到手中心温度,开盖热气不骗人', '美团骑手:接入美团配送网络,实时追踪'], image: '/zheergan-healthy-meals/images/answer-delivery.jpg', imageAlt: '美团骑手配送保温热链健康餐' },
+  { no: '01', title: '设定你的身体档案', desc: '输入身高、体重、目标（减脂/增肌/维持）和日常活动强度，算法用 TDEE 公式算出你的每日总消耗——这个数字就是你所有餐单的起点。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '在 App 中设置营养目标的界面示意' },
+  { no: '02', title: '智能配餐引擎', desc: '拿到你的 TDEE 后，引擎按「热量匹配度 → 蛋白质达标率 → 口味吻合度 → 食材多样性」四层优先级排序，平均热量匹配度 94%，蛋白质底线自动锁定。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: '智能配餐引擎生成每周餐单' },
+  { no: '03', title: '商家现做 + 热链配送', desc: '严选本地健康餐商家接单现做，3 轮盲测品控，出锅装入保温箱，美团骑手配送，到手中心温度 ≥60°C——开盖即食，不用微波复热。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '美团骑手配送保温热链健康餐' },
 ];
 
 function StepsSection() {
+  const [activeStep, setActiveStep] = useState(0);
   return (
-    <section className="story-section story-steps section-panel panel-cream" aria-label="使用流程">
+    <section className="story-section story-steps section-panel panel-cream" id="steps" aria-label="使用流程">
 <div className="story-inner story-steps-inner">
         <div className="steps-head">
           <h2>开启你的健康饮食</h2>
+          <p className="steps-sub">输入你的身体数据，吃到让你回味无穷的健康餐</p>
         </div>
-        <ol className="steps-track">
-          {steps.map((step) => (
-            <li key={step.no}>
-              <div className="step-card">
-                <span className="step-no">{step.no}</span>
-                {step.image && (
-                  <div className="step-img">
-                    <img src={step.image} alt={step.imageAlt} loading="lazy" />
-                  </div>
-                )}
-                <h3>{step.title}</h3>
-                <p className="step-desc">{step.desc}</p>
-                {step.detail && <p className="step-detail">{step.detail}</p>}
-                <ul className="step-specs">
-                  {step.specs.map((s) => (
-                    <li key={s}><Check size={14} />{s}</li>
-                  ))}
-                </ul>
+        <div className="steps-split">
+          <div className="steps-split-left">
+            {steps.map((step, i) => (
+              <div
+                key={step.no}
+                className={`steps-item${i === activeStep ? ' is-active' : ''}`}
+                onMouseEnter={() => setActiveStep(i)}
+              >
+                <span className="steps-item-no">{step.no}</span>
+                <div className="steps-item-text">
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </div>
               </div>
-            </li>
-          ))}
-        </ol>
+            ))}
+          </div>
+          <div className="steps-split-right">
+            <div className="steps-stage">
+              {steps.map((step, i) => (
+                <div key={step.no} className={`steps-slide${i === activeStep ? ' is-active' : ''}`}>
+                  <img src={step.image} alt={step.imageAlt} loading="lazy" />
+                </div>
+              ))}
+            </div>
+            <div className="steps-dots">
+              {steps.map((_, i) => (
+                <button
+                  key={i}
+                  className={`steps-dot${i === activeStep ? ' is-active' : ''}`}
+                  onClick={() => setActiveStep(i)}
+                  aria-label={`第 ${i + 1} 步`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
 const trustStats = [
-  { value: 12, suffix: '万+', label: '用户正在好好吃饭' },
-  { value: 300, suffix: '万+', label: '份健康餐已送达' },
-  { value: 200, suffix: '+', label: '合作健康餐商家' },
-  { value: 4.9, suffix: '', decimals: 1, label: 'App Store 评分' },
+  { value: 12, suffix: '万+', label: '正在使用我们的app', desc: '来自全国各地的真实用户，每天都在用折耳根吃上热乎的健康餐' },
+  { value: 300, suffix: '万+', label: '份健康餐已送达', desc: '从第一份到第三百万份，每一份都是现炒现送、到手还是烫的' },
+  { value: 200, suffix: '+', label: '合作健康餐商家', desc: '每一家入驻商家都经过实地考察与用户评分双重筛选' },
+  { value: 94, suffix: '%', label: '热量匹配度', desc: '算法按你的身体数据配餐，热量精准匹配，蛋白质达标率自动锁定' },
 ];
 
 function CountUp({ value, suffix = '', decimals = 0, duration = 1600 }) {
@@ -497,77 +984,73 @@ const testimonials = [
 ];
 
 const pricingPlans = [
-  { name: '体验装', price: 228, per: '¥38/餐', spec: '3天·6餐', feats: ['算法定制3日餐单', '午晚双餐热链配送', '随时暂停·无违约金'], cta: '试3天' },
+  { name: '体验装', price: 228, per: '¥38/餐', spec: '3天·6餐', feats: ['算法定制3日餐单', '午晚双餐热链配送', '忌口与过敏原标记', '随时暂停·无违约金'], cta: '试3天' },
   { name: '周计划', price: 476, per: '¥34/餐', spec: '7天·14餐', feats: ['含体验装全部', '每周口味学习调优', '营养师周报', '免配送费'], cta: '最划算', hot: true },
   { name: '月计划', price: 1792, per: '¥32/餐', spec: '28天·56餐', feats: ['含周计划全部', '1对1营养师咨询', '体重体脂追踪', '优先配送时段'], cta: '深度定制' },
 ];
 
 function PricingInline() {
   return (
-    <section className="story-section section-panel panel-cream" aria-label="价格方案">
-      <div className="story-inner" style={{ paddingBottom: '80px' }}>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '52px' }}>
-          好好吃饭，<span style={{ color: '#000' }}>其实没那么贵。</span>
+    <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格方案">
+      <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '12px' }}>
+          美味健康餐，真不贵
         </h2>
-        <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '18px', maxWidth: '1100px', margin: '0 auto' }}>
-          {pricingPlans.map((plan) => (
-            <article
-              key={plan.name}
+        <p style={{ textAlign: 'center', color: 'var(--muted-cream)', fontSize: 'var(--fs-lede)', marginBottom: '52px', lineHeight: 1.6 }}>
+          一顿外卖的钱，吃到算法定制、餐厅现炒的专属健康餐
+        </p>
+        <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto' }}>
+          {pricingPlans.map((plan, i) => (
+            <RevealOnScroll key={plan.name} delay={i * 0.12} amount={0.1} variant="scaleIn">
+              <article
               style={{
-                display: 'flex', flexDirection: 'column', padding: '28px 24px 24px',
-                border: plan.hot ? '1px solid rgba(255,214,170,0.9)' : '1px solid rgba(255,255,255,0.68)',
+                display: 'flex', flexDirection: 'column', padding: '40px 60px 38px',
+                border: '1px solid rgba(43,31,20,0.06)',
                 borderRadius: 'var(--r-2xl)',
-                background: plan.hot
-                  ? 'linear-gradient(150deg, rgba(255,231,205,0.72), rgba(255,244,226,0.4))'
-                  : 'linear-gradient(150deg, rgba(255,255,255,0.55), rgba(255,255,255,0.26))',
-                backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
+                background: '#ffffff',
                 boxShadow: plan.hot
-                  ? 'inset 0 1px 0 rgba(255,255,255,0.95), 0 26px 68px rgba(194,97,31,0.2)'
-                  : 'inset 0 1px 0 rgba(255,255,255,0.9), 0 22px 60px rgba(43,31,20,0.12)',
+                  ? '0 26px 68px rgba(194,97,31,0.16)'
+                  : '0 18px 48px rgba(43,31,20,0.06)',
                 transition: 'transform 220ms ease',
               }}
             >
-              <div style={{ marginBottom: '18px' }}>
-                <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: 'var(--ink-cream)' }}>{plan.name}</h3>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginTop: '14px' }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--ember-ink)' }}>¥</span>
-                  <strong style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(38px, 3vw, 50px)', fontWeight: 700, lineHeight: 1, color: 'var(--ink-cream)' }}>{plan.price}</strong>
+              <div style={{ marginBottom: '20px' }}>
+                <h3 style={{ margin: 0, fontSize: '22px', fontWeight: 700, color: 'var(--ink-cream)' }}>{plan.name}</h3>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginTop: '18px' }}>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '24px', color: 'var(--ink-cream)' }}>¥</span>
+                  <strong style={{ fontSize: 'clamp(50px, 4vw, 66px)', fontWeight: 700, lineHeight: 1, color: 'var(--ink-cream)' }}>{plan.price}</strong>
                 </div>
-                <div style={{ marginTop: '8px' }}>
-                  <span style={{ display: 'inline-block', padding: '4px 10px', color: 'var(--ember-ink)', borderRadius: '999px', background: 'rgba(194,97,31,0.1)', fontSize: '12px', fontWeight: 700 }}>{plan.per}</span>
-                  <span style={{ display: 'block', marginTop: '6px', color: 'var(--muted-cream)', fontSize: '13px' }}>{plan.spec}</span>
+                <div style={{ marginTop: '10px' }}>
+                  <span style={{ display: 'inline-block', padding: '6px 14px', color: 'var(--ink-cream)', borderRadius: '999px', background: 'rgba(43,31,20,0.06)', fontSize: '14px', fontWeight: 700 }}>{plan.per}</span>
+                  <span style={{ display: 'block', marginTop: '10px', color: 'var(--muted-cream)', fontSize: '15px' }}>{plan.spec}</span>
                 </div>
               </div>
-              <ul style={{ listStyle: 'none', margin: '0 0 20px', padding: '16px 0 0', borderTop: '1px solid var(--line-cream)', display: 'grid', gap: '10px' }}>
+              <ul style={{ listStyle: 'none', margin: '0 0 28px', padding: '20px 0 0', borderTop: '1px solid var(--line-cream)', display: 'grid', gap: '14px' }}>
                 {plan.feats.map((f) => (
-                  <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: 'var(--ink-body)', fontSize: '13.5px', lineHeight: 1.5 }}>
-                    <Check size={15} style={{ flex: 'none', marginTop: '2px', color: 'var(--ember-ink)' }} />
+                  <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--ink-body)', fontSize: '16px', lineHeight: 1.5 }}>
+                    <Check size={17} style={{ flex: 'none', marginTop: '2px', color: 'var(--ink-cream)' }} />
                     {f}
                   </li>
                 ))}
               </ul>
               <a
-                href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer"
+                href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer"
                 style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginTop: 'auto',
-                  minHeight: '46px', padding: '10px 18px', borderRadius: '999px',
-                  color: plan.hot ? '#fff' : 'var(--ink-cream)',
-                  border: plan.hot ? '1px solid rgba(255,255,255,0.55)' : '1px solid rgba(255,255,255,0.7)',
-                  background: plan.hot
-                    ? 'linear-gradient(135deg, rgba(232,138,74,0.85), rgba(194,97,31,0.9))'
-                    : 'linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.24))',
-                  fontWeight: 700, fontSize: '14px', textDecoration: 'none',
-                  boxShadow: plan.hot ? 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(194,97,31,0.3)' : 'inset 0 1px 0 rgba(255,255,255,0.85)',
+                  minHeight: '54px', padding: '14px 26px', borderRadius: '999px',
+                  color: '#fff',
+                  border: '1px solid rgba(255,255,255,0.55)',
+                  background: 'linear-gradient(135deg, rgba(232,138,74,0.85), rgba(194,97,31,0.9))',
+                  fontWeight: 700, fontSize: '16px', textDecoration: 'none',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(194,97,31,0.3)',
                 }}
               >
                 {plan.cta}
               </a>
             </article>
+            </RevealOnScroll>
           ))}
         </div>
-        <p style={{ textAlign: 'center', marginTop: '20px', color: 'var(--soft-cream)', fontSize: '13px' }}>
-          价格已含包装与配送 · 随时暂停,未配送餐费全额保留
-        </p>
       </div>
     </section>
   );
@@ -575,38 +1058,28 @@ function PricingInline() {
 
 function TrustSection() {
   return (
-    <section className="story-section story-trust section-panel panel-cream" aria-label="为什么信任我们">
+    <section className="story-section story-trust section-panel panel-cream" id="trust" aria-label="为什么信任我们">
 <div className="story-inner story-trust-inner">
         <div className="trust-head">
           <h2>
-            凭什么<span>信任我们？</span>
+            真实口碑，<span>官方认证</span>
           </h2>
+          <p className="trust-sub">每一个数字背后，都是用户对我们的认可</p>
         </div>
 
-        <div className="trust-stats" aria-label="平台数据">
-          {trustStats.map((stat) => (
-            <div className="trust-stat" key={stat.label}>
-              <CountUp value={stat.value} suffix={stat.suffix} decimals={stat.decimals || 0} />
-              <span>{stat.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <ul className="testimonial-list">
-          {testimonials.map((item) => (
-            <li className="testimonial-card" key={item.name}>
-              <Quote className="testimonial-quote-mark" size={26} />
-              <p className="testimonial-text">{item.quote}</p>
-              <div className="testimonial-person">
-                <span className="testimonial-avatar">{item.name.slice(0, 1)}</span>
-                <span className="testimonial-meta">
-                  <strong>{item.name}</strong>
-                  <span>{item.role}</span>
-                </span>
+        <div className="trust-strip" aria-label="平台数据">
+          {trustStats.map((stat, i) => (
+            <React.Fragment key={stat.label}>
+              {i > 0 && <span className="trust-strip-divider" />}
+              <div className="trust-strip-item">
+                <CountUp value={stat.value} suffix={stat.suffix} decimals={stat.decimals || 0} />
+                <span className="trust-strip-label">{stat.label}</span>
+                <span className="trust-strip-desc">{stat.desc}</span>
               </div>
-            </li>
+            </React.Fragment>
           ))}
-        </ul>
+        </div>
+
       </div>
     </section>
   );
@@ -637,6 +1110,14 @@ const faqs = [
     q: '到手怎么加热更好吃？',
     a: '热链配送到手即食，开盖直接吃。万一凉了，大部分餐品微波 2–3 分钟即可恢复出锅口感，包装上印有针对性的复热建议；沙拉类为冷食设计，冷藏保存、开袋即食。',
   },
+  {
+    q: '餐单是固定的还是我能自己挑？',
+    a: '算法按你的身体数据自动生成一周餐单后，你可以在 App 里对任意一餐进行手动替换——不想吃鱼就换成鸡肉，不爱沙拉就换个热菜，完全灵活。',
+  },
+  {
+    q: '能看到每餐的热量和营养成分吗？',
+    a: '当然能。每份餐都标注了热量、蛋白质、碳水和脂肪含量，App 里还能按天查看三大营养素占比，比你自己做笔记还清楚。',
+  },
 ];
 
 function FaqSection() {
@@ -644,20 +1125,22 @@ function FaqSection() {
     <section className="faq section-panel panel-cream" id="faq" aria-label="常见问题">
 <div className="story-inner faq-inner">
         <div className="faq-head">
-          <h2 className="faq-title">你想问的，我们先答了。</h2>
-          <p className="faq-sub">关于配送、价格、食材与忌口，这里是最常被问到的六个问题。</p>
+          <h2 className="faq-title">关于我们，你大概想知道这些</h2>
+          <p className="faq-sub">关于配送、价格、食材、餐单与营养成分，这里回答了你能想到的</p>
         </div>
         <ul className="faq-list">
-          {faqs.map((item) => (
-            <li className="faq-item" key={item.q}>
-              <details>
-                <summary>
-                  <span className="faq-q">{item.q}</span>
-                  <ChevronDown className="faq-chevron" size={20} />
-                </summary>
-                <p className="faq-a">{item.a}</p>
-              </details>
+          {faqs.map((item, i) => (
+            <RevealOnScroll key={item.q} delay={i * 0.08} amount={0.08} variant="fadeIn">
+              <li className="faq-item">
+                <div className="faq-item-inner">
+                  <div className="faq-q-row">
+                    <span className="faq-q">{item.q}</span>
+                    <ChevronDown className="faq-chevron" size={20} />
+                  </div>
+                  <span className="faq-a">{item.a}</span>
+                </div>
             </li>
+            </RevealOnScroll>
           ))}
         </ul>
       </div>
@@ -665,51 +1148,53 @@ function FaqSection() {
   );
 }
 
+const downloadPlatforms = [
+  { img: '/zheergan-healthy-meals/images/icon-win.svg', label: 'Windows', dl: '点击下载 Windows 版' },
+  { img: '/zheergan-healthy-meals/images/icon-apple.svg', label: 'Mac OS', dl: '点击下载 Mac 版' },
+  { Icon: Smartphone, label: '手机', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
+  { Icon: Tablet, label: '平板', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
+];
+
 function DownloadSection() {
   return (
-    <section className="download section-panel panel-cream" id="download" aria-label="下载健康餐 App">
-<div className="download-grid max-frame">
-        <div className="download-copy">
-          <h2>
-            把下一餐，
-            <span>交给折耳根健康餐。</span>
-          </h2>
-          <p>
-            下载 App → 填 3 个数字 → 明天中午,第一餐到。不好吃?随时停,没花完的钱全退。
-          </p>
+    <section className="download section-panel panel-cream" id="download" aria-label="下载百度网盘">
+      <div className="download-baidu-inner max-frame">
+        <RevealOnScroll variant="fadeUp" amount={0.1}>
+          <h2 className="download-baidu-title">下载折耳根健康餐</h2>
+        </RevealOnScroll>
 
-          <div className="download-actions" aria-label="应用下载链接">
-            <div className="download-btn-group">
-              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
-                Android 下载
-              </a>
-              <div className="download-qr-pop">
-                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
-                <span>手机扫码下载</span>
+        <div className="download-platforms" aria-label="支持的平台">
+          {downloadPlatforms.map((p, i) => (
+            <RevealOnScroll key={p.label} delay={i * 0.08} amount={0.1} variant="popUp">
+              <div className={`platform-card${p.dl ? ' platform-card--dl' : ''}${p.qr ? ' platform-card--qr' : ''}`}>
+                {p.dl && (
+                  <div className="platform-dl-hint">
+                    <div className="dl-circle">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <polyline points="19 12 12 19 5 12" />
+                      </svg>
+                    </div>
+                    <span className="dl-text">{p.dl}</span>
+                  </div>
+                )}
+                {p.qr && (
+                  <div className="platform-qr-hint">
+                    <img src={p.qr} alt={`${p.label} 扫码下载`} className="qr-hint-img" />
+                    <span className="qr-hint-text">扫码下载 {p.label} 版</span>
+                  </div>
+                )}
+                <div className="platform-icon">
+                  {p.img ? (
+                    <img src={p.img} alt={p.label} style={{ width: 48, height: 48 }} />
+                  ) : (
+                    <p.Icon size={48} color="#888" strokeWidth={1.8} />
+                  )}
+                </div>
+                <span className="platform-label">{p.label}</span>
               </div>
-            </div>
-            <div className="download-btn-group">
-              <a className="hero-dl-btn" href="https://vga.pps3.com/agvxz2" target="_blank" rel="noreferrer">
-                <Apple size={20} />
-                iOS 下载
-              </a>
-              <div className="download-qr-pop">
-                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
-                <span>手机扫码下载</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="download-card" aria-label="扫码下载">
-          <div className="qr-shell">
-            <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载折耳根健康餐 App" />
-          </div>
-          <div className="download-card-copy">
-            <span>Scan to download</span>
-            <strong>折耳根健康餐 iOS & Android</strong>
-          </div>
+            </RevealOnScroll>
+          ))}
         </div>
       </div>
     </section>
@@ -752,57 +1237,32 @@ const _oldFooterCols = [
 function Footer() {
   return (
     <footer className="site-footer panel-cream" aria-label="页脚">
-      <div className="footer-inner max-frame">
-        {/* 第一层:社交连接区 */}
-        <div className="footer-l1">
-          <span className="footer-l1-label">关注我们</span>
-          <div className="footer-l1-icons">
-            <a className="footer-soc" href="#" aria-label="微信">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.952-7.062-6.122zm-2.18 2.769c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982z"/></svg>
-            </a>
-            <a className="footer-soc" href="#" aria-label="抖音">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-            </a>
-            <a className="footer-soc" href="#" aria-label="小红书">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.52 3.5H5.48A1.98 1.98 0 0 0 3.5 5.48v13.04c0 1.1.88 1.98 1.98 1.98h13.04c1.1 0 1.98-.88 1.98-1.98V5.48c0-1.1-.88-1.98-1.98-1.98zm-3.04 7.91c.45-.2.95-.32 1.49-.32 1.78 0 3.22 1.44 3.22 3.22s-1.44 3.22-3.22 3.22-3.22-1.44-3.22-3.22v-5.2c-.52.28-1.1.44-1.72.44V7.82c1.14 0 2.13-.46 2.84-1.2h.61v4.79z"/></svg>
-            </a>
-          </div>
+      <div className="footer-new">
+        {/* 上层:链接区 */}
+        <div className="footer-new-links">
+          <a href="javascript:void(0)">商务合作</a>
+          <span className="footer-new-sep">|</span>
+          <a href="javascript:void(0)">隐私政策</a>
+          <span className="footer-new-sep">|</span>
+          <a href="javascript:void(0)">服务协议</a>
+          <span className="footer-new-sep">|</span>
+          <a href="javascript:void(0)">权利声明</a>
+          <span className="footer-new-sep">|</span>
+          <a href="javascript:void(0)">版本更新</a>
+          <span className="footer-new-sep">|</span>
+          <a href="javascript:void(0)">帮助中心</a>
+          <span className="footer-new-sep">|</span>
+          <a href="javascript:void(0)">版权投诉</a>
+          <span className="footer-new-sep">|</span>
+          <a href="javascript:void(0)">备案信息</a>
         </div>
-
-        {/* 第二层:核心导航区(三列网格) */}
-        <div className="footer-l2">
-          <div className="footer-l2-col">
-            <h3>加入我们</h3>
-            <a href="javascript:void(0)">社会招聘</a>
-            <a href="javascript:void(0)">校园招聘</a>
-            <a href="javascript:void(0)">国际招聘</a>
-          </div>
-          <div className="footer-l2-col">
-            <h3>联系我们</h3>
-            <a href="javascript:void(0)">客户服务</a>
-            <a href="javascript:void(0)">合作洽谈</a>
-            <a href="javascript:void(0)">商务采购</a>
-            <a href="javascript:void(0)">诚信合规</a>
-            <a href="javascript:void(0)">媒体及投资者</a>
-          </div>
-          <div className="footer-l2-col">
-            <h3>法律信息</h3>
-            <a href="javascript:void(0)">服务协议</a>
-            <a href="javascript:void(0)">隐私政策</a>
-          </div>
-          {/* 右下角品牌 */}
-          <span className="footer-l2-brand"><i>Ergen</i> 折耳根健康餐</span>
-        </div>
-
-        {/* 第三层:版权与合规区 */}
-        <div className="footer-l3">
-          <a href="javascript:void(0)">法律声明</a>
-          <a href="javascript:void(0)">阳光准则</a>
-          <a href="javascript:void(0)">网站地图</a>
-          <span>粤网文[2026]2882-203号</span>
-          <span>粤B2-20260059-1</span>
-          <span>粤公网安备 44030502008569号</span>
-          <span>Copyright © 2026 Ergen折耳根健康餐. 保留所有权利。</span>
+        {/* 下层:版权区 */}
+        <div className="footer-new-copy">
+          <span>京公网安备 11000002002061号</span>
+          <span>京ICP备2020042663号</span>
+          <span>京网文[2026]2102-100号</span>
+          <span>©2026 Ergen 折耳根健康餐</span>
+          <a href="javascript:void(0)">证照信息 ›</a>
         </div>
       </div>
     </footer>
@@ -812,6 +1272,7 @@ function Footer() {
 function App() {
   const route = useRoute();
   if (route === 'menu') return <MenuPage />;
+  if (route === 'company') return <CompanyPage />;
   return <HomePage />;
 }
 

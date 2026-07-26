@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import {
+  Apple,
+  ChevronDown,
   Flame,
+  Monitor,
+  Smartphone,
+  Tablet,
   Utensils,
 } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
+import RevealOnScroll from '../components/RevealOnScroll';
 import './features.css';
 import './menu.css';
 
@@ -17,11 +23,11 @@ const IMG = '/zheergan-healthy-meals/images';
 
 const dishes = [
   { no: '01', title: '烟熏三文鱼平衡碗', desc: '挪威三文鱼低温烟熏,配三色藜麦、牛油果与溏心蛋,Omega-3 与优质蛋白一碗配齐。', kcal: 486, protein: 36, tag: '高蛋白', featured: false, image: `${IMG}/salmon.jpg` },
-  { no: '02', title: '柑香鸡肉谷物碗', desc: '橙皮腌制鸡腿肉炙烤出焦边,配三色糙米与烤时蔬,是本月复购率最高的一道。', kcal: 532, protein: 42, tag: '本月主推', featured: true, image: `${IMG}/chicken.jpg` },
+  { no: '02', title: '柑香鸡肉谷物碗', desc: '橙皮腌制鸡腿肉炙烤出焦边,配三色糙米与烤时蔬,是本月复购率最高的一道。', kcal: 532, protein: 42, tag: '高蛋白', featured: false, image: `${IMG}/chicken.jpg` },
   { no: '03', title: '牛油果绿蔬蛋碗', desc: '牛油果、羽衣甘蓝与水波蛋,南瓜籽点缀,轻负担但饱腹感在线。', kcal: 418, protein: 28, tag: '低卡', featured: false, image: `${IMG}/avocado.jpg` },
   { no: '04', title: '藜麦能量碗', desc: '三色藜麦打底,烤鹰嘴豆与当季根茎蔬菜,膳食纤维一餐达标 60%。', kcal: 462, protein: 24, tag: '高纤维', featured: false, image: `${IMG}/quinoa.jpg` },
   { no: '05', title: '田园时蔬沙拉', desc: '十二种时蔬每日直采,油醋汁另附,想清淡的那天就选它。', kcal: 320, protein: 18, tag: '轻食', featured: false, image: `${IMG}/salad.jpg` },
-  { no: '06', title: '金枪鱼波奇碗', desc: '生食级金枪鱼配寿司米与海苔脆,冷链锁鲜直达(全站唯一冷食,标注清楚)。', kcal: 508, protein: 38, tag: '高蛋白', featured: false, image: `${IMG}/tuna.jpg` },
+  { no: '06', title: '金枪鱼波奇碗', desc: '生食级金枪鱼配寿司米与海苔脆,冷链锁鲜直达(全站唯一冷食,标注清楚)。', kcal: 508, protein: 38, tag: '本月主推', featured: true, image: `${IMG}/tuna.jpg` },
   { no: '07', title: '素食牛油果藜麦碗', desc: '藜麦、鹰嘴豆与烤南瓜,芝麻酱汁提香,全素也能吃得扎实。', kcal: 432, protein: 16, tag: '高纤维', featured: false, image: `${IMG}/dish-07.jpg` },
   { no: '08', title: '彩虹果蔬沙拉碗', desc: '八种颜色果蔬同碗,石榴籽点睛,维生素密度全场最高。', kcal: 356, protein: 14, tag: '低卡', featured: false, image: `${IMG}/dish-08.jpg` },
   { no: '09', title: '蓝莓燕麦松饼', desc: '燕麦粉替代精面,枫糖减半,早餐的甜口配额留给它。', kcal: 388, protein: 12, tag: '轻食', featured: false, image: `${IMG}/dish-09.jpg` },
@@ -56,15 +62,73 @@ export default function MenuPage() {
 
   return (
     <main className="features-page menu-page">
-      {/* 玻璃导航 */}
-      <header className="features-nav">
-        <div className="features-nav-inner max-frame">
+      {/* 玻璃导航:与首页一致 */}
+      <header className="home-nav">
+        <div className="home-nav-inner max-frame">
           <a className="brand" href="#/" aria-label="折耳根健康餐 · 返回首页">
             <span className="home-nav-brand-text"><i>Ergen</i> 折耳根健康餐</span>
           </a>
           <nav className="nav-links" aria-label="主导航">
             <a href="#/">首页</a>
-<a href="#/menu" className="is-active" aria-current="page">每月餐单</a>
+            <a href="#/company">公司简介</a>
+            <div className="nav-dropdown">
+              <span className="nav-dropdown-trigger">
+                下载中心 <ChevronDown size={14} />
+              </span>
+              <div className="nav-dropdown-panel">
+                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+                  <span className="ndi-default">
+                    <img src="/zheergan-healthy-meals/images/icon-win.svg" alt="Windows" style={{width:32,height:32}} />
+                    <span>Windows</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <span className="ndi-dl-circle">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <polyline points="19 12 12 19 5 12" />
+                      </svg>
+                    </span>
+                    <span>下载 Windows 版</span>
+                  </span>
+                </a>
+                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+                  <span className="ndi-default">
+                    <img src="/zheergan-healthy-meals/images/icon-apple.svg" alt="Mac OS" style={{width:32,height:32}} />
+                    <span>Mac OS</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <span className="ndi-dl-circle">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <polyline points="19 12 12 19 5 12" />
+                      </svg>
+                    </span>
+                    <span>下载 Mac OS 版</span>
+                  </span>
+                </a>
+                <span className="nav-dropdown-item nav-dropdown-item--qr">
+                  <span className="ndi-default">
+                    <Smartphone size={32} strokeWidth={1.5} />
+                    <span>手机</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
+                    <span>扫码下载 手机版</span>
+                  </span>
+                </span>
+                <span className="nav-dropdown-item nav-dropdown-item--qr">
+                  <span className="ndi-default">
+                    <Tablet size={32} strokeWidth={1.5} />
+                    <span>平板</span>
+                  </span>
+                  <span className="ndi-hover">
+                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
+                    <span>扫码下载 平板版</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <a href="#/menu" className="is-active" aria-current="page">每月餐单</a>
           </nav>
         </div>
       </header>
@@ -78,32 +142,23 @@ export default function MenuPage() {
         </div>
 
         <div className="menu-hero-inner max-frame">
-          <span className="section-kicker">
-            <Utensils size={16} />
-            每月餐单 · 每月 1 日焕新
-          </span>
-          <h1>
-            <ShinyText
-              text="每月焕新，"
-              color="#2b1f14"
-              shineColor="#c2611f"
-              speed={3}
-              spread={120}
-              direction="left"
-            />
-            <ShinyText
-              text="道道都是硬菜。"
-              color="#2b1f14"
-              shineColor="#e88a4a"
-              speed={3}
-              spread={120}
-              direction="left"
-              className="menu-hero-line-2"
-            />
-          </h1>
-          <p className="menu-hero-lede">
-            本月在售 30 道,由营养师与合作商家主厨共同设计,按你的热量目标与口味偏好每月轮换上新。完整定制餐单在 App 内按你的身体数据生成。
-          </p>
+          <RevealOnScroll variant="fadeUp" amount={0.1}>
+            <h1>
+              <ShinyText
+                text="每月焕新"
+                color="#2b1f14"
+                shineColor="#c2611f"
+                speed={3}
+                spread={120}
+                direction="left"
+              />
+            </h1>
+          </RevealOnScroll>
+          <RevealOnScroll variant="fadeIn" delay={0.1} amount={0.1}>
+            <p className="menu-hero-lede">
+              本月在售 30 道,由营养师与合作商家主厨共同设计,按你的热量目标与口味偏好每月轮换上新。完整定制餐单在 App 内按你的身体数据生成。
+            </p>
+          </RevealOnScroll>
 
           {/* 标签筛选 */}
           <div className="menu-filters" role="group" aria-label="按标签筛选餐品">
@@ -125,17 +180,16 @@ export default function MenuPage() {
       {/* ── 餐品网格 ── */}
       <section className="m-dishes" aria-label="本月在售餐品">
         <div className="m-dish-grid max-frame">
-          {shown.map((dish) => (
-            <article
-              className={`m-dish${dish.featured ? ' m-dish--featured' : ''}`}
-              key={dish.no}
-            >
+          {shown.map((dish, i) => (
+            <RevealOnScroll key={dish.no} delay={i * 0.04} amount={0.06} variant="scaleIn">
+              <article
+                className={`m-dish${dish.featured ? ' m-dish--featured' : ''}`}
+              >
               <div className="m-dish-media">
                 <img src={dish.image} alt={dish.title} loading="lazy" />
-                <span className={`m-dish-tag${dish.featured ? ' m-dish-tag--hot' : ''}`}>
+                <span className="m-dish-tag">
                   {dish.tag}
                 </span>
-                <span className="m-dish-no">{dish.no}</span>
               </div>
               <div className="m-dish-info">
                 <h2>{dish.title}</h2>
@@ -149,6 +203,7 @@ export default function MenuPage() {
                 </div>
               </div>
             </article>
+            </RevealOnScroll>
           ))}
         </div>
 
