@@ -299,6 +299,7 @@ function HomePage() {
           </a>
         </div>
       </nav>
+      <HotChainHero />
       <Hero />
       <PainSection />
       <AnswerSection />
@@ -563,6 +564,147 @@ function slotToPos(s) {
   if (s === -2) return 'left-2';
   if (s === -3) return 'left-3';
   return 'hidden';
+}
+
+/* ================================================================
+   HotChainHero — 热链鲜送 AI 智能搭配 Hero
+   左右分栏：左侧品牌宣传 + 右侧 AI 聊天演示
+   ================================================================ */
+function HotChainHero() {
+  return (
+    <section className="hotchain-hero section-panel panel-cream" aria-label="热链鲜送 AI 健康餐">
+      {/* 背景光斑 */}
+      <div className="hc-bg-blobs" aria-hidden="true">
+        <span className="hc-blob hc-blob--1" />
+        <span className="hc-blob hc-blob--2" />
+        <span className="hc-blob hc-blob--3" />
+      </div>
+      <div className="hotchain-grid max-frame">
+        {/* ========== 左栏：品牌宣传区 ========== */}
+        <div className="hotchain-left">
+          {/* 主标题 */}
+          <h1 className="hotchain-title">
+            <span className="hotchain-title-main">
+              热链健康餐
+            </span>
+            <span className="hotchain-title-sub">
+              <span className="hc-grad-agent">Agent</span>
+              <span className="hc-grad-text">智能配送</span>
+            </span>
+          </h1>
+
+          {/* 副标题 */}
+          <p className="hotchain-desc">
+            每一餐由 AI 为你量身定制营养方案，热链恒温配送到家。新鲜出锅 → 智能保温箱 → 70°C 准时送达，让健康饮食零负担。
+          </p>
+
+          {/* 按钮：照搬原 Hero 的下载按钮 */}
+          <div className="hero-actions">
+            <div className="download-btn-group">
+              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+                Android 下载
+              </a>
+              <div className="download-qr-pop">
+                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <span>手机扫码下载</span>
+              </div>
+            </div>
+            <div className="download-btn-group">
+              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+                <img src="/zheergan-healthy-meals/images/icon-apple.svg" alt="" style={{width:20,height:20,filter:'brightness(0) invert(1)'}} />
+                iOS 下载
+              </a>
+              <div className="download-qr-pop">
+                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <span>手机扫码下载</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 底部卖点 */}
+          <div className="hotchain-sells">
+            <div className="hotchain-sell-item">
+              <Check size={16} />
+              <span>有机认证食材</span>
+            </div>
+            <div className="hotchain-sell-item">
+              <Check size={16} />
+              <span>营养师团队审核</span>
+            </div>
+            <div className="hotchain-sell-item">
+              <Check size={16} />
+              <span>30min 极速热达</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ========== 右栏：AI 聊天演示区 ========== */}
+        <div className="hotchain-right">
+          <div className="chat-card">
+            {/* 顶部信息栏 */}
+            <div className="chat-topbar">
+              <div className="chat-avatar">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="6" width="20" height="13" rx="3" />
+                  <path d="M6 10h3" />
+                  <path d="M6 14h5" />
+                  <circle cx="16" cy="13" r="2" />
+                  <path d="M16 9v1" />
+                </svg>
+              </div>
+              <div className="chat-topbar-info">
+                <span className="chat-name">Nova · 健康管家</span>
+                <span className="chat-status">
+                  <span className="chat-status-dot" />
+                  在线 · 随时为你服务
+                </span>
+              </div>
+            </div>
+
+            {/* 聊天记录 */}
+            <div className="chat-messages">
+              {/* AI 提问 */}
+              <div className="chat-msg chat-msg--ai">
+                <span className="chat-msg-label chat-msg-label--ai">AI</span>
+                <div className="chat-bubble chat-bubble--ai">
+                  你好！我是你的专属健康管家。今天想吃点什么风格？我可以帮你搭配营养均衡的热链套餐。
+                </div>
+              </div>
+
+              {/* 用户回复 */}
+              <div className="chat-msg chat-msg--user">
+                <div className="chat-bubble chat-bubble--user">
+                  我下午有健身计划，想要高蛋白低卡的
+                </div>
+              </div>
+
+              {/* AI 推荐 */}
+              <div className="chat-msg chat-msg--ai">
+                <span className="chat-msg-label chat-msg-label--rec">推荐</span>
+                <div className="chat-bubble chat-bubble--ai">
+                  收到！为你推荐<strong>「炙烤鸡胸能量碗」</strong>：220g 鸡胸肉 + 糙米饭 + 烤时蔬，仅 <strong>420kcal</strong>，蛋白质 <strong>38g</strong>。12:30 前下单可热链送达~
+                </div>
+              </div>
+            </div>
+
+            {/* 底部输入栏 */}
+            <div className="chat-input-bar">
+              <div className="chat-input-field">
+                <span className="chat-input-placeholder">告诉 Agent 你的需求...</span>
+              </div>
+              <button className="chat-send-btn" aria-label="发送">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function Hero() {

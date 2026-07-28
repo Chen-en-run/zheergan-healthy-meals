@@ -4883,3 +4883,553 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .prog-img-full {
   will-change: opacity;
 }
+
+/* ================================================================
+   HotChain Hero — 热链鲜送 AI 智能搭配首屏
+   左右分栏：左品牌宣传 + 右 AI 聊天演示
+   ================================================================ */
+
+/* ── 区域底色：暖白底 + 微妙的左右冷暖分区渐变 ── */
+.hotchain-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse 90% 70% at 25% 50%, rgba(220, 180, 140, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 75% 45%, rgba(245, 225, 190, 0.16) 0%, transparent 70%),
+    var(--cream);
+}
+
+/* ── 背景光斑 ── */
+.hc-bg-blobs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hc-blob {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.hc-blob--1 {
+  width: clamp(340px, 38vw, 620px);
+  left: -8%;
+  top: 12%;
+  background: radial-gradient(circle at 40% 40%, rgba(222, 150, 120, 0.55), rgba(222, 150, 120, 0) 68%);
+  animation: hc-blob-a 22s ease-in-out infinite alternate;
+}
+
+.hc-blob--2 {
+  width: clamp(280px, 30vw, 500px);
+  right: -6%;
+  bottom: 10%;
+  background: radial-gradient(circle at 55% 45%, rgba(245, 200, 150, 0.5), rgba(245, 200, 150, 0) 68%);
+  animation: hc-blob-b 26s ease-in-out infinite alternate;
+}
+
+.hc-blob--3 {
+  width: clamp(200px, 18vw, 340px);
+  left: 40%;
+  top: 55%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 180, 130, 0.35), rgba(255, 180, 130, 0) 70%);
+  animation: hc-blob-a 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes hc-blob-a {
+  to { transform: translate3d(5vw, 4vw, 0) scale(1.1); }
+}
+
+@keyframes hc-blob-b {
+  to { transform: translate3d(-4vw, 5vw, 0) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc-blob { animation: none; }
+}
+
+/* ── 两栏网格 ── */
+.hotchain-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 80px 0 60px;
+}
+
+/* ── 左栏 ── */
+.hotchain-left {
+  display: flex;
+  flex-direction: column;
+  max-width: 620px;
+}
+
+/* 胶囊标签 */
+.hotchain-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--ember-ink);
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.42);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  backdrop-filter: blur(16px) saturate(1.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 8px 24px rgba(43, 31, 20, 0.07);
+}
+
+.hotchain-tag-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #F07050;
+  box-shadow: 0 0 10px rgba(240, 112, 80, 0.5);
+  animation: hc-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hc-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* 主标题 */
+.hotchain-title {
+  margin: 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hotchain-title-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--fs-h2);
+  font-weight: 720;
+  line-height: 1.12;
+  color: var(--ink-cream);
+  letter-spacing: 0;
+}
+
+.hotchain-fire-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(240, 112, 80, 0.35));
+  animation: hc-fire-flicker 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes hc-fire-flicker {
+  0% { transform: scale(1); filter: drop-shadow(0 2px 6px rgba(240, 112, 80, 0.35)); }
+  100% { transform: scale(1.06); filter: drop-shadow(0 4px 14px rgba(240, 112, 80, 0.55)); }
+}
+
+.hotchain-title-sub {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: var(--fs-h2);
+  font-weight: 680;
+  line-height: 1.12;
+  color: var(--ink-cream);
+}
+
+/* AI 紫粉渐变字(暖橙色调适配版) */
+.hc-grad-ai {
+  background: linear-gradient(135deg, #D08060 0%, #C2611F 50%, #E08850 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+}
+
+/* Agent 橙粉渐变字 */
+.hc-grad-agent {
+  background: linear-gradient(135deg, #E08850 0%, #F0A060 50%, #D07040 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+}
+
+/* 智能配送 常规粗体 */
+.hc-grad-text {
+  color: var(--ink-cream);
+  font-weight: 680;
+}
+
+/* 副标题/说明文案 */
+.hotchain-desc {
+  max-width: 560px;
+  margin: 28px 0 0;
+  color: var(--ink-body);
+  font-size: var(--fs-lede);
+  line-height: 1.9;
+}
+
+/* 按钮区：复用 hero-actions，微调间距 */
+.hotchain-left .hero-actions {
+  margin-top: 32px;
+}
+
+/* 底部卖点列表 */
+.hotchain-sells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+  margin-top: 36px;
+}
+
+.hotchain-sell-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-body);
+}
+
+.hotchain-sell-item svg {
+  color: #5B9A5B;
+  flex-shrink: 0;
+}
+
+/* ── 右栏：AI 聊天演示卡 ── */
+.hotchain-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-card {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.22) 100%);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  backdrop-filter: blur(28px) saturate(1.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 24px 64px rgba(43, 31, 20, 0.12),
+    0 4px 16px rgba(43, 31, 20, 0.06);
+  overflow: hidden;
+}
+
+/* ── 聊天顶部信息栏 ── */
+.chat-topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(43, 31, 20, 0.08);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.chat-avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D08070, #C2611F);
+  box-shadow: 0 4px 16px rgba(194, 97, 31, 0.28);
+  flex-shrink: 0;
+}
+
+.chat-topbar-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.chat-name {
+  font-size: 15px;
+  font-weight: 680;
+  color: var(--ink-cream);
+  line-height: 1.2;
+}
+
+.chat-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted-cream);
+  line-height: 1.2;
+}
+
+.chat-status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5B9A5B;
+  box-shadow: 0 0 6px rgba(91, 154, 91, 0.5);
+}
+
+/* ── 聊天消息区 ── */
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+  flex: 1;
+}
+
+/* 单条消息 */
+.chat-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 88%;
+}
+
+.chat-msg--ai {
+  align-self: flex-start;
+}
+
+.chat-msg--user {
+  align-self: flex-end;
+}
+
+/* AI 标签 */
+.chat-msg-label {
+  display: inline-block;
+  width: fit-content;
+  padding: 2px 10px;
+  border-radius: var(--r-sm);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.chat-msg-label--ai {
+  color: #fff;
+  background: #A080B0;
+}
+
+.chat-msg-label--rec {
+  color: #fff;
+  background: linear-gradient(135deg, #E08850, #C2611F);
+}
+
+/* 聊天气泡 */
+.chat-bubble {
+  padding: 13px 17px;
+  border-radius: var(--r-lg);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.chat-bubble--ai {
+  color: var(--ink-cream);
+  background: rgba(235, 225, 215, 0.65);
+  border-top-left-radius: 4px;
+}
+
+.chat-bubble--ai strong {
+  color: var(--ember-ink);
+  font-weight: 680;
+}
+
+.chat-bubble--user {
+  color: #fff;
+  background: linear-gradient(135deg, #D08060, #C2611F);
+  border-top-right-radius: 4px;
+}
+
+/* ── 底部输入栏 ── */
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid rgba(43, 31, 20, 0.08);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.chat-input-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  border: 1px solid rgba(43, 31, 20, 0.1);
+}
+
+.chat-input-placeholder {
+  font-size: 14px;
+  color: var(--muted-cream);
+}
+
+.chat-send-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D08060, #C2611F);
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(194, 97, 31, 0.28);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.chat-send-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(194, 97, 31, 0.4);
+}
+
+/* ── 响应式 ── */
+
+/* 平板及以下：上下堆叠 */
+@media (max-width: 1024px) {
+  .hotchain-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    min-height: auto;
+    padding: 60px 0 50px;
+  }
+
+  .hotchain-left {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hotchain-desc {
+    text-align: center;
+  }
+
+  .hotchain-sells {
+    justify-content: center;
+  }
+
+  .hotchain-right {
+    justify-content: center;
+  }
+
+  .chat-card {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hotchain-hero {
+    min-height: auto;
+  }
+
+  .hotchain-grid {
+    padding: 40px 0 36px;
+    gap: 36px;
+  }
+
+  .hotchain-title-main,
+  .hotchain-title-sub {
+    font-size: clamp(28px, 6vw, 42px);
+  }
+
+  .hotchain-fire-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hotchain-desc {
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  .hotchain-left .hero-actions {
+    margin-top: 24px;
+  }
+
+  .hotchain-sells {
+    margin-top: 24px;
+    gap: 8px 20px;
+  }
+
+  .chat-card {
+    max-width: 100%;
+  }
+
+  .chat-messages {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .chat-msg {
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hotchain-grid {
+    padding: 32px 0 28px;
+    gap: 28px;
+  }
+
+  .hotchain-tag {
+    font-size: 11px;
+    padding: 7px 14px;
+    gap: 7px;
+  }
+
+  .hotchain-title-main,
+  .hotchain-title-sub {
+    font-size: clamp(24px, 5.5vw, 34px);
+  }
+
+  .hotchain-fire-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hotchain-sells {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .chat-bubble {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  .chat-topbar {
+    padding: 14px 16px;
+  }
+
+  .chat-input-bar {
+    padding: 10px 14px;
+  }
+}
