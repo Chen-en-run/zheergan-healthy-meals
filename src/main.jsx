@@ -603,6 +603,7 @@ const chatSequence = [
 function HotChainHero() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [typing, setTyping] = useState(false);
+  const [phase, setPhase] = useState('chat'); /* chat → entry → detail */
   const msgEndRef = useRef(null);
 
   useEffect(() => {
@@ -624,6 +625,14 @@ function HotChainHero() {
     }, delay);
 
     return () => clearTimeout(timer);
+  }, [visibleCount]);
+
+  /* 全部消息播完后 → 展示入口 → 跳转详情 */
+  useEffect(() => {
+    if (visibleCount < chatSequence.length) return;
+    const t1 = setTimeout(() => setPhase('entry'), 1800);
+    const t2 = setTimeout(() => setPhase('detail'), 4200);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [visibleCount]);
 
   /* 新消息冒出后滚动到底部 */
@@ -701,81 +710,189 @@ function HotChainHero() {
 
         {/* ========== 右栏：AI 聊天演示区 ========== */}
         <div className="hotchain-right">
-          <div className="chat-card">
+          <div className={`chat-card${phase === 'detail' ? ' chat-card--detail' : ''}`}>
             {/* 顶部信息栏 */}
             <div className="chat-topbar">
-              <div className="chat-avatar">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="6" width="20" height="13" rx="3" />
-                  <path d="M6 10h3" />
-                  <path d="M6 14h5" />
-                  <circle cx="16" cy="13" r="2" />
-                  <path d="M16 9v1" />
-                </svg>
-              </div>
-              <div className="chat-topbar-info">
-                <span className="chat-name">Nova · 健康管家</span>
-                <span className="chat-status">
-                  <span className="chat-status-dot" />
-                  在线 · 随时为你服务
-                </span>
-              </div>
-            </div>
-
-            {/* 聊天记录 — 逐条动画冒出 */}
-            <div className="chat-messages">
-              {chatSequence.slice(0, visibleCount).map((msg, i) => (
-                <div
-                  key={i}
-                  className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
-                >
-                  {msg.label && (
-                    <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
-                      {msg.label}
+              {phase === 'detail' ? (
+                <>
+                  <button className="chat-back-btn" aria-label="返回">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                  </button>
+                  <span className="chat-name">食谱详情</span>
+                </>
+              ) : (
+                <>
+                  <div className="chat-avatar">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="6" width="20" height="13" rx="3" />
+                      <path d="M6 10h3" />
+                      <path d="M6 14h5" />
+                      <circle cx="16" cy="13" r="2" />
+                      <path d="M16 9v1" />
+                    </svg>
+                  </div>
+                  <div className="chat-topbar-info">
+                    <span className="chat-name">Nova · 健康管家</span>
+                    <span className="chat-status">
+                      <span className="chat-status-dot" />
+                      在线 · 随时为你服务
                     </span>
-                  )}
-                  <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
-                    {msg.text}
                   </div>
-                </div>
-              ))}
-
-              {/* 正在输入指示器 */}
-              {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'agent' && (
-                <div className="chat-msg chat-msg--ai chat-msg--pop">
-                  <div className="chat-typing">
-                    <span className="chat-typing-dot" />
-                    <span className="chat-typing-dot" />
-                    <span className="chat-typing-dot" />
-                  </div>
-                </div>
+                </>
               )}
-
-              {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'user' && (
-                <div className="chat-msg chat-msg--user chat-msg--pop">
-                  <div className="chat-typing chat-typing--user">
-                    <span className="chat-typing-dot" />
-                    <span className="chat-typing-dot" />
-                    <span className="chat-typing-dot" />
-                  </div>
-                </div>
-              )}
-
-              <div ref={msgEndRef} />
             </div>
 
-            {/* 底部输入栏 */}
-            <div className="chat-input-bar">
-              <div className="chat-input-field">
-                <span className="chat-input-placeholder">告诉 Agent 你的需求...</span>
+            {phase === 'detail' ? (
+              /* ===== 食谱详情页 ===== */
+              <div className="detail-view">
+                {/* 大图 */}
+                <div className="detail-hero">
+                  <img src="/zheergan-healthy-meals/images/salmon.jpg" alt="烟熏三文鱼平衡碗" />
+                  <span className="detail-tag">热链配送 · 70°C 恒温直达</span>
+                </div>
+
+                {/* 基本信息 */}
+                <div className="detail-body">
+                  <h3 className="detail-title">烟熏三文鱼平衡碗</h3>
+                  <div className="detail-nutrition">
+                    <span className="detail-nutri-item"><strong>486</strong> kcal</span>
+                    <span className="detail-nutri-sep">·</span>
+                    <span className="detail-nutri-item"><strong>36g</strong> 蛋白质</span>
+                    <span className="detail-nutri-sep">·</span>
+                    <span className="detail-nutri-item"><strong>28g</strong> 碳水</span>
+                    <span className="detail-nutri-sep">·</span>
+                    <span className="detail-nutri-item"><strong>18g</strong> 脂肪</span>
+                  </div>
+
+                  {/* 规格选择 */}
+                  <div className="detail-section">
+                    <span className="detail-section-label">规格选择</span>
+                    <div className="detail-specs">
+                      <label className="detail-spec is-active">
+                        <span className="detail-spec-radio" />
+                        <span className="detail-spec-info">
+                          <strong>标准份</strong>
+                          <span>默认规格</span>
+                        </span>
+                      </label>
+                      <label className="detail-spec">
+                        <span className="detail-spec-radio" />
+                        <span className="detail-spec-info">
+                          <strong>大份</strong>
+                          <span className="detail-spec-extra">+¥18</span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* 数量 */}
+                  <div className="detail-section">
+                    <span className="detail-section-label">数量</span>
+                    <div className="detail-qty">
+                      <button className="detail-qty-btn">−</button>
+                      <span className="detail-qty-val">1</span>
+                      <button className="detail-qty-btn">+</button>
+                    </div>
+                  </div>
+
+                  {/* 底部下单栏 */}
+                  <div className="detail-bottom">
+                    <div className="detail-price">
+                      <span className="detail-price-label">合计</span>
+                      <span className="detail-price-num">¥48<span>.00</span></span>
+                    </div>
+                    <button className="detail-order-btn">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                      立即下单
+                    </button>
+                  </div>
+                </div>
               </div>
-              <button className="chat-send-btn" aria-label="发送">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13" />
-                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-              </button>
-            </div>
+            ) : (
+              <>
+                {/* 聊天记录 — 逐条动画冒出 */}
+                <div className="chat-messages">
+                  {chatSequence.slice(0, visibleCount).map((msg, i) => (
+                    <div
+                      key={i}
+                      className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
+                    >
+                      {msg.label && (
+                        <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
+                          {msg.label}
+                        </span>
+                      )}
+                      <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
+                        {msg.text}
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* 正在输入指示器 */}
+                  {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'agent' && (
+                    <div className="chat-msg chat-msg--ai chat-msg--pop">
+                      <div className="chat-typing">
+                        <span className="chat-typing-dot" />
+                        <span className="chat-typing-dot" />
+                        <span className="chat-typing-dot" />
+                      </div>
+                    </div>
+                  )}
+
+                  {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'user' && (
+                    <div className="chat-msg chat-msg--user chat-msg--pop">
+                      <div className="chat-typing chat-typing--user">
+                        <span className="chat-typing-dot" />
+                        <span className="chat-typing-dot" />
+                        <span className="chat-typing-dot" />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 查看食谱详情入口 */}
+                  {phase === 'entry' && (
+                    <div className="chat-msg chat-msg--ai chat-msg--pop">
+                      <div className="chat-bubble chat-bubble--entry">
+                        <span className="chat-entry-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                          </svg>
+                        </span>
+                        <span className="chat-entry-text">
+                          <strong>查看食谱详情</strong>
+                          <span>规格选择 · 立即下单</span>
+                        </span>
+                        <svg className="chat-entry-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+
+                  <div ref={msgEndRef} />
+                </div>
+
+                {/* 底部输入栏 */}
+                <div className="chat-input-bar">
+                  <div className="chat-input-field">
+                    <span className="chat-input-placeholder">告诉 Agent 你的需求...</span>
+                  </div>
+                  <button className="chat-send-btn" aria-label="发送">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13" />
+                      <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
