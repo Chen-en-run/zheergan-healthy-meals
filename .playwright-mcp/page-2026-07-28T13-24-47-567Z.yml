@@ -1,0 +1,392 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - link "折耳根健康餐" [ref=e5] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=e6]:
+        - generic [ref=e7]: Ergen
+        - text: 折耳根健康餐
+    - navigation "主导航" [ref=e8]:
+      - link "首页" [ref=e9] [cursor=pointer]:
+        - /url: "#top"
+      - link "公司简介" [ref=e10] [cursor=pointer]:
+        - /url: "#/company"
+      - generic [ref=e11]: 下载中心
+      - link "每月餐单" [ref=e15] [cursor=pointer]:
+        - /url: "#/menu"
+  - navigation "页面模块导航":
+    - generic:
+      - link "饮食痛点":
+        - /url: "#pain"
+      - link "智能省心":
+        - /url: "#answer"
+      - link "定制热送":
+        - /url: "#steps"
+      - link "价格方案":
+        - /url: "#pricing"
+      - link "口碑见证":
+        - /url: "#trust"
+      - link "常见问题":
+        - /url: "#faq"
+      - link "下载 App":
+        - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+  - region "热链鲜送 AI 健康餐" [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - heading "热链健康餐 Agent 智能配送" [level=1] [ref=e19]:
+          - generic [ref=e20]: 热链健康餐
+          - generic [ref=e21]:
+            - generic [ref=e22]: Agent
+            - generic [ref=e23]: 智能配送
+        - paragraph [ref=e24]: 每一餐由 AI 为你量身定制营养方案，热链恒温配送到家。新鲜出锅 → 智能保温箱 → 70°C 准时送达，让健康饮食零负担。
+        - generic [ref=e25]:
+          - link "Android 下载" [ref=e27] [cursor=pointer]:
+            - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+          - link "iOS 下载" [ref=e31] [cursor=pointer]:
+            - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+        - generic [ref=e32]:
+          - generic [ref=e33]: 有机认证食材
+          - generic [ref=e37]: 营养师团队审核
+          - generic [ref=e41]: 30min 极速热达
+      - generic [ref=e46]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: Nova · 健康管家
+          - generic [ref=e54]: 在线 · 随时为你服务
+        - generic [ref=e56]:
+          - generic [ref=e421]: 哎，最近感觉又胖了，想控制饮食但又不知道吃啥。你有啥推荐的健康餐吗？
+          - generic [ref=e424]:
+            - text: 当然有呀！😊 不过为了给你更精准的推荐，我先确认几个小细节哈：你这次的主要目标是
+            - strong [ref=e425]: 减脂
+            - text: ，还是
+            - strong [ref=e426]: 增肌
+            - text: ，或者是单纯想吃得清淡点？另外，有没有特别不爱吃或者过敏的食物呀？
+          - generic [ref=e427]: 主要是减脂吧，尤其是肚子上的肉。我不爱吃香菜，海鲜过敏，其他的都能接受。
+          - generic [ref=e429]:
+            - generic [ref=e430]: 分析
+            - generic [ref=e431]:
+              - text: 收到！减脂的话，咱们核心思路是
+              - strong [ref=e432]: "\"高蛋白+高膳食纤维+低GI碳水\""
+              - text: ，这样饱腹感强还不容易饿。避开香菜和海鲜，那我们可以用鸡胸肉、牛肉来替代海鲜的蛋白质。针对你的需求，我首推
+              - strong [ref=e433]: 「香煎黑椒鸡胸套餐」
+              - text: ：🍚 主食：糙米饭（低GI，抗饿）🍗 蛋白质：香煎鸡胸肉（高蛋白低脂肪，黑椒调味）🥦 膳食纤维：清炒西蓝花 + 圣女果这个组合热量大概只有
+              - strong [ref=e434]: 450大卡
+              - text: 左右，很适合晚餐吃。你觉得这个安排怎么样？
+          - generic [ref=e435]: 听起来不错！不过鸡胸肉吃多了会不会柴？中午我想吃点口感好一点的，有啥推荐吗？
+          - generic [ref=e437]:
+            - generic [ref=e438]: 推荐
+            - generic [ref=e439]:
+              - text: 哈哈，问到点子上了！鸡胸肉确实容易柴，但用
+              - strong [ref=e440]: "\"低温慢煎\""
+              - text: 或者
+              - strong [ref=e441]: "\"嫩肉粉\""
+              - text: 提前处理就会好很多。如果中午想吃口感好点的，
+              - strong [ref=e442]: 「照烧风味龙利鱼/巴沙鱼套餐」
+              - text: （无刺鱼柳，口感非常嫩滑）或者
+              - strong [ref=e443]: 「蒜香柠檬手撕鸡套餐」
+              - text: 都很棒。特别是手撕鸡，因为撕成条状，比整块肉更好入味，加上柠檬汁会非常清爽开胃。主食可以换成紫薯泥，口感像甜品一样绵密，减肥也没负担。中午这顿可以适当多加一点碳水，下午工作更有劲儿。需要我帮你把这两款加入你的本周备选清单吗？
+          - generic [ref=e444]: 好的，帮我加上吧！
+        - generic [ref=e62]:
+          - generic [ref=e63]: 告诉 Agent 你的需求...
+          - button "发送" [ref=e65] [cursor=pointer]
+  - region "健康餐 App 首页" [ref=e69]:
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - heading "美味低脂的健康餐" [level=1] [ref=e72]
+        - paragraph [ref=e74]: 算法按你的身体数据定制餐单，合作餐厅每日现炒，热链保温送到
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic:
+            - img "低卡轻食 · 营养均衡"
+            - generic: 低卡轻食 · 营养均衡
+          - generic:
+            - img "鲜蔬蛋白 · 元气满满"
+            - generic: 鲜蔬蛋白 · 元气满满
+          - generic [ref=e446]:
+            - img "高蛋白餐 · 增肌优选" [ref=e447]
+            - generic [ref=e448]: 高蛋白餐 · 增肌优选
+          - generic:
+            - img "抗氧化碗 · 活力一天"
+            - generic: 抗氧化碗 · 活力一天
+        - generic [ref=e80]:
+          - button "第 1 张" [ref=e81] [cursor=pointer]
+          - button "第 2 张" [ref=e82] [cursor=pointer]
+          - button "第 3 张" [ref=e83] [cursor=pointer]
+          - button "第 4 张" [ref=e84] [cursor=pointer]
+      - generic [ref=e85]:
+        - link "Android 下载" [ref=e87] [cursor=pointer]:
+          - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+        - link "iOS 下载" [ref=e91] [cursor=pointer]:
+          - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+  - region "健康饮食的困扰" [ref=e92]:
+    - generic [ref=e93]:
+      - heading "想吃健康，太难" [level=2] [ref=e94]
+      - paragraph [ref=e95]: 你不是一个人——每个减脂人都卡在这一关
+      - generic [ref=e96]:
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - img "外卖油盐超标不卫生，普通健身餐又难吃到坚持不下去" [ref=e100]
+            - generic: 饮食困境
+          - generic [ref=e101]:
+            - img "想自己做，光是”今天要弄些什么菜吃”就头疼" [ref=e102]
+            - generic: 时间成本
+          - generic [ref=e103]:
+            - img "每次下定决心，最后吃炸鸡这类外卖吃完后又怕长胖" [ref=e104]
+            - generic: 恶性循环
+        - generic [ref=e105]:
+          - generic [ref=e106]:
+            - generic [ref=e107] [cursor=pointer]: 外卖难吃
+            - generic [ref=e108]: 外卖油盐超标不卫生，普通健身餐又难吃到坚持不下去
+          - generic [ref=e109]:
+            - generic [ref=e110] [cursor=pointer]: 做饭头疼
+            - generic: 想自己做，光是”今天要弄些什么菜吃”就头疼
+          - generic [ref=e111]:
+            - generic [ref=e112] [cursor=pointer]: 越减越肥
+            - generic: 每次下定决心，最后吃炸鸡这类外卖吃完后又怕长胖
+  - generic "折耳根健康餐是什么" [ref=e114]:
+    - heading "饮食健康，放心交给我们" [level=2] [ref=e116]
+    - paragraph [ref=e119]: 食材新鲜直采，源头可查；餐厅接单现做，锅气到家。每一口都放心
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - article [ref=e122]:
+          - img "金汤酸菜鱼" [ref=e124]
+          - generic [ref=e125]:
+            - heading "新鲜蔬果" [level=3] [ref=e126]
+            - paragraph [ref=e127]: 新鲜菜地采摘
+        - article [ref=e128]:
+          - img "青花椒鸡胸肉" [ref=e130]
+          - generic [ref=e131]:
+            - heading "新鲜蔬果" [level=3] [ref=e132]
+            - paragraph [ref=e133]: 新鲜菜地采摘
+        - article [ref=e134]:
+          - img "番茄牛腩煲" [ref=e136]
+          - generic [ref=e137]:
+            - heading "新鲜蔬果" [level=3] [ref=e138]
+            - paragraph [ref=e139]: 新鲜菜地采摘
+        - article [ref=e140]:
+          - img "黑椒牛肉粒" [ref=e142]
+          - generic [ref=e143]:
+            - heading "新鲜蔬果" [level=3] [ref=e144]
+            - paragraph [ref=e145]: 新鲜菜地采摘
+        - article [ref=e146]:
+          - img "虾仁芦笋" [ref=e148]
+          - generic [ref=e149]:
+            - heading "新鲜肉类" [level=3] [ref=e150]
+            - paragraph [ref=e151]: 新鲜屠宰场宰杀
+        - article [ref=e152]:
+          - img "菌菇时蔬碗" [ref=e154]
+          - generic [ref=e155]:
+            - heading "新鲜肉类" [level=3] [ref=e156]
+            - paragraph [ref=e157]: 新鲜屠宰场宰杀
+        - article [ref=e158]:
+          - img "藜麦鸡腿肉" [ref=e160]
+          - generic [ref=e161]:
+            - heading "新鲜肉类" [level=3] [ref=e162]
+            - paragraph [ref=e163]: 新鲜屠宰场宰杀
+        - article [ref=e164]:
+          - img "金枪鱼波奇饭" [ref=e166]
+          - generic [ref=e167]:
+            - heading "新鲜肉类" [level=3] [ref=e168]
+            - paragraph [ref=e169]: 新鲜屠宰场宰杀
+      - generic [ref=e170]:
+        - button "上一张" [ref=e171] [cursor=pointer]
+        - button "下一张" [ref=e174] [cursor=pointer]
+  - region "使用流程" [ref=e177]:
+    - generic [ref=e178]:
+      - generic [ref=e179]:
+        - heading "开启你的健康饮食" [level=2] [ref=e180]
+        - paragraph [ref=e181]: 输入你的身体数据，吃到让你回味无穷的健康餐
+      - generic [ref=e182]:
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - generic [ref=e185]: "01"
+            - generic [ref=e186]:
+              - heading "设定你的身体档案" [level=3] [ref=e187]
+              - paragraph [ref=e188]: 输入身高、体重、目标（减脂/增肌/维持）和日常活动强度，算法用 TDEE 公式算出你的每日总消耗——这个数字就是你所有餐单的起点。
+          - generic [ref=e189]:
+            - generic [ref=e190]: "02"
+            - generic [ref=e191]:
+              - heading "智能配餐引擎" [level=3] [ref=e192]
+              - paragraph [ref=e193]: 拿到你的 TDEE 后，引擎按「热量匹配度 → 蛋白质达标率 → 口味吻合度 → 食材多样性」四层优先级排序，平均热量匹配度 94%，蛋白质底线自动锁定。
+          - generic [ref=e194]:
+            - generic [ref=e195]: "03"
+            - generic [ref=e196]:
+              - heading "商家现做 + 热链配送" [level=3] [ref=e197]
+              - paragraph [ref=e198]: 严选本地健康餐商家接单现做，3 轮盲测品控，出锅装入保温箱，美团骑手配送，到手中心温度 ≥60°C——开盖即食，不用微波复热。
+        - generic [ref=e199]:
+          - generic [ref=e200]:
+            - img "在 App 中设置营养目标的界面示意" [ref=e202]
+            - img "智能配餐引擎生成每周餐单" [ref=e204]
+            - img "美团骑手配送保温热链健康餐" [ref=e206]
+          - generic [ref=e207]:
+            - button "第 1 步" [ref=e208] [cursor=pointer]
+            - button "第 2 步" [ref=e209] [cursor=pointer]
+            - button "第 3 步" [ref=e210] [cursor=pointer]
+  - region "价格方案" [ref=e211]:
+    - generic [ref=e212]:
+      - heading "美味健康餐，真不贵" [level=2] [ref=e213]
+      - paragraph [ref=e214]: 一顿外卖的钱，吃到算法定制、餐厅现炒的专属健康餐
+      - generic [ref=e215]:
+        - article [ref=e217]:
+          - generic [ref=e218]:
+            - heading "体验装" [level=3] [ref=e219]
+            - generic [ref=e220]:
+              - generic [ref=e221]: ¥
+              - strong [ref=e222]: "228"
+            - generic [ref=e223]:
+              - generic [ref=e224]: ¥38/餐
+              - generic [ref=e225]: 3天·6餐
+          - list [ref=e226]:
+            - listitem [ref=e227]: 算法定制3日餐单
+            - listitem [ref=e230]: 午晚双餐热链配送
+            - listitem [ref=e233]: 忌口与过敏原标记
+            - listitem [ref=e236]: 随时暂停·无违约金
+          - link "试3天" [ref=e239] [cursor=pointer]:
+            - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+        - article [ref=e241]:
+          - generic [ref=e242]:
+            - heading "周计划" [level=3] [ref=e243]
+            - generic [ref=e244]:
+              - generic [ref=e245]: ¥
+              - strong [ref=e246]: "476"
+            - generic [ref=e247]:
+              - generic [ref=e248]: ¥34/餐
+              - generic [ref=e249]: 7天·14餐
+          - list [ref=e250]:
+            - listitem [ref=e251]: 含体验装全部
+            - listitem [ref=e254]: 每周口味学习调优
+            - listitem [ref=e257]: 营养师周报
+            - listitem [ref=e260]: 免配送费
+          - link "最划算" [ref=e263] [cursor=pointer]:
+            - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+        - article [ref=e265]:
+          - generic [ref=e266]:
+            - heading "月计划" [level=3] [ref=e267]
+            - generic [ref=e268]:
+              - generic [ref=e269]: ¥
+              - strong [ref=e270]: "1792"
+            - generic [ref=e271]:
+              - generic [ref=e272]: ¥32/餐
+              - generic [ref=e273]: 28天·56餐
+          - list [ref=e274]:
+            - listitem [ref=e275]: 含周计划全部
+            - listitem [ref=e278]: 1对1营养师咨询
+            - listitem [ref=e281]: 体重体脂追踪
+            - listitem [ref=e284]: 优先配送时段
+          - link "深度定制" [ref=e287] [cursor=pointer]:
+            - /url: https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk
+  - region "为什么信任我们" [ref=e288]:
+    - generic [ref=e289]:
+      - generic [ref=e290]:
+        - heading "真实口碑，官方认证" [level=2] [ref=e291]
+        - paragraph [ref=e292]: 每一个数字背后，都是用户对我们的认可
+      - generic "平台数据" [ref=e293]:
+        - generic [ref=e294]:
+          - strong [ref=e295]: 0万+
+          - generic [ref=e296]: 正在使用我们的app
+          - generic [ref=e297]: 来自全国各地的真实用户，每天都在用折耳根吃上热乎的健康餐
+        - generic [ref=e298]:
+          - strong [ref=e299]: 0万+
+          - generic [ref=e300]: 份健康餐已送达
+          - generic [ref=e301]: 从第一份到第三百万份，每一份都是现炒现送、到手还是烫的
+        - generic [ref=e302]:
+          - strong [ref=e303]: 0+
+          - generic [ref=e304]: 合作健康餐商家
+          - generic [ref=e305]: 每一家入驻商家都经过实地考察与用户评分双重筛选
+        - generic [ref=e306]:
+          - strong [ref=e307]: 0%
+          - generic [ref=e308]: 热量匹配度
+          - generic [ref=e309]: 算法按你的身体数据配餐，热量精准匹配，蛋白质达标率自动锁定
+  - region "常见问题" [ref=e310]:
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - heading "关于我们，你大概想知道这些" [level=2] [ref=e313]
+        - paragraph [ref=e314]: 关于配送、价格、食材、餐单与营养成分，这里回答了你能想到的
+      - list [ref=e315]:
+        - listitem [ref=e317]:
+          - generic [ref=e318]:
+            - generic [ref=e319]: 配送范围覆盖哪些城市？
+            - generic: 目前已覆盖上海、北京、深圳、杭州、成都的主城区，并在持续拓展。下单前 App 会根据你的收货地址自动校验能否送达。
+        - listitem [ref=e324]:
+          - generic [ref=e325]:
+            - generic [ref=e326]: 一餐大概多少钱？
+            - generic: 单餐价格在 32–45 元之间，按周订购更划算。你可以先订 3 天体验装，觉得合适再续，不用一次性押上整月。
+        - listitem [ref=e331]:
+          - generic [ref=e332]:
+            - generic [ref=e333]: 可以随时取消或暂停吗？
+            - generic: 可以。出差、休假随时在 App 里一键暂停或跳过某几天，未配送的餐费全额保留，不收违约金。
+        - listitem [ref=e338]:
+          - generic [ref=e339]:
+            - generic [ref=e340]: 食材新鲜吗？来源可靠吗？
+            - generic: 合作商家接单后现做出餐,保温热链直送,到手还是热的,绝不隔夜。肉蛋来自可追溯供应商,蔬菜每日直采,每一批次留样检测。
+        - listitem [ref=e345]:
+          - generic [ref=e346]:
+            - generic [ref=e347]: 有过敏原或忌口怎么办？
+            - generic: 在 App 里标记忌口与过敏原（海鲜、坚果、香菜等），系统会自动避开，营养师也会为你的配餐复核一遍。
+        - listitem [ref=e352]:
+          - generic [ref=e353]:
+            - generic [ref=e354]: 到手怎么加热更好吃？
+            - generic: 热链配送到手即食，开盖直接吃。万一凉了，大部分餐品微波 2–3 分钟即可恢复出锅口感，包装上印有针对性的复热建议；沙拉类为冷食设计，冷藏保存、开袋即食。
+        - listitem [ref=e359]:
+          - generic [ref=e360]:
+            - generic [ref=e361]: 餐单是固定的还是我能自己挑？
+            - generic: 算法按你的身体数据自动生成一周餐单后，你可以在 App 里对任意一餐进行手动替换——不想吃鱼就换成鸡肉，不爱沙拉就换个热菜，完全灵活。
+        - listitem [ref=e366]:
+          - generic [ref=e367]:
+            - generic [ref=e368]: 能看到每餐的热量和营养成分吗？
+            - generic: 当然能。每份餐都标注了热量、蛋白质、碳水和脂肪含量，App 里还能按天查看三大营养素占比，比你自己做笔记还清楚。
+  - region "下载百度网盘" [ref=e372]:
+    - generic [ref=e373]:
+      - heading "下载折耳根健康餐" [level=2] [ref=e375]
+      - generic "支持的平台" [ref=e376]:
+        - generic [ref=e378]:
+          - generic: 点击下载 Windows 版
+          - img "Windows" [ref=e380]
+          - generic [ref=e381]: Windows
+        - generic [ref=e383]:
+          - generic: 点击下载 Mac 版
+          - img "Mac OS" [ref=e385]
+          - generic [ref=e386]: Mac OS
+        - generic [ref=e388]:
+          - generic:
+            - img "手机 扫码下载"
+            - generic: 扫码下载 手机 版
+          - img "手机" [ref=e390]
+          - generic [ref=e391]: 手机
+        - generic [ref=e393]:
+          - generic:
+            - img "平板 扫码下载"
+            - generic: 扫码下载 平板 版
+          - img "平板" [ref=e395]
+          - generic [ref=e396]: 平板
+  - generic "页脚" [ref=e397]:
+    - generic [ref=e398]:
+      - generic [ref=e399]:
+        - link "商务合作" [ref=e400] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+        - generic [ref=e401]: "|"
+        - link "隐私政策" [ref=e402] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+        - generic [ref=e403]: "|"
+        - link "服务协议" [ref=e404] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+        - generic [ref=e405]: "|"
+        - link "权利声明" [ref=e406] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+        - generic [ref=e407]: "|"
+        - link "版本更新" [ref=e408] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+        - generic [ref=e409]: "|"
+        - link "帮助中心" [ref=e410] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+        - generic [ref=e411]: "|"
+        - link "版权投诉" [ref=e412] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+        - generic [ref=e413]: "|"
+        - link "备案信息" [ref=e414] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
+      - generic [ref=e415]:
+        - generic [ref=e416]: 京公网安备 11000002002061号
+        - generic [ref=e417]: 京ICP备2020042663号
+        - generic [ref=e418]: 京网文[2026]2102-100号
+        - generic [ref=e419]: ©2026 Ergen 折耳根健康餐
+        - link "证照信息 ›" [ref=e420] [cursor=pointer]:
+          - /url: "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"

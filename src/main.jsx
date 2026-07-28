@@ -570,7 +570,67 @@ function slotToPos(s) {
    HotChainHero — 热链鲜送 AI 智能搭配 Hero
    左右分栏：左侧品牌宣传 + 右侧 AI 聊天演示
    ================================================================ */
+/* 聊天对话序列：一问一答，逐条冒出 */
+const chatSequence = [
+  {
+    role: 'user',
+    text: '哎，最近感觉又胖了，想控制饮食但又不知道吃啥。你有啥推荐的健康餐吗？',
+  },
+  {
+    role: 'agent',
+    text: <>当然有呀！😊 不过为了给你更精准的推荐，我先确认几个小细节哈：你这次的主要目标是<strong>减脂</strong>，还是<strong>增肌</strong>，或者是单纯想吃得清淡点？另外，有没有特别不爱吃或者过敏的食物呀？</>,
+  },
+  {
+    role: 'user',
+    text: '主要是减脂吧，尤其是肚子上的肉。我不爱吃香菜，海鲜过敏，其他的都能接受。',
+  },
+  {
+    role: 'agent',
+    label: '分析',
+    text: <>收到！减脂的话，咱们核心思路是<strong>"高蛋白+高膳食纤维+低GI碳水"</strong>，这样饱腹感强还不容易饿。避开香菜和海鲜，那我们可以用鸡胸肉、牛肉来替代海鲜的蛋白质。<br/><br/>针对你的需求，我首推 <strong>「香煎黑椒鸡胸套餐」</strong>：<br/>🍚 主食：糙米饭（低GI，抗饿）<br/>🍗 蛋白质：香煎鸡胸肉（高蛋白低脂肪，黑椒调味）<br/>🥦 膳食纤维：清炒西蓝花 + 圣女果<br/><br/>这个组合热量大概只有<strong>450大卡</strong>左右，很适合晚餐吃。你觉得这个安排怎么样？</>,
+  },
+  {
+    role: 'user',
+    text: '听起来不错！不过鸡胸肉吃多了会不会柴？中午我想吃点口感好一点的，有啥推荐吗？',
+  },
+  {
+    role: 'agent',
+    label: '推荐',
+    text: <>哈哈，问到点子上了！鸡胸肉确实容易柴，但用<strong>"低温慢煎"</strong>或者<strong>"嫩肉粉"</strong>提前处理就会好很多。如果中午想吃口感好点的，<strong>「照烧风味龙利鱼/巴沙鱼套餐」</strong>（无刺鱼柳，口感非常嫩滑）或者 <strong>「蒜香柠檬手撕鸡套餐」</strong> 都很棒。<br/><br/>特别是手撕鸡，因为撕成条状，比整块肉更好入味，加上柠檬汁会非常清爽开胃。主食可以换成紫薯泥，口感像甜品一样绵密，减肥也没负担。<br/><br/>另外，本月人气最高的 <strong>「烟熏三文鱼平衡碗」</strong> 也值得一试 👇<br/><span className="chat-meal-card"><img src="/zheergan-healthy-meals/images/salmon.jpg" alt="烟熏三文鱼平衡碗" /><span className="chat-meal-info"><strong>烟熏三文鱼平衡碗</strong><span>486 kcal · 36g 蛋白质</span></span></span><br/>中午这顿可以适当多加一点碳水，下午工作更有劲儿。需要我帮你把这几款加入你的本周备选清单吗？</>,
+  },
+];
+
 function HotChainHero() {
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [typing, setTyping] = useState(false);
+  const msgEndRef = useRef(null);
+
+  useEffect(() => {
+    if (visibleCount >= chatSequence.length) return;
+
+    const current = chatSequence[visibleCount];
+    const rawText = typeof current.text === 'string'
+      ? current.text
+      : (current.text?.props?.children || '').toString();
+    const textLen = rawText.length || 60;
+    const delay = current.role === 'agent'
+      ? Math.min(2800, Math.max(1400, textLen * 22))
+      : Math.min(1800, Math.max(900, textLen * 18));
+
+    setTyping(true);
+    const timer = setTimeout(() => {
+      setTyping(false);
+      setVisibleCount((c) => c + 1);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [visibleCount]);
+
+  /* 新消息冒出后滚动到底部 */
+  useEffect(() => {
+    msgEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [visibleCount, typing]);
+
   return (
     <section className="hotchain-hero section-panel panel-cream" aria-label="热链鲜送 AI 健康餐">
       {/* 背景光斑 */}
@@ -662,30 +722,46 @@ function HotChainHero() {
               </div>
             </div>
 
-            {/* 聊天记录 */}
+            {/* 聊天记录 — 逐条动画冒出 */}
             <div className="chat-messages">
-              {/* AI 提问 */}
-              <div className="chat-msg chat-msg--ai">
-                <span className="chat-msg-label chat-msg-label--ai">AI</span>
-                <div className="chat-bubble chat-bubble--ai">
-                  你好！我是你的专属健康管家。今天想吃点什么风格？我可以帮你搭配营养均衡的热链套餐。
+              {chatSequence.slice(0, visibleCount).map((msg, i) => (
+                <div
+                  key={i}
+                  className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
+                >
+                  {msg.label && (
+                    <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
+                      {msg.label}
+                    </span>
+                  )}
+                  <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
+                    {msg.text}
+                  </div>
                 </div>
-              </div>
+              ))}
 
-              {/* 用户回复 */}
-              <div className="chat-msg chat-msg--user">
-                <div className="chat-bubble chat-bubble--user">
-                  我下午有健身计划，想要高蛋白低卡的
+              {/* 正在输入指示器 */}
+              {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'agent' && (
+                <div className="chat-msg chat-msg--ai chat-msg--pop">
+                  <div className="chat-typing">
+                    <span className="chat-typing-dot" />
+                    <span className="chat-typing-dot" />
+                    <span className="chat-typing-dot" />
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* AI 推荐 */}
-              <div className="chat-msg chat-msg--ai">
-                <span className="chat-msg-label chat-msg-label--rec">推荐</span>
-                <div className="chat-bubble chat-bubble--ai">
-                  收到！为你推荐<strong>「炙烤鸡胸能量碗」</strong>：220g 鸡胸肉 + 糙米饭 + 烤时蔬，仅 <strong>420kcal</strong>，蛋白质 <strong>38g</strong>。12:30 前下单可热链送达~
+              {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'user' && (
+                <div className="chat-msg chat-msg--user chat-msg--pop">
+                  <div className="chat-typing chat-typing--user">
+                    <span className="chat-typing-dot" />
+                    <span className="chat-typing-dot" />
+                    <span className="chat-typing-dot" />
+                  </div>
                 </div>
-              </div>
+              )}
+
+              <div ref={msgEndRef} />
             </div>
 
             {/* 底部输入栏 */}
