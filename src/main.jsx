@@ -635,11 +635,6 @@ function HotChainHero() {
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [visibleCount]);
 
-  /* 新消息冒出后滚动到底部 */
-  useEffect(() => {
-    msgEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [visibleCount, typing]);
-
   return (
     <section className="hotchain-hero section-panel panel-cream" aria-label="热链鲜送 AI 健康餐">
       {/* 背景光斑 */}
