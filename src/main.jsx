@@ -810,7 +810,7 @@ function HotChainHero() {
             ) : (
               <>
                 {/* 聊天记录 — 逐条动画冒出 */}
-                <div className="chat-messages">
+                <div className="chat-messages" onClick={(e) => { if (e.target.closest('.chat-meal-card')) setPhase('detail'); }}>
                   {chatSequence.slice(0, visibleCount).map((msg, i) => (
                     <div
                       key={i}

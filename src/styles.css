@@ -5276,6 +5276,12 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   border-radius: var(--r-md);
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(43, 31, 20, 0.08);
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.chat-meal-card:hover {
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .chat-meal-card img {
