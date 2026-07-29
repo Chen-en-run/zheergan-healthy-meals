@@ -10,7 +10,6 @@ import {
   Monitor,
   Quote,
   ShieldCheck,
-  Sparkles,
   Star,
   TrendingDown,
   Activity,
@@ -1235,9 +1234,6 @@ function AgentSection() {
       </div>
       <div className="story-inner agent-inner">
         <RevealOnScroll variant="fadeUp" amount={0.1}>
-          <span className="agent-eyebrow">
-            <Sparkles size={15} /> AI 健康管家
-          </span>
           <h2 className="agent-title">
             把"吃得健康"，<ShinyText text="交给 Nova" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
           </h2>

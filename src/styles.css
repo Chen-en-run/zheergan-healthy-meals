@@ -4120,7 +4120,7 @@ img {
 /* 底色:比通用奶油底更亮一档,让玻璃的白色高光有落点 */
 /* Hero 微渐变:仅顶部 30% 提亮,下方自然融入透明底 */
 .hero.hero--liquid {
-  background: linear-gradient(180deg, rgba(255,254,249,1) 0%, rgba(251,249,241,0) 30%);
+  background: linear-gradient(180deg, rgba(251,249,241,1) 0%, rgba(251,249,241,0) 30%);
 }
 
 /* 网格纹理与玻璃气质相悖,液态版隐藏 */
