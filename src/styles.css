@@ -5866,3 +5866,176 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
     padding: 10px 14px;
   }
 }
+
+/* ================================================================
+   AgentSection — Nova AI 健康管家能力模块
+   ================================================================ */
+.story-agent {
+  position: relative;
+  padding: 120px 0 110px;
+  overflow: hidden;
+}
+
+.agent-bg-blobs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.agent-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: 0.5;
+}
+
+.agent-blob--1 {
+  width: 440px;
+  height: 440px;
+  left: -130px;
+  top: 30px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 180, 92, 0.55), transparent 70%);
+}
+
+.agent-blob--2 {
+  width: 380px;
+  height: 380px;
+  right: -110px;
+  top: 140px;
+  background: radial-gradient(circle at 30% 30%, rgba(194, 97, 31, 0.42), transparent 70%);
+}
+
+.agent-blob--3 {
+  width: 320px;
+  height: 320px;
+  left: 42%;
+  bottom: -130px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 170, 0.5), transparent 70%);
+}
+
+.agent-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.agent-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  margin-bottom: 22px;
+  color: var(--ember-700);
+  border: 1px solid rgba(194, 97, 31, 0.28);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.agent-eyebrow svg {
+  color: var(--ember-600);
+}
+
+.agent-title {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 680;
+  line-height: 1.04;
+  color: var(--ink-cream);
+}
+
+.agent-lede {
+  max-width: 720px;
+  margin: 0 auto 64px;
+  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+  line-height: 1.7;
+}
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  text-align: left;
+}
+
+.agent-card-cell {
+  display: flex;
+}
+
+.agent-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 30px 28px 28px;
+  border: 1px solid rgba(43, 31, 20, 0.08);
+  border-radius: var(--r-2xl);
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(43, 31, 20, 0.06);
+  transition:
+    transform 240ms var(--ease-out),
+    box-shadow 240ms var(--ease-out),
+    border-color 240ms var(--ease-out);
+}
+
+.agent-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(194, 97, 31, 0.35);
+  box-shadow: 0 26px 68px rgba(194, 97, 31, 0.16);
+}
+
+.agent-card-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(232, 138, 74, 0.95), rgba(194, 97, 31, 0.98));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 12px 28px rgba(194, 97, 31, 0.28);
+}
+
+.agent-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink-cream);
+}
+
+.agent-card p {
+  margin: 0;
+  color: var(--ink-body);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+@media (max-width: 980px) {
+  .agent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .story-agent {
+    padding: 88px 0 80px;
+  }
+
+  .agent-inner {
+    padding: 0 22px;
+  }
+
+  .agent-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .agent-lede {
+    margin-bottom: 44px;
+  }
+}

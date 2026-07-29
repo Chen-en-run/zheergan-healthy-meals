@@ -13,6 +13,12 @@ import {
   Sparkles,
   Star,
   TrendingDown,
+  Activity,
+  CalendarDays,
+  ClipboardList,
+  MessageSquareText,
+  RefreshCw,
+  ShieldAlert,
 } from 'lucide-react';
 import ShinyText from './components/ShinyText';
 import RevealOnScroll from './components/RevealOnScroll';
@@ -168,7 +174,7 @@ function HomePage() {
 
   /* IntersectionObserver：检测当前可见模块，高亮副导航按钮 */
   useEffect(() => {
-    const ids = ['pain', 'answer', 'steps', 'pricing', 'trust', 'faq'];
+    const ids = ['pain', 'answer', 'agent', 'steps', 'pricing', 'trust', 'faq'];
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting);
@@ -270,6 +276,7 @@ function HomePage() {
           {[
             { id: 'pain', label: '饮食痛点' },
             { id: 'answer', label: '智能省心' },
+            { id: 'agent', label: 'AI 管家' },
             { id: 'steps', label: '定制热送' },
             { id: 'pricing', label: '价格方案' },
             { id: 'trust', label: '口碑见证' },
@@ -303,6 +310,7 @@ function HomePage() {
       <Hero />
       <PainSection />
       <AnswerSection />
+      <AgentSection />
       <StepsSection />
       <PricingInline />
       <TrustSection />
@@ -1170,6 +1178,89 @@ function AnswerSection() {
               <ChevronDown size={52} style={{ transform: 'rotate(-90deg)' }} />
             </button>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   AgentSection — Nova AI 健康管家能力模块
+   首页新增:展示 Agent 能为用户做的 6 件事
+   ================================================================ */
+const agentCaps = [
+  {
+    icon: MessageSquareText,
+    title: '智能对话咨询',
+    desc: '用大白话告诉 Nova 你的目标——"我想减脂但不爱运动"，它立刻拆解成可执行方案，而不是丢给你一堆术语。',
+  },
+  {
+    icon: CalendarDays,
+    title: '一键生成周餐单',
+    desc: '结合你的 TDEE、口味与忌口，秒级生成一周餐单，热量与蛋白质逐克配平，省去每天"吃什么"的纠结。',
+  },
+  {
+    icon: ShieldAlert,
+    title: '过敏原 & 忌口规避',
+    desc: '标记海鲜、香菜、坚果等 28 项忌口后，配餐时自动绕开，营养师还会为你的餐单二次复核。',
+  },
+  {
+    icon: Activity,
+    title: '体重体脂追踪',
+    desc: '每天记录体重，趋势异常时 Nova 主动提醒，并据此微调下一阶段的餐单，让进度一直在线。',
+  },
+  {
+    icon: RefreshCw,
+    title: '智能复购补给',
+    desc: '常吃的套餐快见底，Nova 主动问你要不要续上——出差、休假也能一键暂停，零操心。',
+  },
+  {
+    icon: ClipboardList,
+    title: '每周营养报告',
+    desc: '周报拆解你的三大营养素占比与达标率，看得见每一口换来的进步，坚持更有动力。',
+  },
+];
+
+function AgentSection() {
+  return (
+    <section
+      className="story-section story-agent section-panel panel-cream"
+      id="agent"
+      aria-label="Nova AI 健康管家"
+    >
+      <div className="agent-bg-blobs" aria-hidden="true">
+        <span className="agent-blob agent-blob--1" />
+        <span className="agent-blob agent-blob--2" />
+        <span className="agent-blob agent-blob--3" />
+      </div>
+      <div className="story-inner agent-inner">
+        <RevealOnScroll variant="fadeUp" amount={0.1}>
+          <span className="agent-eyebrow">
+            <Sparkles size={15} /> AI 健康管家
+          </span>
+          <h2 className="agent-title">
+            把"吃得健康"，<ShinyText text="交给 Nova" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
+          </h2>
+          <p className="agent-lede">
+            Nova 不只是聊天机器人。从听懂你的口味，到记住你的忌口，再到主动帮你复购补给，它把这件麻烦事全程接管——你只管吃，剩下的交给它。
+          </p>
+        </RevealOnScroll>
+
+        <div className="agent-grid">
+          {agentCaps.map((cap, i) => {
+            const I = cap.icon;
+            return (
+              <RevealOnScroll key={cap.title} delay={i * 0.08} amount={0.08} variant="popUp" className="agent-card-cell">
+                <article className="agent-card">
+                  <span className="agent-card-icon">
+                    <I size={24} />
+                  </span>
+                  <h3>{cap.title}</h3>
+                  <p>{cap.desc}</p>
+                </article>
+              </RevealOnScroll>
+            );
+          })}
         </div>
       </div>
     </section>
