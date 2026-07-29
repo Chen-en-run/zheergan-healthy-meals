@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Smartphone, Tablet } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
 import './features.css';
 
@@ -55,7 +55,7 @@ function CompanyPage() {
                 </a>
                 <span className="nav-dropdown-item nav-dropdown-item--qr">
                   <span className="ndi-default">
-                    <Smartphone size={32} strokeWidth={1.5} />
+                    <img src={`${IMG}/icon-phone.svg`} alt="手机" style={{width:32,height:32}} />
                     <span>手机</span>
                   </span>
                   <span className="ndi-hover">
@@ -65,7 +65,7 @@ function CompanyPage() {
                 </span>
                 <span className="nav-dropdown-item nav-dropdown-item--qr">
                   <span className="ndi-default">
-                    <Tablet size={32} strokeWidth={1.5} />
+                    <img src={`${IMG}/icon-tablet.svg`} alt="平板" style={{width:32,height:32}} />
                     <span>平板</span>
                   </span>
                   <span className="ndi-hover">

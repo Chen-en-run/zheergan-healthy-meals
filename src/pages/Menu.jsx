@@ -4,8 +4,6 @@ import {
   ChevronDown,
   Flame,
   Monitor,
-  Smartphone,
-  Tablet,
   Utensils,
 } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
@@ -108,7 +106,7 @@ export default function MenuPage() {
                 </a>
                 <span className="nav-dropdown-item nav-dropdown-item--qr">
                   <span className="ndi-default">
-                    <Smartphone size={32} strokeWidth={1.5} />
+                    <img src={`${IMG}/icon-phone.svg`} alt="手机" style={{width:32,height:32}} />
                     <span>手机</span>
                   </span>
                   <span className="ndi-hover">
@@ -118,7 +116,7 @@ export default function MenuPage() {
                 </span>
                 <span className="nav-dropdown-item nav-dropdown-item--qr">
                   <span className="ndi-default">
-                    <Tablet size={32} strokeWidth={1.5} />
+                    <img src={`${IMG}/icon-tablet.svg`} alt="平板" style={{width:32,height:32}} />
                     <span>平板</span>
                   </span>
                   <span className="ndi-hover">
