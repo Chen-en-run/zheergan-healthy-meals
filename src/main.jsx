@@ -733,6 +733,7 @@ function HotChainHero() {
 
         {/* ========== 右栏：AI 聊天演示区 ========== */}
         <div className="hotchain-right">
+          <div className="chat-card-shell">
           <div className={`chat-card${phase === 'detail' ? ' chat-card--detail' : ''}`}>
             {/* 顶部信息栏 */}
             <div className="chat-topbar">
@@ -915,6 +916,7 @@ function HotChainHero() {
                 </div>
               </>
             )}
+          </div>
           </div>
         </div>
       </div>
