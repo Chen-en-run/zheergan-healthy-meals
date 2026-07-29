@@ -5121,6 +5121,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .chat-card {
   width: 100%;
   max-width: 480px;
+  height: 680px;
   display: flex;
   flex-direction: column;
   border-radius: var(--r-2xl);
@@ -5195,7 +5196,6 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   gap: 16px;
   padding: 22px;
   flex: 1;
-  max-height: 420px;
   overflow-y: auto;
   scroll-behavior: smooth;
 }

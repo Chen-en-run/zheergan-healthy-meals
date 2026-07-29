@@ -627,6 +627,11 @@ function HotChainHero() {
     return () => clearTimeout(timer);
   }, [visibleCount]);
 
+  /* 新消息冒出后消息区自动滚到底 */
+  useEffect(() => {
+    msgEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [visibleCount, typing]);
+
   /* 全部消息播完后 → 展示入口 → 跳转详情 */
   useEffect(() => {
     if (visibleCount < chatSequence.length) return;
