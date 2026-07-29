@@ -611,7 +611,9 @@ function HotChainHero() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [typing, setTyping] = useState(false);
   const [phase, setPhase] = useState('chat'); /* chat → entry → detail */
-  const msgEndRef = useRef(null);
+  const chatScrollRef = useRef(null);
+  const sectionRef = useRef(null);
+  const inViewRef = useRef(true); /* 用户当前是否正看着这张卡片 */
 
   useEffect(() => {
     if (visibleCount >= chatSequence.length) return;
@@ -634,10 +636,24 @@ function HotChainHero() {
     return () => clearTimeout(timer);
   }, [visibleCount]);
 
-  /* 新消息冒出后消息区自动滚到底 */
+  /* 新消息冒出后只滚动聊天卡片内部,绝不带动整页(页面不会跳转) */
   useEffect(() => {
-    msgEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (!inViewRef.current) return;
+    const el = chatScrollRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
   }, [visibleCount, typing]);
+
+  /* 跟踪 Hero 是否在视口:离开视口(用户在别的模块)后,后续不再自动滚回卡片 */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => { inViewRef.current = entry.isIntersecting; },
+      { threshold: 0.15 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   /* 全部消息播完后 → 展示入口 → 跳转详情 */
   useEffect(() => {
@@ -648,7 +664,7 @@ function HotChainHero() {
   }, [visibleCount]);
 
   return (
-    <section className="hotchain-hero section-panel panel-cream" aria-label="热链鲜送 AI 健康餐">
+    <section ref={sectionRef} className="hotchain-hero section-panel panel-cream" aria-label="热链鲜送 AI 健康餐">
       {/* 背景光斑 */}
       <div className="hc-bg-blobs" aria-hidden="true">
         <span className="hc-blob hc-blob--1" />
@@ -822,7 +838,7 @@ function HotChainHero() {
             ) : (
               <>
                 {/* 聊天记录 — 逐条动画冒出 */}
-                <div className="chat-messages" onClick={(e) => { if (e.target.closest('.chat-meal-card')) setPhase('detail'); }}>
+                <div className="chat-messages" ref={chatScrollRef} onClick={(e) => { if (e.target.closest('.chat-meal-card')) setPhase('detail'); }}>
                   {chatSequence.slice(0, visibleCount).map((msg, i) => (
                     <div
                       key={i}
@@ -883,7 +899,6 @@ function HotChainHero() {
                     </div>
                   )}
 
-                  <div ref={msgEndRef} />
                 </div>
 
                 {/* 底部输入栏 */}

@@ -5120,8 +5120,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .chat-card {
   width: 100%;
-  max-width: 480px;
-  height: 680px;
+  max-width: 560px;
+  height: 760px;
   display: flex;
   flex-direction: column;
   border-radius: var(--r-2xl);
