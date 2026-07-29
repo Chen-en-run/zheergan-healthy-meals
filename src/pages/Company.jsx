@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
+import RevealOnScroll from '../components/RevealOnScroll';
 import './features.css';
 
 const IMG = '/zheergan-healthy-meals/images';
@@ -87,7 +88,7 @@ function CompanyPage() {
           <span className="f-blob f-blob-2" />
           <span className="f-blob f-blob-3" />
         </div>
-        <div className="company-page-inner max-frame">
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="company-page-inner max-frame">
           <div className="company-hero-head">
             <h1>
               <ShinyText
@@ -138,7 +139,7 @@ function CompanyPage() {
               公司规模 0–20 人，目前在招 Flutter 开发工程师、产品经理等岗位。
             </p>
           </div>
-        </div>
+        </RevealOnScroll>
 
         <footer className="site-footer panel-cream" aria-label="页脚">
         <div className="footer-new">

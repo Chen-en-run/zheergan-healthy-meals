@@ -9,3 +9,1745 @@
   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/zheergan-healthy-meals/[39m
   [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.6:[1m5173[22m/zheergan-healthy-meals/[39m
 [2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m01:10:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m01:10:57[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m01:23:21[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:23:21[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (732:8)
+
+[0m [90m 730 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 731 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 732 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 733 |[31m
+ [90m 734 |[31m         {[90m/* ========== 右栏：AI 聊天演示区 ========== */[31m}
+ [90m 735 |[31m         [33m<[31m[33mdiv[31m className[33m=[31m[32m"hotchain-right"[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:732:8
+[33m  744|                        <polyline points="15 18 9 12 15 6" />
+  745|                      </svg>
+  746|                    </button>
+     |                     ^
+  747|                    <span className="chat-name">食谱详情</span>
+  748|                  </>[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:23:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:23:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [33mhmr invalidate [39m[2m/src/main.jsx[22m Could not Fast Refresh ("true" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m01:23:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
+[2m01:23:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:23:22[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[31m             )}
+ [90m 919 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 920 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m           [31m[1m^[22m[31m
+ [90m 921 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 922 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 923 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  949|  
+  950|          <div className="hero-actions">
+  951|            <div className="download-btn-group">
+     |                                ^
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+  953|                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:23:23[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1332:10)
+
+[0m [90m 1330 |[31m               ))}
+ [90m 1331 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1332 |[31m           [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m      |[31m           [31m[1m^[22m[31m
+ [90m 1333 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1334 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1335 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1332:10
+[33m  1375|      const io = new IntersectionObserver(
+  1376|        (entries) => {
+  1377|          entries.forEach((entry) => {
+     |             ^
+  1378|            if (entry.isIntersecting && !started) {
+  1379|              started = true;[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:23:23[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1332:10)
+
+[0m [90m 1330 |[39m               ))}
+ [90m 1331 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 1332 |[39m           [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m      |[39m           [31m[1m^[22m[39m
+ [90m 1333 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 1334 |[39m       [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 1335 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1332:10
+[33m  1375|      const io = new IntersectionObserver(
+  1376|        (entries) => {
+  1377|          entries.forEach((entry) => {
+     |             ^
+  1378|            if (entry.isIntersecting && !started) {
+  1379|              started = true;[39m
+[2m01:23:23[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1332:10)
+
+[0m [90m 1330 |[31m               ))}
+ [90m 1331 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1332 |[31m           [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m      |[31m           [31m[1m^[22m[31m
+ [90m 1333 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1334 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1335 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1332:10
+[33m  1375|      const io = new IntersectionObserver(
+  1376|        (entries) => {
+  1377|          entries.forEach((entry) => {
+     |             ^
+  1378|            if (entry.isIntersecting && !started) {
+  1379|              started = true;[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:23:24[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:23:25[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1334:10)
+
+[0m [90m 1332 |[39m               ))}
+ [90m 1333 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 1334 |[39m           [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m      |[39m           [31m[1m^[22m[39m
+ [90m 1335 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 1336 |[39m       [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 1337 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1334:10
+[33m  1377|      const io = new IntersectionObserver(
+  1378|        (entries) => {
+  1379|          entries.forEach((entry) => {
+     |               ^
+  1380|            if (entry.isIntersecting && !started) {
+  1381|              started = true;[39m
+[2m01:23:25[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1334:10)
+
+[0m [90m 1332 |[31m               ))}
+ [90m 1333 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1334 |[31m           [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m      |[31m           [31m[1m^[22m[31m
+ [90m 1335 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1336 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1337 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1334:10
+[33m  1377|      const io = new IntersectionObserver(
+  1378|        (entries) => {
+  1379|          entries.forEach((entry) => {
+     |               ^
+  1380|            if (entry.isIntersecting && !started) {
+  1381|              started = true;[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:24:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:24:13[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (946:8)
+
+[0m [90m 944 |[39m             算法按你的身体数据定制餐单，合作餐厅每日现炒，热链保温送到
+ [90m 945 |[39m           [33m<[39m[33m/[39m[33mp[39m[33m>[39m
+[31m[1m>[22m[39m[90m 946 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m         [31m[1m^[22m[39m
+ [90m 947 |[39m
+ [90m 948 |[39m         [33m<[39m[33mFoodBanner[39m [33m/[39m[33m>[39m
+ [90m 949 |[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:946:8
+[33m  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+  953|                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+  954|                Android 下载
+  955|              </a>[39m
+[2m01:24:13[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (946:8)
+
+[0m [90m 944 |[31m             算法按你的身体数据定制餐单，合作餐厅每日现炒，热链保温送到
+ [90m 945 |[31m           [33m<[31m[33m/[31m[33mp[31m[33m>[31m
+[31m[1m>[22m[31m[90m 946 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 947 |[31m
+ [90m 948 |[31m         [33m<[31m[33mFoodBanner[31m [33m/[31m[33m>[31m
+ [90m 949 |[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:946:8
+[33m  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
+  953|                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+  954|                Android 下载
+  955|              </a>[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:24:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:24:14[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1334:10)
+
+[0m [90m 1332 |[39m               ))}
+ [90m 1333 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 1334 |[39m           [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m      |[39m           [31m[1m^[22m[39m
+ [90m 1335 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 1336 |[39m       [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 1337 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1334:10
+[33m  1377|      const io = new IntersectionObserver(
+  1378|        (entries) => {
+  1379|          entries.forEach((entry) => {
+     |               ^
+  1380|            if (entry.isIntersecting && !started) {
+  1381|              started = true;[39m
+[2m01:24:14[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1334:10)
+
+[0m [90m 1332 |[31m               ))}
+ [90m 1333 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1334 |[31m           [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m      |[31m           [31m[1m^[22m[31m
+ [90m 1335 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1336 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1337 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1334:10
+[33m  1377|      const io = new IntersectionObserver(
+  1378|        (entries) => {
+  1379|          entries.forEach((entry) => {
+     |               ^
+  1380|            if (entry.isIntersecting && !started) {
+  1381|              started = true;[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:24:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:24:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:24:15[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1091:6)
+
+[0m [90m 1089 |[39m         [33m<[39m[33mp[39m className[33m=[39m[32m"story-pain-sub"[39m[33m>[39m你不是一个人——每个减脂人都卡在这一关[33m<[39m[33m/[39m[33mp[39m[33m>[39m
+ [90m 1090 |[39m         [33m<[39m[33mPainSplit[39m [33m/[39m[33m>[39m
+[31m[1m>[22m[39m[90m 1091 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m      |[39m       [31m[1m^[22m[39m
+ [90m 1092 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m
+ [90m 1093 |[39m   )[33m;[39m
+ [90m 1094 |[39m }[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1091:6
+[33m  1112|    },
+  1113|    {
+  1114|      src: '/zheergan-healthy-meals/images/answer-chef.jpg',
+     |                                            ^
+  1115|      alt: '商家主厨调味的健康餐 — 好吃才能坚持',
+  1116|      caption: '主厨替你管好味道',[39m
+[2m01:24:15[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1091:6)
+
+[0m [90m 1089 |[31m         [33m<[31m[33mp[31m className[33m=[31m[32m"story-pain-sub"[31m[33m>[31m你不是一个人——每个减脂人都卡在这一关[33m<[31m[33m/[31m[33mp[31m[33m>[31m
+ [90m 1090 |[31m         [33m<[31m[33mPainSplit[31m [33m/[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1091 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m      |[31m       [31m[1m^[22m[31m
+ [90m 1092 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m
+ [90m 1093 |[31m   )[33m;[31m
+ [90m 1094 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1091:6
+[33m  1112|    },
+  1113|    {
+  1114|      src: '/zheergan-healthy-meals/images/answer-chef.jpg',
+     |                                            ^
+  1115|      alt: '商家主厨调味的健康餐 — 好吃才能坚持',
+  1116|      caption: '主厨替你管好味道',[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseProgram (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12639:10)
+[2m01:24:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:24:17[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (973:6)
+
+[0m [90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 972 |[39m
+[31m[1m>[22m[39m[90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m     |[39m       [31m[1m^[22m[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m
+ [90m 975 |[39m   )[33m;[39m
+ [90m 976 |[39m }[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:973:6
+[33m  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+  1007|        className="food-banner"
+     |              ^
+  1008|        onMouseEnter={() => { paused.current = true; }}
+  1009|        onMouseLeave={() => { paused.current = false; }}[39m
+[2m01:24:17[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (973:6)
+
+[0m [90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 972 |[31m
+[31m[1m>[22m[31m[90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m     |[31m       [31m[1m^[22m[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m
+ [90m 975 |[31m   )[33m;[31m
+ [90m 976 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:973:6
+[33m  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+  1007|        className="food-banner"
+     |              ^
+  1008|        onMouseEnter={() => { paused.current = true; }}
+  1009|        onMouseLeave={() => { paused.current = false; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseProgram (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12639:10)
+[2m01:24:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:24:17[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (973:6)
+
+[0m [90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 972 |[39m
+[31m[1m>[22m[39m[90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m     |[39m       [31m[1m^[22m[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m
+ [90m 975 |[39m   )[33m;[39m
+ [90m 976 |[39m }[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:973:6
+[33m  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+  1007|        className="food-banner"
+     |              ^
+  1008|        onMouseEnter={() => { paused.current = true; }}
+  1009|        onMouseLeave={() => { paused.current = false; }}[39m
+[2m01:24:17[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (973:6)
+
+[0m [90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 972 |[31m
+[31m[1m>[22m[31m[90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m     |[31m       [31m[1m^[22m[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m
+ [90m 975 |[31m   )[33m;[31m
+ [90m 976 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:973:6
+[33m  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+  1007|        className="food-banner"
+     |              ^
+  1008|        onMouseEnter={() => { paused.current = true; }}
+  1009|        onMouseLeave={() => { paused.current = false; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseProgram (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12639:10)
+[2m01:24:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:25:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:25:53[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 970 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m         [31m[1m^[22m[39m
+ [90m 972 |[39m
+ [90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+[2m01:25:53[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 970 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 972 |[31m
+ [90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:25:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:25:53[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 970 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m         [31m[1m^[22m[39m
+ [90m 972 |[39m
+ [90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+[2m01:25:53[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 970 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 972 |[31m
+ [90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:25:54[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:25:54[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 970 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m         [31m[1m^[22m[39m
+ [90m 972 |[39m
+ [90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+[2m01:25:54[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 970 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 972 |[31m
+ [90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:25:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:25:55[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[39m             )}
+ [90m 919 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 920 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m           [31m[1m^[22m[39m
+ [90m 921 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 922 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 923 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+[2m01:25:55[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[31m             )}
+ [90m 919 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 920 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m           [31m[1m^[22m[31m
+ [90m 921 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 922 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 923 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:26:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Company.jsx[22m
+[2m01:26:25[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[39m             )}
+ [90m 919 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 920 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m           [31m[1m^[22m[39m
+ [90m 921 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 922 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 923 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+[2m01:26:25[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[31m             )}
+ [90m 919 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 920 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m           [31m[1m^[22m[31m
+ [90m 921 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 922 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 923 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:26:26[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Menu.jsx[22m
+[2m01:26:27[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[39m             )}
+ [90m 919 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 920 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m           [31m[1m^[22m[39m
+ [90m 921 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 922 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 923 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+[2m01:26:27[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[31m             )}
+ [90m 919 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 920 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m           [31m[1m^[22m[31m
+ [90m 921 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 922 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 923 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:26:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Menu.jsx[22m
+[2m01:29:59[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[39m             )}
+ [90m 919 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 920 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m           [31m[1m^[22m[39m
+ [90m 921 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 922 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 923 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+[2m01:29:59[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (920:10)
+
+[0m [90m 918 |[31m             )}
+ [90m 919 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 920 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m           [31m[1m^[22m[31m
+ [90m 921 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 922 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 923 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:920:10
+[33m  948|          <FoodBanner />
+  949|  
+  950|          <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
+     |        ^
+  951|            <div className="download-btn-group">
+  952|              <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+[2m01:31:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:31:27[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 970 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m         [31m[1m^[22m[39m
+ [90m 972 |[39m
+ [90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+[2m01:31:27[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 970 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 972 |[31m
+ [90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:31:28[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Company.jsx[22m
+[2m01:31:28[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 970 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m         [31m[1m^[22m[39m
+ [90m 972 |[39m
+ [90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+[2m01:31:28[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 970 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 972 |[31m
+ [90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:34:04[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Company.jsx[22m
+[2m01:34:04[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 970 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 971 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m         [31m[1m^[22m[39m
+ [90m 972 |[39m
+ [90m 973 |[39m       [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m 974 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+[2m01:34:04[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <RevealOnScroll>. (971:8)
+
+[0m [90m 969 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 970 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 971 |[31m         [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m         [31m[1m^[22m[31m
+ [90m 972 |[31m
+ [90m 973 |[31m       [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m 974 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:971:8
+[33m  1004|      <RevealOnScroll
+  1005|        variant="fadeUp"
+  1006|        amount={0.1}
+     |                 ^
+  1007|        className="food-banner"
+  1008|        onMouseEnter={() => { paused.current = true; }}[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:34:18[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m
+[2m01:34:18[22m [31m[1m[vite][22m[39m Pre-transform error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1199:8)
+
+[0m [90m 1197 |[39m             [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m
+ [90m 1198 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 1199 |[39m         [33m<[39m[33m/[39m[33mRevealOnScroll[39m[33m>[39m
+ [90m      |[39m         [31m[1m^[22m[39m
+ [90m 1200 |[39m       [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 1201 |[39m     [33m<[39m[33m/[39m[33msection[39m[33m>[39m
+ [90m 1202 |[39m   )[33m;[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1199:8
+[33m  1248|      >
+  1249|        <div className="agent-bg-blobs" aria-hidden="true">
+  1250|          <span className="agent-blob agent-blob--1" />
+     |        ^
+  1251|          <span className="agent-blob agent-blob--2" />
+  1252|          <span className="agent-blob agent-blob--3" />[39m
+[2m01:34:18[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\web_ergen\src\main.jsx: Expected corresponding JSX closing tag for <div>. (1199:8)
+
+[0m [90m 1197 |[31m             [33m<[31m[33m/[31m[33mbutton[31m[33m>[31m
+ [90m 1198 |[31m           [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1199 |[31m         [33m<[31m[33m/[31m[33mRevealOnScroll[31m[33m>[31m
+ [90m      |[31m         [31m[1m^[22m[31m
+ [90m 1200 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 1201 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m
+ [90m 1202 |[31m   )[33m;[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/web_ergen/src/main.jsx[39m:1199:8
+[33m  1248|      >
+  1249|        <div className="agent-bg-blobs" aria-hidden="true">
+  1250|          <span className="agent-blob agent-blob--1" />
+     |        ^
+  1251|          <span className="agent-blob agent-blob--2" />
+  1252|          <span className="agent-blob agent-blob--3" />[39m
+      at constructor (D:\web_ergen\node_modules\@babel\parser\lib\index.js:365:19)
+      at JSXParserMixin.raise (D:\web_ergen\node_modules\@babel\parser\lib\index.js:6616:19)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4739:16)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElementAt (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4710:32)
+      at JSXParserMixin.jsxParseElement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4761:17)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4771:19)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12443:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10817:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12510:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11692:28)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11348:23)
+      at JSXParserMixin.parseExprAtom (D:\web_ergen\node_modules\@babel\parser\lib\index.js:4776:20)
+      at JSXParserMixin.parseExprSubscripts (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11098:23)
+      at JSXParserMixin.parseUpdate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11083:21)
+      at JSXParserMixin.parseMaybeUnary (D:\web_ergen\node_modules\@babel\parser\lib\index.js:11063:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10916:61)
+      at JSXParserMixin.parseExprOps (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10921:23)
+      at JSXParserMixin.parseMaybeConditional (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10898:23)
+      at JSXParserMixin.parseMaybeAssign (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10848:21)
+      at JSXParserMixin.parseExpressionBase (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:39
+      at JSXParserMixin.allowInAnd (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12438:16)
+      at JSXParserMixin.parseExpression (D:\web_ergen\node_modules\@babel\parser\lib\index.js:10797:17)
+      at JSXParserMixin.parseReturnStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13159:28)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12815:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseStatementListItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12764:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:61)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+      at JSXParserMixin.parseBlock (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13314:10)
+      at JSXParserMixin.parseFunctionBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12117:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12103:10)
+      at D:\web_ergen\node_modules\@babel\parser\lib\index.js:13462:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12420:14)
+      at JSXParserMixin.parseFunction (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13461:10)
+      at JSXParserMixin.parseFunctionStatement (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13142:17)
+      at JSXParserMixin.parseStatementContent (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12808:21)
+      at JSXParserMixin.parseStatementLike (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12784:17)
+      at JSXParserMixin.parseModuleItem (D:\web_ergen\node_modules\@babel\parser\lib\index.js:12761:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13333:36)
+      at JSXParserMixin.parseBlockBody (D:\web_ergen\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m01:36:59[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx[22m

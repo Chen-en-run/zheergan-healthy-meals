@@ -673,7 +673,7 @@ function HotChainHero() {
       </div>
       <div className="hotchain-grid max-frame">
         {/* ========== 左栏：品牌宣传区 ========== */}
-        <div className="hotchain-left">
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left">
           {/* 主标题 */}
           <h1 className="hotchain-title">
             <span className="hotchain-title-main">
@@ -729,11 +729,11 @@ function HotChainHero() {
               <span>30min 极速热达</span>
             </div>
           </div>
-        </div>
+        </RevealOnScroll>
 
         {/* ========== 右栏：AI 聊天演示区 ========== */}
         <div className="hotchain-right">
-          <div className="chat-card-shell">
+          <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
           <div className={`chat-card${phase === 'detail' ? ' chat-card--detail' : ''}`}>
             {/* 顶部信息栏 */}
             <div className="chat-topbar">
@@ -917,7 +917,7 @@ function HotChainHero() {
               </>
             )}
           </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>
@@ -936,18 +936,18 @@ function Hero() {
       </div>
       <div className="texture" />
       <div className="hero-grid max-frame">
-        <div className="hero-copy">
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="hero-copy">
           <h1>
             <ShinyText text="美味低脂的健康餐" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" />
           </h1>
           <p className="hero-lede">
             算法按你的身体数据定制餐单，合作餐厅每日现炒，热链保温送到
           </p>
-        </div>
+        </RevealOnScroll>
 
         <FoodBanner />
 
-        <div className="hero-actions">
+        <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
           <div className="download-btn-group">
             <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
@@ -968,7 +968,7 @@ function Hero() {
               <span>手机扫码下载</span>
             </div>
           </div>
-        </div>
+        </RevealOnScroll>
 
       </div>
     </section>
@@ -1001,7 +1001,9 @@ function FoodBanner() {
   }, []);
 
   return (
-    <div
+    <RevealOnScroll
+      variant="fadeUp"
+      amount={0.1}
       className="food-banner"
       onMouseEnter={() => { paused.current = true; }}
       onMouseLeave={() => { paused.current = false; }}
@@ -1027,7 +1029,7 @@ function FoodBanner() {
           />
         ))}
       </div>
-    </div>
+    </RevealOnScroll>
   );
 }
 
@@ -1080,13 +1082,13 @@ function PainSplit() {
 function PainSection() {
   return (
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
-<div className="story-inner story-pain-inner">
+<RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
           想吃健康，<span>太难</span>
         </h2>
         <p className="story-pain-sub">你不是一个人——每个减脂人都卡在这一关</p>
         <PainSplit />
-      </div>
+      </RevealOnScroll>
     </section>
   );
 }
@@ -1290,7 +1292,7 @@ function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
   return (
     <section className="story-section story-steps section-panel panel-cream" id="steps" aria-label="使用流程">
-<div className="story-inner story-steps-inner">
+<RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-steps-inner">
         <div className="steps-head">
           <h2>开启你的健康饮食</h2>
           <p className="steps-sub">输入你的身体数据，吃到让你回味无穷的健康餐</p>
@@ -1331,7 +1333,7 @@ function StepsSection() {
             </div>
           </div>
         </div>
-      </div>
+      </RevealOnScroll>
     </section>
   );
 }
@@ -1496,7 +1498,7 @@ function PricingInline() {
 function TrustSection() {
   return (
     <section className="story-section story-trust section-panel panel-cream" id="trust" aria-label="为什么信任我们">
-<div className="story-inner story-trust-inner">
+<RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-trust-inner">
         <div className="trust-head">
           <h2>
             真实口碑，<span>官方认证</span>
@@ -1517,7 +1519,7 @@ function TrustSection() {
           ))}
         </div>
 
-      </div>
+      </RevealOnScroll>
     </section>
   );
 }
@@ -1674,7 +1676,7 @@ const _oldFooterCols = [
 function Footer() {
   return (
     <footer className="site-footer panel-cream" aria-label="页脚">
-      <div className="footer-new">
+      <RevealOnScroll variant="fadeUp" amount={0.1} className="footer-new">
         {/* 上层:链接区 */}
         <div className="footer-new-links">
           <a href="javascript:void(0)">商务合作</a>
@@ -1701,7 +1703,7 @@ function Footer() {
           <span>©2026 Ergen 折耳根健康餐</span>
           <a href="javascript:void(0)">证照信息 ›</a>
         </div>
-      </div>
+      </RevealOnScroll>
     </footer>
   );
 }

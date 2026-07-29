@@ -159,7 +159,7 @@ export default function MenuPage() {
           </RevealOnScroll>
 
           {/* 标签筛选 */}
-          <div className="menu-filters" role="group" aria-label="按标签筛选餐品">
+          <RevealOnScroll variant="fadeIn" delay={0.15} amount={0.1} className="menu-filters" role="group" aria-label="按标签筛选餐品">
             {filters.map((f) => (
               <button
                 type="button"
@@ -171,7 +171,7 @@ export default function MenuPage() {
                 {f}
               </button>
             ))}
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
