@@ -5021,6 +5021,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   align-items: center;
   gap: 12px;
+  font-family: var(--font-display);
   font-size: var(--fs-h2);
   font-weight: 720;
   line-height: 1.12;
@@ -5043,6 +5044,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   align-items: baseline;
   gap: 10px;
+  font-family: var(--font-display);
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.12;
