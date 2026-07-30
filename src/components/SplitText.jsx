@@ -34,7 +34,7 @@ export default function SplitText({
   children,
   as: Tag = 'span',
   className,
-  stagger = 0.035,
+  stagger = 0.06,
   baseDelay = 0,
   amount = 0.2,
   charClassName = '',
@@ -78,7 +78,7 @@ export default function SplitText({
           display: 'inline-block',
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(0.5em)',
-          transition: `opacity 0.5s var(--ease-out) ${delay}s, transform 0.5s var(--ease-out) ${delay}s`,
+          transition: `opacity 0.7s var(--ease-out) ${delay}s, transform 0.7s var(--ease-out) ${delay}s`,
         };
         return (
           <span key={i} className={charClassName || undefined} style={style}>

@@ -15,7 +15,7 @@ const ShinyText = ({
   direction = 'left',
   delay = 0,
   reveal = false,
-  revealStagger = 0.045,
+  revealStagger = 0.07,
   revealY = 14
 }) => {
   const [isPaused, setIsPaused] = useState(false);
@@ -116,7 +116,7 @@ const ShinyText = ({
             initial={{ opacity: 0, y: revealY }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * revealStagger, ease: 'easeOut' }}
+            transition={{ duration: 0.7, delay: i * revealStagger, ease: 'easeOut' }}
           >
             {ch === ' ' ? ' ' : ch}
           </motion.span>

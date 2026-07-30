@@ -1502,7 +1502,7 @@ function TrustSection() {
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-trust-inner">
         <div className="trust-head">
           <h2>
-            真实口碑，<span>官方认证</span>
+            <SplitText>真实口碑，<span>官方认证</span></SplitText>
           </h2>
           <p className="trust-sub"><SplitText stagger={0.012}>每一个数字背后，都是用户对我们的认可</SplitText></p>
         </div>
