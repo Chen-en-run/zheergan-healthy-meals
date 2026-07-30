@@ -1442,6 +1442,11 @@ img {
   margin: 48px auto 0;
 }
 
+/* 首页 Hero 的下载按钮在食物轮播下方，留出更舒适的间距 */
+.hero .hero-actions {
+  margin-top: 140px;
+}
+
 .food-banner-stage {
   position: relative;
   width: 100%;
