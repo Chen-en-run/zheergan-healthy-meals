@@ -1449,7 +1449,7 @@ img {
 .hero .hero-actions {
   width: 100%;
   justify-content: center;
-  padding-top: 140px;
+  padding-top: 60px;
 }
 
 .food-banner-stage {
@@ -5090,7 +5090,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 /* 副标题/说明文案 */
 .hotchain-desc {
   max-width: 560px;
-  margin: 28px 0 0;
+  margin: 16px 0 0;
   color: var(--ink-body);
   font-size: var(--fs-lede);
   line-height: 1.9;
