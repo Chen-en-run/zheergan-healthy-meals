@@ -591,7 +591,7 @@ const chatSequence = [
       1. <strong>一日免费试吃餐</strong>：价格0元无门槛，适合新用户低成本体验服务流程。<br/>
       2. <strong>七日营养餐食谱</strong>：目标人群包含学生党且无未成年人禁忌，BMI 23.8 处于正常范围，饮食注意均衡摄入有助于维持当前健康体重。<br/>
       3. <strong>三十日尊享定制餐</strong>：价格较高但无未成年人禁忌，适合追求长期体重管理（理想体重约63kg）的用户进行专业跟踪调整。<br/>
-      <span className="chat-meal-card chat-meal-card--vertical"><img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" /><span className="chat-meal-info"><strong>一日免费试吃餐</strong><span>适合：学生党</span><span className="chat-meal-price">¥0 / 1天</span></span></span>
+      下方为您推荐一款健康餐，点击可查看详情。
     </>,
   },
   {
@@ -604,7 +604,7 @@ const chatSequence = [
       目前平台上的健康餐主要侧重于<strong>营养均衡</strong>和<strong>减脂塑形</strong>，具体的口感描述较少。不过根据食谱介绍，<strong>七日营养餐食谱</strong>特别强调了“兼顾美味与易操作性”，早餐注重唤醒代谢，午餐营养全面，晚餐清淡易消化，整体搭配比较符合大众口味。<br/><br/>
       另外，<strong>三十日尊享定制餐</strong>是由专业营养师全程跟踪调整的，通常这类高端定制方案在食材选择和烹饪方式上会更讲究，可能更符合你对“口感好”的要求，当然价格也会相对较高（2999.9元）。<br/><br/>
       你是想先尝试一下性价比高的七日食谱，还是直接咨询尊享定制餐的详情？<br/>
-      <span className="chat-meal-card chat-meal-card--vertical"><img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" /><span className="chat-meal-info"><strong>一日免费试吃餐</strong><span>适合：学生党</span><span className="chat-meal-price">¥0 / 1天</span></span></span>
+      下方为您推荐一款健康餐，点击可查看详情。
     </>,
   },
   {
@@ -935,13 +935,16 @@ function HotChainHero() {
                       key={i}
                       className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
                     >
-                      {msg.label && (
-                        <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
-                          {msg.label}
-                        </span>
-                      )}
-                      <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
-                        {msg.text}
+                      <div className="chat-msg-main">
+                        {msg.label && (
+                          <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
+                            {msg.label}
+                          </span>
+                        )}
+                        <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
+                          {msg.text}
+                        </div>
+                        {msg.role === 'user' && <span className="chat-msg-time">19:48</span>}
                       </div>
                     </div>
                   ))}
@@ -987,6 +990,27 @@ function HotChainHero() {
                           <polyline points="9 18 15 12 9 6" />
                         </svg>
                       </div>
+                    </div>
+                  )}
+
+                  {/* 独立健康餐推荐卡片：与聊天气泡分离 */}
+                  {phase !== 'detail' && visibleCount >= 4 && (
+                    <div className="chat-msg chat-msg--ai chat-msg--pop">
+                      <button
+                        className="chat-meal-card-standalone"
+                        onClick={() => setPhase('detail')}
+                        aria-label="查看健康餐详情"
+                      >
+                        <img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" />
+                        <div className="chat-meal-card-standalone-body">
+                          <strong>一日免费试吃餐</strong>
+                          <span>适宜：学生党</span>
+                          <div className="chat-meal-card-standalone-tags">
+                            <span className="chat-meal-price-tag">¥0</span>
+                            <span className="chat-meal-day-tag">1 天</span>
+                          </div>
+                        </div>
+                      </button>
                     </div>
                   )}
 

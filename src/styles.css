@@ -5262,6 +5262,27 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   align-self: flex-end;
 }
 
+.chat-msg-main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.chat-msg--ai .chat-msg-main {
+  align-items: flex-start;
+}
+
+.chat-msg--user .chat-msg-main {
+  align-items: flex-end;
+}
+
+.chat-msg-time {
+  font-size: 11px;
+  color: var(--muted-cream);
+  margin-top: 2px;
+}
+
 /* AI 标签 */
 .chat-msg-label {
   display: inline-block;
@@ -5375,6 +5396,78 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .chat-meal-card--vertical .chat-meal-info strong {
   font-size: 15px;
+}
+
+/* 独立于聊天气泡的健康餐推荐卡片 */
+.chat-meal-card-standalone {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--r-lg);
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(43, 31, 20, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.chat-meal-card-standalone:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(43, 31, 20, 0.14);
+}
+
+.chat-meal-card-standalone img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.chat-meal-card-standalone-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px 16px;
+  text-align: left;
+}
+
+.chat-meal-card-standalone-body > strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-cream);
+}
+
+.chat-meal-card-standalone-body > span {
+  font-size: 13px;
+  color: var(--muted-cream);
+}
+
+.chat-meal-card-standalone-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.chat-meal-price-tag {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ember-ink);
+}
+
+.chat-meal-day-tag {
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: rgba(80, 158, 95, 0.1);
+  color: #3e8c52;
+  font-size: 12px;
+  font-weight: 650;
 }
 
 .chat-meal-price {
