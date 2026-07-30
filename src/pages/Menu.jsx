@@ -7,6 +7,7 @@ import {
   Utensils,
 } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
+import SplitText from '../components/SplitText';
 import RevealOnScroll from '../components/RevealOnScroll';
 import './features.css';
 import './menu.css';
@@ -149,13 +150,14 @@ export default function MenuPage() {
                 speed={3}
                 spread={120}
                 direction="left"
+                reveal
               />
             </h1>
           </RevealOnScroll>
           <RevealOnScroll variant="fadeIn" delay={0.1} amount={0.1}>
-            <p className="menu-hero-lede">
+            <p className="menu-hero-lede"><SplitText stagger={0.012}>
               本月在售 30 道,由营养师与合作商家主厨共同设计,按你的热量目标与口味偏好每月轮换上新。完整定制餐单在 App 内按你的身体数据生成。
-            </p>
+            </SplitText></p>
           </RevealOnScroll>
 
           {/* 标签筛选 */}
@@ -190,7 +192,7 @@ export default function MenuPage() {
                 </span>
               </div>
               <div className="m-dish-info">
-                <h2>{dish.title}</h2>
+                <h2><SplitText>{dish.title}</SplitText></h2>
                 <p>{dish.desc}</p>
                 <div className="m-dish-meta">
                   <span className="m-dish-kcal">

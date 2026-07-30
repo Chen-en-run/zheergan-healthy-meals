@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import ShinyText from '../components/ShinyText';
+import SplitText from '../components/SplitText';
 import RevealOnScroll from '../components/RevealOnScroll';
 import './features.css';
 
@@ -98,15 +99,16 @@ function CompanyPage() {
                 speed={3}
                 spread={120}
                 direction="left"
+                reveal
               />
             </h1>
-            <p className="company-hero-sub">
+            <p className="company-hero-sub"><SplitText stagger={0.012}>
               折耳根（深圳）健康管理有限公司
-            </p>
+            </SplitText></p>
           </div>
 
           <div className="company-section">
-            <h3>公司概况</h3>
+            <h3><SplitText>公司概况</SplitText></h3>
             <p>
               折耳根（深圳）健康管理有限公司，成立于 2023 年 10 月 12 日，法定代表人为罗俊帆，
               注册资本 100 万元人民币，公司类型为有限责任公司（自然人独资），经营状态为存续。
@@ -114,7 +116,7 @@ function CompanyPage() {
           </div>
 
           <div className="company-section">
-            <h3>注册信息</h3>
+            <h3><SplitText>注册信息</SplitText></h3>
             <p>
               注册地址：深圳市南山区南山街道荔湾社区荔湾沿山路 8 号荔山工业区 6 栋 252。
               统一社会信用代码：91440300MAD02XD55H。
@@ -123,7 +125,7 @@ function CompanyPage() {
           </div>
 
           <div className="company-section">
-            <h3>经营范围</h3>
+            <h3><SplitText>经营范围</SplitText></h3>
             <p>
               公司主要从事网络技术服务、网络与信息安全软件开发、体育健康服务、
               健身休闲活动、养生保健服务（非医疗）、健康咨询服务（不含诊疗服务）、
@@ -132,7 +134,7 @@ function CompanyPage() {
           </div>
 
           <div className="company-section">
-            <h3>品牌背景</h3>
+            <h3><SplitText>品牌背景</SplitText></h3>
             <p>
               "折耳根"是该公司旗下品牌，专注于健康饮食与健康管理服务。公司依托深圳南山区的产业环境，
               致力于通过算法定制与热链配送，让每一位用户都能吃到专属的健康餐。

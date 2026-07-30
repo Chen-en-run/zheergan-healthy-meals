@@ -20,6 +20,7 @@ import {
   ShieldAlert,
 } from 'lucide-react';
 import ShinyText from './components/ShinyText';
+import SplitText from './components/SplitText';
 import RevealOnScroll from './components/RevealOnScroll';
 import MenuPage from './pages/Menu';
 import CompanyPage from './pages/Company';
@@ -551,7 +552,7 @@ function MealCarousel({ meals }) {
           >
             <img src={meal.image} alt={meal.title} draggable="false" />
             <div>
-              <h2>{meal.title}</h2>
+              <h2><SplitText>{meal.title}</SplitText></h2>
               <p>{meal.kcal} / {meal.protein}</p>
             </div>
           </article>
@@ -677,11 +678,11 @@ function HotChainHero() {
           {/* 主标题 */}
           <h1 className="hotchain-title">
             <span className="hotchain-title-main">
-              热链健康餐
+              <SplitText>热链健康餐</SplitText>
             </span>
             <span className="hotchain-title-sub">
-              <span className="hc-grad-agent">Agent</span>
-              <span className="hc-grad-text">智能配送</span>
+              <SplitText charClassName="hc-grad-agent">Agent</SplitText>
+              <SplitText charClassName="hc-grad-text">智能配送</SplitText>
             </span>
           </h1>
 
@@ -779,7 +780,7 @@ function HotChainHero() {
 
                 {/* 基本信息 */}
                 <div className="detail-body">
-                  <h3 className="detail-title">烟熏三文鱼平衡碗</h3>
+                  <h3 className="detail-title"><SplitText>烟熏三文鱼平衡碗</SplitText></h3>
                   <div className="detail-nutrition">
                     <span className="detail-nutri-item"><strong>486</strong> kcal</span>
                     <span className="detail-nutri-sep">·</span>
@@ -938,11 +939,11 @@ function Hero() {
       <div className="hero-grid max-frame">
         <RevealOnScroll variant="fadeUp" amount={0.1} className="hero-copy">
           <h1>
-            <ShinyText text="美味低脂的健康餐" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" />
+            <ShinyText text="美味低脂的健康餐" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" reveal />
           </h1>
-          <p className="hero-lede">
+          <p className="hero-lede"><SplitText stagger={0.012}>
             算法按你的身体数据定制餐单，合作餐厅每日现炒，热链保温送到
-          </p>
+          </SplitText></p>
         </RevealOnScroll>
 
         <FoodBanner />
@@ -1084,9 +1085,9 @@ function PainSection() {
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          想吃健康，<span>太难</span>
+          <SplitText>想吃健康，<span>太难</span></SplitText>
         </h2>
-        <p className="story-pain-sub">你不是一个人——每个减脂人都卡在这一关</p>
+        <p className="story-pain-sub"><SplitText stagger={0.012}>你不是一个人——每个减脂人都卡在这一关</SplitText></p>
         <PainSplit />
       </RevealOnScroll>
     </section>
@@ -1160,13 +1161,13 @@ function AnswerSection() {
     >
         <RevealOnScroll variant="fadeIn" amount={0.1}>
           <h2 className="answer-line">
-            <ShinyText text="饮食健康，放心交给我们" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
+            <ShinyText text="饮食健康，放心交给我们" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" reveal />
           </h2>
         </RevealOnScroll>
         <RevealOnScroll variant="fadeIn" delay={0.1} amount={0.1}>
-          <p className="answer-lede">
+          <p className="answer-lede"><SplitText stagger={0.012}>
             食材新鲜直采，源头可查；餐厅接单现做，锅气到家。每一口都放心
-          </p>
+          </SplitText></p>
         </RevealOnScroll>
 
         <div className="food-card-stage">
@@ -1182,7 +1183,7 @@ function AnswerSection() {
                   <img src={card.image} alt={card.name} loading="lazy" draggable="false" />
                 </div>
                 <div className="food-card-info">
-                  <h3>{card.tag}</h3>
+                  <h3><SplitText>{card.tag}</SplitText></h3>
                   {card.sub && <p>{card.sub}</p>}
                 </div>
               </article>
@@ -1254,11 +1255,11 @@ function AgentSection() {
       <div className="story-inner agent-inner">
         <RevealOnScroll variant="fadeUp" amount={0.1}>
           <h2 className="agent-title">
-            把"吃得健康"，<ShinyText text="交给 Nova" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" />
+            <SplitText>把"吃得健康"，</SplitText><ShinyText text="交给 Nova" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" reveal />
           </h2>
-          <p className="agent-lede">
+          <p className="agent-lede"><SplitText stagger={0.012}>
             Nova 不只是聊天机器人。从听懂你的口味，到记住你的忌口，再到主动帮你复购补给，它把这件麻烦事全程接管——你只管吃，剩下的交给它。
-          </p>
+          </SplitText></p>
         </RevealOnScroll>
 
         <div className="agent-grid">
@@ -1270,7 +1271,7 @@ function AgentSection() {
                   <span className="agent-card-icon">
                     <I size={24} />
                   </span>
-                  <h3>{cap.title}</h3>
+                  <h3><SplitText>{cap.title}</SplitText></h3>
                   <p>{cap.desc}</p>
                 </article>
               </RevealOnScroll>
@@ -1294,8 +1295,8 @@ function StepsSection() {
     <section className="story-section story-steps section-panel panel-cream" id="steps" aria-label="使用流程">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-steps-inner">
         <div className="steps-head">
-          <h2>开启你的健康饮食</h2>
-          <p className="steps-sub">输入你的身体数据，吃到让你回味无穷的健康餐</p>
+          <h2><SplitText>开启你的健康饮食</SplitText></h2>
+          <p className="steps-sub"><SplitText stagger={0.012}>输入你的身体数据，吃到让你回味无穷的健康餐</SplitText></p>
         </div>
         <div className="steps-split">
           <div className="steps-split-left">
@@ -1307,7 +1308,7 @@ function StepsSection() {
               >
                 <span className="steps-item-no">{step.no}</span>
                 <div className="steps-item-text">
-                  <h3>{step.title}</h3>
+                  <h3><SplitText>{step.title}</SplitText></h3>
                   <p>{step.desc}</p>
                 </div>
               </div>
@@ -1432,9 +1433,9 @@ function PricingInline() {
   return (
     <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格方案">
       <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '12px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '12px' }}><SplitText>
           美味健康餐，真不贵
-        </h2>
+        </SplitText></h2>
         <p style={{ textAlign: 'center', color: 'var(--muted-cream)', fontSize: 'var(--fs-lede)', marginBottom: '52px', lineHeight: 1.6 }}>
           一顿外卖的钱，吃到算法定制、餐厅现炒的专属健康餐
         </p>
@@ -1454,7 +1455,7 @@ function PricingInline() {
               }}
             >
               <div style={{ marginBottom: '20px' }}>
-                <h3 style={{ margin: 0, fontSize: '22px', fontWeight: 700, color: 'var(--ink-cream)' }}>{plan.name}</h3>
+                <h3 style={{ margin: 0, fontSize: '22px', fontWeight: 700, color: 'var(--ink-cream)' }}><SplitText>{plan.name}</SplitText></h3>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginTop: '18px' }}>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '24px', color: 'var(--ink-cream)' }}>¥</span>
                   <strong style={{ fontSize: 'clamp(50px, 4vw, 66px)', fontWeight: 700, lineHeight: 1, color: 'var(--ink-cream)' }}>{plan.price}</strong>
@@ -1503,7 +1504,7 @@ function TrustSection() {
           <h2>
             真实口碑，<span>官方认证</span>
           </h2>
-          <p className="trust-sub">每一个数字背后，都是用户对我们的认可</p>
+          <p className="trust-sub"><SplitText stagger={0.012}>每一个数字背后，都是用户对我们的认可</SplitText></p>
         </div>
 
         <div className="trust-strip" aria-label="平台数据">
@@ -1564,8 +1565,8 @@ function FaqSection() {
     <section className="faq section-panel panel-cream" id="faq" aria-label="常见问题">
 <div className="story-inner faq-inner">
         <div className="faq-head">
-          <h2 className="faq-title">关于我们，你大概想知道这些</h2>
-          <p className="faq-sub">关于配送、价格、食材、餐单与营养成分，这里回答了你能想到的</p>
+          <h2 className="faq-title"><SplitText>关于我们，你大概想知道这些</SplitText></h2>
+          <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材、餐单与营养成分，这里回答了你能想到的</SplitText></p>
         </div>
         <ul className="faq-list">
           {faqs.map((item, i) => (
@@ -1599,7 +1600,7 @@ function DownloadSection() {
     <section className="download section-panel panel-cream" id="download" aria-label="下载百度网盘">
       <div className="download-baidu-inner max-frame">
         <RevealOnScroll variant="fadeUp" amount={0.1}>
-          <h2 className="download-baidu-title">下载折耳根健康餐</h2>
+          <h2 className="download-baidu-title"><SplitText>下载折耳根健康餐</SplitText></h2>
         </RevealOnScroll>
 
         <div className="download-platforms" aria-label="支持的平台">

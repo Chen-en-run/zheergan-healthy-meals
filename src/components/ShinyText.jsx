@@ -13,7 +13,10 @@ const ShinyText = ({
   yoyo = false,
   pauseOnHover = false,
   direction = 'left',
-  delay = 0
+  delay = 0,
+  reveal = false,
+  revealStagger = 0.045,
+  revealY = 14
 }) => {
   const [isPaused, setIsPaused] = useState(false);
   const progress = useMotionValue(0);
@@ -101,6 +104,26 @@ const ShinyText = ({
     backgroundClip: 'text',
     WebkitTextFillColor: 'transparent'
   };
+
+  if (reveal) {
+    return (
+      <>
+        {Array.from(text).map((ch, i) => (
+          <motion.span
+            key={i}
+            className={`shiny-text shiny-char ${className}`}
+            style={{ ...gradientStyle, backgroundPosition, display: 'inline-block' }}
+            initial={{ opacity: 0, y: revealY }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: i * revealStagger, ease: 'easeOut' }}
+          >
+            {ch === ' ' ? ' ' : ch}
+          </motion.span>
+        ))}
+      </>
+    );
+  }
 
   return (
     <motion.span
