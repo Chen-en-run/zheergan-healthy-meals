@@ -1443,8 +1443,13 @@ img {
 }
 
 /* 首页 Hero 的下载按钮在食物轮播下方，留出更舒适的间距 */
+/* 注意：RevealOnScroll 会内联写入 marginTop，覆盖此处的 margin-top，
+   因此用 padding-top 才能真正拉开与轮播指示的间距；
+   同时 width:100% + justify-content:center 确保按钮组水平居中，避免偏左。 */
 .hero .hero-actions {
-  margin-top: 140px;
+  width: 100%;
+  justify-content: center;
+  padding-top: 140px;
 }
 
 .food-banner-stage {
