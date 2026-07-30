@@ -747,11 +747,6 @@ function HotChainHero() {
             <div className="chat-topbar">
               {phase === 'detail' ? (
                 <>
-                  <button className="chat-back-btn" aria-label="返回" onClick={() => setPhase('chat')}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                  </button>
                   <span className="chat-name">食谱详情</span>
                 </>
               ) : (
@@ -770,6 +765,15 @@ function HotChainHero() {
             {phase === 'detail' ? (
               /* ===== 三十日尊享定制餐 详情页 ===== */
               <div className="detail-view">
+                <button
+                  className="chat-back-btn chat-back-btn--overlay"
+                  onClick={() => setPhase('chat')}
+                  aria-label="返回"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
                 <div className="detail-hero detail-hero--premium">
                   <img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="三十日尊享定制餐" />
                   <span className="detail-tag">热链配送 · 70°C 恒温直达</span>
