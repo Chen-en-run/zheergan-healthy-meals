@@ -617,6 +617,8 @@ function HotChainHero() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [typing, setTyping] = useState(false);
   const [phase, setPhase] = useState('chat'); /* chat → entry → detail */
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [openDay, setOpenDay] = useState(null);
   const chatScrollRef = useRef(null);
   const sectionRef = useRef(null);
   const inViewRef = useRef(true); /* 用户当前是否正看着这张卡片 */
@@ -766,63 +768,150 @@ function HotChainHero() {
             </div>
 
             {phase === 'detail' ? (
-              /* ===== 食谱详情页 ===== */
+              /* ===== 三十日尊享定制餐 详情页 ===== */
               <div className="detail-view">
-                {/* 大图 */}
-                <div className="detail-hero">
-                  <img src="/zheergan-healthy-meals/images/salmon.jpg" alt="烟熏三文鱼平衡碗" />
+                <div className="detail-hero detail-hero--premium">
+                  <img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="三十日尊享定制餐" />
                   <span className="detail-tag">热链配送 · 70°C 恒温直达</span>
                 </div>
 
-                {/* 基本信息 */}
                 <div className="detail-body">
-                  <h3 className="detail-title"><SplitText>烟熏三文鱼平衡碗</SplitText></h3>
-                  <div className="detail-nutrition">
-                    <span className="detail-nutri-item"><strong>486</strong> kcal</span>
-                    <span className="detail-nutri-sep">·</span>
-                    <span className="detail-nutri-item"><strong>36g</strong> 蛋白质</span>
-                    <span className="detail-nutri-sep">·</span>
-                    <span className="detail-nutri-item"><strong>28g</strong> 碳水</span>
-                    <span className="detail-nutri-sep">·</span>
-                    <span className="detail-nutri-item"><strong>18g</strong> 脂肪</span>
+                  <div className="detail-header">
+                    <h3 className="detail-title"><SplitText>三十日尊享定制餐</SplitText></h3>
+                    <p className="detail-subtitle">专业营养师全程跟踪 · 理想体重约 63kg</p>
                   </div>
 
-                  {/* 规格选择 */}
-                  <div className="detail-section">
-                    <span className="detail-section-label">规格选择</span>
-                    <div className="detail-specs">
-                      <label className="detail-spec is-active">
-                        <span className="detail-spec-radio" />
-                        <span className="detail-spec-info">
-                          <strong>标准份</strong>
-                          <span>默认规格</span>
-                        </span>
-                      </label>
-                      <label className="detail-spec">
-                        <span className="detail-spec-radio" />
-                        <span className="detail-spec-info">
-                          <strong>大份</strong>
-                          <span className="detail-spec-extra">+¥18</span>
-                        </span>
-                      </label>
+                  {/* 周期/详情折叠 */}
+                  <div className="detail-accordion">
+                    <button
+                      className={`detail-accordion-trigger ${detailOpen ? 'is-open' : ''}`}
+                      onClick={() => setDetailOpen(v => !v)}
+                    >
+                      <span>周期/详情</span>
+                      <ChevronDown size={16} />
+                    </button>
+                    {detailOpen && (
+                      <div className="detail-accordion-content">
+                        <p>原价 ¥3999.9，限时特惠 ¥2999.9。30 天专属定制食谱，包含早、午、晚三餐方案。专业营养师根据你的身体数据全程跟踪调整。</p>
+                        <ul>
+                          <li>周期：30 天</li>
+                          <li>服务：营养师 1 对 1 跟踪</li>
+                          <li>目标：长期体重管理 / 理想体重 63kg</li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 阿折评估 */}
+                  <div className="detail-assessment">
+                    <div className="detail-section-label">阿折评估</div>
+                    <div className="detail-assessment-card">
+                      <div className="detail-assessment-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="22 12 16 18 10 12 2 6" />
+                        </svg>
+                      </div>
+                      <div className="detail-assessment-main">
+                        <p>为您选用 <strong>1800 千卡</strong> 规格</p>
+                        <p>预计体重 <strong className="detail-assessment-highlight">减低 2.52 公斤</strong></p>
+                      </div>
+                      <p className="detail-assessment-desc">
+                        根据您的健康数据与目标，该方案能有效在维持代谢的同时实现轻微热量缺口。
+                      </p>
+                      <button className="detail-assessment-report">
+                        详细评估报告
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </button>
                     </div>
                   </div>
 
-                  {/* 数量 */}
-                  <div className="detail-section">
-                    <span className="detail-section-label">数量</span>
-                    <div className="detail-qty">
-                      <button className="detail-qty-btn">−</button>
-                      <span className="detail-qty-val">1</span>
-                      <button className="detail-qty-btn">+</button>
+                  {/* 能量规格 */}
+                  <div className="detail-energy">
+                    <div className="detail-section-label">
+                      能量规格
+                      <span className="detail-section-sublabel">（建议 1800 千卡）</span>
+                    </div>
+                    <div className="detail-energy-card">
+                      <strong>能量（单选）</strong>
+                      <p>建议选择 <strong>1800 千卡</strong> 规格，不低于 <strong>2202 千卡</strong>，不高于 <strong>2691 千卡</strong>。</p>
+                      <div className="detail-energy-options">
+                        <label className="detail-energy-option">
+                          <input type="radio" name="energy-spec" value="1500" />
+                          <span>1500 千卡</span>
+                        </label>
+                        <label className="detail-energy-option is-active">
+                          <input type="radio" name="energy-spec" value="1800" defaultChecked />
+                          <span>1800 千卡</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 30天每日餐单 */}
+                  <div className="detail-days">
+                    <div className="detail-section-label">每日餐单</div>
+                    <div className="detail-days-list">
+                      {Array.from({ length: 30 }, (_, i) => i + 1).map((day) => {
+                        const isOpen = openDay === day;
+                        const meals = {
+                          breakfast: ['燕麦蓝莓碗', '全麦三明治', '紫薯牛奶羹', '杂粮粥配鸡蛋', '酸奶水果杯'][day % 5],
+                          lunch: ['香煎鸡胸糙米饭', '黑椒牛肉意面', '清蒸鲈鱼配藜麦', '番茄牛腩饭', '凉拌鸡丝荞麦面'][day % 5],
+                          dinner: ['白灼虾配时蔬', '豆腐蔬菜汤', '南瓜鸡胸肉沙拉', '菌菇瘦肉粥', '蒸蛋羹配西兰花'][day % 5],
+                        };
+                        return (
+                          <div key={day} className={`detail-day ${isOpen ? 'is-open' : ''}`}>
+                            <button
+                              className="detail-day-trigger"
+                              onClick={() => setOpenDay(isOpen ? null : day)}
+                            >
+                              <span>第 {day} 天</span>
+                              <ChevronDown size={15} />
+                            </button>
+                            {isOpen && (
+                              <div className="detail-day-content">
+                                <div className="detail-meal"><span>早餐</span>{meals.breakfast}</div>
+                                <div className="detail-meal"><span>午餐</span>{meals.lunch}</div>
+                                <div className="detail-meal"><span>晚餐</span>{meals.dinner}</div>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* 食谱参数 */}
+                  <div className="detail-params">
+                    <div className="detail-section-label">食谱参数</div>
+                    <div className="detail-params-card">
+                      <div className="detail-params-row">
+                        <div className="detail-params-cell">
+                          <span>周期</span>
+                          <strong>30 天</strong>
+                        </div>
+                        <div className="detail-params-cell">
+                          <span>估算单餐</span>
+                          <strong className="detail-params-price">¥30.0</strong>
+                        </div>
+                      </div>
+                      <div className="detail-params-cell detail-params-cell--full">
+                        <span>适宜人群</span>
+                        <strong>—</strong>
+                      </div>
+                      <div className="detail-params-cell detail-params-cell--full">
+                        <span>禁忌说明</span>
+                        <p>暂无特殊禁忌说明，如对特定坚果或海鲜过敏请咨询营养师。</p>
+                      </div>
                     </div>
                   </div>
 
                   {/* 底部下单栏 */}
-                  <div className="detail-bottom">
+                  <div className="detail-bottom detail-bottom--sticky">
                     <div className="detail-price">
                       <span className="detail-price-label">合计</span>
-                      <span className="detail-price-num">¥48<span>.00</span></span>
+                      <span className="detail-price-num">¥2999<span>.9</span></span>
                     </div>
                     <button className="detail-order-btn">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
