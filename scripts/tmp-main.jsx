@@ -754,7 +754,16 @@ function HotChainHero() {
                 </>
               ) : (
                 <>
-                  <div className="chat-topbar-info chat-topbar-info--center">
+                  <div className="chat-avatar">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="6" width="20" height="13" rx="3" />
+                      <path d="M6 10h3" />
+                      <path d="M6 14h5" />
+                      <circle cx="16" cy="13" r="2" />
+                      <path d="M16 9v1" />
+                    </svg>
+                  </div>
+                  <div className="chat-topbar-info">
                     <span className="chat-name">折耳根小助手</span>
                     <span className="chat-status">
                       <span className="chat-status-dot" />
