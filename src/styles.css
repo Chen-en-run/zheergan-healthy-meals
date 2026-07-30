@@ -5293,21 +5293,6 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   border-top-left-radius: 4px;
 }
 
-/* 独立卡片消息：去掉气泡背景，与文字消息分离 */
-.chat-msg--card {
-  margin-top: 4px;
-}
-
-.chat-bubble--card {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  max-width: 100%;
-  width: 100%;
-  border-radius: 0;
-}
-
 .chat-bubble--ai strong {
   color: var(--ember-ink);
   font-weight: 680;
@@ -5363,14 +5348,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .chat-meal-card--vertical {
   flex-direction: column;
   align-items: stretch;
-  gap: 0;
+  gap: 10px;
   padding: 0;
   border-radius: var(--r-lg);
   overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(43, 31, 20, 0.06);
-  box-shadow: 0 4px 16px rgba(43, 31, 20, 0.05);
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .chat-meal-card--vertical img {
@@ -5382,45 +5364,18 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .chat-meal-card--vertical .chat-meal-info {
-  padding: 12px 14px 14px;
+  padding: 10px 12px 12px;
   gap: 6px;
 }
 
 .chat-meal-card--vertical .chat-meal-info strong {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ink-cream);
-}
-
-.chat-meal-card--vertical .chat-meal-info > span:not(.chat-meal-price) {
-  font-size: 13px;
-  color: var(--muted-cream);
+  font-size: 15px;
 }
 
 .chat-meal-price {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-  font-style: normal;
-}
-
-.chat-meal-price em {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
-  font-style: normal;
   color: var(--ember-ink);
-}
-
-.chat-meal-price b {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 8px;
-  border-radius: var(--r-sm);
-  background: rgba(80, 158, 95, 0.12);
-  color: #3e8c52;
-  font-size: 12px;
-  font-weight: 600;
 }
 
 .chat-bubble--user {

@@ -590,13 +590,9 @@ const chatSequence = [
       为你推荐以下三款健康餐：<br/><br/>
       1. <strong>一日免费试吃餐</strong>：价格0元无门槛，适合新用户低成本体验服务流程。<br/>
       2. <strong>七日营养餐食谱</strong>：目标人群包含学生党且无未成年人禁忌，BMI 23.8 处于正常范围，饮食注意均衡摄入有助于维持当前健康体重。<br/>
-      3. <strong>三十日尊享定制餐</strong>：价格较高但无未成年人禁忌，适合追求长期体重管理（理想体重约63kg）的用户进行专业跟踪调整。
+      3. <strong>三十日尊享定制餐</strong>：价格较高但无未成年人禁忌，适合追求长期体重管理（理想体重约63kg）的用户进行专业跟踪调整。<br/>
+      <span className="chat-meal-card chat-meal-card--vertical"><img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" /><span className="chat-meal-info"><strong>一日免费试吃餐</strong><span>适合：学生党</span><span className="chat-meal-price">¥0 / 1天</span></span></span>
     </>,
-  },
-  {
-    role: 'agent',
-    type: 'card',
-    text: <span className="chat-meal-card chat-meal-card--vertical"><img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" /><span className="chat-meal-info"><strong>一日免费试吃餐</strong><span>适宜：学生党</span><span className="chat-meal-price"><em>¥0</em><b>1天</b></span></span></span>,
   },
   {
     role: 'user',
@@ -607,13 +603,9 @@ const chatSequence = [
     text: <>
       目前平台上的健康餐主要侧重于<strong>营养均衡</strong>和<strong>减脂塑形</strong>，具体的口感描述较少。不过根据食谱介绍，<strong>七日营养餐食谱</strong>特别强调了“兼顾美味与易操作性”，早餐注重唤醒代谢，午餐营养全面，晚餐清淡易消化，整体搭配比较符合大众口味。<br/><br/>
       另外，<strong>三十日尊享定制餐</strong>是由专业营养师全程跟踪调整的，通常这类高端定制方案在食材选择和烹饪方式上会更讲究，可能更符合你对“口感好”的要求，当然价格也会相对较高（2999.9元）。<br/><br/>
-      你是想先尝试一下性价比高的七日食谱，还是直接咨询尊享定制餐的详情？
+      你是想先尝试一下性价比高的七日食谱，还是直接咨询尊享定制餐的详情？<br/>
+      <span className="chat-meal-card chat-meal-card--vertical"><img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" /><span className="chat-meal-info"><strong>一日免费试吃餐</strong><span>适合：学生党</span><span className="chat-meal-price">¥0 / 1天</span></span></span>
     </>,
-  },
-  {
-    role: 'agent',
-    type: 'card',
-    text: <span className="chat-meal-card chat-meal-card--vertical"><img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" /><span className="chat-meal-info"><strong>一日免费试吃餐</strong><span>适宜：学生党</span><span className="chat-meal-price"><em>¥0</em><b>1天</b></span></span></span>,
   },
   {
     role: 'user',
@@ -848,14 +840,14 @@ function HotChainHero() {
                   {chatSequence.slice(0, visibleCount).map((msg, i) => (
                     <div
                       key={i}
-                      className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop ${msg.type === 'card' ? 'chat-msg--card' : ''}`}
+                      className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
                     >
                       {msg.label && (
                         <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
                           {msg.label}
                         </span>
                       )}
-                      <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : msg.type === 'card' ? 'chat-bubble--card' : 'chat-bubble--ai'}`}>
+                      <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
                         {msg.text}
                       </div>
                     </div>
