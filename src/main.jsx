@@ -1065,7 +1065,7 @@ function HotChainHero() {
                           <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
                             {msg.text}
                           </div>
-                          {msg.role === 'user' && <span className="chat-msg-time">19:48</span>}
+                          {msg.role === 'user' && (() => { const d = new Date(); const hh = String(d.getHours()).padStart(2, '0'); const mm = String(d.getMinutes()).padStart(2, '0'); return <span className="chat-msg-time">{`${hh}:${mm}`}</span>; })()}
                         </div>
                       </div>
                     );
