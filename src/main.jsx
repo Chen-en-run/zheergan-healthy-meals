@@ -621,6 +621,48 @@ function HotChainHero() {
   const [phase, setPhase] = useState('chat'); /* chat → entry → detail */
   const [detailOpen, setDetailOpen] = useState(false);
   const [openDay, setOpenDay] = useState(null);
+  const [detailPlan, setDetailPlan] = useState('30'); /* '1' | '7' | '30' */
+
+  // 三个套餐的详情数据
+  const PLANS = {
+    '1': {
+      title: '一日免费试吃餐',
+      sub: '0 元无门槛 · 新用户低成本体验',
+      hero: '/zheergan-healthy-meals/images/food-7.png',
+      days: 1,
+      price: '¥0', priceNum: '0', priceDec: '.0',
+      unit: '¥0.0',
+      cycle: '1 天',
+      suit: '新用户',
+      taboo: '无门槛，暂无任何特殊禁忌说明，可放心体验。',
+      desc: '0 元无门槛试吃，包含早、午、晚三餐方案，带您低成本体验完整服务流程与配送标准。',
+    },
+    '7': {
+      title: '七日营养餐食谱',
+      sub: '学生党优选 · BMI 23.8 处于正常范围',
+      hero: '/zheergan-healthy-meals/images/food-8.png',
+      days: 7,
+      price: '¥199', priceNum: '199', priceDec: '.0',
+      unit: '¥28.4',
+      cycle: '7 天',
+      suit: '学生党 · 无未成年人禁忌',
+      taboo: '无未成年人禁忌；如对特定坚果或海鲜过敏请咨询营养师。',
+      desc: '7 天营养食谱，目标人群包含学生党且无未成年人禁忌。BMI 23.8 处于正常范围，饮食注意均衡摄入有助于维持当前健康体重。兼顾美味与易操作性。',
+    },
+    '30': {
+      title: '三十日尊享定制餐',
+      sub: '专业营养师全程跟踪 · 理想体重约 63kg',
+      hero: '/zheergan-healthy-meals/images/food-9.png',
+      days: 30,
+      price: '¥2999.9', priceNum: '2999', priceDec: '.9',
+      unit: '¥30.0',
+      cycle: '30 天',
+      suit: '追求长期体重管理者',
+      taboo: '无未成年人禁忌；如对特定坚果或海鲜过敏请咨询营养师。',
+      desc: '原价 ¥3999.9，限时特惠 ¥2999.9。30 天专属定制食谱，包含早、午、晚三餐方案。专业营养师根据你的身体数据全程跟踪调整。',
+    },
+  };
+  const plan = PLANS[detailPlan] || PLANS['30'];
   const chatScrollRef = useRef(null);
   const sectionRef = useRef(null);
   const inViewRef = useRef(true); /* 用户当前是否正看着这张卡片 */
@@ -777,14 +819,14 @@ function HotChainHero() {
                   </svg>
                 </button>
                 <div className="detail-hero detail-hero--premium">
-                  <img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="三十日尊享定制餐" />
+                  <img src={plan.hero} alt={plan.title} />
                   <span className="detail-tag">热链配送 · 70°C 恒温直达</span>
                 </div>
 
                 <div className="detail-body">
                   <div className="detail-header">
-                    <h3 className="detail-title"><SplitText>三十日尊享定制餐</SplitText></h3>
-                    <p className="detail-subtitle">专业营养师全程跟踪 · 理想体重约 63kg</p>
+                    <h3 className="detail-title"><SplitText>{plan.title}</SplitText></h3>
+                    <p className="detail-subtitle">{plan.sub}</p>
                   </div>
 
                   {/* 周期/详情折叠 */}
@@ -798,11 +840,11 @@ function HotChainHero() {
                     </button>
                     {detailOpen && (
                       <div className="detail-accordion-content">
-                        <p>原价 ¥3999.9，限时特惠 ¥2999.9。30 天专属定制食谱，包含早、午、晚三餐方案。专业营养师根据你的身体数据全程跟踪调整。</p>
+                        <p>{plan.desc}</p>
                         <ul>
-                          <li>周期：30 天</li>
-                          <li>服务：营养师 1 对 1 跟踪</li>
-                          <li>目标：长期体重管理 / 理想体重 63kg</li>
+                          <li>周期：{plan.cycle}</li>
+                          <li>服务：{detailPlan === '30' ? '营养师 1 对 1 跟踪' : '标准食谱配送'}</li>
+                          <li>目标：{detailPlan === '30' ? '长期体重管理 / 理想体重 63kg' : detailPlan === '7' ? '维持健康体重 / BMI 23.8 正常' : '低成本体验服务流程'}</li>
                         </ul>
                       </div>
                     )}
@@ -855,11 +897,11 @@ function HotChainHero() {
                     </div>
                   </div>
 
-                  {/* 30天每日餐单 */}
+                  {/* 每日餐单 */}
                   <div className="detail-days">
                     <div className="detail-section-label">每日餐单</div>
                     <div className="detail-days-list">
-                      {Array.from({ length: 30 }, (_, i) => i + 1).map((day) => {
+                      {Array.from({ length: plan.days }, (_, i) => i + 1).map((day) => {
                         const isOpen = openDay === day;
                         const meals = {
                           breakfast: ['燕麦蓝莓碗', '全麦三明治', '紫薯牛奶羹', '杂粮粥配鸡蛋', '酸奶水果杯'][day % 5],
@@ -895,20 +937,20 @@ function HotChainHero() {
                       <div className="detail-params-row">
                         <div className="detail-params-cell">
                           <span>周期</span>
-                          <strong>30 天</strong>
+                          <strong>{plan.cycle}</strong>
                         </div>
                         <div className="detail-params-cell">
                           <span>估算单餐</span>
-                          <strong className="detail-params-price">¥30.0</strong>
+                          <strong className="detail-params-price">{plan.unit}</strong>
                         </div>
                       </div>
                       <div className="detail-params-cell detail-params-cell--full">
                         <span>适宜人群</span>
-                        <strong>—</strong>
+                        <strong>{plan.suit}</strong>
                       </div>
                       <div className="detail-params-cell detail-params-cell--full">
                         <span>禁忌说明</span>
-                        <p>暂无特殊禁忌说明，如对特定坚果或海鲜过敏请咨询营养师。</p>
+                        <p>{plan.taboo}</p>
                       </div>
                     </div>
                   </div>
@@ -917,7 +959,7 @@ function HotChainHero() {
                   <div className="detail-bottom detail-bottom--sticky">
                     <div className="detail-price">
                       <span className="detail-price-label">合计</span>
-                      <span className="detail-price-num">¥2999<span>.9</span></span>
+                      <span className="detail-price-num">¥{plan.priceNum}<span>{plan.priceDec}</span></span>
                     </div>
                     <button className="detail-order-btn">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -939,7 +981,7 @@ function HotChainHero() {
                           <div className="chat-meal-cards">
                             <button
                               className="chat-meal-card-standalone"
-                              onClick={() => setPhase('detail')}
+                              onClick={() => { setDetailPlan('30'); setPhase('detail'); }}
                               aria-label="查看三十日尊享定制餐详情"
                             >
                               <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
@@ -962,7 +1004,7 @@ function HotChainHero() {
                           <div className="chat-meal-cards">
                             <button
                               className="chat-meal-card-standalone"
-                              onClick={() => setPhase('detail')}
+                              onClick={() => { setDetailPlan('1'); setPhase('detail'); }}
                               aria-label="查看一日免费试吃餐详情"
                             >
                               <img src="/zheergan-healthy-meals/images/food-7.png" alt="一日免费试吃餐" />
@@ -977,7 +1019,7 @@ function HotChainHero() {
                             </button>
                             <button
                               className="chat-meal-card-standalone"
-                              onClick={() => setPhase('detail')}
+                              onClick={() => { setDetailPlan('7'); setPhase('detail'); }}
                               aria-label="查看七日营养餐食谱详情"
                             >
                               <img src="/zheergan-healthy-meals/images/food-8.png" alt="七日营养餐食谱" />
@@ -992,7 +1034,7 @@ function HotChainHero() {
                             </button>
                             <button
                               className="chat-meal-card-standalone"
-                              onClick={() => setPhase('detail')}
+                              onClick={() => { setDetailPlan('30'); setPhase('detail'); }}
                               aria-label="查看三十日尊享定制餐详情"
                             >
                               <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
