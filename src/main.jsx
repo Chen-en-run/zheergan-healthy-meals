@@ -275,9 +275,9 @@ function HomePage() {
         <div className="sub-nav-inner">
           {[
             { id: 'pain', label: '饮食痛点' },
-            { id: 'answer', label: '智能省心' },
+            { id: 'answer', label: '新鲜食材' },
             { id: 'agent', label: 'AI 管家' },
-            { id: 'steps', label: '定制热送' },
+            { id: 'steps', label: '定制送餐' },
             { id: 'pricing', label: '价格方案' },
             { id: 'trust', label: '口碑见证' },
             { id: 'faq', label: '常见问题' },
@@ -587,10 +587,10 @@ const chatSequence = [
   {
     role: 'agent',
     text: <>
-      为你推荐以下三款健康餐：<br/><br/>
-      1. <strong>一日免费试吃餐</strong>：价格0元无门槛，适合新用户低成本体验服务流程。<br/>
-      2. <strong>七日营养餐食谱</strong>：目标人群包含学生党且无未成年人禁忌，BMI 23.8 处于正常范围，饮食注意均衡摄入有助于维持当前健康体重。<br/>
-      3. <strong>三十日尊享定制餐</strong>：价格较高但无未成年人禁忌，适合追求长期体重管理（理想体重约63kg）的用户进行专业跟踪调整。<br/>
+      为你推荐折耳根的三档定制餐：<br/><br/>
+      1. <strong>体验装</strong>：¥228 起，约 ¥38/餐，AI 定制 3 日餐单，午晚双餐热链配送，随时暂停无违约金。<br/>
+      2. <strong>周计划</strong>：¥476，约 ¥34/餐，含体验装全部功能，每周口味学习调优，免配送费，最划算。<br/>
+      3. <strong>月计划</strong>：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。<br/>
       下方为您推荐一款健康餐，点击可查看详情。
     </>,
   },
@@ -604,9 +604,9 @@ const chatSequence = [
   {
     role: 'agent',
     text: <>
-      目前平台上的健康餐主要侧重于<strong>营养均衡</strong>和<strong>减脂塑形</strong>，具体的口感描述较少。不过根据食谱介绍，<strong>七日营养餐食谱</strong>特别强调了“兼顾美味与易操作性”，早餐注重唤醒代谢，午餐营养全面，晚餐清淡易消化，整体搭配比较符合大众口味。<br/><br/>
-      另外，<strong>三十日尊享定制餐</strong>是由专业营养师全程跟踪调整的，通常这类高端定制方案在食材选择和烹饪方式上会更讲究，可能更符合你对“口感好”的要求，当然价格也会相对较高（2999.9元）。<br/><br/>
-      你是想先尝试一下性价比高的七日食谱，还是直接咨询尊享定制餐的详情？<br/>
+      放心，折耳根主打<strong>美味第一</strong>——不是水煮鸡胸，也不是草沙拉，而是<strong>锅气十足、荤素搭配</strong>的家常好味道。<br/><br/>
+      <strong>周计划</strong>由合作餐厅每日<strong>现炒热送</strong>，到手中心温度 ≥60℃，开盖即食、口口有锅气；每周还会根据你的口味反馈学习调优，越吃越合胃。<br/><br/>
+      你是想先花 ¥228 试三天，还是直接上最划算的周计划？<br/>
       下方为您推荐一款健康餐，点击可查看详情。
     </>,
   },
@@ -626,40 +626,40 @@ function HotChainHero() {
   // 三个套餐的详情数据
   const PLANS = {
     '1': {
-      title: '一日免费试吃餐',
-      sub: '0 元无门槛 · 新用户低成本体验',
+      title: '体验装',
+      sub: '¥228 起 · AI 定制 3 日餐单',
       hero: '/zheergan-healthy-meals/images/food-7.png',
-      days: 1,
-      price: '¥0', priceNum: '0', priceDec: '.0',
-      unit: '¥0.0',
-      cycle: '1 天',
-      suit: '新用户',
-      taboo: '无门槛，暂无任何特殊禁忌说明，可放心体验。',
-      desc: '0 元无门槛试吃，包含早、午、晚三餐方案，带您低成本体验完整服务流程与配送标准。',
+      days: 3,
+      price: '¥228', priceNum: '228', priceDec: '',
+      unit: '¥38.0',
+      cycle: '3 天',
+      suit: '想低成本体验的新用户',
+      taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
+      desc: '¥228 起，约 ¥38/餐，3 天 6 餐。AI 定制 3 日餐单，午晚双餐热链配送，忌口/过敏标记，随时暂停无违约金。',
     },
     '7': {
-      title: '七日营养餐食谱',
-      sub: '学生党优选 · BMI 23.8 处于正常范围',
+      title: '周计划',
+      sub: '最划算 · 每周口味学习调优',
       hero: '/zheergan-healthy-meals/images/food-8.png',
       days: 7,
-      price: '¥199', priceNum: '199', priceDec: '.0',
-      unit: '¥28.4',
+      price: '¥476', priceNum: '476', priceDec: '',
+      unit: '¥34.0',
       cycle: '7 天',
-      suit: '学生党 · 无未成年人禁忌',
-      taboo: '无未成年人禁忌；如对特定坚果或海鲜过敏请咨询营养师。',
-      desc: '7 天营养食谱，目标人群包含学生党且无未成年人禁忌。BMI 23.8 处于正常范围，饮食注意均衡摄入有助于维持当前健康体重。兼顾美味与易操作性。',
+      suit: '追求高性价比的多数人',
+      taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
+      desc: '¥476，约 ¥34/餐，7 天 14 餐。含体验装全部功能，每周口味学习调优，营养师周报，免配送费。',
     },
     '30': {
-      title: '三十日尊享定制餐',
-      sub: '专业营养师全程跟踪 · 理想体重约 63kg',
+      title: '月计划',
+      sub: '深度定制 · 1 对 1 营养师咨询',
       hero: '/zheergan-healthy-meals/images/food-9.png',
-      days: 30,
-      price: '¥2999.9', priceNum: '2999', priceDec: '.9',
-      unit: '¥30.0',
-      cycle: '30 天',
+      days: 28,
+      price: '¥1792', priceNum: '1792', priceDec: '',
+      unit: '¥32.0',
+      cycle: '28 天',
       suit: '追求长期体重管理者',
-      taboo: '无未成年人禁忌；如对特定坚果或海鲜过敏请咨询营养师。',
-      desc: '原价 ¥3999.9，限时特惠 ¥2999.9。30 天专属定制食谱，包含早、午、晚三餐方案。专业营养师根据你的身体数据全程跟踪调整。',
+      taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
+      desc: '¥1792，约 ¥32/餐，28 天 56 餐。含周计划全部，1 对 1 营养师咨询，体重体脂追踪，优先配送时段。',
     },
   };
   const plan = PLANS[detailPlan] || PLANS['30'];
@@ -729,17 +729,16 @@ function HotChainHero() {
           {/* 主标题 */}
           <h1 className="hotchain-title">
             <span className="hotchain-title-main">
-              <SplitText>热链健康餐</SplitText>
+              <SplitText>折耳根健康餐</SplitText>
             </span>
             <span className="hotchain-title-sub">
-              <SplitText charClassName="hc-grad-agent">Agent</SplitText>
-              <SplitText charClassName="hc-grad-text">智能配送</SplitText>
+              <SplitText charClassName="hc-grad-text">好吃！健康！不贵！</SplitText>
             </span>
           </h1>
 
           {/* 副标题 */}
           <p className="hotchain-desc">
-            每一餐由 AI 为你量身定制营养方案，热链恒温配送到家。新鲜出锅 → 智能保温箱 → 70°C 准时送达，让健康饮食零负担。
+            AI 为你量身定制营养方案，合作餐厅每日现炒，70℃热链恒温配送到家。新鲜出锅 → 智能保温 → 准时送达，让健康饮食零负担、零厨艺、零纠结。
           </p>
 
           {/* 按钮：照搬原 Hero 的下载按钮 */}
@@ -778,7 +777,11 @@ function HotChainHero() {
             </div>
             <div className="hotchain-sell-item">
               <Check size={16} />
-              <span>30min 极速热达</span>
+              <span>35min 极速热达</span>
+            </div>
+            <div className="hotchain-sell-item">
+              <Check size={16} />
+              <span>到手≥60℃免加热</span>
             </div>
           </div>
         </RevealOnScroll>
@@ -807,7 +810,7 @@ function HotChainHero() {
             </div>
 
             {phase === 'detail' ? (
-              /* ===== 三十日尊享定制餐 详情页 ===== */
+              /* ===== 月计划 详情页 ===== */
               <div className="detail-view">
                 <button
                   className="chat-back-btn chat-back-btn--overlay"
@@ -843,8 +846,8 @@ function HotChainHero() {
                         <p>{plan.desc}</p>
                         <ul>
                           <li>周期：{plan.cycle}</li>
-                          <li>服务：{detailPlan === '30' ? '营养师 1 对 1 跟踪' : '标准食谱配送'}</li>
-                          <li>目标：{detailPlan === '30' ? '长期体重管理 / 理想体重 63kg' : detailPlan === '7' ? '维持健康体重 / BMI 23.8 正常' : '低成本体验服务流程'}</li>
+                          <li>服务：{detailPlan === '30' ? '营养师 1 对 1 咨询' : '标准食谱配送'}</li>
+                          <li>目标：{detailPlan === '30' ? '长期体重管理 / 1 对 1 营养师咨询' : detailPlan === '7' ? '高性价比 / 每周口味调优' : '低成本体验服务流程'}</li>
                         </ul>
                       </div>
                     )}
@@ -965,7 +968,7 @@ function HotChainHero() {
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="9 18 15 12 9 6" />
                       </svg>
-                      立即下单
+                      立即定制
                     </button>
                   </div>
                 </div>
@@ -982,15 +985,15 @@ function HotChainHero() {
                             <button
                               className="chat-meal-card-standalone"
                               onClick={() => { setDetailPlan('30'); setPhase('detail'); }}
-                              aria-label="查看三十日尊享定制餐详情"
+                              aria-label="查看月计划详情"
                             >
-                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
+                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="月计划" />
                               <div className="chat-meal-card-standalone-body">
-                                <strong>三十日尊享定制餐</strong>
-                                <span>理想体重约 63kg · 长期管理</span>
+                                <strong>月计划</strong>
+                                <span>1 对 1 营养师 · 长期管理</span>
                                 <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">¥2999.9</span>
-                                  <span className="chat-meal-day-tag">30 天</span>
+                                  <span className="chat-meal-price-tag">¥1792</span>
+                                  <span className="chat-meal-day-tag">28 天</span>
                                 </div>
                               </div>
                             </button>
@@ -1005,15 +1008,15 @@ function HotChainHero() {
                             <button
                               className="chat-meal-card-standalone"
                               onClick={() => { setDetailPlan('1'); setPhase('detail'); }}
-                              aria-label="查看一日免费试吃餐详情"
+                              aria-label="查看体验装详情"
                             >
-                              <img src="/zheergan-healthy-meals/images/food-7.png" alt="一日免费试吃餐" />
+                              <img src="/zheergan-healthy-meals/images/food-7.png" alt="体验装" />
                               <div className="chat-meal-card-standalone-body">
-                                <strong>一日免费试吃餐</strong>
-                                <span>新用户 · 0 元无门槛体验</span>
+                                <strong>体验装</strong>
+                                <span>新用户 · 低成本体验</span>
                                 <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">¥0</span>
-                                  <span className="chat-meal-day-tag">1 天</span>
+                                  <span className="chat-meal-price-tag">¥228</span>
+                                  <span className="chat-meal-day-tag">3 天</span>
                                 </div>
                               </div>
                             </button>
@@ -1022,12 +1025,12 @@ function HotChainHero() {
                               onClick={() => { setDetailPlan('7'); setPhase('detail'); }}
                               aria-label="查看七日营养餐食谱详情"
                             >
-                              <img src="/zheergan-healthy-meals/images/food-8.png" alt="七日营养餐食谱" />
+                              <img src="/zheergan-healthy-meals/images/food-8.png" alt="周计划" />
                               <div className="chat-meal-card-standalone-body">
-                                <strong>七日营养餐食谱</strong>
-                                <span>学生党 · BMI 23.8 正常</span>
+                                <strong>周计划</strong>
+                                <span>最划算 · 每周口味调优</span>
                                 <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">低价优选</span>
+                                  <span className="chat-meal-price-tag">¥476</span>
                                   <span className="chat-meal-day-tag">7 天</span>
                                 </div>
                               </div>
@@ -1035,15 +1038,15 @@ function HotChainHero() {
                             <button
                               className="chat-meal-card-standalone"
                               onClick={() => { setDetailPlan('30'); setPhase('detail'); }}
-                              aria-label="查看三十日尊享定制餐详情"
+                              aria-label="查看月计划详情"
                             >
-                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
+                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="月计划" />
                               <div className="chat-meal-card-standalone-body">
-                                <strong>三十日尊享定制餐</strong>
-                                <span>理想体重约 63kg · 长期管理</span>
+                                <strong>月计划</strong>
+                                <span>1 对 1 营养师 · 长期管理</span>
                                 <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">尊享定制</span>
-                                  <span className="chat-meal-day-tag">30 天</span>
+                                  <span className="chat-meal-price-tag">¥1792</span>
+                                  <span className="chat-meal-day-tag">28 天</span>
                                 </div>
                               </div>
                             </button>
@@ -1141,10 +1144,12 @@ function Hero() {
       <div className="hero-grid max-frame">
         <RevealOnScroll variant="fadeUp" amount={0.1} className="hero-copy">
           <h1>
-            <ShinyText text="美味低脂的健康餐" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" reveal />
+            <ShinyText text="美味健康餐，真不贵" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" reveal />
           </h1>
           <p className="hero-lede"><SplitText stagger={0.012}>
-            算法按你的身体数据定制餐单，合作餐厅每日现炒，热链保温送到
+            算法按你的身体数据定制餐单，合作餐厅每日现炒热送。<br />
+            不是水煮鸡胸，不是草沙拉——<br />
+            是锅气十足、荤素搭配的家常好味道。
           </SplitText></p>
         </RevealOnScroll>
 
@@ -1237,9 +1242,9 @@ function FoodBanner() {
 }
 
 const painPoints = [
-  { keyword: '外卖难吃', tag: '饮食困境', desc: '外卖油盐超标不卫生，普通健身餐又难吃到坚持不下去', image: '/zheergan-healthy-meals/images/pain-chicken.png' },
-  { keyword: '做饭头疼', tag: '时间成本', desc: '想自己做，光是”今天要弄些什么菜吃”就头疼', image: '/zheergan-healthy-meals/images/pain-headache.png' },
-  { keyword: '越减越肥', tag: '恶性循环', desc: '每次下定决心，最后吃炸鸡这类外卖吃完后又怕长胖', image: '/zheergan-healthy-meals/images/pain-friedchicken.png' },
+  { keyword: '外卖难以下咽', tag: '饮食困境', desc: '高油高盐、营养失衡，吃完罪恶感爆棚', image: '/zheergan-healthy-meals/images/pain-chicken.png' },
+  { keyword: '做饭手忙脚乱', tag: '时间成本', desc: '买菜、洗切、炒菜、刷锅……没时间也没精力', image: '/zheergan-healthy-meals/images/pain-headache.png' },
+  { keyword: '健康恶性循环', tag: '恶性循环', desc: '每次下定决心，最后还是炸鸡奶茶兜底，体重反复横跳', image: '/zheergan-healthy-meals/images/pain-friedchicken.png' },
 ];
 
 function PainSplit() {
@@ -1287,9 +1292,9 @@ function PainSection() {
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          <SplitText>想吃健康，<span>太难</span></SplitText>
+          <SplitText>想吃健康，<span>太难？</span>交给折耳根</SplitText>
         </h2>
-        <p className="story-pain-sub"><SplitText stagger={0.012}>你不是一个人——每个减脂人都卡在这一关</SplitText></p>
+        <p className="story-pain-sub"><SplitText stagger={0.012}>你不是一个人——每个想好好吃饭的人，都卡在这一关</SplitText></p>
         <PainSplit />
       </RevealOnScroll>
     </section>
@@ -1406,19 +1411,19 @@ function AnswerSection() {
 }
 
 /* ================================================================
-   AgentSection — Nova AI 健康管家能力模块
+   AgentSection — 折耳根 AI 健康管家能力模块
    首页新增:展示 Agent 能为用户做的 6 件事
    ================================================================ */
 const agentCaps = [
   {
     icon: MessageSquareText,
     title: '智能对话咨询',
-    desc: '用大白话告诉 Nova 你的目标——"我想减脂但不爱运动"，它立刻拆解成可执行方案，而不是丢给你一堆术语。',
+    desc: '用大白话告诉折耳根 AI 你的目标——"我想减脂但不爱运动"，它立刻拆解成可执行方案，而不是丢给你一堆术语。',
   },
   {
     icon: CalendarDays,
     title: '一键生成周餐单',
-    desc: '结合你的 TDEE、口味与忌口，秒级生成一周餐单，热量与蛋白质逐克配平，省去每天"吃什么"的纠结。',
+    desc: '结合你的身体数据、口味与忌口，秒级生成一周餐单，热量与蛋白质逐克配平，省去每天"吃什么"的纠结。',
   },
   {
     icon: ShieldAlert,
@@ -1428,12 +1433,12 @@ const agentCaps = [
   {
     icon: Activity,
     title: '体重体脂追踪',
-    desc: '每天记录体重，趋势异常时 Nova 主动提醒，并据此微调下一阶段的餐单，让进度一直在线。',
+    desc: '每天记录体重，趋势异常时折耳根 AI 主动提醒，并据此微调下一阶段的餐单，让进度一直在线。',
   },
   {
     icon: RefreshCw,
     title: '智能复购补给',
-    desc: '常吃的套餐快见底，Nova 主动问你要不要续上——出差、休假也能一键暂停，零操心。',
+    desc: '常吃的套餐快见底，折耳根 AI 主动问你要不要续上——出差、休假也能一键暂停，零操心。',
   },
   {
     icon: ClipboardList,
@@ -1447,7 +1452,7 @@ function AgentSection() {
     <section
       className="story-section story-agent section-panel panel-cream"
       id="agent"
-      aria-label="Nova AI 健康管家"
+      aria-label="折耳根 AI 智能体"
     >
       <div className="agent-bg-blobs" aria-hidden="true">
         <span className="agent-blob agent-blob--1" />
@@ -1457,10 +1462,10 @@ function AgentSection() {
       <div className="story-inner agent-inner">
         <RevealOnScroll variant="fadeUp" amount={0.1}>
           <h2 className="agent-title">
-            <SplitText>把"吃得健康"，</SplitText><ShinyText text="交给 Nova" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" reveal />
+            <SplitText>把"吃得健康"，</SplitText><ShinyText text="交给折耳根 AI" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" reveal />
           </h2>
           <p className="agent-lede"><SplitText stagger={0.012}>
-            Nova 不只是聊天机器人。从听懂你的口味，到记住你的忌口，再到主动帮你复购补给，它把这件麻烦事全程接管——你只管吃，剩下的交给它。
+            折耳根 AI 不只是聊天机器人。从听懂你的口味，到记住你的忌口，再到主动帮你复购补给，它把这件麻烦事全程接管——你只管吃，剩下的交给它。
           </SplitText></p>
         </RevealOnScroll>
 
@@ -1486,9 +1491,9 @@ function AgentSection() {
 }
 
 const steps = [
-  { no: '01', title: '设定你的身体档案', desc: '输入身高、体重、目标（减脂/增肌/维持）和日常活动强度，算法用 TDEE 公式算出你的每日总消耗——这个数字就是你所有餐单的起点。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '在 App 中设置营养目标的界面示意' },
-  { no: '02', title: '智能配餐引擎', desc: '拿到你的 TDEE 后，引擎按「热量匹配度 → 蛋白质达标率 → 口味吻合度 → 食材多样性」四层优先级排序，平均热量匹配度 94%，蛋白质底线自动锁定。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: '智能配餐引擎生成每周餐单' },
-  { no: '03', title: '商家现做 + 热链配送', desc: '严选本地健康餐商家接单现做，3 轮盲测品控，出锅装入保温箱，美团骑手配送，到手中心温度 ≥60°C——开盖即食，不用微波复热。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '美团骑手配送保温热链健康餐' },
+  { no: '01', title: '设定身体档案', desc: '输入身高、体重、目标（减脂/增肌/维持）和活动强度，AI 算出你的每日消耗——这就是你专属餐单的起点。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '在 App 中设置营养目标的界面示意' },
+  { no: '02', title: 'AI 智能配餐', desc: '引擎按「热量匹配 → 蛋白质达标 → 口味合胃 → 食材多样」四维排序，平均匹配度 94%，拒绝“健康但难吃”。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: '智能配餐引擎生成每周餐单' },
+  { no: '03', title: '商家现做 + 热链配送', desc: '严选本地健康餐厅接单现做，3 轮品控，保温箱+骑手配送，到手中心温度 ≥60℃，开盖即食，不用微波复热，口口有锅气。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '骑手配送保温热链健康餐' },
 ];
 
 function StepsSection() {
@@ -1543,7 +1548,7 @@ function StepsSection() {
 
 const trustStats = [
   { value: 12, suffix: '万+', label: '正在使用我们的app', desc: '来自全国各地的真实用户，每天都在用折耳根吃上热乎的健康餐' },
-  { value: 300, suffix: '万+', label: '份健康餐已送达', desc: '从第一份到第三百万份，每一份都是现炒现送、到手还是烫的' },
+  { value: 300, suffix: '万+', label: '份健康餐已送达', desc: '从第一份到三百万份，每一份都是现炒现送、到手还是烫的' },
   { value: 200, suffix: '+', label: '合作健康餐商家', desc: '每一家入驻商家都经过实地考察与用户评分双重筛选' },
   { value: 94, suffix: '%', label: '热量匹配度', desc: '算法按你的身体数据配餐，热量精准匹配，蛋白质达标率自动锁定' },
 ];
@@ -1625,8 +1630,8 @@ const testimonials = [
   },
 ];
 
-const pricingPlans = [
-  { name: '体验装', price: 228, per: '¥38/餐', spec: '3天·6餐', feats: ['算法定制3日餐单', '午晚双餐热链配送', '忌口与过敏原标记', '随时暂停·无违约金'], cta: '试3天' },
+ const pricingPlans = [
+  { name: '体验装', price: 228, per: '¥38/餐', spec: '3天·6餐', feats: ['AI 定制 3 日餐单', '午晚双餐热链配送', '忌口与过敏原标记', '随时暂停·无违约金'], cta: '试3天' },
   { name: '周计划', price: 476, per: '¥34/餐', spec: '7天·14餐', feats: ['含体验装全部', '每周口味学习调优', '营养师周报', '免配送费'], cta: '最划算', hot: true },
   { name: '月计划', price: 1792, per: '¥32/餐', spec: '28天·56餐', feats: ['含周计划全部', '1对1营养师咨询', '体重体脂追踪', '优先配送时段'], cta: '深度定制' },
 ];
@@ -1734,7 +1739,7 @@ const faqs = [
   },
   {
     q: '一餐大概多少钱？',
-    a: '单餐价格在 32–45 元之间，按周订购更划算。你可以先订 3 天体验装，觉得合适再续，不用一次性押上整月。',
+    a: '单餐价格在 32–45 元之间，体验装 ¥228 起，周计划更划算（约 ¥34/餐）。你可以先订 3 天试吃，觉得合适再续，不用一次性押上整月。',
   },
   {
     q: '可以随时取消或暂停吗？',
