@@ -6127,6 +6127,19 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   background: linear-gradient(135deg, #D08060, #C2611F);
 }
 
+.chat-typing-text {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--ink-cream);
+  letter-spacing: 0.02em;
+  animation: chat-think-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes chat-think-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
 .chat-typing-dot {
   display: inline-block;
   width: 7px;

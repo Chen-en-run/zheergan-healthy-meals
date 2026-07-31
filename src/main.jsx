@@ -1075,19 +1075,7 @@ function HotChainHero() {
                   {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'agent' && (
                     <div className="chat-msg chat-msg--ai chat-msg--pop">
                       <div className="chat-typing">
-                        <span className="chat-typing-dot" />
-                        <span className="chat-typing-dot" />
-                        <span className="chat-typing-dot" />
-                      </div>
-                    </div>
-                  )}
-
-                  {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'user' && (
-                    <div className="chat-msg chat-msg--user chat-msg--pop">
-                      <div className="chat-typing chat-typing--user">
-                        <span className="chat-typing-dot" />
-                        <span className="chat-typing-dot" />
-                        <span className="chat-typing-dot" />
+                        <span className="chat-typing-text">AI正在思考中...</span>
                       </div>
                     </div>
                   )}
