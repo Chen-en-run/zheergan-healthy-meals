@@ -595,6 +595,9 @@ const chatSequence = [
     </>,
   },
   {
+    role: 'cards',
+  },
+  {
     role: 'user',
     text: '我想要一款口感好的',
   },
@@ -930,24 +933,79 @@ function HotChainHero() {
               <>
                 {/* 聊天记录 — 逐条动画冒出 */}
                 <div className="chat-messages" ref={chatScrollRef} onClick={(e) => { if (e.target.closest('.chat-meal-card')) setPhase('detail'); }}>
-                  {chatSequence.slice(0, visibleCount).map((msg, i) => (
-                    <div
-                      key={i}
-                      className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
-                    >
-                      <div className="chat-msg-main">
-                        {msg.label && (
-                          <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
-                            {msg.label}
-                          </span>
-                        )}
-                        <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
-                          {msg.text}
+                  {chatSequence.slice(0, visibleCount).map((msg, i) => {
+                    if (msg.role === 'cards') {
+                      return (
+                        <div key={i} className="chat-msg chat-msg--ai chat-msg--pop">
+                          <div className="chat-meal-cards">
+                            <button
+                              className="chat-meal-card-standalone"
+                              onClick={() => setPhase('detail')}
+                              aria-label="查看一日免费试吃餐详情"
+                            >
+                              <img src="/zheergan-healthy-meals/images/food-7.png" alt="一日免费试吃餐" />
+                              <div className="chat-meal-card-standalone-body">
+                                <strong>一日免费试吃餐</strong>
+                                <span>新用户 · 0 元无门槛体验</span>
+                                <div className="chat-meal-card-standalone-tags">
+                                  <span className="chat-meal-price-tag">¥0</span>
+                                  <span className="chat-meal-day-tag">1 天</span>
+                                </div>
+                              </div>
+                            </button>
+                            <button
+                              className="chat-meal-card-standalone"
+                              onClick={() => setPhase('detail')}
+                              aria-label="查看七日营养餐食谱详情"
+                            >
+                              <img src="/zheergan-healthy-meals/images/food-8.png" alt="七日营养餐食谱" />
+                              <div className="chat-meal-card-standalone-body">
+                                <strong>七日营养餐食谱</strong>
+                                <span>学生党 · BMI 23.8 正常</span>
+                                <div className="chat-meal-card-standalone-tags">
+                                  <span className="chat-meal-price-tag">低价优选</span>
+                                  <span className="chat-meal-day-tag">7 天</span>
+                                </div>
+                              </div>
+                            </button>
+                            <button
+                              className="chat-meal-card-standalone"
+                              onClick={() => setPhase('detail')}
+                              aria-label="查看三十日尊享定制餐详情"
+                            >
+                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
+                              <div className="chat-meal-card-standalone-body">
+                                <strong>三十日尊享定制餐</strong>
+                                <span>理想体重约 63kg · 长期管理</span>
+                                <div className="chat-meal-card-standalone-tags">
+                                  <span className="chat-meal-price-tag">尊享定制</span>
+                                  <span className="chat-meal-day-tag">30 天</span>
+                                </div>
+                              </div>
+                            </button>
+                          </div>
                         </div>
-                        {msg.role === 'user' && <span className="chat-msg-time">19:48</span>}
+                      );
+                    }
+                    return (
+                      <div
+                        key={i}
+                        className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
+                      >
+                        <div className="chat-msg-main">
+                          {msg.label && (
+                            <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
+                              {msg.label}
+                            </span>
+                          )}
+                          <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
+                            {msg.text}
+                          </div>
+                          {msg.role === 'user' && <span className="chat-msg-time">19:48</span>}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
 
                   {/* 正在输入指示器 */}
                   {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'agent' && (
@@ -989,59 +1047,6 @@ function HotChainHero() {
                         <svg className="chat-entry-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="9 18 15 12 9 6" />
                         </svg>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* 独立健康餐推荐卡片：三款，与聊天气泡分离 */}
-                  {phase !== 'detail' && visibleCount >= 4 && (
-                    <div className="chat-msg chat-msg--ai chat-msg--pop">
-                      <div className="chat-meal-cards">
-                        <button
-                          className="chat-meal-card-standalone"
-                          onClick={() => setPhase('detail')}
-                          aria-label="查看一日免费试吃餐详情"
-                        >
-                          <img src="/zheergan-healthy-meals/images/food-7.png" alt="一日免费试吃餐" />
-                          <div className="chat-meal-card-standalone-body">
-                            <strong>一日免费试吃餐</strong>
-                            <span>新用户 · 0 元无门槛体验</span>
-                            <div className="chat-meal-card-standalone-tags">
-                              <span className="chat-meal-price-tag">¥0</span>
-                              <span className="chat-meal-day-tag">1 天</span>
-                            </div>
-                          </div>
-                        </button>
-                        <button
-                          className="chat-meal-card-standalone"
-                          onClick={() => setPhase('detail')}
-                          aria-label="查看七日营养餐食谱详情"
-                        >
-                          <img src="/zheergan-healthy-meals/images/food-8.png" alt="七日营养餐食谱" />
-                          <div className="chat-meal-card-standalone-body">
-                            <strong>七日营养餐食谱</strong>
-                            <span>学生党 · BMI 23.8 正常</span>
-                            <div className="chat-meal-card-standalone-tags">
-                              <span className="chat-meal-price-tag">低价优选</span>
-                              <span className="chat-meal-day-tag">7 天</span>
-                            </div>
-                          </div>
-                        </button>
-                        <button
-                          className="chat-meal-card-standalone"
-                          onClick={() => setPhase('detail')}
-                          aria-label="查看三十日尊享定制餐详情"
-                        >
-                          <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
-                          <div className="chat-meal-card-standalone-body">
-                            <strong>三十日尊享定制餐</strong>
-                            <span>理想体重约 63kg · 长期管理</span>
-                            <div className="chat-meal-card-standalone-tags">
-                              <span className="chat-meal-price-tag">尊享定制</span>
-                              <span className="chat-meal-day-tag">30 天</span>
-                            </div>
-                          </div>
-                        </button>
                       </div>
                     </div>
                   )}
