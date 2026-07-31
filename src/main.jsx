@@ -993,24 +993,56 @@ function HotChainHero() {
                     </div>
                   )}
 
-                  {/* 独立健康餐推荐卡片：与聊天气泡分离 */}
+                  {/* 独立健康餐推荐卡片：三款，与聊天气泡分离 */}
                   {phase !== 'detail' && visibleCount >= 4 && (
                     <div className="chat-msg chat-msg--ai chat-msg--pop">
-                      <button
-                        className="chat-meal-card-standalone"
-                        onClick={() => setPhase('detail')}
-                        aria-label="查看健康餐详情"
-                      >
-                        <img src="/zheergan-healthy-meals/images/dish-07.jpg" alt="一日免费试吃餐" />
-                        <div className="chat-meal-card-standalone-body">
-                          <strong>一日免费试吃餐</strong>
-                          <span>适宜：学生党</span>
-                          <div className="chat-meal-card-standalone-tags">
-                            <span className="chat-meal-price-tag">¥0</span>
-                            <span className="chat-meal-day-tag">1 天</span>
+                      <div className="chat-meal-cards">
+                        <button
+                          className="chat-meal-card-standalone"
+                          onClick={() => setPhase('detail')}
+                          aria-label="查看一日免费试吃餐详情"
+                        >
+                          <img src="/zheergan-healthy-meals/images/food-7.png" alt="一日免费试吃餐" />
+                          <div className="chat-meal-card-standalone-body">
+                            <strong>一日免费试吃餐</strong>
+                            <span>新用户 · 0 元无门槛体验</span>
+                            <div className="chat-meal-card-standalone-tags">
+                              <span className="chat-meal-price-tag">¥0</span>
+                              <span className="chat-meal-day-tag">1 天</span>
+                            </div>
                           </div>
-                        </div>
-                      </button>
+                        </button>
+                        <button
+                          className="chat-meal-card-standalone"
+                          onClick={() => setPhase('detail')}
+                          aria-label="查看七日营养餐食谱详情"
+                        >
+                          <img src="/zheergan-healthy-meals/images/food-8.png" alt="七日营养餐食谱" />
+                          <div className="chat-meal-card-standalone-body">
+                            <strong>七日营养餐食谱</strong>
+                            <span>学生党 · BMI 23.8 正常</span>
+                            <div className="chat-meal-card-standalone-tags">
+                              <span className="chat-meal-price-tag">低价优选</span>
+                              <span className="chat-meal-day-tag">7 天</span>
+                            </div>
+                          </div>
+                        </button>
+                        <button
+                          className="chat-meal-card-standalone"
+                          onClick={() => setPhase('detail')}
+                          aria-label="查看三十日尊享定制餐详情"
+                        >
+                          <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
+                          <div className="chat-meal-card-standalone-body">
+                            <strong>三十日尊享定制餐</strong>
+                            <span>理想体重约 63kg · 长期管理</span>
+                            <div className="chat-meal-card-standalone-tags">
+                              <span className="chat-meal-price-tag">尊享定制</span>
+                              <span className="chat-meal-day-tag">30 天</span>
+                            </div>
+                          </div>
+                        </button>
+                      </div>
                     </div>
                   )}
 

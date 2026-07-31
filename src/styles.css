@@ -5398,13 +5398,34 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   font-size: 15px;
 }
 
+/* 独立于聊天气泡的健康餐推荐卡片容器（横向滚动） */
+.chat-meal-cards {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  padding-bottom: 4px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat-meal-cards::-webkit-scrollbar {
+  height: 6px;
+}
+
+.chat-meal-cards::-webkit-scrollbar-thumb {
+  background: var(--line-cream);
+  border-radius: var(--r-pill);
+}
+
 /* 独立于聊天气泡的健康餐推荐卡片 */
 .chat-meal-card-standalone {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  flex: 1;
+  flex: 0 0 200px;
+  width: 200px;
   min-width: 0;
   padding: 0;
   border: none;
@@ -5412,6 +5433,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   background: #fff;
   overflow: hidden;
   cursor: pointer;
+  scroll-snap-align: start;
   box-shadow: 0 8px 24px rgba(43, 31, 20, 0.08);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
