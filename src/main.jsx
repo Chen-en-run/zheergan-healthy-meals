@@ -622,6 +622,28 @@ function HotChainHero() {
   const [detailOpen, setDetailOpen] = useState(false);
   const [openDay, setOpenDay] = useState(null);
   const [detailPlan, setDetailPlan] = useState('30'); /* '1' | '7' | '30' */
+  const [selectedEnergy, setSelectedEnergy] = useState(null);
+
+  const ENERGY_DATA = {
+    '7': {
+      recommended: 1800, tdee: 2202,
+      options: {
+        1500: { kcal: 1500, deficit: 702, weightWeekly: 0.64, weightMonthly: 2.73, label: '1500 千卡', assessment: '较大热量缺口（每日约 702 kcal），适合追求较快减重速度的学生群体。', meals: { breakfast: ['燕麦蓝莓碗·小份','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小份','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小份','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小份','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
+        1800: { kcal: 1800, deficit: 402, weightWeekly: 0.36, weightMonthly: 1.57, label: '1800 千卡', assessment: '温和热量缺口（每日约 402 kcal），稳定减脂维持代谢，兼顾饱腹感与减重效果。', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
+      },
+    },
+    '30': {
+      recommended: 1800, tdee: 2202,
+      options: {
+        1500: { kcal: 1500, deficit: 702, weightWeekly: 0.64, weightMonthly: 2.73, label: '1500 千卡', assessment: '较大热量缺口（每日约 702 kcal），30 天持续减重效果显著，配合营养师 1 对 1 跟踪更佳。', meals: { breakfast: ['燕麦蓝莓碗·小份','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小份','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小份','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小份','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
+        1800: { kcal: 1800, deficit: 402, weightWeekly: 0.36, weightMonthly: 1.57, label: '1800 千卡', assessment: '温和热量缺口（每日约 402 kcal），30 天稳定减脂，代谢不受影响，长期坚持不易反弹。', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
+      },
+    },
+  };
+
+  const activeEnergyData = ENERGY_DATA[detailPlan] || ENERGY_DATA['30'];
+  const currentEnergy = selectedEnergy || activeEnergyData.recommended;
+  const energyOption = activeEnergyData.options[currentEnergy] || activeEnergyData.options[activeEnergyData.recommended];
 
   // 三个套餐的详情数据
   const PLANS = {
@@ -863,11 +885,11 @@ function HotChainHero() {
                         </svg>
                       </div>
                       <div className="detail-assessment-main">
-                        <p>为您选用 <strong>1800 千卡</strong> 规格</p>
-                        <p>预计体重 <strong className="detail-assessment-highlight">减低 2.52 公斤</strong></p>
+                        <p>为您选用 <strong>{energyOption.kcal} 千卡</strong> 规格</p>
+                        <p>预计体重 <strong className="detail-assessment-highlight">减低 {energyOption.weightMonthly.toFixed(2)} 公斤</strong></p>
                       </div>
                       <p className="detail-assessment-desc">
-                        根据您的健康数据与目标，该方案能有效在维持代谢的同时实现轻微热量缺口。
+                        {energyOption.assessment}
                       </p>
                       <button className="detail-assessment-report">
                         详细评估报告
@@ -882,20 +904,22 @@ function HotChainHero() {
                   <div className="detail-energy">
                     <div className="detail-section-label">
                       能量规格
-                      <span className="detail-section-sublabel">（建议 1800 千卡）</span>
+                      <span className="detail-section-sublabel">（建议 {activeEnergyData.recommended} 千卡）</span>
                     </div>
                     <div className="detail-energy-card">
                       <strong>能量（单选）</strong>
-                      <p>建议选择 <strong>1800 千卡</strong> 规格，不低于 <strong>2202 千卡</strong>，不高于 <strong>2691 千卡</strong>。</p>
+                      <p>建议选择 <strong>{activeEnergyData.recommended} 千卡</strong> 规格，不低于 <strong>{Math.min(...Object.keys(activeEnergyData.options).map(Number))} 千卡</strong>，不高于 <strong>{activeEnergyData.tdee + 489} 千卡</strong>。</p>
                       <div className="detail-energy-options">
-                        <label className="detail-energy-option">
-                          <input type="radio" name="energy-spec" value="1500" />
-                          <span>1500 千卡</span>
-                        </label>
-                        <label className="detail-energy-option is-active">
-                          <input type="radio" name="energy-spec" value="1800" defaultChecked />
-                          <span>1800 千卡</span>
-                        </label>
+                        {Object.values(activeEnergyData.options).map((opt) => (
+                          <label
+                            key={opt.kcal}
+                            className={`detail-energy-option${currentEnergy === opt.kcal ? ' is-active' : ''}`}
+                            onClick={() => setSelectedEnergy(opt.kcal)}
+                          >
+                            <input type="radio" name="energy-spec" value={opt.kcal} checked={currentEnergy === opt.kcal} readOnly />
+                            <span>{opt.label}</span>
+                          </label>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -907,9 +931,9 @@ function HotChainHero() {
                       {Array.from({ length: plan.days }, (_, i) => i + 1).map((day) => {
                         const isOpen = openDay === day;
                         const meals = {
-                          breakfast: ['燕麦蓝莓碗', '全麦三明治', '紫薯牛奶羹', '杂粮粥配鸡蛋', '酸奶水果杯'][day % 5],
-                          lunch: ['香煎鸡胸糙米饭', '黑椒牛肉意面', '清蒸鲈鱼配藜麦', '番茄牛腩饭', '凉拌鸡丝荞麦面'][day % 5],
-                          dinner: ['白灼虾配时蔬', '豆腐蔬菜汤', '南瓜鸡胸肉沙拉', '菌菇瘦肉粥', '蒸蛋羹配西兰花'][day % 5],
+                          breakfast: energyOption.meals.breakfast[day % energyOption.meals.breakfast.length],
+                          lunch: energyOption.meals.lunch[day % energyOption.meals.lunch.length],
+                          dinner: energyOption.meals.dinner[day % energyOption.meals.dinner.length],
                         };
                         return (
                           <div key={day} className={`detail-day ${isOpen ? 'is-open' : ''}`}>
