@@ -611,8 +611,7 @@ const chatSequence = [
     </>,
   },
   {
-    role: 'user',
-    text: '那就来30日的那个吧',
+    role: 'cards-30',
   },
 ];
 
@@ -934,6 +933,29 @@ function HotChainHero() {
                 {/* 聊天记录 — 逐条动画冒出 */}
                 <div className="chat-messages" ref={chatScrollRef} onClick={(e) => { if (e.target.closest('.chat-meal-card')) setPhase('detail'); }}>
                   {chatSequence.slice(0, visibleCount).map((msg, i) => {
+                    if (msg.role === 'cards-30') {
+                      return (
+                        <div key={i} className="chat-msg chat-msg--ai chat-msg--pop">
+                          <div className="chat-meal-cards">
+                            <button
+                              className="chat-meal-card-standalone"
+                              onClick={() => setPhase('detail')}
+                              aria-label="查看三十日尊享定制餐详情"
+                            >
+                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="三十日尊享定制餐" />
+                              <div className="chat-meal-card-standalone-body">
+                                <strong>三十日尊享定制餐</strong>
+                                <span>理想体重约 63kg · 长期管理</span>
+                                <div className="chat-meal-card-standalone-tags">
+                                  <span className="chat-meal-price-tag">¥2999.9</span>
+                                  <span className="chat-meal-day-tag">30 天</span>
+                                </div>
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    }
                     if (msg.role === 'cards') {
                       return (
                         <div key={i} className="chat-msg chat-msg--ai chat-msg--pop">
