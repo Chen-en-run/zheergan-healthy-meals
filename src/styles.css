@@ -5023,8 +5023,10 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .hotchain-title {
   margin: 28px 0 0;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 14px;
 }
 
 .hotchain-title-main {
@@ -5037,6 +5039,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   line-height: 1.12;
   color: var(--ink-cream);
   letter-spacing: 0;
+  white-space: nowrap;
 }
 
 .hotchain-fire-icon {
@@ -5059,6 +5062,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   font-weight: 680;
   line-height: 1.12;
   color: var(--ink-cream);
+  white-space: nowrap;
 }
 
 /* AI 紫粉渐变字(暖橙色调适配版) */
