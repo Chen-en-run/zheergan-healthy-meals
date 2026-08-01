@@ -146,7 +146,7 @@ export default function MenuPage() {
               <ShinyText
                 text="每月焕新"
                 color="#2b1f14"
-                shineColor="#c2611f"
+                shineColor="#059669"
                 speed={3}
                 spread={120}
                 direction="left"

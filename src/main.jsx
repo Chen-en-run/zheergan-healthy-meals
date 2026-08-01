@@ -1240,7 +1240,7 @@ function Hero() {
       <div className="hero-grid max-frame">
         <RevealOnScroll variant="fadeUp" amount={0.1} className="hero-copy">
           <h1>
-            <ShinyText text="美味健康餐，真不贵" color="#2b1f14" shineColor="#c2611f" speed={3} spread={110} direction="left" reveal />
+            <ShinyText text="美味健康餐，真不贵" color="#2b1f14" shineColor="#059669" speed={3} spread={110} direction="left" reveal />
           </h1>
           <p className="hero-lede"><SplitText stagger={0.012}>
             算法按你的身体数据定制餐单，合作餐厅每日现炒热送。<br />
@@ -1464,7 +1464,7 @@ function AnswerSection() {
     >
         <RevealOnScroll variant="fadeIn" amount={0.1}>
           <h2 className="answer-line">
-            <ShinyText text="饮食健康，放心交给我们" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" reveal />
+            <ShinyText text="饮食健康，放心交给我们" color="#2b1f14" shineColor="#059669" speed={3} spread={120} direction="left" reveal />
           </h2>
         </RevealOnScroll>
         <RevealOnScroll variant="fadeIn" delay={0.1} amount={0.1}>
@@ -1558,7 +1558,7 @@ function AgentSection() {
       <div className="story-inner agent-inner">
         <RevealOnScroll variant="fadeUp" amount={0.1}>
           <h2 className="agent-title">
-            <SplitText>把"吃得健康"，</SplitText><ShinyText text="交给折耳根 AI" color="#2b1f14" shineColor="#c2611f" speed={3} spread={120} direction="left" reveal />
+            <SplitText>把"吃得健康"，</SplitText><ShinyText text="交给折耳根 AI" color="#2b1f14" shineColor="#059669" speed={3} spread={120} direction="left" reveal />
           </h2>
           <p className="agent-lede"><SplitText stagger={0.012}>
             折耳根 AI 不只是聊天机器人。从听懂你的口味，到记住你的忌口，再到主动帮你复购补给，它把这件麻烦事全程接管——你只管吃，剩下的交给它。
@@ -1752,7 +1752,7 @@ function PricingInline() {
                 borderRadius: 'var(--r-2xl)',
                 background: '#ffffff',
                 boxShadow: plan.hot
-                  ? '0 26px 68px rgba(194,97,31,0.16)'
+                  ? '0 26px 68px rgba(5,150,105,0.16)'
                   : '0 18px 48px rgba(43,31,20,0.06)',
                 transition: 'transform 220ms ease',
               }}
@@ -1783,9 +1783,9 @@ function PricingInline() {
                   minHeight: '54px', padding: '14px 26px', borderRadius: '999px',
                   color: '#fff',
                   border: '1px solid rgba(255,255,255,0.55)',
-                  background: 'linear-gradient(135deg, rgba(232,138,74,0.85), rgba(194,97,31,0.9))',
+                  background: 'linear-gradient(135deg, rgba(110,231,183,0.85), rgba(5,150,105,0.9))',
                   fontWeight: 700, fontSize: '16px', textDecoration: 'none',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(194,97,31,0.3)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(5,150,105,0.3)',
                 }}
               >
                 {plan.cta}

@@ -95,7 +95,7 @@ function CompanyPage() {
               <ShinyText
                 text="公司简介"
                 color="#2b1f14"
-                shineColor="#c2611f"
+                shineColor="#059669"
                 speed={3}
                 spread={120}
                 direction="left"

@@ -114,7 +114,7 @@ export default function PricingPage() {
             <ShinyText
               text="好好吃饭,"
               color="#2b1f14"
-              shineColor="#c2611f"
+              shineColor="#059669"
               speed={3}
               spread={120}
               direction="left"
@@ -122,7 +122,7 @@ export default function PricingPage() {
             <ShinyText
               text="其实没那么贵"
               color="#2b1f14"
-              shineColor="#e88a4a"
+              shineColor="#34D399"
               speed={3}
               spread={120}
               direction="left"

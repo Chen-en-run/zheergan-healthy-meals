@@ -123,7 +123,7 @@ export default function FeaturesPage() {
               <ShinyText
                 text="算法 × 主厨,"
                 color="#2b1f14"
-                shineColor="#c2611f"
+                shineColor="#059669"
                 speed={3}
                 spread={120}
                 direction="left"
@@ -131,7 +131,7 @@ export default function FeaturesPage() {
               <ShinyText
                 text="每一餐都是定制的"
                 color="#2b1f14"
-                shineColor="#e88a4a"
+                shineColor="#34D399"
                 speed={3}
                 spread={120}
                 direction="left"

@@ -1,6 +1,6 @@
 :root {
   color: #f7f7ef;
-  background: #fbf9f1; /* 暖白底:同步新色库,消除加载暗闪 */
+  background: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 30%, #F0FDF7 60%, #FFFFFF 100%); /* 薄荷渐变底:消除加载暗闪 */
   --font-sans:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -20,15 +20,15 @@
   --soft: rgba(247, 247, 239, 0.42);
   --acid: #d5ff66;
   --mint: #8fffc2;
-  --ember: #ffb45c;
+  --ember: #6EE7B7; /* 浅薄荷绿(替代原暖橙) */
   --ink: #070807;
   /* ============ 暖白底色库 v1:以 #FBF9F1 为锚点 ============ */
   /* 底面族:白-米-沙三档海拔 */
-  --cream: #fbf9f1; /* surface-base 全站底色 */
+  --cream: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 30%, #F0FDF7 60%, #FFFFFF 100%); /* surface-base 全站底色:薄荷渐变 */
   --cream-card: #ffffff; /* surface-raised 卡片/悬浮面板 */
-  --cream-sunken: #f3efe4; /* surface-sunken 分区/下沉面 */
-  --ember-100: #f7e3cf; /* 暖橙浅衬底 */
-  --olive-100: #f7e3cf; /* 原橄榄浅衬底,已并入暖橙 */
+  --cream-sunken: #ECFDF5; /* surface-sunken 分区/下沉面:薄荷浅绿 */
+  --ember-100: #D1FAE5; /* 浅薄荷绿衬底(替代原暖橙) */
+  --olive-100: #D1FAE5; /* 原橄榄浅衬底,现指向薄荷绿 */
   /* 字色族:咖啡暖墨(与暖白底同温),对 #FBF9F1 实测对比度 */
   --ink-cream: #2b1f14; /* 15.2:1 AAA 标题:深咖啡 */
   --ink-body: #52443a; /* 8.9:1 AAA 正文:暖褐 */
@@ -38,10 +38,11 @@
   --line-strong: rgba(43, 31, 20, 0.16);
   --shadow-ink: rgba(43, 31, 20, 0.14); /* 全站唯一阴影色 */
   /* 强调色:纯暖橙单色系(应品牌要求去绿,olive token 重指向暖橙保持兼容) */
-  --ember-ink: #a54e12; /* 5.4:1 橙色文字/主强调 */
-  --ember-600: #c2611f; /* 按钮实底/大号文字(≥18px) */
-  --olive: #c2611f; /* 原橄榄绿,已并入暖橙 */
-  --olive-700: #a54e12; /* 原深绿文字,已并入暖橙 */
+  --ember-ink: #065F46; /* 深薄荷绿文字/主强调 */
+  --ember-600: #059669; /* 中薄荷绿按钮实底/大号文字 */
+  --olive: #059669; /* 原橄榄绿,现并入中薄荷绿 */
+  --olive-700: #065F46; /* 原深绿文字,现并入深薄荷绿 */
+  /* 写死暖橙 hex 统一映射为薄荷绿 */
   /* 功能色 */
   --danger-600: #a93f35;
   --danger-100: #f6e0dd;
@@ -116,6 +117,7 @@ img {
   position: relative;
   min-height: 100vh;
   background: var(--cream);
+  background-attachment: fixed;
 }
 
 /* 浅色主题:暗色星空在奶油底上不再适用,隐藏(且已被不透明版块遮挡) */
@@ -212,7 +214,7 @@ img {
   color: #fff;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--ember), var(--ember-600));
-  box-shadow: 0 0 30px rgba(255, 180, 92, 0.35);
+  box-shadow: 0 0 30px rgba(110, 231, 183, 0.35);
 }
 
 .brand-icon-img {
@@ -605,12 +607,12 @@ img {
 
 /* ── 价值卡:暖橙底,传达产品信息 ── */
 .meal-card--value {
-  background: linear-gradient(150deg, rgba(255,215,170,0.72), rgba(255,230,200,0.55));
+  background: linear-gradient(150deg, rgba(167,243,208,0.72), rgba(209,250,229,0.55));
   border-color: rgba(255,255,255,0.78);
 }
 
 .hero.hero--liquid .meal-card--value {
-  background: linear-gradient(150deg, rgba(255,215,170,0.68), rgba(255,230,200,0.48));
+  background: linear-gradient(150deg, rgba(167,243,208,0.68), rgba(209,250,229,0.48));
 }
 
 .meal-value-card {
@@ -740,7 +742,7 @@ img {
   padding: 9px 12px;
   color: #1c160f;
   border-radius: var(--r-pill);
-  background: rgba(255, 240, 199, 0.92);
+  background: rgba(209, 250, 229, 0.92);
   font-size: 13px;
   font-weight: 750;
 }
@@ -1520,7 +1522,7 @@ img {
   height: 4px;
   border-radius: 2px;
   border: none;
-  background: rgba(194, 97, 31, 0.2);
+  background: rgba(5, 150, 105, 0.2);
   cursor: pointer;
   padding: 0;
   transition: background 0.3s var(--ease-std), width 0.3s var(--ease-std);
@@ -1532,7 +1534,7 @@ img {
 }
 
 .food-banner-dot:hover {
-  background: rgba(194, 97, 31, 0.4);
+  background: rgba(5, 150, 105, 0.4);
 }
 
 .food-banner-dot.is-active:hover {
@@ -1605,8 +1607,8 @@ img {
 .panel-cream .meal-showcase-stage .meal-card {
   border-color: var(--line-cream);
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.7), rgba(251, 249, 241, 0.5)),
-    radial-gradient(circle at 50% 100%, rgba(255, 180, 92, 0.22), transparent 70%);
+    linear-gradient(160deg, rgba(255, 255, 255, 0.7), rgba(236, 253, 245, 0.5)),
+    radial-gradient(circle at 50% 100%, rgba(110, 231, 183, 0.22), transparent 70%);
 }
 
 .panel-cream .meal-showcase-stage .meal-card h2 {
@@ -1748,11 +1750,11 @@ img {
 }
 
 .pain-split-row:hover {
-  background: rgba(194, 97, 31, 0.04);
+  background: rgba(5, 150, 105, 0.04);
 }
 
 .pain-split-row.is-active {
-  background: rgba(194, 97, 31, 0.08);
+  background: rgba(5, 150, 105, 0.08);
 }
 
 .pain-split-kw {
@@ -2060,11 +2062,11 @@ img {
 }
 
 .steps-item:hover {
-  background: rgba(194, 97, 31, 0.04);
+  background: rgba(5, 150, 105, 0.04);
 }
 
 .steps-item.is-active {
-  background: rgba(194, 97, 31, 0.08);
+  background: rgba(5, 150, 105, 0.08);
 }
 
 .steps-item-no {
@@ -2137,7 +2139,7 @@ img {
   height: 4px;
   border-radius: 2px;
   border: none;
-  background: rgba(194, 97, 31, 0.2);
+  background: rgba(5, 150, 105, 0.2);
   cursor: pointer;
   padding: 0;
   transition: background 0.2s var(--ease-std), width 0.2s var(--ease-std);
@@ -2663,7 +2665,7 @@ img {
 
 .belief-creed li {
   padding-left: 18px;
-  border-left: 2px solid rgba(255, 180, 92, 0.42);
+  border-left: 2px solid rgba(110, 231, 183, 0.42);
   color: #f7f7ef;
   font-size: clamp(18px, 1.4vw, 26px);
   font-weight: 550;
@@ -2672,7 +2674,7 @@ img {
 }
 
 .belief-creed li:hover {
-  border-left-color: rgba(255, 180, 92, 0.78);
+  border-left-color: rgba(110, 231, 183, 0.78);
 }
 
 .belief-sign {
@@ -2820,7 +2822,7 @@ img {
   height: 100%;
   border-radius: 4px;
   background: linear-gradient(90deg, var(--ember), var(--olive));
-  box-shadow: 0 0 10px rgba(255, 180, 92, 0.4);
+  box-shadow: 0 0 10px rgba(110, 231, 183, 0.4);
 }
 
 .proof-card-note {
@@ -3037,7 +3039,7 @@ img {
 }
 
 .panel-cream .answer-visual-card:hover {
-  border-color: rgba(194, 97, 31, 0.4);
+  border-color: rgba(5, 150, 105, 0.4);
   background: #ffffff;
 }
 
@@ -3158,7 +3160,7 @@ img {
 }
 
 .faq-item:hover {
-  border-color: rgba(194, 97, 31, 0.25);
+  border-color: rgba(5, 150, 105, 0.25);
   box-shadow: 0 12px 36px rgba(43, 31, 20, 0.07);
   transform: translateY(-2px);
 }
@@ -3465,15 +3467,15 @@ img {
 }
 
 .story-pain.panel-cream .pain-item:hover {
-  border-color: rgba(194, 97, 31, 0.35);
-  box-shadow: 0 12px 36px rgba(194, 97, 31, 0.1);
+  border-color: rgba(5, 150, 105, 0.35);
+  box-shadow: 0 12px 36px rgba(5, 150, 105, 0.1);
 }
 
 /* ---- Hero 首屏 ---- */
 .hero.panel-cream {
   background:
-    radial-gradient(circle at 78% 12%, rgba(255, 180, 92, 0.18), transparent 40%),
-    radial-gradient(circle at 10% 88%, rgba(255, 180, 92, 0.1), transparent 42%),
+    radial-gradient(circle at 78% 12%, rgba(110, 231, 183, 0.18), transparent 40%),
+    radial-gradient(circle at 10% 88%, rgba(110, 231, 183, 0.1), transparent 42%),
     var(--cream);
   border-top: none;
 }
@@ -3510,7 +3512,7 @@ img {
 .hero.panel-cream .primary-button {
   color: #fff;
   background: linear-gradient(135deg, var(--ember), var(--ember-ink));
-  box-shadow: 0 18px 40px rgba(194, 97, 31, 0.22);
+  box-shadow: 0 18px 40px rgba(5, 150, 105, 0.22);
 }
 
 .hero.panel-cream .secondary-button {
@@ -3520,8 +3522,8 @@ img {
 }
 
 .hero.panel-cream .secondary-button:hover {
-  border-color: rgba(194, 97, 31, 0.5);
-  background: rgba(194, 97, 31, 0.07);
+  border-color: rgba(5, 150, 105, 0.5);
+  background: rgba(5, 150, 105, 0.07);
 }
 
 /* 悬浮餐卡:改奶油卡质感,与浅底融为一体,靠柔和投影浮起
@@ -3529,7 +3531,7 @@ img {
 .hero.panel-cream .meal-card {
   border-color: var(--line-cream);
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.7), rgba(251, 249, 241, 0.5)),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.7), rgba(236, 253, 245, 0.5)),
     var(--cream-card);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.7),
@@ -3549,12 +3551,12 @@ img {
 .hero.panel-cream .phone-mockup {
   border-color: var(--line-cream);
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(251, 249, 241, 0.6)),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(236, 253, 245, 0.6)),
     var(--cream-card);
   box-shadow:
     inset 0 0 0 8px rgba(43, 31, 20, 0.03),
     0 40px 110px rgba(43, 31, 20, 0.2),
-    0 0 70px rgba(255, 180, 92, 0.12);
+    0 0 70px rgba(110, 231, 183, 0.12);
 }
 
 .hero.panel-cream .phone-bar {
@@ -3589,7 +3591,7 @@ img {
 
 /* 送达卡:暖橙浅底 */
 .hero.panel-cream .route-card {
-  background: rgba(255, 180, 92, 0.16);
+  background: rgba(110, 231, 183, 0.16);
 }
 
 .hero.panel-cream .route-card svg {
@@ -3603,8 +3605,8 @@ img {
 /* 底部菜单缩略条 +8 占位块 */
 .hero.panel-cream .plus-tile {
   color: var(--ember-ink);
-  border-color: rgba(194, 97, 31, 0.4);
-  background: rgba(194, 97, 31, 0.06);
+  border-color: rgba(5, 150, 105, 0.4);
+  background: rgba(5, 150, 105, 0.06);
 }
 
 /* ---- 三步流程 ---- */
@@ -3648,7 +3650,7 @@ img {
 /* ---- 本周餐单 ---- */
 .menu-showcase.panel-cream {
   background:
-    radial-gradient(circle at 82% 8%, rgba(255, 180, 92, 0.14), transparent 42%),
+    radial-gradient(circle at 82% 8%, rgba(110, 231, 183, 0.14), transparent 42%),
     var(--cream);
   border-top: 1px solid rgba(43, 31, 20, 0.08);
 }
@@ -3683,7 +3685,7 @@ img {
 
 .menu-showcase.panel-cream .menu-head-cta {
   color: var(--ember-ink);
-  border-bottom-color: rgba(194, 97, 31, 0.4);
+  border-bottom-color: rgba(5, 150, 105, 0.4);
 }
 
 .menu-showcase.panel-cream .menu-head-cta:hover {
@@ -3700,7 +3702,7 @@ img {
 }
 
 .menu-showcase.panel-cream .menu-card:hover {
-  border-color: rgba(194, 97, 31, 0.55);
+  border-color: rgba(5, 150, 105, 0.55);
 }
 
 .menu-showcase.panel-cream .menu-card-tag {
@@ -3723,22 +3725,22 @@ img {
 }
 
 .menu-showcase.panel-cream .menu-foot .secondary-button:hover {
-  border-color: rgba(194, 97, 31, 0.5);
-  background: rgba(194, 97, 31, 0.07);
+  border-color: rgba(5, 150, 105, 0.5);
+  background: rgba(5, 150, 105, 0.07);
 }
 
 /* ---- 信念收尾 ---- */
 .story-belief.panel-cream {
   background:
-    radial-gradient(circle at 50% 44%, rgba(255, 180, 92, 0.12), transparent 60%),
+    radial-gradient(circle at 50% 44%, rgba(110, 231, 183, 0.12), transparent 60%),
     var(--cream);
 }
 
 .story-belief.panel-cream .story-belief-glow {
   background: radial-gradient(
     circle at 50% 44%,
-    rgba(255, 180, 92, 0.16),
-    rgba(251, 249, 241, 0) 60%
+    rgba(110, 231, 183, 0.16),
+    rgba(236, 253, 245, 0) 60%
   );
 }
 
@@ -3758,11 +3760,11 @@ img {
 
 .story-belief.panel-cream .belief-creed li {
   color: var(--ink-cream);
-  border-left-color: rgba(194, 97, 31, 0.42);
+  border-left-color: rgba(5, 150, 105, 0.42);
 }
 
 .story-belief.panel-cream .belief-creed li:hover {
-  border-left-color: rgba(194, 97, 31, 0.78);
+  border-left-color: rgba(5, 150, 105, 0.78);
 }
 
 .story-belief.panel-cream .belief-sign::before {
@@ -3771,13 +3773,13 @@ img {
 
 .story-belief.panel-cream .belief-cue {
   color: var(--ink-cream);
-  border-color: rgba(194, 97, 31, 0.3);
-  background: rgba(194, 97, 31, 0.06);
+  border-color: rgba(5, 150, 105, 0.3);
+  background: rgba(5, 150, 105, 0.06);
 }
 
 .story-belief.panel-cream .belief-cue:hover {
-  border-color: rgba(194, 97, 31, 0.6);
-  background: rgba(194, 97, 31, 0.11);
+  border-color: rgba(5, 150, 105, 0.6);
+  background: rgba(5, 150, 105, 0.11);
 }
 
 .story-belief.panel-cream .belief-cue svg {
@@ -3792,7 +3794,7 @@ img {
   opacity: 0.5;
   background:
     linear-gradient(115deg, rgba(43, 31, 20, 0.045) 0 1px, transparent 1px 100%),
-    linear-gradient(180deg, transparent, rgba(194, 97, 31, 0.05));
+    linear-gradient(180deg, transparent, rgba(5, 150, 105, 0.05));
   background-size: 84px 84px, 100% 100%;
 }
 
@@ -3833,7 +3835,7 @@ img {
 }
 
 .download.panel-cream .store-button:hover {
-  border-color: rgba(194, 97, 31, 0.5);
+  border-color: rgba(5, 150, 105, 0.5);
   background: #1c1e15;
 }
 
@@ -4080,8 +4082,8 @@ img {
 
 .site-footer.panel-cream .footer-social-pill:hover {
   color: var(--ember-ink);
-  border-color: rgba(194, 97, 31, 0.5);
-  background: rgba(194, 97, 31, 0.08);
+  border-color: rgba(5, 150, 105, 0.5);
+  background: rgba(5, 150, 105, 0.08);
 }
 
 .site-footer.panel-cream .footer-col h3 {
@@ -4130,7 +4132,7 @@ img {
 /* 底色:比通用奶油底更亮一档,让玻璃的白色高光有落点 */
 /* Hero 微渐变:仅顶部 30% 提亮,下方自然融入透明底 */
 .hero.hero--liquid {
-  background: linear-gradient(180deg, rgba(251,249,241,1) 0%, rgba(251,249,241,0) 30%);
+  background: linear-gradient(180deg, rgba(236,253,245,1) 0%, rgba(236,253,245,0) 30%);
 }
 
 /* 网格纹理与玻璃气质相悖,液态版隐藏 */
@@ -4158,7 +4160,7 @@ img {
   width: clamp(380px, 44vw, 760px);
   left: -10%;
   top: -18%;
-  background: radial-gradient(circle at 35% 35%, rgba(255, 187, 106, 0.85), rgba(255, 187, 106, 0) 68%);
+  background: radial-gradient(circle at 35% 35%, rgba(110, 231, 183, 0.85), rgba(110, 231, 183, 0) 68%);
   animation: blob-drift-a 28s ease-in-out infinite alternate;
 }
 
@@ -4166,7 +4168,7 @@ img {
   width: clamp(320px, 36vw, 640px);
   right: -8%;
   top: 4%;
-  background: radial-gradient(circle at 60% 40%, rgba(226, 122, 60, 0.6), rgba(226, 122, 60, 0) 66%);
+  background: radial-gradient(circle at 60% 40%, rgba(5, 150, 105, 0.6), rgba(5, 150, 105, 0) 66%);
   animation: blob-drift-b 34s ease-in-out infinite alternate;
 }
 
@@ -4174,7 +4176,7 @@ img {
   width: clamp(300px, 32vw, 560px);
   left: 14%;
   bottom: -18%;
-  background: radial-gradient(circle at 40% 40%, rgba(230, 168, 96, 0.5), rgba(230, 168, 96, 0) 66%);
+  background: radial-gradient(circle at 40% 40%, rgba(167, 243, 208, 0.5), rgba(167, 243, 208, 0) 66%);
   animation: blob-drift-c 30s ease-in-out infinite alternate;
 }
 
@@ -4182,7 +4184,7 @@ img {
   width: clamp(240px, 24vw, 420px);
   right: 22%;
   bottom: 2%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 214, 140, 0.65), rgba(255, 214, 140, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(209, 250, 229, 0.65), rgba(209, 250, 229, 0) 70%);
   animation: blob-drift-b 24s ease-in-out infinite alternate-reverse;
 }
 
@@ -4229,7 +4231,7 @@ img {
 /* logo:摘掉酸性绿光晕,换暖橙柔光 */
 .hero.hero--liquid .brand-mark {
   background: linear-gradient(135deg, var(--ember), var(--ember-ink));
-  box-shadow: 0 0 28px rgba(255, 180, 92, 0.35);
+  box-shadow: 0 0 28px rgba(110, 231, 183, 0.35);
 }
 
 /* ---- 眉标:玻璃小胶囊 ---- */
@@ -4251,13 +4253,13 @@ img {
   overflow: hidden;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.55);
-  background: linear-gradient(135deg, rgba(232, 138, 74, 0.82), rgba(194, 97, 31, 0.88));
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.82), rgba(5, 150, 105, 0.88));
   -webkit-backdrop-filter: blur(14px) saturate(1.6);
   backdrop-filter: blur(14px) saturate(1.6);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
     inset 0 -10px 20px rgba(255, 255, 255, 0.16),
-    0 18px 44px rgba(194, 97, 31, 0.3);
+    0 18px 44px rgba(5, 150, 105, 0.3);
 }
 
 .hero.hero--liquid .primary-button::after {
@@ -4369,7 +4371,7 @@ img {
   width: clamp(340px, 38vw, 620px);
   left: -10%;
   top: 5%;
-  background: radial-gradient(circle at 35% 35%, rgba(255, 187, 106, 0.45), rgba(255, 187, 106, 0) 68%);
+  background: radial-gradient(circle at 35% 35%, rgba(110, 231, 183, 0.45), rgba(110, 231, 183, 0) 68%);
   animation: blob-drift-a 32s ease-in-out infinite alternate;
 }
 
@@ -4377,7 +4379,7 @@ img {
   width: clamp(280px, 30vw, 500px);
   right: -6%;
   top: 55%;
-  background: radial-gradient(circle at 60% 40%, rgba(230, 168, 96, 0.38), rgba(230, 168, 96, 0) 66%);
+  background: radial-gradient(circle at 60% 40%, rgba(167, 243, 208, 0.38), rgba(167, 243, 208, 0) 66%);
   animation: blob-drift-b 38s ease-in-out infinite alternate;
 }
 
@@ -4385,7 +4387,7 @@ img {
   width: clamp(240px, 26vw, 440px);
   left: 35%;
   top: 30%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 214, 140, 0.32), rgba(255, 214, 140, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(209, 250, 229, 0.32), rgba(209, 250, 229, 0) 70%);
   animation: blob-drift-c 28s ease-in-out infinite alternate;
 }
 
@@ -4434,7 +4436,7 @@ img {
   .hero.hero--liquid .eyebrow,
   .hero.hero--liquid .secondary-button,
   .hero.hero--liquid .meal-card {
-    background: rgba(251, 249, 241, 0.92);
+    background: rgba(236, 253, 245, 0.92);
   }
 }
 
@@ -4518,12 +4520,12 @@ summary:focus-visible {
 }
 
 .sub-nav-inner a:hover {
-  background: rgba(194, 97, 31, 0.08);
+  background: rgba(5, 150, 105, 0.08);
   color: var(--ember-ink);
 }
 
 .sub-nav-inner a.is-active {
-  background: rgba(194, 97, 31, 0.12);
+  background: rgba(5, 150, 105, 0.12);
   color: var(--ink-cream);
   font-weight: 650;
 }
@@ -4626,15 +4628,15 @@ summary:focus-visible {
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: var(--r-pill);
-  background: linear-gradient(135deg, rgba(232, 138, 74, 0.88), rgba(194, 97, 31, 0.92));
-  box-shadow: 0 18px 40px rgba(194, 97, 31, 0.28);
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.88), rgba(5, 150, 105, 0.92));
+  box-shadow: 0 18px 40px rgba(5, 150, 105, 0.28);
   font-weight: 700;
   transition: transform 190ms ease, box-shadow 190ms ease;
 }
 
 .hero-dl-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 24px 48px rgba(194, 97, 31, 0.4);
+  box-shadow: 0 24px 48px rgba(5, 150, 105, 0.4);
 }
 
 .home-nav-inner {
@@ -4677,7 +4679,7 @@ summary:focus-visible {
 
 .home-nav .brand-mark {
   background: linear-gradient(135deg, var(--ember), var(--ember-ink));
-  box-shadow: 0 0 28px rgba(255, 180, 92, 0.35);
+  box-shadow: 0 0 28px rgba(110, 231, 183, 0.35);
 }
 
 .home-nav .nav-links,
@@ -4774,7 +4776,7 @@ summary:focus-visible {
 }
 
 .nav-dropdown-item:hover {
-  background: rgba(194, 97, 31, 0.04);
+  background: rgba(5, 150, 105, 0.04);
 }
 
 /* ---- 默认层：图标 + 文字 ---- */
@@ -4907,8 +4909,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   align-items: center;
   background:
-    radial-gradient(ellipse 90% 70% at 25% 50%, rgba(220, 180, 140, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 80% 60% at 75% 45%, rgba(245, 225, 190, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 70% at 25% 50%, rgba(167, 243, 208, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 75% 45%, rgba(236, 253, 245, 0.16) 0%, transparent 70%),
     var(--cream);
 }
 
@@ -4932,7 +4934,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   width: clamp(340px, 38vw, 620px);
   left: -8%;
   top: 12%;
-  background: radial-gradient(circle at 40% 40%, rgba(222, 150, 120, 0.55), rgba(222, 150, 120, 0) 68%);
+  background: radial-gradient(circle at 40% 40%, rgba(52, 211, 153, 0.55), rgba(52, 211, 153, 0) 68%);
   animation: hc-blob-a 22s ease-in-out infinite alternate;
 }
 
@@ -4940,7 +4942,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   width: clamp(280px, 30vw, 500px);
   right: -6%;
   bottom: 10%;
-  background: radial-gradient(circle at 55% 45%, rgba(245, 200, 150, 0.5), rgba(245, 200, 150, 0) 68%);
+  background: radial-gradient(circle at 55% 45%, rgba(167, 243, 208, 0.5), rgba(167, 243, 208, 0) 68%);
   animation: hc-blob-b 26s ease-in-out infinite alternate;
 }
 
@@ -4948,7 +4950,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   width: clamp(200px, 18vw, 340px);
   left: 40%;
   top: 55%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 180, 130, 0.35), rgba(255, 180, 130, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(110, 231, 183, 0.35), rgba(110, 231, 183, 0) 70%);
   animation: hc-blob-a 18s ease-in-out infinite alternate-reverse;
 }
 
@@ -5067,7 +5069,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* AI 紫粉渐变字(暖橙色调适配版) */
 .hc-grad-ai {
-  background: linear-gradient(135deg, #D08060 0%, #C2611F 50%, #E08850 100%);
+  background: linear-gradient(135deg, #34D399 0%, #059669 50%, #10B981 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -5077,7 +5079,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* Agent 橙粉渐变字 */
 .hc-grad-agent {
-  background: linear-gradient(135deg, #E08850 0%, #F0A060 50%, #D07040 100%);
+  background: linear-gradient(135deg, #10B981 0%, #A7F3D0 50%, #047857 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -5187,8 +5189,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #D08070, #C2611F);
-  box-shadow: 0 4px 16px rgba(194, 97, 31, 0.28);
+  background: linear-gradient(135deg, #34D399, #059669);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.28);
   flex-shrink: 0;
 }
 
@@ -5306,7 +5308,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .chat-msg-label--rec {
   color: #fff;
-  background: linear-gradient(135deg, #E08850, #C2611F);
+  background: linear-gradient(135deg, #10B981, #059669);
 }
 
 /* 聊天气泡 */
@@ -5504,7 +5506,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .chat-bubble--user {
   color: #fff;
-  background: linear-gradient(135deg, #D08060, #C2611F);
+  background: linear-gradient(135deg, #34D399, #059669);
   border-top-right-radius: 4px;
 }
 
@@ -5541,16 +5543,16 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(135deg, #D08060, #C2611F);
+  background: linear-gradient(135deg, #34D399, #059669);
   cursor: pointer;
   flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(194, 97, 31, 0.28);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .chat-send-btn:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(194, 97, 31, 0.4);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
 }
 
 /* ── 卡片进入详情态 ── */
@@ -5869,7 +5871,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .detail-energy-option-wt {
   font-size: 11px;
-  color: #c2611f;
+  color: #065F46;
   font-weight: 600;
 }
 
@@ -6074,18 +6076,18 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   padding: 12px 28px;
   border: none;
   border-radius: var(--r-pill);
-  background: linear-gradient(135deg, #D08060, #C2611F);
+  background: linear-gradient(135deg, #34D399, #059669);
   color: #fff;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(194, 97, 31, 0.32);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.32);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .detail-order-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(194, 97, 31, 0.42);
+  box-shadow: 0 12px 32px rgba(5, 150, 105, 0.42);
 }
 
 /* ── 查看食谱详情入口 ── */
@@ -6096,14 +6098,14 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   padding: 14px 16px;
   border-radius: var(--r-md) !important;
   background: #fff !important;
-  border: 1.5px solid rgba(194, 97, 31, 0.22);
-  box-shadow: 0 4px 16px rgba(194, 97, 31, 0.08);
+  border: 1.5px solid rgba(5, 150, 105, 0.22);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);
   cursor: pointer;
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
 .chat-bubble--entry:hover {
-  box-shadow: 0 8px 24px rgba(194, 97, 31, 0.16);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.16);
   transform: translateY(-1px);
 }
 
@@ -6113,7 +6115,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   width: 38px;
   height: 38px;
   border-radius: var(--r-sm);
-  background: linear-gradient(135deg, rgba(208, 128, 96, 0.15), rgba(194, 97, 31, 0.1));
+  background: linear-gradient(135deg, rgba(208, 128, 96, 0.15), rgba(5, 150, 105, 0.1));
   color: var(--ember-600);
   flex-shrink: 0;
 }
@@ -6171,7 +6173,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .chat-typing--user {
-  background: linear-gradient(135deg, #D08060, #C2611F);
+  background: linear-gradient(135deg, #34D399, #059669);
 }
 
 .chat-typing-text {
@@ -6371,7 +6373,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   height: 440px;
   left: -130px;
   top: 30px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 180, 92, 0.55), transparent 70%);
+  background: radial-gradient(circle at 30% 30%, rgba(110, 231, 183, 0.55), transparent 70%);
 }
 
 .agent-blob--2 {
@@ -6379,7 +6381,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   height: 380px;
   right: -110px;
   top: 140px;
-  background: radial-gradient(circle at 30% 30%, rgba(194, 97, 31, 0.42), transparent 70%);
+  background: radial-gradient(circle at 30% 30%, rgba(5, 150, 105, 0.42), transparent 70%);
 }
 
 .agent-blob--3 {
@@ -6387,7 +6389,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   height: 320px;
   left: 42%;
   bottom: -130px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 170, 0.5), transparent 70%);
+  background: radial-gradient(circle at 30% 30%, rgba(167, 243, 208, 0.5), transparent 70%);
 }
 
 .agent-inner {
@@ -6406,7 +6408,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   padding: 7px 16px;
   margin-bottom: 22px;
   color: var(--ember-700);
-  border: 1px solid rgba(194, 97, 31, 0.28);
+  border: 1px solid rgba(5, 150, 105, 0.28);
   border-radius: var(--r-pill);
   background: rgba(255, 255, 255, 0.55);
   font-size: 14px;
@@ -6462,8 +6464,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .agent-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(194, 97, 31, 0.35);
-  box-shadow: 0 26px 68px rgba(194, 97, 31, 0.16);
+  border-color: rgba(5, 150, 105, 0.35);
+  box-shadow: 0 26px 68px rgba(5, 150, 105, 0.16);
 }
 
 .agent-card-icon {
@@ -6474,8 +6476,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   margin-bottom: 18px;
   border-radius: 16px;
   color: #fff;
-  background: linear-gradient(135deg, rgba(232, 138, 74, 0.95), rgba(194, 97, 31, 0.98));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 12px 28px rgba(194, 97, 31, 0.28);
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.95), rgba(5, 150, 105, 0.98));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 12px 28px rgba(5, 150, 105, 0.28);
 }
 
 .agent-card h3 {
