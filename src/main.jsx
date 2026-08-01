@@ -578,21 +578,46 @@ function slotToPos(s) {
    HotChainHero — 热链鲜送 AI 智能搭配 Hero
    左右分栏：左侧品牌宣传 + 右侧 AI 聊天演示
    ================================================================ */
+/* ── 模拟用户身体数据（模块顶层，chatSequence 引用）─────────── */
+const USER_PROFILE = {
+  gender: '女',
+  birth: '2000-05',
+  height: 165,
+  weight: 65,
+  pal: 1.55,
+};
+const userAge = new Date().getFullYear() - 2000;
+const userBMR = USER_PROFILE.gender === '男'
+  ? 10 * USER_PROFILE.weight + 6.25 * USER_PROFILE.height - 5 * userAge + 5
+  : 10 * USER_PROFILE.weight + 6.25 * USER_PROFILE.height - 5 * userAge - 161;
+const userTEE = Math.round(userBMR * USER_PROFILE.pal);
+const calcWeight = (kcal, days) => {
+  const delta = ((kcal - userTEE) * days) / 7700;
+  const abs = Math.abs(delta).toFixed(2);
+  return delta >= 0 ? `增 ${abs} kg` : `减 ${abs} kg`;
+};
+
 /* 聊天对话序列：一问一答，逐条冒出 */
 const chatSequence = [
   {
+    role: 'agent',
+    text: '你好！先了解一下你的身体情况，方便精准推荐。告诉我这几项就行：\n\n性别、出生年月、身高（cm）、体重（kg）、身体活动水平',
+  },
+  {
     role: 'user',
-    text: '最近感觉胖了，你有啥推荐的健康餐吗？',
+    text: `性别：${USER_PROFILE.gender}\n出生年月：${USER_PROFILE.birth}\n身高：${USER_PROFILE.height}cm\n体重：${USER_PROFILE.weight}kg\n身体活动水平：轻体力活动`,
   },
   {
     role: 'agent',
-    text: <>
-      为你推荐折耳根的三档定制餐：<br/><br/>
-      1. <strong>体验装</strong>：¥228 起，约 ¥38/餐，AI 定制 3 日餐单，午晚双餐热链配送，随时暂停无违约金。<br/>
-      2. <strong>周计划</strong>：¥476，约 ¥34/餐，含体验装全部功能，每周口味学习调优，免配送费，最划算。<br/>
-      3. <strong>月计划</strong>：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。<br/>
-      下方为您推荐一款健康餐，点击可查看详情。
-    </>,
+    text: <>收到。根据你的数据：BMI 约 {(USER_PROFILE.weight / Math.pow(USER_PROFILE.height/100, 2)).toFixed(1)}（正常范围），合理体重区间 {(18.5 * Math.pow(USER_PROFILE.height/100, 2)).toFixed(0)}–{(24 * Math.pow(USER_PROFILE.height/100, 2)).toFixed(0)} kg，每日总消耗量约 {userTEE} kcal。</>,
+  },
+  {
+    role: 'user',
+    text: '最近感觉胖了，你有什么推荐的健康餐吗？',
+  },
+  {
+    role: 'agent',
+    text: <>为你推荐折耳根的三档定制餐：<br/><br/>1. <strong>体验装</strong>：¥228 起，约 ¥38/餐，AI 定制 3 日餐单，午晚双餐热链配送，随时暂停无违约金。<br/>2. <strong>周计划</strong>：¥476，约 ¥34/餐，含体验装全部功能，每周口味学习调优，免配送费，最划算。<br/>3. <strong>月计划</strong>：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。<br/><br/>下方为您推荐一款健康餐，点击可查看详情。</>,
   },
   {
     role: 'cards',
@@ -603,12 +628,7 @@ const chatSequence = [
   },
   {
     role: 'agent',
-    text: <>
-      放心，折耳根主打<strong>美味第一</strong>——不是水煮鸡胸，也不是草沙拉，而是<strong>锅气十足、荤素搭配</strong>的家常好味道。<br/><br/>
-      <strong>周计划</strong>由合作餐厅每日<strong>现炒热送</strong>，到手中心温度 ≥60℃，开盖即食、口口有锅气；每周还会根据你的口味反馈学习调优，越吃越合胃。<br/><br/>
-      你是想先花 ¥228 试三天，还是直接上最划算的周计划？<br/>
-      下方为您推荐一款健康餐，点击可查看详情。
-    </>,
+    text: <>放心，折耳根主打<strong>美味第一</strong>——不是水煮鸡胸，也不是草沙拉，而是<strong>锅气十足、荤素搭配</strong>的家常好味道。<br/><br/>合作餐厅每日<strong>现炒热送</strong>，到手中心温度 ≥60℃，开盖即食、口口有锅气；每周还会根据你的口味反馈学习调优，越吃越合胃。<br/><br/>你是想先花 ¥228 试三天，还是直接上最划算的周计划？<br/>下方为您推荐一款健康餐，点击可查看详情。</>,
   },
   {
     role: 'cards-30',
@@ -623,27 +643,56 @@ function HotChainHero() {
   const [openDay, setOpenDay] = useState(null);
   const [detailPlan, setDetailPlan] = useState('30'); /* '1' | '7' | '30' */
   const [selectedEnergy, setSelectedEnergy] = useState(null);
+  const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
+  const heroRef = useRef(null);
 
   const ENERGY_DATA = {
     '7': {
-      recommended: 1800, tdee: 2202,
-      options: {
-        1500: { kcal: 1500, deficit: 702, weightWeekly: 0.64, weightMonthly: 2.73, label: '1500 千卡', assessment: '较大热量缺口（每日约 702 kcal），适合追求较快减重速度的学生群体。', meals: { breakfast: ['燕麦蓝莓碗·小份','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小份','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小份','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小份','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
-        1800: { kcal: 1800, deficit: 402, weightWeekly: 0.36, weightMonthly: 1.57, label: '1800 千卡', assessment: '温和热量缺口（每日约 402 kcal），稳定减脂维持代谢，兼顾饱腹感与减重效果。', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
-      },
+      days: 7,
+      options: [
+        { kcal: 1500, label: '1500 千卡', priceNum: '476', priceDec: '', unit: '¥34.0', meals: { breakfast: ['燕麦蓝莓碗·小','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
+        { kcal: 1900, label: '1900 千卡', priceNum: '536', priceDec: '', unit: '¥38.3', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
+        { kcal: 2300, label: '2300 千卡', priceNum: '596', priceDec: '', unit: '¥42.6', meals: { breakfast: ['燕麦蓝莓碗·大','全麦三明治·加倍','紫薯牛奶羹·大','杂粮粥配双蛋','酸奶水果杯·大'], lunch: ['香煎鸡胸糙米饭·大','黑椒牛肉意面·加量','清蒸鲈鱼藜麦·大','番茄牛腩饭·加量','凉拌鸡丝荞麦面·大'], dinner: ['白灼虾配时蔬·大','豆腐蔬菜汤·大','南瓜鸡胸肉沙拉·大','菌菇瘦肉粥·大','蒸蛋羹配双西兰花'] } },
+      ],
     },
     '30': {
-      recommended: 1800, tdee: 2202,
-      options: {
-        1500: { kcal: 1500, deficit: 702, weightWeekly: 0.64, weightMonthly: 2.73, label: '1500 千卡', assessment: '较大热量缺口（每日约 702 kcal），30 天持续减重效果显著，配合营养师 1 对 1 跟踪更佳。', meals: { breakfast: ['燕麦蓝莓碗·小份','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小份','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小份','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小份','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
-        1800: { kcal: 1800, deficit: 402, weightWeekly: 0.36, weightMonthly: 1.57, label: '1800 千卡', assessment: '温和热量缺口（每日约 402 kcal），30 天稳定减脂，代谢不受影响，长期坚持不易反弹。', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
-      },
+      days: 30,
+      options: [
+        { kcal: 1500, label: '1500 千卡', priceNum: '1792', priceDec: '', unit: '¥32.0', meals: { breakfast: ['燕麦蓝莓碗·小','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
+        { kcal: 1900, label: '1900 千卡', priceNum: '1972', priceDec: '', unit: '¥35.2', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
+        { kcal: 2300, label: '2300 千卡', priceNum: '2172', priceDec: '', unit: '¥38.8', meals: { breakfast: ['燕麦蓝莓碗·大','全麦三明治·加倍','紫薯牛奶羹·大','杂粮粥配双蛋','酸奶水果杯·大'], lunch: ['香煎鸡胸糙米饭·大','黑椒牛肉意面·加量','清蒸鲈鱼藜麦·大','番茄牛腩饭·加量','凉拌鸡丝荞麦面·大'], dinner: ['白灼虾配时蔬·大','豆腐蔬菜汤·大','南瓜鸡胸肉沙拉·大','菌菇瘦肉粥·大','蒸蛋羹配双西兰花'] } },
+      ],
     },
   };
 
   const activeEnergyData = ENERGY_DATA[detailPlan] || ENERGY_DATA['30'];
-  const currentEnergy = selectedEnergy || activeEnergyData.recommended;
-  const energyOption = activeEnergyData.options[currentEnergy] || activeEnergyData.options[activeEnergyData.recommended];
+  const planDays = activeEnergyData.days;
+  const allKcals = activeEnergyData.options.map(o => o.kcal);
+  const minKcal = Math.min(...allKcals);
+  const maxKcal = Math.max(...allKcals);
+
+  // 推荐：热量值最接近用户 TEE 的规格
+  const recommendedOption = activeEnergyData.options.reduce((best, o) =>
+    Math.abs(o.kcal - userTEE) < Math.abs(best.kcal - userTEE) ? o : best
+  );
+
+  const currentEnergy = selectedEnergy || recommendedOption.kcal;
+  const energyOption = activeEnergyData.options.find(o => o.kcal === currentEnergy) || recommendedOption;
+  const weightChange = calcWeight(energyOption.kcal, planDays);
+
+  // 为每个规格生成评估描述
+  const getAssessment = (kcal) => {
+    const diff = kcal - userTEE;
+    const absDiff = Math.abs(diff);
+    if (diff < 0) {
+      return absDiff > 600
+        ? `较大热量缺口（每日约 ${absDiff} kcal），适合追求较快减重的群体。`
+        : `温和热量缺口（每日约 ${absDiff} kcal），兼顾减重与饱腹感，适合稳定减脂。`;
+    } else if (diff > 100) {
+      return `轻微热量盈余（每日约 +${diff} kcal），配合抗阻训练可促进肌肉增长，适合偏瘦用户增重塑形。`;
+    }
+    return `热量接近维持水平（每日仅差 ${absDiff} kcal），维持当前体重，均衡饮食不易反弹。`;
+  };
 
   // 三个套餐的详情数据
   const PLANS = {
@@ -710,11 +759,25 @@ function HotChainHero() {
     return () => clearTimeout(timer);
   }, [visibleCount]);
 
-  /* 新消息冒出后只滚动聊天卡片内部,绝不带动整页(页面不会跳转) */
+  /* 新消息冒出后缓慢滚到最新,不带动整页 */
   useEffect(() => {
     if (!inViewRef.current) return;
     const el = chatScrollRef.current;
-    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+    if (!el) return;
+    const target = el.scrollHeight;
+    const start = el.scrollTop;
+    const distance = target - start;
+    if (distance <= 0) return;
+    const duration = 900; // 慢速滚动时长
+    let startTime = null;
+    const animate = (ts) => {
+      if (!startTime) startTime = ts;
+      const t = Math.min((ts - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      el.scrollTop = start + distance * eased;
+      if (t < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
   }, [visibleCount, typing]);
 
   /* 跟踪 Hero 是否在视口:离开视口(用户在别的模块)后,后续不再自动滚回卡片 */
@@ -843,7 +906,19 @@ function HotChainHero() {
                     <polyline points="15 18 9 12 15 6" />
                   </svg>
                 </button>
-                <div className="detail-hero detail-hero--premium">
+                <div
+                  className="detail-hero detail-hero--premium"
+                  ref={heroRef}
+                  onMouseMove={(e) => {
+                    if (!heroRef.current) return;
+                    const rect = heroRef.current.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 ~ 1
+                    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+                    setHeroTilt({ x: y * 6, y: x * -6 });
+                  }}
+                  onMouseLeave={() => setHeroTilt({ x: 0, y: 0 })}
+                  style={{ transform: `perspective(600px) rotateX(${heroTilt.x}deg) rotateY(${heroTilt.y}deg)`, transition: heroTilt.x === 0 ? 'transform 0.4s ease-out' : 'none' }}
+                >
                   <img src={plan.hero} alt={plan.title} />
                   <span className="detail-tag">热链配送 · 70°C 恒温直达</span>
                 </div>
@@ -886,10 +961,10 @@ function HotChainHero() {
                       </div>
                       <div className="detail-assessment-main">
                         <p>为您选用 <strong>{energyOption.kcal} 千卡</strong> 规格</p>
-                        <p>预计体重 <strong className="detail-assessment-highlight">减低 {energyOption.weightMonthly.toFixed(2)} 公斤</strong></p>
+                        <p>预计体重 <strong className="detail-assessment-highlight">{weightChange}</strong></p>
                       </div>
                       <p className="detail-assessment-desc">
-                        {energyOption.assessment}
+                        根据你的身体数据与目标，该方案能有效在维持代谢的同时实现合理热量管理。
                       </p>
                       <button className="detail-assessment-report">
                         详细评估报告
@@ -902,15 +977,12 @@ function HotChainHero() {
 
                   {/* 能量规格 */}
                   <div className="detail-energy">
-                    <div className="detail-section-label">
-                      能量规格
-                      <span className="detail-section-sublabel">（建议 {activeEnergyData.recommended} 千卡）</span>
-                    </div>
+                    <div className="detail-section-label">能量规格</div>
                     <div className="detail-energy-card">
                       <strong>能量（单选）</strong>
-                      <p>建议选择 <strong>{activeEnergyData.recommended} 千卡</strong> 规格，不低于 <strong>{Math.min(...Object.keys(activeEnergyData.options).map(Number))} 千卡</strong>，不高于 <strong>{activeEnergyData.tdee + 489} 千卡</strong>。</p>
+                      <p>建议选择 <strong>{recommendedOption.kcal} 千卡</strong> 规格，不低于 <strong>{minKcal} 千卡</strong>，不高于 <strong>{maxKcal} 千卡</strong>。</p>
                       <div className="detail-energy-options">
-                        {Object.values(activeEnergyData.options).map((opt) => (
+                        {activeEnergyData.options.map((opt) => (
                           <label
                             key={opt.kcal}
                             className={`detail-energy-option${currentEnergy === opt.kcal ? ' is-active' : ''}`}
@@ -968,7 +1040,7 @@ function HotChainHero() {
                         </div>
                         <div className="detail-params-cell">
                           <span>估算单餐</span>
-                          <strong className="detail-params-price">{plan.unit}</strong>
+                          <strong className="detail-params-price">{energyOption.unit}</strong>
                         </div>
                       </div>
                       <div className="detail-params-cell detail-params-cell--full">
@@ -986,7 +1058,7 @@ function HotChainHero() {
                   <div className="detail-bottom detail-bottom--sticky">
                     <div className="detail-price">
                       <span className="detail-price-label">合计</span>
-                      <span className="detail-price-num">¥{plan.priceNum}<span>{plan.priceDec}</span></span>
+                      <span className="detail-price-num">¥{energyOption.priceNum}<span>{energyOption.priceDec}</span></span>
                     </div>
                     <button className="detail-order-btn">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
