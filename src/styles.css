@@ -4464,24 +4464,7 @@ summary:focus-visible {
 }
 
 /* 首页导航:fixed 浮在页面上方,不占文档流,贯穿全页 */
-.home-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-  padding: 0;
-  pointer-events: none;
-  transform: translateY(0);
-  transition: transform 0.4s var(--ease-out);
-}
-
-/* 离开 Hero 后导航向上退去 */
-.home-nav.is-hidden {
-  transform: translateY(-100%);
-}
-
-/* ---- 副导航栏：主导航退去后冒出 ---- */
+/* ---- 副导航栏 ---- */
 .sub-nav {
   position: fixed;
   top: 0;

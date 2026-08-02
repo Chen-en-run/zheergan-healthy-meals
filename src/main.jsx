@@ -22,7 +22,6 @@ import {
 import ShinyText from './components/ShinyText';
 import SplitText from './components/SplitText';
 import RevealOnScroll from './components/RevealOnScroll';
-import MenuPage from './pages/Menu';
 import CompanyPage from './pages/Company';
 import './styles.css';
 
@@ -30,13 +29,12 @@ import './styles.css';
    轻量 hash 路由
    #/features → 功能介绍子页
    #/pricing  → 价格方案子页
-   #/menu     → 今日餐单子页
+   #/company  → 公司简介子页
    其余所有 hash(包括空/锚点) → 首页(原 App)
    ================================================================ */
 function useRoute() {
   const resolve = () => {
     const h = window.location.hash;
-    if (h.startsWith('#/menu')) return 'menu';
     if (h.startsWith('#/company')) return 'company';
     return 'home';
   };
@@ -158,19 +156,7 @@ const meals = [
 ];
 
 function HomePage() {
-  const [navHidden, setNavHidden] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      const hero = document.querySelector('.hero');
-      const boundary = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
-      setNavHidden(y > boundary);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   /* IntersectionObserver：检测当前可见模块，高亮副导航按钮 */
   useEffect(() => {
@@ -200,78 +186,8 @@ function HomePage() {
         <span className="s-blob s-blob-2" />
         <span className="s-blob s-blob-3" />
       </div>
-      {/* 全局玻璃导航:sticky 贯穿全页,与子页一致 */}
-      <header className={`home-nav${navHidden ? ' is-hidden' : ''}`}>
-        <div className="home-nav-inner max-frame">
-          <a className="brand" href="#top" aria-label="折耳根健康餐">
-            <span className="home-nav-brand-text"><i>Ergen</i> 折耳根健康餐</span>
-          </a>
-          <nav className="nav-links" aria-label="主导航">
-            <a href="#top">首页</a>
-            <a href="#/company">公司简介</a>
-            <div className="nav-dropdown">
-              <span className="nav-dropdown-trigger">
-                下载中心 <ChevronDown size={14} />
-              </span>
-              <div className="nav-dropdown-panel">
-                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-win.svg" alt="Windows" style={{width:32,height:32}} />
-                    <span>Windows</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <span className="ndi-dl-circle">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <polyline points="19 12 12 19 5 12" />
-                      </svg>
-                    </span>
-                    <span>下载 Windows 版</span>
-                  </span>
-                </a>
-                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-apple.svg" alt="Mac OS" style={{width:32,height:32}} />
-                    <span>Mac OS</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <span className="ndi-dl-circle">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <polyline points="19 12 12 19 5 12" />
-                      </svg>
-                    </span>
-                    <span>下载 Mac OS 版</span>
-                  </span>
-                </a>
-                <span className="nav-dropdown-item nav-dropdown-item--qr">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-phone.svg" alt="手机" style={{width:32,height:32}} />
-                    <span>手机</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
-                    <span>扫码下载 手机版</span>
-                  </span>
-                </span>
-                <span className="nav-dropdown-item nav-dropdown-item--qr">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-tablet.svg" alt="平板" style={{width:32,height:32}} />
-                    <span>平板</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
-                    <span>扫码下载 平板版</span>
-                  </span>
-                </span>
-              </div>
-            </div>
-            <a href="#/menu">每月餐单</a>
-          </nav>
-        </div>
-      </header>
-      {/* 副导航栏：主导航隐藏时冒出，覆盖除 Hero 和下载外的 6 个模块 */}
-      <nav className={`sub-nav${navHidden ? ' is-visible' : ''}`} aria-label="页面模块导航">
+      {/* 副导航栏：覆盖除 Hero 和下载外的 6 个模块 */}
+      <nav className="sub-nav is-visible" aria-label="页面模块导航">
         <div className="sub-nav-inner">
           {[
             { id: 'pain', label: '饮食痛点' },
@@ -1868,7 +1784,6 @@ const _oldFooterCols = [
     title: '产品',
     links: [
       { label: '功能介绍', href: '#/features' },
-      { label: '本周餐单', href: '#/menu' },
       { label: '价格方案', href: '#/pricing' },
       { label: '下载 App', href: '#download' },
     ],
@@ -1900,6 +1815,8 @@ function Footer() {
       <RevealOnScroll variant="fadeUp" amount={0.1} className="footer-new">
         {/* 上层:链接区 */}
         <div className="footer-new-links">
+          <a href="#/company">公司简介</a>
+          <span className="footer-new-sep">|</span>
           <a href="javascript:void(0)">商务合作</a>
           <span className="footer-new-sep">|</span>
           <a href="javascript:void(0)">隐私政策</a>
@@ -1931,7 +1848,6 @@ function Footer() {
 
 function App() {
   const route = useRoute();
-  if (route === 'menu') return <MenuPage />;
   if (route === 'company') return <CompanyPage />;
   return <HomePage />;
 }
