@@ -4915,10 +4915,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background:
-    radial-gradient(ellipse 90% 70% at 25% 50%, rgba(167, 243, 208, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 80% 60% at 75% 45%, rgba(236, 253, 245, 0.16) 0%, transparent 70%),
-    var(--cream);
+  /* 不自带背景,直接复用 .site-shell 的 fixed 渐变,确保与下一屏(story-pain)完全连续、无交界亮带 */
+  background: transparent;
 }
 
 /* ── 背景光斑 ── */
