@@ -307,7 +307,6 @@ function HomePage() {
         </div>
       </nav>
       <HotChainHero />
-      <FoodShowcase />
       <PainSection />
       <AnswerSection />
       <AgentSection />
@@ -1213,23 +1212,6 @@ function HotChainHero() {
           </div>
           </RevealOnScroll>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================================================================
-   FoodShowcase — 美食展示通栏大图（图2）
-   ================================================================ */
-function FoodShowcase() {
-  return (
-    <section className="food-showcase section-panel" aria-label="美食展示">
-      <div className="food-showcase-bg">
-        <img src="/zheergan-healthy-meals/images/dish-14.jpg" alt="热气腾腾的健康餐" />
-      </div>
-      <div className="food-showcase-copy">
-        <h2 className="food-showcase-title">折耳根不做水煮菜</h2>
-        <p className="food-showcase-sub">锅气十足、荤素搭配的家常好味道，用视觉打破"健康餐=难吃"</p>
       </div>
     </section>
   );
