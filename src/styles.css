@@ -1655,6 +1655,25 @@ img {
   padding: 96px 0;
 }
 
+/* 区块间距收紧 */
+.story-pain { padding: 0 0 10px; }
+.story-answer { padding: 0 0 20px; }
+.story-agent { padding: 0 0 20px; }
+.story-steps { padding: 20px 0 20px; }
+#pricing { padding: 0 0 50px; }
+#faq { padding: 20px 0 60px; }
+
+/* 确保导航跳转时区块完整展示 + 价格等大 */
+#answer .story-inner { min-height: 75vh; }
+#pricing .story-inner { min-height: 80vh; padding-bottom: 80px; }
+.price-grid-inline { align-items: stretch !important; }
+.price-grid-inline article { height: 100% !important; }
+
+/* 痛点换行间距 */
+.pain-line2, .pain-line2 .shiny-text {
+  display: inline-block;
+}
+
 /* --- 痛点共鸣(液态玻璃版)--- */
 
 .story-pain-inner {
@@ -3206,27 +3225,20 @@ img {
 }
 
 .faq-a {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-6px);
+  max-height: none;
+  overflow: visible;
+  opacity: 1;
+  transform: none;
   margin: 0;
-  padding-top: 0;
+  padding-top: 14px;
+  flex: 1;
   color: var(--ink-body);
   font-size: clamp(15px, 1vw, 18px);
   line-height: 1.7;
-  transition:
-    max-height 0.4s var(--ease-out),
-    opacity 0.35s var(--ease-out),
-    transform 0.35s var(--ease-out),
-    padding-top 0.35s var(--ease-out);
 }
 
-.faq-item-inner:hover .faq-a {
-  max-height: 200px;
-  opacity: 1;
-  transform: translateY(0);
-  padding-top: 14px;
+.faq-chevron {
+  display: none;
 }
 
 /* --- 页脚 --- */
@@ -4540,7 +4552,7 @@ summary:focus-visible {
 .sub-nav-dl-icon {
   width: 16px;
   height: 16px;
-  filter: invert(37%) sepia(84%) saturate(1012%) hue-rotate(354deg) brightness(91%) contrast(90%);
+  filter: invert(56%) sepia(75%) saturate(820%) hue-rotate(100deg) brightness(92%) contrast(88%);
 }
 
 
@@ -5011,7 +5023,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #F07050;
+  background: #059669;
   box-shadow: 0 0 10px rgba(240, 112, 80, 0.5);
   animation: hc-dot-pulse 2s ease-in-out infinite;
 }
@@ -5125,7 +5137,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .hotchain-sell-item svg {
-  color: #5B9A5B;
+  color: #059669;
   flex-shrink: 0;
 }
 
@@ -5228,7 +5240,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #5B9A5B;
+  background: #059669;
   box-shadow: 0 0 6px rgba(91, 154, 91, 0.5);
 }
 
@@ -5303,7 +5315,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .chat-msg-label--ai {
   color: #fff;
-  background: #A080B0;
+  background: #059669;
 }
 
 .chat-msg-label--rec {
@@ -5493,7 +5505,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   padding: 4px 10px;
   border-radius: var(--r-pill);
   background: rgba(80, 158, 95, 0.1);
-  color: #3e8c52;
+  color: #059669;
   font-size: 12px;
   font-weight: 650;
 }
@@ -5741,7 +5753,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   height: 48px;
   border-radius: 50%;
   background: rgba(80, 158, 95, 0.12);
-  color: #3e8c52;
+  color: #059669;
   display: grid;
   place-items: center;
 }
@@ -5765,7 +5777,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .detail-assessment-highlight {
-  color: #3e8c52;
+  color: #059669;
 }
 
 .detail-assessment-desc {
@@ -5785,7 +5797,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   padding: 0;
   border: none;
   background: transparent;
-  color: #3e8c52;
+  color: #059669;
   font-size: 13px;
   font-weight: 650;
   cursor: pointer;
@@ -5866,7 +5878,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   padding: 1px 8px;
   border-radius: var(--r-pill);
   background: rgba(62, 140, 82, 0.15);
-  color: #3e8c52;
+  color: #059669;
 }
 
 .detail-energy-option-wt {
@@ -5883,7 +5895,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .detail-energy-option.is-active,
 .detail-energy-option:has(input:checked) {
-  background: #3e8c52;
+  background: #059669;
   color: #fff;
   box-shadow: 0 8px 24px rgba(62, 140, 82, 0.35);
 }
@@ -5973,7 +5985,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   padding: 3px 8px;
   border-radius: var(--r-sm);
   background: rgba(80, 158, 95, 0.1);
-  color: #3e8c52;
+  color: #059669;
   font-size: 11px;
   font-weight: 650;
 }
@@ -6018,7 +6030,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .detail-params-price {
-  color: #3e8c52 !important;
+  color: #059669 !important;
   font-weight: 700;
 }
 
@@ -6517,4 +6529,371 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   .agent-lede {
     margin-bottom: 44px;
   }
+}
+
+/* ================================================================
+   美食展示 — 通栏大图 + 标题居中叠加（图2）
+   ================================================================ */
+.food-showcase {
+  position: relative;
+  height: clamp(520px, 72vh, 820px);
+  overflow: hidden;
+}
+
+.food-showcase-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.food-showcase-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.72) saturate(1.08);
+}
+
+.food-showcase-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.05) 40%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+}
+
+.food-showcase-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 32px;
+}
+
+.food-showcase-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(42px, 5.4vw, 88px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.food-showcase-sub {
+  margin: 16px 0 0;
+  font-size: clamp(16px, 1.2vw, 22px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 500px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 760px) {
+  .food-showcase {
+    height: clamp(380px, 60vh, 560px);
+  }
+
+  .food-showcase-title {
+    font-size: clamp(30px, 9vw, 48px);
+  }
+
+  .food-showcase-sub {
+    font-size: 14px;
+  }
+}
+
+/* ================================================================
+   食材供应链 — 左文右四图 2×2 网格（图4）
+   ================================================================ */
+.ingredient-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.ingredient-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ingredient-left h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 680;
+  line-height: 1.1;
+  color: var(--ink-cream);
+}
+
+.ingredient-left p {
+  margin: 0;
+  color: var(--ink-body);
+  font-size: var(--fs-lede);
+  line-height: 1.7;
+}
+
+.ingredient-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ingredient-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 50px 32px 44px;
+  border: 1px solid rgba(5, 150, 105, 0.12);
+  border-radius: var(--r-xl);
+  background: #ffffff;
+  text-align: center;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+
+.ingredient-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 38px rgba(5, 150, 105, 0.1);
+}
+
+.ingredient-img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.ingredient-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.ingredient-card:hover .ingredient-img img {
+  transform: scale(1.08);
+}
+
+.ingredient-card h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink-cream);
+}
+
+.ingredient-card span {
+  font-size: 14px;
+  color: var(--muted-cream);
+}
+
+@media (max-width: 860px) {
+  .ingredient-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ingredient-left h2 {
+    font-size: clamp(28px, 7vw, 42px);
+  }
+}
+
+/* ================================================================
+   AI能力 — 四列等宽卡片（图5）
+   ================================================================ */
+@media (min-width: 760px) {
+  .agent-grid--four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .agent-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .agent-grid--four {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================================
+   数据口碑 — 深色背景（图8）
+   ================================================================ */
+.trust-dark {
+  background: linear-gradient(135deg, #1a2a1f 0%, #0f1f16 40%, #0a1a10 100%);
+  padding: 100px 0;
+}
+
+.trust-dark .trust-head h2 {
+  color: #ffffff;
+}
+
+.trust-dark .trust-head h2 span {
+  color: #ffffff;
+}
+
+.trust-dark .trust-sub {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.trust-dark .trust-strip-item strong {
+  color: #ffffff;
+}
+
+.trust-dark .trust-strip-label {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.trust-dark .trust-strip-desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ================================================================
+   FAQ — 双列布局（图9）
+   ================================================================ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.faq-grid .faq-item {
+  height: 100%;
+}
+
+.faq-grid .faq-item-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 760px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================================
+   炫酷标题发光特效（炫酷绿版）
+   ================================================================ */
+
+/* Hero 主标题: 黑色 + 绿色闪光一扫而过（只闪一次） */
+.hotchain-title-main {
+  font-size: clamp(48px, 5.6vw, 96px);
+  font-weight: 700;
+  color: var(--ink-cream);
+  letter-spacing: 0.02em;
+}
+
+.hc-grad-text-dark {
+  display: block;
+  font-size: clamp(28px, 2.8vw, 48px);
+  font-weight: 680;
+  color: #2b1f14;
+  background: linear-gradient(90deg, #2b1f14 0%, #34D399 50%, #2b1f14 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hero-flash-once 2.5s ease-in-out 1 forwards;
+}
+
+@keyframes hero-flash-once {
+  0%   { background-position: 200% 0; }
+  15%  { background-position: -100% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 美食展示: 静态发光，不闪 */
+.food-showcase-title {
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.5),
+    0 0 80px rgba(110, 231, 183, 0.25),
+    0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 深色背景下标题发光 */
+.trust-dark .trust-head h2 {
+  text-shadow: 0 0 30px rgba(110, 231, 183, 0.3);
+}
+
+/* 全局 ShinyText 微光晕 */
+[class*="ShinyText"] {
+  filter: drop-shadow(0 2px 6px rgba(5, 150, 105, 0.12));
+}
+
+/* ================================================================
+   导航定位: 每个区块完整展示，不露出下一个区块
+   ================================================================ */
+#pain,
+#answer,
+#agent,
+#steps,
+#pricing,
+#trust,
+#faq {
+  scroll-margin-top: 80px;
+}
+
+/* AI 区块: 田字格 2×2 大卡片 + 完整占满视口 */
+.agent-grid--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 24px;
+}
+
+.agent-grid--four .agent-card {
+  padding: 40px 36px 36px;
+  min-height: 220px;
+}
+
+.agent-grid--four .agent-card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.agent-grid--four .agent-card h3 {
+  font-size: 22px;
+}
+
+.agent-grid--four .agent-card p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 确保各区块足够高，完整展示 */
+#agent .story-inner {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#answer .story-inner {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#steps .story-inner {
+  min-height: 70vh;
 }

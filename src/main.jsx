@@ -275,11 +275,11 @@ function HomePage() {
         <div className="sub-nav-inner">
           {[
             { id: 'pain', label: '饮食痛点' },
-            { id: 'answer', label: '新鲜食材' },
-            { id: 'agent', label: 'AI 管家' },
-            { id: 'steps', label: '定制送餐' },
+            { id: 'answer', label: '食材供应链' },
+            { id: 'agent', label: 'AI 能力' },
+            { id: 'steps', label: '使用流程' },
             { id: 'pricing', label: '价格方案' },
-            { id: 'trust', label: '口碑见证' },
+            { id: 'trust', label: '数据口碑' },
             { id: 'faq', label: '常见问题' },
           ].map((item) => (
             <a
@@ -307,7 +307,7 @@ function HomePage() {
         </div>
       </nav>
       <HotChainHero />
-      <Hero />
+      <FoodShowcase />
       <PainSection />
       <AnswerSection />
       <AgentSection />
@@ -814,16 +814,16 @@ function HotChainHero() {
           {/* 主标题 */}
           <h1 className="hotchain-title">
             <span className="hotchain-title-main">
-              <SplitText>折耳根健康餐</SplitText>
+              <ShinyText text="小折" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
             </span>
             <span className="hotchain-title-sub">
-              <SplitText charClassName="hc-grad-text">好吃！健康！不贵！</SplitText>
+              <span className="hc-grad-text-dark">你的 AI 健康餐助手</span>
             </span>
           </h1>
 
           {/* 副标题 */}
           <p className="hotchain-desc">
-            AI 为你量身定制营养方案，合作餐厅每日现炒，70℃热链恒温配送到家。新鲜出锅 → 智能保温 → 准时送达，让健康饮食零负担、零厨艺、零纠结。
+            一个能帮你决定"吃什么"的 AI。你告诉它你的身体数据，它算出你该吃多少热量、匹配什么餐。你确认，餐配送到手。不用算，不用选，不用纠结
           </p>
 
           {/* 按钮：照搬原 Hero 的下载按钮 */}
@@ -854,19 +854,11 @@ function HotChainHero() {
           <div className="hotchain-sells">
             <div className="hotchain-sell-item">
               <Check size={16} />
-              <span>有机认证食材</span>
+              <span>源头食材可查</span>
             </div>
             <div className="hotchain-sell-item">
               <Check size={16} />
-              <span>营养师团队审核</span>
-            </div>
-            <div className="hotchain-sell-item">
-              <Check size={16} />
-              <span>35min 极速热达</span>
-            </div>
-            <div className="hotchain-sell-item">
-              <Check size={16} />
-              <span>到手≥60℃免加热</span>
+              <span>到手≥60℃</span>
             </div>
           </div>
         </RevealOnScroll>
@@ -1226,6 +1218,23 @@ function HotChainHero() {
   );
 }
 
+/* ================================================================
+   FoodShowcase — 美食展示通栏大图（图2）
+   ================================================================ */
+function FoodShowcase() {
+  return (
+    <section className="food-showcase section-panel" aria-label="美食展示">
+      <div className="food-showcase-bg">
+        <img src="/zheergan-healthy-meals/images/dish-14.jpg" alt="热气腾腾的健康餐" />
+      </div>
+      <div className="food-showcase-copy">
+        <h2 className="food-showcase-title">折耳根不做水煮菜</h2>
+        <p className="food-showcase-sub">锅气十足、荤素搭配的家常好味道，用视觉打破"健康餐=难吃"</p>
+      </div>
+    </section>
+  );
+}
+
 function Hero() {
   return (
     <section className="hero section-panel panel-cream hero--liquid" aria-label="健康餐 App 首页">
@@ -1338,9 +1347,9 @@ function FoodBanner() {
 }
 
 const painPoints = [
-  { keyword: '外卖难以下咽', tag: '饮食困境', desc: '高油高盐、营养失衡，吃完罪恶感爆棚', image: '/zheergan-healthy-meals/images/pain-chicken.png' },
-  { keyword: '做饭手忙脚乱', tag: '时间成本', desc: '买菜、洗切、炒菜、刷锅……没时间也没精力', image: '/zheergan-healthy-meals/images/pain-headache.png' },
-  { keyword: '健康恶性循环', tag: '恶性循环', desc: '每次下定决心，最后还是炸鸡奶茶兜底，体重反复横跳', image: '/zheergan-healthy-meals/images/pain-friedchicken.png' },
+  { keyword: '外卖重油重盐', tag: '饮食困境', desc: '吃完心里难受，罪恶感爆棚', image: '/zheergan-healthy-meals/images/pain-chicken.png' },
+  { keyword: '自己做费时费力', tag: '时间成本', desc: '买菜洗切炒刷碗，没时间也没精力', image: '/zheergan-healthy-meals/images/pain-headache.png' },
+  { keyword: '减脂餐难吃', tag: '恶性循环', desc: '坚持不过第三天，最后还是炸鸡奶茶兜底', image: '/zheergan-healthy-meals/images/pain-friedchicken.png' },
 ];
 
 function PainSplit() {
@@ -1388,25 +1397,17 @@ function PainSection() {
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          <SplitText>想吃健康，<span>太难？</span>交给折耳根</SplitText>
+          <ShinyText text="你缺的不是意志力" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /><br />
+          <span className="pain-line2"><ShinyText text="是有人帮你搞定" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></span><br />
+          <span className="pain-line3"><ShinyText text="每天吃什么" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></span>
         </h2>
-        <p className="story-pain-sub"><SplitText stagger={0.012}>你不是一个人——每个想好好吃饭的人，都卡在这一关</SplitText></p>
+        <p className="story-pain-sub"><SplitText stagger={0.012}>每个人想好好吃饭的人，都卡在这一关</SplitText></p>
         <PainSplit />
       </RevealOnScroll>
     </section>
   );
 }
 
-const foodCards = [
-  { name: '金汤酸菜鱼', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-7.png' },
-  { name: '青花椒鸡胸肉', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-8.png' },
-  { name: '番茄牛腩煲', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-9.png' },
-  { name: '黑椒牛肉粒', tag: '新鲜蔬果', sub: '新鲜菜地采摘', image: '/zheergan-healthy-meals/images/food-10.png' },
-  { name: '虾仁芦笋', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-5.png' },
-  { name: '菌菇时蔬碗', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-12.png' },
-  { name: '藜麦鸡腿肉', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-13.png' },
-  { name: '金枪鱼波奇饭', tag: '新鲜肉类', sub: '新鲜屠宰场宰杀', image: '/zheergan-healthy-meals/images/food-14.png' },
-];
 
 const answerVisuals_old = [
   {
@@ -1427,78 +1428,38 @@ const answerVisuals_old = [
 ];
 
 function AnswerSection() {
-  const scrollRef = useRef(null);
-  const paused = useRef(false);
-
-  /* 自动轮播：4 秒滑动一次 */
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (!paused.current && scrollRef.current) {
-        const el = scrollRef.current;
-        if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 4) {
-          el.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          const cw = el.querySelector('.food-card')?.offsetWidth || 280;
-          el.scrollBy({ left: cw + 8, behavior: 'smooth' });
-        }
-      }
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const scroll = (dir) => {
-    if (scrollRef.current) {
-      const cardW = scrollRef.current.querySelector('.food-card')?.offsetWidth || 280;
-      const gap = 8;
-      scrollRef.current.scrollBy({ left: dir * (cardW + gap), behavior: 'smooth' });
-    }
-  };
-
   return (
     <section
       className="story-section story-answer section-panel panel-cream"
       id="answer"
     >
-<div className="story-inner story-answer-inner"
-      aria-label="折耳根健康餐是什么"
-    >
-        <RevealOnScroll variant="fadeIn" amount={0.1}>
-          <h2 className="answer-line">
-            <ShinyText text="饮食健康，放心交给我们" color="#2b1f14" shineColor="#059669" speed={3} spread={120} direction="left" reveal />
-          </h2>
-        </RevealOnScroll>
-        <RevealOnScroll variant="fadeIn" delay={0.1} amount={0.1}>
-          <p className="answer-lede"><SplitText stagger={0.012}>
-            食材新鲜直采，源头可查；餐厅接单现做，锅气到家。每一口都放心
-          </SplitText></p>
-        </RevealOnScroll>
-
-        <div className="food-card-stage">
-          <div
-            className="food-card-track"
-            ref={scrollRef}
-            onMouseEnter={() => { paused.current = true; }}
-            onMouseLeave={() => { paused.current = false; }}
-          >
-            {foodCards.map((card) => (
-              <article key={card.name} className="food-card">
-                <div className="food-card-img">
-                  <img src={card.image} alt={card.name} loading="lazy" draggable="false" />
-                </div>
-                <div className="food-card-info">
-                  <h3><SplitText>{card.tag}</SplitText></h3>
-                  {card.sub && <p>{card.sub}</p>}
-                </div>
-              </article>
-            ))}
+      <div className="story-inner story-answer-inner" aria-label="食材供应链">
+        <div className="ingredient-split">
+          <div className="ingredient-left">
+            <RevealOnScroll variant="fadeIn" amount={0.1}>
+              <h2>
+                <ShinyText text="饭要天天吃，食材不能含糊" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
+              </h2>
+              <p>每一份食材标明产地、供应商，来源透明。</p>
+            </RevealOnScroll>
           </div>
-          <div className="food-card-arrows">
-            <button className="food-card-arrow" onClick={() => scroll(-1)} aria-label="上一张">
-              <ChevronDown size={52} style={{ transform: 'rotate(90deg)' }} />
-            </button>
-            <button className="food-card-arrow" onClick={() => scroll(1)} aria-label="下一张">
-              <ChevronDown size={52} style={{ transform: 'rotate(-90deg)' }} />
-            </button>
+          <div className="ingredient-grid">
+            {[
+              { img: '/zheergan-healthy-meals/images/salad.jpg', name: '蔬果', desc: '每日直采·新鲜到店' },
+              { img: '/zheergan-healthy-meals/images/quinoa.jpg', name: '杂粮', desc: '产地直供·可溯源' },
+              { img: '/zheergan-healthy-meals/images/tuna.jpg', name: '海鲜蛋奶', desc: '当日到货·不囤货' },
+              { img: '/zheergan-healthy-meals/images/chicken.jpg', name: '肉类', desc: '资质定期复查' },
+            ].map((item, i) => (
+              <RevealOnScroll key={item.name} delay={i * 0.08} amount={0.1} variant="popUp">
+                <div className="ingredient-card">
+                  <div className="ingredient-img">
+                    <img src={item.img} alt={item.name} />
+                  </div>
+                  <h4>{item.name}</h4>
+                  <span>{item.desc}</span>
+                </div>
+              </RevealOnScroll>
+            ))}
           </div>
         </div>
       </div>
@@ -1513,33 +1474,23 @@ function AnswerSection() {
 const agentCaps = [
   {
     icon: MessageSquareText,
-    title: '智能对话咨询',
-    desc: '用大白话告诉折耳根 AI 你的目标——"我想减脂但不爱运动"，它立刻拆解成可执行方案，而不是丢给你一堆术语。',
-  },
-  {
-    icon: CalendarDays,
-    title: '一键生成周餐单',
-    desc: '结合你的身体数据、口味与忌口，秒级生成一周餐单，热量与蛋白质逐克配平，省去每天"吃什么"的纠结。',
-  },
-  {
-    icon: ShieldAlert,
-    title: '过敏原 & 忌口规避',
-    desc: '标记海鲜、香菜、坚果等 28 项忌口后，配餐时自动绕开，营养师还会为你的餐单二次复核。',
+    title: '听懂身体',
+    desc: '你告诉它性别、身高、体重、活动量——它算出你每天该吃多少热量。不是猜，是算。',
   },
   {
     icon: Activity,
-    title: '体重体脂追踪',
-    desc: '每天记录体重，趋势异常时折耳根 AI 主动提醒，并据此微调下一阶段的餐单，让进度一直在线。',
+    title: '看懂 BMI',
+    desc: 'BMI偏瘦，推增重方案；BMI超重，推减重方案。不靠问卷猜，靠数据算。',
   },
   {
     icon: RefreshCw,
-    title: '智能复购补给',
-    desc: '常吃的套餐快见底，折耳根 AI 主动问你要不要续上——出差、休假也能一键暂停，零操心。',
+    title: '动态调整',
+    desc: '体重变了、目标改了，推荐自动跟着调。不用重新填，不用反复说。',
   },
   {
-    icon: ClipboardList,
-    title: '每周营养报告',
-    desc: '周报拆解你的三大营养素占比与达标率，看得见每一口换来的进步，坚持更有动力。',
+    icon: MessageSquareText,
+    title: '直接回答',
+    desc: '你问"我的BMI是多少"，它直接给数值；你问"什么是BMI"，它给定义。不反问，不废话。',
   },
 ];
 
@@ -1558,14 +1509,14 @@ function AgentSection() {
       <div className="story-inner agent-inner">
         <RevealOnScroll variant="fadeUp" amount={0.1}>
           <h2 className="agent-title">
-            <SplitText>把"吃得健康"，</SplitText><ShinyText text="交给折耳根 AI" color="#2b1f14" shineColor="#059669" speed={3} spread={120} direction="left" reveal />
+            <SplitText>能对话，</SplitText><ShinyText text="就能吃对" color="#2b1f14" shineColor="#059669" speed={3} spread={120} direction="left" reveal />
           </h2>
           <p className="agent-lede"><SplitText stagger={0.012}>
-            折耳根 AI 不只是聊天机器人。从听懂你的口味，到记住你的忌口，再到主动帮你复购补给，它把这件麻烦事全程接管——你只管吃，剩下的交给它。
+            折耳根 AI 不只是聊天。从听懂身体到直接回答，它把"吃什么"全程接管。
           </SplitText></p>
         </RevealOnScroll>
 
-        <div className="agent-grid">
+        <div className="agent-grid agent-grid--four">
           {agentCaps.map((cap, i) => {
             const I = cap.icon;
             return (
@@ -1587,9 +1538,9 @@ function AgentSection() {
 }
 
 const steps = [
-  { no: '01', title: '设定身体档案', desc: '输入身高、体重、目标（减脂/增肌/维持）和活动强度，AI 算出你的每日消耗——这就是你专属餐单的起点。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '在 App 中设置营养目标的界面示意' },
-  { no: '02', title: 'AI 智能配餐', desc: '引擎按「热量匹配 → 蛋白质达标 → 口味合胃 → 食材多样」四维排序，平均匹配度 94%，拒绝“健康但难吃”。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: '智能配餐引擎生成每周餐单' },
-  { no: '03', title: '商家现做 + 热链配送', desc: '严选本地健康餐厅接单现做，3 轮品控，保温箱+骑手配送，到手中心温度 ≥60℃，开盖即食，不用微波复热，口口有锅气。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '骑手配送保温热链健康餐' },
+  { no: '①', title: '填数据', desc: '性别、身高、体重、活动量——填一次，不用再填。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '填写身体数据' },
+  { no: '②', title: '小折配餐', desc: '匹配餐单，你确认就行。不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: 'AI智能配餐' },
+  { no: '③', title: '热链送达', desc: '餐厅现做，到手≥60℃，开盖即食。口口有锅气。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '热链配送直达' },
 ];
 
 function StepsSection() {
@@ -1598,8 +1549,8 @@ function StepsSection() {
     <section className="story-section story-steps section-panel panel-cream" id="steps" aria-label="使用流程">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-steps-inner">
         <div className="steps-head">
-          <h2><SplitText>开启你的健康饮食</SplitText></h2>
-          <p className="steps-sub"><SplitText stagger={0.012}>输入你的身体数据，吃到让你回味无穷的健康餐</SplitText></p>
+          <h2><ShinyText text="三步，每天准时开饭" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></h2>
+          <p className="steps-sub"><SplitText stagger={0.012}>填数据 → 小折配餐 → 热链送达，每天不重样</SplitText></p>
         </div>
         <div className="steps-split">
           <div className="steps-split-left">
@@ -1727,27 +1678,27 @@ const testimonials = [
 ];
 
  const pricingPlans = [
-  { name: '体验装', price: 228, per: '¥38/餐', spec: '3天·6餐', feats: ['AI 定制 3 日餐单', '午晚双餐热链配送', '忌口与过敏原标记', '随时暂停·无违约金'], cta: '试3天' },
-  { name: '周计划', price: 476, per: '¥34/餐', spec: '7天·14餐', feats: ['含体验装全部', '每周口味学习调优', '营养师周报', '免配送费'], cta: '最划算', hot: true },
-  { name: '月计划', price: 1792, per: '¥32/餐', spec: '28天·56餐', feats: ['含周计划全部', '1对1营养师咨询', '体重体脂追踪', '优先配送时段'], cta: '深度定制' },
+  { name: '3天尝鲜', price: 228, per: '≈¥38/餐', spec: '3天·6餐', feats: ['AI 定制 3 日餐单', '午晚双餐热链配送', '忌口与过敏原标记'], cta: '试3天' },
+  { name: '7天周计划', price: 476, per: '≈¥34/餐', spec: '7天·14餐', feats: ['含体验装全部', '每周口味学习调优', '营养师周报', '免配送费'], cta: '最划算', hot: true },
+  { name: '28天月计划', price: 1792, per: '≈¥32/餐', spec: '28天·56餐', feats: ['含周计划全部', '1对1营养师咨询', '体重体脂追踪', '优先配送时段'], cta: '深度定制' },
 ];
 
 function PricingInline() {
   return (
     <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格方案">
       <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '12px' }}><SplitText>
-          美味健康餐，真不贵
-        </SplitText></h2>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '12px' }}>
+          <ShinyText text="一顿外卖的价，吃定制健康餐" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
+        </h2>
         <p style={{ textAlign: 'center', color: 'var(--muted-cream)', fontSize: 'var(--fs-lede)', marginBottom: '52px', lineHeight: 1.6 }}>
-          一顿外卖的钱，吃到算法定制、餐厅现炒的专属健康餐
+          订得越长，单餐越省
         </p>
-        <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto' }}>
+        <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto', alignItems: 'stretch' }}>
           {pricingPlans.map((plan, i) => (
-            <RevealOnScroll key={plan.name} delay={i * 0.12} amount={0.1} variant="scaleIn">
+            <RevealOnScroll key={plan.name} delay={i * 0.12} amount={0.1} variant="scaleIn" style={{ height: '100%' }}>
               <article
               style={{
-                display: 'flex', flexDirection: 'column', padding: '40px 60px 38px',
+                display: 'flex', flexDirection: 'column', padding: '40px 60px 38px', height: '100%',
                 border: '1px solid rgba(43,31,20,0.06)',
                 borderRadius: 'var(--r-2xl)',
                 background: '#ffffff',
@@ -1801,11 +1752,11 @@ function PricingInline() {
 
 function TrustSection() {
   return (
-    <section className="story-section story-trust section-panel panel-cream" id="trust" aria-label="为什么信任我们">
+    <section className="story-section story-trust trust-dark" id="trust" aria-label="为什么信任我们">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-trust-inner">
         <div className="trust-head">
           <h2>
-            <SplitText>真实口碑，<span>官方认证</span></SplitText>
+            <SplitText>12万+人，<span>已经换了种方式吃饭</span></SplitText>
           </h2>
           <p className="trust-sub"><SplitText stagger={0.012}>每一个数字背后，都是用户对我们的认可</SplitText></p>
         </div>
@@ -1834,28 +1785,12 @@ const faqs = [
     a: '目前已覆盖上海、北京、深圳、杭州、成都的主城区，并在持续拓展。下单前 App 会根据你的收货地址自动校验能否送达。',
   },
   {
-    q: '一餐大概多少钱？',
-    a: '单餐价格在 32–45 元之间，体验装 ¥228 起，周计划更划算（约 ¥34/餐）。你可以先订 3 天试吃，觉得合适再续，不用一次性押上整月。',
+    q: '多少钱一餐？',
+    a: '体验装约 38 元/餐，月计划低至 32 元/餐。先试 3 天，觉得合适再续。',
   },
   {
-    q: '可以随时取消或暂停吗？',
-    a: '可以。出差、休假随时在 App 里一键暂停或跳过某几天，未配送的餐费全额保留，不收违约金。',
-  },
-  {
-    q: '食材新鲜吗？来源可靠吗？',
-    a: '合作商家接单后现做出餐,保温热链直送,到手还是热的,绝不隔夜。肉蛋来自可追溯供应商,蔬菜每日直采,每一批次留样检测。',
-  },
-  {
-    q: '有过敏原或忌口怎么办？',
-    a: '在 App 里标记忌口与过敏原（海鲜、坚果、香菜等），系统会自动避开，营养师也会为你的配餐复核一遍。',
-  },
-  {
-    q: '到手怎么加热更好吃？',
-    a: '热链配送到手即食，开盖直接吃。万一凉了，大部分餐品微波 2–3 分钟即可恢复出锅口感，包装上印有针对性的复热建议；沙拉类为冷食设计，冷藏保存、开袋即食。',
-  },
-  {
-    q: '餐单是固定的还是我能自己挑？',
-    a: '算法按你的身体数据自动生成一周餐单后，你可以在 App 里对任意一餐进行手动替换——不想吃鱼就换成鸡肉，不爱沙拉就换个热菜，完全灵活。',
+    q: '食材哪里来的？',
+    a: '餐厅当天采购、当天使用，不囤货。供应商资质定期复查。',
   },
   {
     q: '能看到每餐的热量和营养成分吗？',
@@ -1868,10 +1803,10 @@ function FaqSection() {
     <section className="faq section-panel panel-cream" id="faq" aria-label="常见问题">
 <div className="story-inner faq-inner">
         <div className="faq-head">
-          <h2 className="faq-title"><SplitText>关于我们，你大概想知道这些</SplitText></h2>
-          <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材、餐单与营养成分，这里回答了你能想到的</SplitText></p>
+          <h2 className="faq-title"><SplitText>常见问题</SplitText></h2>
+          <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材与营养成分，这里回答了你能想到的</SplitText></p>
         </div>
-        <ul className="faq-list">
+        <ul className="faq-list faq-grid">
           {faqs.map((item, i) => (
             <RevealOnScroll key={item.q} delay={i * 0.08} amount={0.08} variant="fadeIn">
               <li className="faq-item">
