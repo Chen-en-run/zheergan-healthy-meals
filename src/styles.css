@@ -1721,30 +1721,15 @@ img {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.45s var(--ease-out);
+  transform: translateY(30px);
+  transition:
+    opacity 0.45s var(--ease-out),
+    transform 0.45s var(--ease-out);
 }
 
 .pain-split-slide.is-active {
   opacity: 1;
-}
-
-/* 右上角液态玻璃标签 */
-.pain-split-tag {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--ink-cream);
-  font-size: 14px;
-  font-weight: 650;
-  letter-spacing: 0.03em;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  pointer-events: none;
+  transform: translateY(0);
 }
 
 .pain-split-slide img {
@@ -1785,11 +1770,6 @@ img {
   transition: color 0.2s var(--ease-std);
 }
 
-.pain-split-row:hover .pain-split-kw,
-.pain-split-row.is-active .pain-split-kw {
-  color: var(--ink-cream);
-}
-
 /* 描述：默认隐藏，hover 向下滑出 */
 .pain-split-desc {
   display: block;
@@ -1814,30 +1794,6 @@ img {
   opacity: 1;
   transform: translateY(0);
   padding-top: 10px;
-}
-
-/* 图片切换：向上转出 / 向下转入 */
-.pain-split-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.45s var(--ease-out),
-    transform 0.45s var(--ease-out);
-}
-
-.pain-split-slide.slide-up {
-  transform: translateY(30px);
-}
-
-.pain-split-slide.slide-down {
-  transform: translateY(-30px);
-}
-
-.pain-split-slide.is-active {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 

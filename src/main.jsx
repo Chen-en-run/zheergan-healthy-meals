@@ -166,6 +166,9 @@ function HomePage() {
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length > 0) {
           setActiveSection(visible[0].target.id);
+        } else {
+          // 处于 Hero(小折)或页脚等无模块区域时,取消任何激活态关键词
+          setActiveSection('');
         }
       },
       { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
@@ -1269,7 +1272,6 @@ function PainSplit() {
               className={`pain-split-slide${i === activeImg ? ' is-active' : ''}${direction > 0 ? ' slide-down' : ' slide-up'}`}
             >
               <img src={point.image} alt={point.desc} loading="eager" />
-              <span className="pain-split-tag">{point.tag}</span>
             </div>
           ))}
         </div>
