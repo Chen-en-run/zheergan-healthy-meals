@@ -1953,7 +1953,7 @@ img {
 /* ── Agent 模块：左侧单列能力卡 + 右侧折耳根小助手卡片 ── */
 .agent-split {
   display: grid;
-  grid-template-columns: minmax(0, 380px) minmax(588px, 1fr);
+  grid-template-columns: minmax(0, 600px) minmax(588px, 1fr);
   gap: 48px;
   width: 100%;
   max-width: 1240px;
@@ -1978,7 +1978,7 @@ img {
 
 .agent-aside .chat-card-shell {
   margin-left: auto;
-  margin-right: -90px;
+  margin-right: -140px;
   width: 100%;
   max-width: 588px;
 }
