@@ -1835,9 +1835,9 @@ img {
 .ingredient-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  gap: 36px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1240px;
   margin-top: 56px;
 }
 
@@ -1848,7 +1848,7 @@ img {
   text-align: left;
   padding: 0;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 24px;
   background: #ffffff;
   border: 1px solid rgba(43, 31, 20, 0.06);
   box-shadow: 0 10px 30px rgba(43, 31, 20, 0.06);
@@ -1862,7 +1862,7 @@ img {
 
 /* 左侧食材特写图 */
 .ingredient-img {
-  flex: 0 0 44%;
+  flex: 0 0 48%;
   align-self: stretch;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -1884,13 +1884,13 @@ img {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: 24px 24px 24px 26px;
+  padding: 36px 36px 36px 38px;
   min-width: 0;
 }
 
 .ingredient-name {
   margin: 0;
-  font-size: 22px;
+  font-size: 27px;
   font-weight: 700;
   color: var(--ink-cream);
   letter-spacing: 0.01em;
@@ -1898,24 +1898,24 @@ img {
 
 .ingredient-desc {
   display: block;
-  margin: 6px 0 0;
-  font-size: 13px;
+  margin: 9px 0 0;
+  font-size: 15px;
   color: var(--muted-cream);
 }
 
 .ingredient-nutri {
-  margin-top: 16px;
-  padding-top: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px dashed rgba(43, 31, 20, 0.12);
 }
 
 .ingredient-nutri-label {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: #119e6b;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .ingredient-nutri ul {
@@ -1925,21 +1925,9 @@ img {
 }
 
 .ingredient-nutri li {
-  position: relative;
-  font-size: 14px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.95;
   color: var(--ink-cream);
-  padding-left: 20px;
-}
-
-.ingredient-nutri li::before {
-  content: '✔';
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 12px;
-  line-height: 1.85;
-  color: #34D399;
 }
 
 /* 超小屏：单列堆叠，图片在上、文字在下 */
