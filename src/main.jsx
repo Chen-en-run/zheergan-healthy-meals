@@ -157,41 +157,58 @@ const meals = [
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState('');
+  const clickLockRef = useRef(0);
 
-  /* IntersectionObserver：检测当前可见模块，高亮副导航按钮 */
   useEffect(() => {
     const ids = ['pain', 'answer', 'agent', 'steps', 'pricing', 'trust', 'faq'];
     const observer = new IntersectionObserver(
       (entries) => {
+        if (Date.now() < clickLockRef.current) return;
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length > 0) {
+          visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
           setActiveSection(visible[0].target.id);
-        } else {
-          // 处于 Hero(小折)或页脚等无模块区域时,取消任何激活态关键词
-          setActiveSection('');
         }
       },
-      { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+      { rootMargin: '-8% 0px -8% 0px', threshold: 0 }
     );
     ids.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-    return () => observer.disconnect();
+    const onScroll = () => {
+      if (Date.now() < clickLockRef.current) return;
+      if (window.scrollY < 120) setActiveSection('');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   return (
     <main className="site-shell">
       <div className="grain" aria-hidden="true" />
-      {/* 全局光斑:贯穿整页,无缝流动 */}
       <div className="global-blobs" aria-hidden="true">
         <span className="s-blob s-blob-1" />
         <span className="s-blob s-blob-2" />
         <span className="s-blob s-blob-3" />
       </div>
-      {/* 副导航栏：覆盖除 Hero 和下载外的 6 个模块 */}
       <nav className="sub-nav is-visible" aria-label="页面模块导航">
         <div className="sub-nav-inner">
+          <a
+            href="#top"
+            className={activeSection === '' ? 'is-active' : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              clickLockRef.current = Date.now() + 1500;
+              setActiveSection('');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            首页
+          </a>
           {[
             { id: 'pain', label: '饮食痛点' },
             { id: 'answer', label: '食材供应链' },
@@ -207,6 +224,7 @@ function HomePage() {
               className={activeSection === item.id ? 'is-active' : ''}
               onClick={(e) => {
                 e.preventDefault();
+                clickLockRef.current = Date.now() + 1500;
                 setActiveSection(item.id);
                 document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
               }}
@@ -514,39 +532,21 @@ const calcWeight = (kcal, days) => {
   const abs = Math.abs(delta).toFixed(2);
   return delta >= 0 ? `增 ${abs} kg` : `减 ${abs} kg`;
 };
+const userBMI = (USER_PROFILE.weight / Math.pow(USER_PROFILE.height / 100, 2)).toFixed(1);
+const allKcals = [1500, 1900, 2300];
+const recommendedKcal = allKcals.reduce((b, k) => Math.abs(k - userTEE) < Math.abs(b - userTEE) ? k : b);
+const weightDelta = ((recommendedKcal - userTEE) * 30) / 7700;
+const weightLabel = weightDelta >= 0 ? `增重 ${Math.abs(weightDelta).toFixed(2)}` : `减重 ${Math.abs(weightDelta).toFixed(2)}`;
 
-/* 聊天对话序列：一问一答，逐条冒出 */
+/* 聊天对话序列：身体数据 → 小折结论 → 食谱推荐 */
 const chatSequence = [
-  {
-    role: 'agent',
-    text: '你好！先了解一下你的身体情况，方便精准推荐。告诉我这几项就行：\n\n性别、出生年月、身高（cm）、体重（kg）、身体活动水平',
-  },
   {
     role: 'user',
     text: `性别：${USER_PROFILE.gender}\n出生年月：${USER_PROFILE.birth}\n身高：${USER_PROFILE.height}cm\n体重：${USER_PROFILE.weight}kg\n身体活动水平：轻体力活动`,
   },
   {
     role: 'agent',
-    text: <>收到。根据你的数据：BMI 约 {(USER_PROFILE.weight / Math.pow(USER_PROFILE.height/100, 2)).toFixed(1)}（正常范围），合理体重区间 {(18.5 * Math.pow(USER_PROFILE.height/100, 2)).toFixed(0)}–{(24 * Math.pow(USER_PROFILE.height/100, 2)).toFixed(0)} kg，每日总消耗量约 {userTEE} kcal。</>,
-  },
-  {
-    role: 'user',
-    text: '最近感觉胖了，你有什么推荐的健康餐吗？',
-  },
-  {
-    role: 'agent',
-    text: <>为你推荐折耳根的三档定制餐：<br/><br/>1. <strong>体验装</strong>：¥228 起，约 ¥38/餐，AI 定制 3 日餐单，午晚双餐热链配送，随时暂停无违约金。<br/>2. <strong>周计划</strong>：¥476，约 ¥34/餐，含体验装全部功能，每周口味学习调优，免配送费，最划算。<br/>3. <strong>月计划</strong>：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。<br/><br/>下方为您推荐一款健康餐，点击可查看详情。</>,
-  },
-  {
-    role: 'cards',
-  },
-  {
-    role: 'user',
-    text: '我想要一款口感好的',
-  },
-  {
-    role: 'agent',
-    text: <>放心，折耳根主打<strong>美味第一</strong>——不是水煮鸡胸，也不是草沙拉，而是<strong>锅气十足、荤素搭配</strong>的家常好味道。<br/><br/>合作餐厅每日<strong>现炒热送</strong>，到手中心温度 ≥60℃，开盖即食、口口有锅气；每周还会根据你的口味反馈学习调优，越吃越合胃。<br/><br/>你是想先花 ¥228 试三天，还是直接上最划算的周计划？<br/>下方为您推荐一款健康餐，点击可查看详情。</>,
+    text: `根据你的数据（BMI ${userBMI}，日耗 ${userTEE} kcal），\n推荐 ${recommendedKcal} kcal 规格，预计 ${weightLabel} kg。\n\n生成专属健康方案 →`,
   },
   {
     role: 'cards-30',
@@ -794,7 +794,7 @@ function HotChainHero() {
               ) : (
                 <>
                   <div className="chat-topbar-info chat-topbar-info--center">
-                    <span className="chat-name">折耳根小助手</span>
+                    <span className="chat-name">小折（基于你的身体数据计算）</span>
                     <span className="chat-status">
                       <span className="chat-status-dot" />
                       在线 · 随时为你服务

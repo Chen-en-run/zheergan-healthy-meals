@@ -1665,7 +1665,7 @@ img {
 
 /* 确保导航跳转时区块完整展示 + 价格等大 */
 #answer .story-inner { min-height: 75vh; }
-#pricing .story-inner { min-height: 80vh; padding-bottom: 80px; }
+#pricing .story-inner { min-height: 80vh; padding-top: 28px; padding-bottom: 80px; }
 .price-grid-inline { align-items: stretch !important; }
 .price-grid-inline article { height: 100% !important; }
 
@@ -1677,7 +1677,7 @@ img {
 /* --- 痛点共鸣(液态玻璃版)--- */
 
 .story-pain-inner {
-  padding: 120px 0 64px;
+  padding: 48px 0 56px;
 }
 
 .story-pain-title {
@@ -1803,7 +1803,7 @@ img {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 108px 0 96px;
+  padding: 40px 0 80px;
   width: min(1500px, calc(100% - 24px));
 }
 
@@ -5412,10 +5412,10 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* 聊天气泡 */
 .chat-bubble {
-  padding: 13px 17px;
+  padding: 16px 20px;
   border-radius: var(--r-lg);
-  font-size: 15.5px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
 .chat-bubble--ai {
@@ -5529,8 +5529,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  flex: 0 0 200px;
-  width: 200px;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 320px;
   min-width: 0;
   padding: 0;
   border: none;
@@ -5559,19 +5560,19 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .chat-meal-card-standalone-body {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 14px 16px 16px;
+  gap: 8px;
+  padding: 18px 20px 20px;
   text-align: left;
 }
 
 .chat-meal-card-standalone-body > strong {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--ink-cream);
 }
 
 .chat-meal-card-standalone-body > span {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted-cream);
 }
 
@@ -6432,8 +6433,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   }
 
   .chat-bubble {
-    font-size: 15.5px;
-    padding: 10px 14px;
+    font-size: 16px;
+    padding: 13px 16px;
   }
 
   .chat-topbar {
@@ -6850,7 +6851,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 #pricing,
 #trust,
 #faq {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 70px;
 }
 
 /* AI 区块: 田字格 2×2 大卡片 + 完整占满视口 */
