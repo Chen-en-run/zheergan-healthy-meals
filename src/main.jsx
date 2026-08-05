@@ -1334,33 +1334,77 @@ function AnswerSection() {
       id="answer"
     >
       <div className="story-inner story-answer-inner" aria-label="食材供应链">
-        <div className="ingredient-split">
-          <div className="ingredient-left">
-            <RevealOnScroll variant="fadeIn" amount={0.1}>
-              <h2>
-                <ShinyText text="饭要天天吃，食材不能含糊" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
-              </h2>
-              <p>每一份食材标明产地、供应商，来源透明。</p>
-            </RevealOnScroll>
-          </div>
-          <div className="ingredient-grid">
-            {[
-              { img: '/zheergan-healthy-meals/images/salad.jpg', name: '蔬果', desc: '每日直采·新鲜到店' },
-              { img: '/zheergan-healthy-meals/images/quinoa.jpg', name: '杂粮', desc: '产地直供·可溯源' },
-              { img: '/zheergan-healthy-meals/images/tuna.jpg', name: '海鲜蛋奶', desc: '当日到货·不囤货' },
-              { img: '/zheergan-healthy-meals/images/chicken.jpg', name: '肉类', desc: '资质定期复查' },
-            ].map((item, i) => (
-              <RevealOnScroll key={item.name} delay={i * 0.08} amount={0.1} variant="popUp">
-                <div className="ingredient-card">
-                  <div className="ingredient-img">
-                    <img src={item.img} alt={item.name} />
-                  </div>
-                  <h4>{item.name}</h4>
-                  <span>{item.desc}</span>
+        <div className="ingredient-head">
+          <RevealOnScroll variant="fadeIn" amount={0.1}>
+            <h2>
+              <ShinyText text="饭要天天吃，食材不能含糊" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
+            </h2>
+            <p>每一份食材标明产地、供应商，来源透明。</p>
+          </RevealOnScroll>
+        </div>
+        <div className="ingredient-grid">
+          {[
+            {
+              img: '/zheergan-healthy-meals/images/salad.jpg',
+              name: '蔬果',
+              desc: '每日直采·新鲜到店',
+              nutrition: [
+                '富含维C，抗氧化、增强免疫',
+                '膳食纤维促进肠道蠕动',
+                '低热量高水分，控体更轻盈',
+              ],
+            },
+            {
+              img: '/zheergan-healthy-meals/images/quinoa.jpg',
+              name: '杂粮',
+              desc: '产地直供·可溯源',
+              nutrition: [
+                '完整蛋白，含9种必需氨基酸',
+                'B族维生素助力能量代谢',
+                '慢碳水稳血糖、耐饥饿',
+              ],
+            },
+            {
+              img: '/zheergan-healthy-meals/images/tuna.jpg',
+              name: '海鲜蛋奶',
+              desc: '当日到货·不囤货',
+              nutrition: [
+                'Omega-3 守护心脑与视力',
+                '高钙强健骨骼与牙齿',
+                '优质蛋白易吸收、低负担',
+              ],
+            },
+            {
+              img: '/zheergan-healthy-meals/images/chicken.jpg',
+              name: '肉类',
+              desc: '资质定期复查',
+              nutrition: [
+                '易吸收铁，改善气血不足',
+                '瘦肉蛋白修复肌肉组织',
+                '锌元素提升免疫与活力',
+              ],
+            },
+          ].map((item, i) => (
+            <RevealOnScroll key={item.name} delay={i * 0.08} amount={0.1} variant="popUp">
+              <article className="ingredient-card split">
+                <div className="ingredient-img">
+                  <img src={item.img} alt={item.name} loading="lazy" />
                 </div>
-              </RevealOnScroll>
-            ))}
-          </div>
+                <div className="ingredient-body">
+                  <h4 className="ingredient-name">{item.name}</h4>
+                  <span className="ingredient-desc">{item.desc}</span>
+                  <div className="ingredient-nutri">
+                    <span className="ingredient-nutri-label">营养价值</span>
+                    <ul>
+                      {item.nutrition.map((n) => (
+                        <li key={n}>{n}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </RevealOnScroll>
+          ))}
         </div>
       </div>
     </section>
