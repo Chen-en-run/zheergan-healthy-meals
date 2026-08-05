@@ -1400,7 +1400,7 @@ const agentCaps = [
   },
   {
     icon: Activity,
-    title: '看懂 BMI',
+    title: '看懂BMI',
     desc: 'BMI偏瘦，推增重方案；BMI超重，推减重方案。不靠问卷猜，靠数据算。',
   },
   {

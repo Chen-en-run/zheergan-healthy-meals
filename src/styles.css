@@ -1978,6 +1978,7 @@ img {
 
 .agent-aside .chat-card-shell {
   margin-left: auto;
+  margin-right: -90px;
   width: 100%;
   max-width: 588px;
 }
@@ -6908,7 +6909,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .agent-grid--four .agent-card {
   padding: 24px 24px 24px;
-  min-height: 200px;
+  min-height: 190px;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 16px;
 }
 
