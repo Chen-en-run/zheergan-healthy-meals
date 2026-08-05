@@ -1,6 +1,6 @@
 :root {
   color: #f7f7ef;
-  background: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 30%, #F0FDF7 60%, #FFFFFF 100%); /* 薄荷渐变底:消除加载暗闪 */
+  background: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 45%, #F0FDF7 100%); /* 薄荷渐变底:消除加载暗闪 */
   --font-sans:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -24,7 +24,7 @@
   --ink: #070807;
   /* ============ 暖白底色库 v1:以 #FBF9F1 为锚点 ============ */
   /* 底面族:白-米-沙三档海拔 */
-  --cream: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 30%, #F0FDF7 60%, #FFFFFF 100%); /* surface-base 全站底色:薄荷渐变 */
+  --cream: linear-gradient(135deg, #D1FAE5 0%, #ECFDF5 45%, #F0FDF7 100%); /* surface-base 全站底色:薄荷渐变(末端非纯白,避免交界亮带) */
   --cream-card: #ffffff; /* surface-raised 卡片/悬浮面板 */
   --cream-sunken: #ECFDF5; /* surface-sunken 分区/下沉面:薄荷浅绿 */
   --ember-100: #D1FAE5; /* 浅薄荷绿衬底(替代原暖橙) */
@@ -1721,30 +1721,15 @@ img {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.45s var(--ease-out);
+  transform: translateY(30px);
+  transition:
+    opacity 0.45s var(--ease-out),
+    transform 0.45s var(--ease-out);
 }
 
 .pain-split-slide.is-active {
   opacity: 1;
-}
-
-/* 右上角液态玻璃标签 */
-.pain-split-tag {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--ink-cream);
-  font-size: 14px;
-  font-weight: 650;
-  letter-spacing: 0.03em;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  pointer-events: none;
+  transform: translateY(0);
 }
 
 .pain-split-slide img {
@@ -1785,11 +1770,6 @@ img {
   transition: color 0.2s var(--ease-std);
 }
 
-.pain-split-row:hover .pain-split-kw,
-.pain-split-row.is-active .pain-split-kw {
-  color: var(--ink-cream);
-}
-
 /* 描述：默认隐藏，hover 向下滑出 */
 .pain-split-desc {
   display: block;
@@ -1816,30 +1796,6 @@ img {
   padding-top: 10px;
 }
 
-/* 图片切换：向上转出 / 向下转入 */
-.pain-split-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.45s var(--ease-out),
-    transform 0.45s var(--ease-out);
-}
-
-.pain-split-slide.slide-up {
-  transform: translateY(30px);
-}
-
-.pain-split-slide.slide-down {
-  transform: translateY(-30px);
-}
-
-.pain-split-slide.is-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 /* --- 我们的答案 --- */
 .story-answer-inner {
@@ -1850,6 +1806,161 @@ img {
   padding: 108px 0 96px;
   width: min(1500px, calc(100% - 24px));
 }
+
+/* ── 食材供应链：标题居中 + 4 张卡片横向排列 ── */
+.ingredient-head {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ingredient-head h2 {
+  margin: 0;
+  font-size: var(--fs-h2, 40px);
+  font-weight: 680;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.ingredient-head p {
+  max-width: 680px;
+  margin: 20px auto 0;
+  color: var(--muted-cream);
+  font-size: var(--fs-lede, 18px);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+/* ── 食材供应链：2×2 网格 · 左右分割卡片 ── */
+.ingredient-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 56px;
+}
+
+.ingredient-card.split {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  text-align: left;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(43, 31, 20, 0.06);
+  box-shadow: 0 10px 30px rgba(43, 31, 20, 0.06);
+  transition: transform 0.25s var(--ease-std), box-shadow 0.25s var(--ease-std);
+}
+
+.ingredient-card.split:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(43, 31, 20, 0.12);
+}
+
+/* 左侧食材特写图 */
+.ingredient-img {
+  flex: 0 0 44%;
+  align-self: stretch;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.ingredient-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.ingredient-card.split:hover .ingredient-img img {
+  transform: scale(1.06);
+}
+
+/* 右侧文本区 */
+.ingredient-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 24px 26px;
+  min-width: 0;
+}
+
+.ingredient-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink-cream);
+  letter-spacing: 0.01em;
+}
+
+.ingredient-desc {
+  display: block;
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--muted-cream);
+}
+
+.ingredient-nutri {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(43, 31, 20, 0.12);
+}
+
+.ingredient-nutri-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #119e6b;
+  margin-bottom: 10px;
+}
+
+.ingredient-nutri ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ingredient-nutri li {
+  position: relative;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-cream);
+  padding-left: 20px;
+}
+
+.ingredient-nutri li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 12px;
+  line-height: 1.85;
+  color: #34D399;
+}
+
+/* 超小屏：单列堆叠，图片在上、文字在下 */
+@media (max-width: 720px) {
+  .ingredient-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 460px;
+  }
+  .ingredient-card.split {
+    flex-direction: column;
+  }
+  .ingredient-img {
+    flex: none;
+    aspect-ratio: 16 / 9;
+  }
+  .ingredient-body {
+    padding: 20px;
+  }
+}
+
 
 .answer-line {
   margin: 38px 0 0;
@@ -3485,10 +3596,6 @@ img {
 
 /* ---- Hero 首屏 ---- */
 .hero.panel-cream {
-  background:
-    radial-gradient(circle at 78% 12%, rgba(110, 231, 183, 0.18), transparent 40%),
-    radial-gradient(circle at 10% 88%, rgba(110, 231, 183, 0.1), transparent 42%),
-    var(--cream);
   border-top: none;
 }
 
@@ -4144,7 +4251,6 @@ img {
 /* 底色:比通用奶油底更亮一档,让玻璃的白色高光有落点 */
 /* Hero 微渐变:仅顶部 30% 提亮,下方自然融入透明底 */
 .hero.hero--liquid {
-  background: linear-gradient(180deg, rgba(236,253,245,1) 0%, rgba(236,253,245,0) 30%);
 }
 
 /* 网格纹理与玻璃气质相悖,液态版隐藏 */
@@ -4188,7 +4294,7 @@ img {
   width: clamp(300px, 32vw, 560px);
   left: 14%;
   bottom: -18%;
-  background: radial-gradient(circle at 40% 40%, rgba(167, 243, 208, 0.5), rgba(167, 243, 208, 0) 66%);
+  background: radial-gradient(circle at 40% 40%, rgba(110, 231, 183, 0.08), rgba(110, 231, 183, 0) 66%);
   animation: blob-drift-c 30s ease-in-out infinite alternate;
 }
 
@@ -4196,7 +4302,7 @@ img {
   width: clamp(240px, 24vw, 420px);
   right: 22%;
   bottom: 2%;
-  background: radial-gradient(circle at 50% 50%, rgba(209, 250, 229, 0.65), rgba(209, 250, 229, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(110, 231, 183, 0.06), rgba(110, 231, 183, 0) 70%);
   animation: blob-drift-b 24s ease-in-out infinite alternate-reverse;
 }
 
@@ -4469,24 +4575,7 @@ summary:focus-visible {
 }
 
 /* 首页导航:fixed 浮在页面上方,不占文档流,贯穿全页 */
-.home-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-  padding: 0;
-  pointer-events: none;
-  transform: translateY(0);
-  transition: transform 0.4s var(--ease-out);
-}
-
-/* 离开 Hero 后导航向上退去 */
-.home-nav.is-hidden {
-  transform: translateY(-100%);
-}
-
-/* ---- 副导航栏：主导航退去后冒出 ---- */
+/* ---- 副导航栏 ---- */
 .sub-nav {
   position: fixed;
   top: 0;
@@ -4920,10 +5009,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background:
-    radial-gradient(ellipse 90% 70% at 25% 50%, rgba(167, 243, 208, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 80% 60% at 75% 45%, rgba(236, 253, 245, 0.16) 0%, transparent 70%),
-    var(--cream);
+  /* 不自带背景,直接复用 .site-shell 的 fixed 渐变,确保与下一屏(story-pain)完全连续、无交界亮带 */
+  background: transparent;
 }
 
 /* ── 背景光斑 ── */
@@ -6534,83 +6621,6 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 /* ================================================================
    美食展示 — 通栏大图 + 标题居中叠加（图2）
    ================================================================ */
-.food-showcase {
-  position: relative;
-  height: clamp(520px, 72vh, 820px);
-  overflow: hidden;
-}
-
-.food-showcase-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.food-showcase-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.72) saturate(1.08);
-}
-
-.food-showcase-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.05) 40%,
-    rgba(0, 0, 0, 0.25) 100%
-  );
-}
-
-.food-showcase-copy {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  color: #ffffff;
-  padding: 0 32px;
-}
-
-.food-showcase-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(42px, 5.4vw, 88px);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
-}
-
-.food-showcase-sub {
-  margin: 16px 0 0;
-  font-size: clamp(16px, 1.2vw, 22px);
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 500px;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 760px) {
-  .food-showcase {
-    height: clamp(380px, 60vh, 560px);
-  }
-
-  .food-showcase-title {
-    font-size: clamp(30px, 9vw, 48px);
-  }
-
-  .food-showcase-sub {
-    font-size: 14px;
-  }
-}
-
 /* ================================================================
    食材供应链 — 左文右四图 2×2 网格（图4）
    ================================================================ */
@@ -6734,32 +6744,33 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
    数据口碑 — 深色背景（图8）
    ================================================================ */
 .trust-dark {
-  background: linear-gradient(135deg, #1a2a1f 0%, #0f1f16 40%, #0a1a10 100%);
+  background: var(--cream);
+  background-attachment: fixed;
   padding: 100px 0;
 }
 
 .trust-dark .trust-head h2 {
-  color: #ffffff;
+  color: var(--ink-cream);
 }
 
 .trust-dark .trust-head h2 span {
-  color: #ffffff;
+  color: var(--ink-cream);
 }
 
 .trust-dark .trust-sub {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted-cream);
 }
 
 .trust-dark .trust-strip-item strong {
-  color: #ffffff;
+  color: var(--ink-cream);
 }
 
 .trust-dark .trust-strip-label {
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--ink-cream);
 }
 
 .trust-dark .trust-strip-desc {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted-cream);
 }
 
 /* ================================================================
@@ -6819,17 +6830,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   100% { background-position: -200% 0; }
 }
 
-/* 美食展示: 静态发光，不闪 */
-.food-showcase-title {
-  text-shadow:
-    0 0 40px rgba(255, 255, 255, 0.5),
-    0 0 80px rgba(110, 231, 183, 0.25),
-    0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* 深色背景下标题发光 */
+/* 浅色薄荷背景下标题不加绿光，避免发灰发糊 */
 .trust-dark .trust-head h2 {
-  text-shadow: 0 0 30px rgba(110, 231, 183, 0.3);
+  text-shadow: none;
 }
 
 /* 全局 ShinyText 微光晕 */

@@ -22,7 +22,6 @@ import {
 import ShinyText from './components/ShinyText';
 import SplitText from './components/SplitText';
 import RevealOnScroll from './components/RevealOnScroll';
-import MenuPage from './pages/Menu';
 import CompanyPage from './pages/Company';
 import './styles.css';
 
@@ -30,13 +29,12 @@ import './styles.css';
    轻量 hash 路由
    #/features → 功能介绍子页
    #/pricing  → 价格方案子页
-   #/menu     → 今日餐单子页
+   #/company  → 公司简介子页
    其余所有 hash(包括空/锚点) → 首页(原 App)
    ================================================================ */
 function useRoute() {
   const resolve = () => {
     const h = window.location.hash;
-    if (h.startsWith('#/menu')) return 'menu';
     if (h.startsWith('#/company')) return 'company';
     return 'home';
   };
@@ -158,19 +156,7 @@ const meals = [
 ];
 
 function HomePage() {
-  const [navHidden, setNavHidden] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      const hero = document.querySelector('.hero');
-      const boundary = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
-      setNavHidden(y > boundary);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   /* IntersectionObserver：检测当前可见模块，高亮副导航按钮 */
   useEffect(() => {
@@ -180,6 +166,9 @@ function HomePage() {
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length > 0) {
           setActiveSection(visible[0].target.id);
+        } else {
+          // 处于 Hero(小折)或页脚等无模块区域时,取消任何激活态关键词
+          setActiveSection('');
         }
       },
       { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
@@ -200,78 +189,8 @@ function HomePage() {
         <span className="s-blob s-blob-2" />
         <span className="s-blob s-blob-3" />
       </div>
-      {/* 全局玻璃导航:sticky 贯穿全页,与子页一致 */}
-      <header className={`home-nav${navHidden ? ' is-hidden' : ''}`}>
-        <div className="home-nav-inner max-frame">
-          <a className="brand" href="#top" aria-label="折耳根健康餐">
-            <span className="home-nav-brand-text"><i>Ergen</i> 折耳根健康餐</span>
-          </a>
-          <nav className="nav-links" aria-label="主导航">
-            <a href="#top">首页</a>
-            <a href="#/company">公司简介</a>
-            <div className="nav-dropdown">
-              <span className="nav-dropdown-trigger">
-                下载中心 <ChevronDown size={14} />
-              </span>
-              <div className="nav-dropdown-panel">
-                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-win.svg" alt="Windows" style={{width:32,height:32}} />
-                    <span>Windows</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <span className="ndi-dl-circle">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <polyline points="19 12 12 19 5 12" />
-                      </svg>
-                    </span>
-                    <span>下载 Windows 版</span>
-                  </span>
-                </a>
-                <a className="nav-dropdown-item" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-apple.svg" alt="Mac OS" style={{width:32,height:32}} />
-                    <span>Mac OS</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <span className="ndi-dl-circle">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <polyline points="19 12 12 19 5 12" />
-                      </svg>
-                    </span>
-                    <span>下载 Mac OS 版</span>
-                  </span>
-                </a>
-                <span className="nav-dropdown-item nav-dropdown-item--qr">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-phone.svg" alt="手机" style={{width:32,height:32}} />
-                    <span>手机</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
-                    <span>扫码下载 手机版</span>
-                  </span>
-                </span>
-                <span className="nav-dropdown-item nav-dropdown-item--qr">
-                  <span className="ndi-default">
-                    <img src="/zheergan-healthy-meals/images/icon-tablet.svg" alt="平板" style={{width:32,height:32}} />
-                    <span>平板</span>
-                  </span>
-                  <span className="ndi-hover">
-                    <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" className="ndi-qr-img" />
-                    <span>扫码下载 平板版</span>
-                  </span>
-                </span>
-              </div>
-            </div>
-            <a href="#/menu">每月餐单</a>
-          </nav>
-        </div>
-      </header>
-      {/* 副导航栏：主导航隐藏时冒出，覆盖除 Hero 和下载外的 6 个模块 */}
-      <nav className={`sub-nav${navHidden ? ' is-visible' : ''}`} aria-label="页面模块导航">
+      {/* 副导航栏：覆盖除 Hero 和下载外的 6 个模块 */}
+      <nav className="sub-nav is-visible" aria-label="页面模块导航">
         <div className="sub-nav-inner">
           {[
             { id: 'pain', label: '饮食痛点' },
@@ -307,7 +226,6 @@ function HomePage() {
         </div>
       </nav>
       <HotChainHero />
-      <FoodShowcase />
       <PainSection />
       <AnswerSection />
       <AgentSection />
@@ -1218,23 +1136,6 @@ function HotChainHero() {
   );
 }
 
-/* ================================================================
-   FoodShowcase — 美食展示通栏大图（图2）
-   ================================================================ */
-function FoodShowcase() {
-  return (
-    <section className="food-showcase section-panel" aria-label="美食展示">
-      <div className="food-showcase-bg">
-        <img src="/zheergan-healthy-meals/images/dish-14.jpg" alt="热气腾腾的健康餐" />
-      </div>
-      <div className="food-showcase-copy">
-        <h2 className="food-showcase-title">折耳根不做水煮菜</h2>
-        <p className="food-showcase-sub">锅气十足、荤素搭配的家常好味道，用视觉打破"健康餐=难吃"</p>
-      </div>
-    </section>
-  );
-}
-
 function Hero() {
   return (
     <section className="hero section-panel panel-cream hero--liquid" aria-label="健康餐 App 首页">
@@ -1371,7 +1272,6 @@ function PainSplit() {
               className={`pain-split-slide${i === activeImg ? ' is-active' : ''}${direction > 0 ? ' slide-down' : ' slide-up'}`}
             >
               <img src={point.image} alt={point.desc} loading="eager" />
-              <span className="pain-split-tag">{point.tag}</span>
             </div>
           ))}
         </div>
@@ -1434,33 +1334,77 @@ function AnswerSection() {
       id="answer"
     >
       <div className="story-inner story-answer-inner" aria-label="食材供应链">
-        <div className="ingredient-split">
-          <div className="ingredient-left">
-            <RevealOnScroll variant="fadeIn" amount={0.1}>
-              <h2>
-                <ShinyText text="饭要天天吃，食材不能含糊" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
-              </h2>
-              <p>每一份食材标明产地、供应商，来源透明。</p>
-            </RevealOnScroll>
-          </div>
-          <div className="ingredient-grid">
-            {[
-              { img: '/zheergan-healthy-meals/images/salad.jpg', name: '蔬果', desc: '每日直采·新鲜到店' },
-              { img: '/zheergan-healthy-meals/images/quinoa.jpg', name: '杂粮', desc: '产地直供·可溯源' },
-              { img: '/zheergan-healthy-meals/images/tuna.jpg', name: '海鲜蛋奶', desc: '当日到货·不囤货' },
-              { img: '/zheergan-healthy-meals/images/chicken.jpg', name: '肉类', desc: '资质定期复查' },
-            ].map((item, i) => (
-              <RevealOnScroll key={item.name} delay={i * 0.08} amount={0.1} variant="popUp">
-                <div className="ingredient-card">
-                  <div className="ingredient-img">
-                    <img src={item.img} alt={item.name} />
-                  </div>
-                  <h4>{item.name}</h4>
-                  <span>{item.desc}</span>
+        <div className="ingredient-head">
+          <RevealOnScroll variant="fadeIn" amount={0.1}>
+            <h2>
+              <ShinyText text="饭要天天吃，食材不能含糊" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
+            </h2>
+            <p>每一份食材标明产地、供应商，来源透明。</p>
+          </RevealOnScroll>
+        </div>
+        <div className="ingredient-grid">
+          {[
+            {
+              img: '/zheergan-healthy-meals/images/salad.jpg',
+              name: '蔬果',
+              desc: '每日直采·新鲜到店',
+              nutrition: [
+                '富含维C，抗氧化、增强免疫',
+                '膳食纤维促进肠道蠕动',
+                '低热量高水分，控体更轻盈',
+              ],
+            },
+            {
+              img: '/zheergan-healthy-meals/images/quinoa.jpg',
+              name: '杂粮',
+              desc: '产地直供·可溯源',
+              nutrition: [
+                '完整蛋白，含9种必需氨基酸',
+                'B族维生素助力能量代谢',
+                '慢碳水稳血糖、耐饥饿',
+              ],
+            },
+            {
+              img: '/zheergan-healthy-meals/images/tuna.jpg',
+              name: '海鲜蛋奶',
+              desc: '当日到货·不囤货',
+              nutrition: [
+                'Omega-3 守护心脑与视力',
+                '高钙强健骨骼与牙齿',
+                '优质蛋白易吸收、低负担',
+              ],
+            },
+            {
+              img: '/zheergan-healthy-meals/images/chicken.jpg',
+              name: '肉类',
+              desc: '资质定期复查',
+              nutrition: [
+                '易吸收铁，改善气血不足',
+                '瘦肉蛋白修复肌肉组织',
+                '锌元素提升免疫与活力',
+              ],
+            },
+          ].map((item, i) => (
+            <RevealOnScroll key={item.name} delay={i * 0.08} amount={0.1} variant="popUp">
+              <article className="ingredient-card split">
+                <div className="ingredient-img">
+                  <img src={item.img} alt={item.name} loading="lazy" />
                 </div>
-              </RevealOnScroll>
-            ))}
-          </div>
+                <div className="ingredient-body">
+                  <h4 className="ingredient-name">{item.name}</h4>
+                  <span className="ingredient-desc">{item.desc}</span>
+                  <div className="ingredient-nutri">
+                    <span className="ingredient-nutri-label">营养价值</span>
+                    <ul>
+                      {item.nutrition.map((n) => (
+                        <li key={n}>{n}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </RevealOnScroll>
+          ))}
         </div>
       </div>
     </section>
@@ -1886,7 +1830,6 @@ const _oldFooterCols = [
     title: '产品',
     links: [
       { label: '功能介绍', href: '#/features' },
-      { label: '本周餐单', href: '#/menu' },
       { label: '价格方案', href: '#/pricing' },
       { label: '下载 App', href: '#download' },
     ],
@@ -1918,6 +1861,8 @@ function Footer() {
       <RevealOnScroll variant="fadeUp" amount={0.1} className="footer-new">
         {/* 上层:链接区 */}
         <div className="footer-new-links">
+          <a href="#/company">公司简介</a>
+          <span className="footer-new-sep">|</span>
           <a href="javascript:void(0)">商务合作</a>
           <span className="footer-new-sep">|</span>
           <a href="javascript:void(0)">隐私政策</a>
@@ -1949,7 +1894,6 @@ function Footer() {
 
 function App() {
   const route = useRoute();
-  if (route === 'menu') return <MenuPage />;
   if (route === 'company') return <CompanyPage />;
   return <HomePage />;
 }

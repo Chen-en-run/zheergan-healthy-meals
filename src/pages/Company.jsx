@@ -77,7 +77,6 @@ function CompanyPage() {
                 </span>
               </div>
             </div>
-            <a href="#/menu">每月餐单</a>
           </nav>
         </div>
       </header>
