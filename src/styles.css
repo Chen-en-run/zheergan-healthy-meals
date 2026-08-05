@@ -6919,25 +6919,25 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .agent-grid--four .agent-card-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  margin-bottom: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 .agent-grid--four .agent-card-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .agent-grid--four .agent-card h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
+  font-size: 19px;
+  margin-bottom: 8px;
 }
 
 .agent-grid--four .agent-card p {
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 15.5px;
+  line-height: 1.6;
 }
 
 /* 确保各区块足够高，完整展示 */
