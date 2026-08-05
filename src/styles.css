@@ -1953,8 +1953,8 @@ img {
 /* ── Agent 模块：左侧单列能力卡 + 右侧折耳根小助手卡片 ── */
 .agent-split {
   display: grid;
-  grid-template-columns: minmax(0, 260px) minmax(300px, 1fr);
-  gap: 64px;
+  grid-template-columns: minmax(0, 380px) minmax(588px, 1fr);
+  gap: 48px;
   width: 100%;
   max-width: 1240px;
   margin: 56px auto 0;
@@ -1971,6 +1971,8 @@ img {
 .agent-aside {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
+  align-self: center;
   width: 100%;
 }
 
@@ -1978,6 +1980,13 @@ img {
   margin-left: auto;
   width: 100%;
   max-width: 588px;
+}
+
+/* 宽度、高度与首页 Hero 的聊天卡片完全一致 */
+.agent-aside .chat-card {
+  width: 560px;
+  max-width: 560px;
+  height: 760px;
 }
 
 /* 中等屏：小助手卡片移到下方，整行铺满 */
@@ -1989,6 +1998,7 @@ img {
   .agent-aside {
     margin-top: 4px;
     justify-content: center;
+    align-self: center;
   }
   .agent-aside .chat-card-shell {
     margin-left: 0;
@@ -6897,8 +6907,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .agent-grid--four .agent-card {
-  padding: 14px 16px 14px;
-  min-height: 84px;
+  padding: 24px 24px 24px;
+  min-height: 200px;
   border-radius: 16px;
 }
 
