@@ -518,18 +518,6 @@ const calcWeight = (kcal, days) => {
 /* 聊天对话序列：一问一答，逐条冒出 */
 const chatSequence = [
   {
-    role: 'agent',
-    text: '你好！先了解一下你的身体情况，方便精准推荐。告诉我这几项就行：\n\n性别、出生年月、身高（cm）、体重（kg）、身体活动水平',
-  },
-  {
-    role: 'user',
-    text: `性别：${USER_PROFILE.gender}\n出生年月：${USER_PROFILE.birth}\n身高：${USER_PROFILE.height}cm\n体重：${USER_PROFILE.weight}kg\n身体活动水平：轻体力活动`,
-  },
-  {
-    role: 'agent',
-    text: <>收到。根据你的数据：BMI 约 {(USER_PROFILE.weight / Math.pow(USER_PROFILE.height/100, 2)).toFixed(1)}（正常范围），合理体重区间 {(18.5 * Math.pow(USER_PROFILE.height/100, 2)).toFixed(0)}–{(24 * Math.pow(USER_PROFILE.height/100, 2)).toFixed(0)} kg，每日总消耗量约 {userTEE} kcal。</>,
-  },
-  {
     role: 'user',
     text: '最近感觉胖了，你有什么推荐的健康餐吗？',
   },
@@ -539,17 +527,6 @@ const chatSequence = [
   },
   {
     role: 'cards',
-  },
-  {
-    role: 'user',
-    text: '我想要一款口感好的',
-  },
-  {
-    role: 'agent',
-    text: <>放心，折耳根主打<strong>美味第一</strong>——不是水煮鸡胸，也不是草沙拉，而是<strong>锅气十足、荤素搭配</strong>的家常好味道。<br/><br/>合作餐厅每日<strong>现炒热送</strong>，到手中心温度 ≥60℃，开盖即食、口口有锅气；每周还会根据你的口味反馈学习调优，越吃越合胃。<br/><br/>你是想先花 ¥228 试三天，还是直接上最划算的周计划？<br/>下方为您推荐一款健康餐，点击可查看详情。</>,
-  },
-  {
-    role: 'cards-30',
   },
 ];
 
@@ -1460,7 +1437,8 @@ function AgentSection() {
           </SplitText></p>
         </RevealOnScroll>
 
-        <div className="agent-grid agent-grid--four">
+        <div className="agent-split">
+          <div className="agent-grid agent-grid--four">
           {agentCaps.map((cap, i) => {
             const I = cap.icon;
             return (
@@ -1475,6 +1453,101 @@ function AgentSection() {
               </RevealOnScroll>
             );
           })}
+          </div>
+
+          {/* 右侧：1:1 还原首页 Hero 的折耳根小助手聊天卡片 */}
+          <aside className="agent-aside">
+            <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
+              <div className="chat-card">
+                <div className="chat-topbar">
+                  <div className="chat-topbar-info chat-topbar-info--center">
+                    <span className="chat-name">折耳根小助手</span>
+                    <span className="chat-status">
+                      <span className="chat-status-dot" />
+                      在线 · 随时为你服务
+                    </span>
+                  </div>
+                </div>
+
+                <div className="chat-messages">
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
+                        最近感觉胖了，你有什么推荐的健康餐吗？
+                      </div>
+                      <span className="chat-msg-time">20:07</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        为你推荐折耳根的三档定制餐：
+                        <br /><br />
+                        1. 体验装：¥228 起，约 ¥38/餐，AI 定制 3 日餐单，午晚双餐热链配送，随时暂停无违约金。
+                        <br />
+                        2. 周计划：¥476，约 ¥34/餐，含体验装全部功能，每周口味学习调优，免配送费，最划算。
+                        <br />
+                        3. 月计划：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。
+                        <br /><br />
+                        下方为您推荐一款健康餐，点击可查看详情。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-meal-cards">
+                      <button className="chat-meal-card-standalone" aria-label="查看体验装详情">
+                        <img src="/zheergan-healthy-meals/images/food-7.png" alt="体验装" />
+                        <div className="chat-meal-card-standalone-body">
+                          <strong>体验装</strong>
+                          <span>新用户 · 低成本体验</span>
+                          <div className="chat-meal-card-standalone-tags">
+                            <span className="chat-meal-price-tag">¥228</span>
+                            <span className="chat-meal-day-tag">3 天</span>
+                          </div>
+                        </div>
+                      </button>
+                      <button className="chat-meal-card-standalone" aria-label="查看七日营养餐食谱详情">
+                        <img src="/zheergan-healthy-meals/images/food-8.png" alt="周计划" />
+                        <div className="chat-meal-card-standalone-body">
+                          <strong>周计划</strong>
+                          <span>最划算 · 每周口味调优</span>
+                          <div className="chat-meal-card-standalone-tags">
+                            <span className="chat-meal-price-tag">¥476</span>
+                            <span className="chat-meal-day-tag">7 天</span>
+                          </div>
+                        </div>
+                      </button>
+                      <button className="chat-meal-card-standalone" aria-label="查看月计划详情">
+                        <img src="/zheergan-healthy-meals/images/food-9.png" alt="月计划" />
+                        <div className="chat-meal-card-standalone-body">
+                          <strong>月计划</strong>
+                          <span>1 对 1 营养师 · 长期管理</span>
+                          <div className="chat-meal-card-standalone-tags">
+                            <span className="chat-meal-price-tag">¥1792</span>
+                            <span className="chat-meal-day-tag">28 天</span>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="chat-input-bar">
+                  <div className="chat-input-field">
+                    <span className="chat-input-placeholder">告诉 Agent 你的需求...</span>
+                  </div>
+                  <button className="chat-send-btn" aria-label="发送">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13" />
+                      <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </RevealOnScroll>
+          </aside>
         </div>
       </div>
     </section>

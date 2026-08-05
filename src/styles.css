@@ -1949,6 +1949,60 @@ img {
   }
 }
 
+/* ── 食材供应链：左侧 2×2 网格 + 右侧折耳根小助手卡片 ── */
+/* ── Agent 模块：左侧单列能力卡 + 右侧折耳根小助手卡片 ── */
+.agent-split {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(300px, 1fr);
+  gap: 64px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 56px auto 0;
+  align-items: stretch;
+}
+
+.agent-split .agent-grid--four {
+  margin: 0;
+  max-width: none;
+  gap: 14px;
+}
+
+/* 右侧：1:1 还原的折耳根小助手聊天卡片（沿用 Hero 的 chat-card 样式） */
+.agent-aside {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.agent-aside .chat-card-shell {
+  margin-left: auto;
+  width: 100%;
+  max-width: 588px;
+}
+
+/* 中等屏：小助手卡片移到下方，整行铺满 */
+@media (max-width: 1024px) {
+  .agent-split {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+  .agent-aside {
+    margin-top: 4px;
+    justify-content: center;
+  }
+  .agent-aside .chat-card-shell {
+    margin-left: 0;
+  }
+}
+
+/* 超小屏：单列堆叠 */
+@media (max-width: 720px) {
+  .agent-split {
+    gap: 20px;
+    max-width: 460px;
+  }
+}
+
 
 .answer-line {
   margin: 38px 0 0;
@@ -6610,15 +6664,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
    美食展示 — 通栏大图 + 标题居中叠加（图2）
    ================================================================ */
 /* ================================================================
-   食材供应链 — 左文右四图 2×2 网格（图4）
+   食材供应链 — 2×2 网格（图4）
    ================================================================ */
-.ingredient-split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 64px;
-  align-items: center;
-}
-
 .ingredient-left {
   display: flex;
   flex-direction: column;
@@ -6843,31 +6890,38 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* AI 区块: 田字格 2×2 大卡片 + 完整占满视口 */
 .agent-grid--four {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  max-width: 900px;
-  margin: 0 auto;
-  gap: 24px;
+  grid-template-columns: 1fr !important;
+  max-width: 540px;
+  margin: 0;
+  gap: 14px;
 }
 
 .agent-grid--four .agent-card {
-  padding: 40px 36px 36px;
-  min-height: 220px;
+  padding: 14px 16px 14px;
+  min-height: 84px;
+  border-radius: 16px;
 }
 
 .agent-grid--four .agent-card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
-  margin-bottom: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.agent-grid--four .agent-card-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .agent-grid--four .agent-card h3 {
-  font-size: 22px;
+  font-size: 16px;
+  margin-bottom: 6px;
 }
 
 .agent-grid--four .agent-card p {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 /* 确保各区块足够高，完整展示 */
