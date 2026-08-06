@@ -1024,21 +1024,31 @@ const agentCaps = [
   {
     icon: Activity,
     title: '看懂BMI',
-    desc: 'BMI偏瘦，推增重方案；BMI超重，推减重方案。不靠问卷猜，靠数据算。',
+    desc: '用 BMI 判定增重还是减重，方案数据说了算。',
   },
   {
     icon: RefreshCw,
     title: '动态调整',
-    desc: '体重变了、目标改了，推荐自动跟着调。不用重新填，不用反复说。',
+    desc: '你只管变化，餐单它自己跟上，零重复操作。',
   },
   {
     icon: MessageSquareText,
     title: '直接回答',
-    desc: '你问"我的BMI是多少"，它直接给数值；你问"什么是BMI"，它给定义。不反问，不废话。',
+    desc: '像真人助理，问什么答什么，不绕弯。',
   },
 ];
 
 function AgentSection() {
+  const [chatTimes] = useState(() => {
+    const fmt = (d) =>
+      d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', hour12: false });
+    const base = new Date();
+    return [6, 4, 2, 0].map((m) => {
+      const d = new Date(base.getTime() - m * 60 * 1000);
+      return fmt(d);
+    });
+  });
+
   return (
     <section
       className="story-section story-agent section-panel panel-cream"
@@ -1096,9 +1106,60 @@ function AgentSection() {
                   <div className="chat-msg chat-msg--user chat-msg--pop">
                     <div className="chat-msg-main">
                       <div className="chat-bubble chat-bubble--user">
+                        女，身高 165，体重 60，平时坐办公室很少动。
+                      </div>
+                      <span className="chat-msg-time">{chatTimes[0]}</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        收到，先替你算一下：你的 BMI 约 22.0，属于正常范围；按你的活动量，每天建议摄入约 1650 kcal。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
+                        那我的 BMI 怎么算出来的？
+                      </div>
+                      <span className="chat-msg-time">{chatTimes[1]}</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        BMI = 体重(kg) ÷ 身高(m)²。你的是 60 ÷ 1.65² ≈ 22.0。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
+                        要是之后我体重变了，餐单要重填吗？
+                      </div>
+                      <span className="chat-msg-time">{chatTimes[2]}</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        不用。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
                         最近感觉胖了，你有什么推荐的健康餐吗？
                       </div>
-                      <span className="chat-msg-time">20:07</span>
+                      <span className="chat-msg-time">{chatTimes[3]}</span>
                     </div>
                   </div>
 
@@ -1113,7 +1174,6 @@ function AgentSection() {
                         <br />
                         3. 月计划：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。
                         <br /><br />
-                        下方为您推荐一款健康餐，点击可查看详情。
                       </div>
                     </div>
                   </div>
@@ -1191,6 +1251,7 @@ function StepsSection() {
         {/* 标题 */}
         <div className="steps-new-head">
           <h2>三步，每天准时开饭</h2>
+          <p className="steps-new-sub">填一次数据、确认偏好、准时就餐——把吃饭这件麻烦事，交给小折全程托管。</p>
         </div>
 
         {/* 左右双栏 */}
@@ -1372,20 +1433,26 @@ function PricingInline() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginTop: 'auto',
-                  minHeight: '54px', padding: '14px 26px', borderRadius: '999px',
-                  color: '#fff',
-                  border: '1px solid rgba(255,255,255,0.55)',
-                  background: 'linear-gradient(135deg, rgba(110,231,183,0.85), rgba(5,150,105,0.9))',
-                  fontWeight: 700, fontSize: '16px', textDecoration: 'none',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(5,150,105,0.3)',
-                }}
-              >
-                {plan.cta}
-              </a>
+              <div className="download-btn-group" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
+                <a
+                  href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    minHeight: '54px', padding: '14px 26px', borderRadius: '999px',
+                    color: '#fff',
+                    border: '1px solid rgba(255,255,255,0.55)',
+                    background: 'linear-gradient(135deg, rgba(110,231,183,0.85), rgba(5,150,105,0.9))',
+                    fontWeight: 700, fontSize: '16px', textDecoration: 'none',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(5,150,105,0.3)',
+                  }}
+                >
+                  {plan.cta}
+                </a>
+                <div className="download-qr-pop">
+                  <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                  <span>手机扫码下载</span>
+                </div>
+              </div>
             </article>
             </RevealOnScroll>
           ))}
@@ -1426,6 +1493,10 @@ function TrustSection() {
 
 const faqs = [
   {
+    q: 'AI 怎么算出我该吃多少？',
+    a: '你告诉它性别、年龄、身高、体重和活动量，它会用 Mifflin-St Jeor 公式算出你的基础代谢，再结合活动量得出每日总消耗，并据此给出热量与蛋白质、碳水、脂肪三大营养素的目标配比——不是凭经验猜，是算出来的。',
+  },
+  {
     q: '配送范围覆盖哪些城市？',
     a: '目前已覆盖上海、北京、深圳、杭州、成都的主城区，并在持续拓展。下单前 App 会根据你的收货地址自动校验能否送达。',
   },
@@ -1444,28 +1515,43 @@ const faqs = [
 ];
 
 function FaqSection() {
+  const [openSet, setOpenSet] = useState([]);
   return (
     <section className="faq section-panel panel-cream" id="faq" aria-label="常见问题">
-<div className="story-inner faq-inner">
-        <div className="faq-head">
-          <h2 className="faq-title"><SplitText>常见问题</SplitText></h2>
-          <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材与营养成分，这里回答了你能想到的</SplitText></p>
+      <div className="story-inner faq-inner">
+        <div className="faq-split">
+          <div className="faq-head">
+            <h2 className="faq-title"><SplitText>常见问题</SplitText></h2>
+            <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材与营养成分，这里回答了你能想到的</SplitText></p>
+          </div>
+          <ul className="faq-list">
+            {faqs.map((item, i) => {
+              const open = openSet.includes(i);
+              return (
+                <RevealOnScroll key={item.q} delay={i * 0.06} amount={0.08} variant="fadeIn">
+                  <li className={`faq-item${open ? ' is-open' : ''}`}>
+                    <button
+                      type="button"
+                      className="faq-q-row"
+                      aria-expanded={open}
+                      onClick={() =>
+                        setOpenSet((prev) =>
+                          open ? prev.filter((x) => x !== i) : [...prev, i]
+                        )
+                      }
+                    >
+                      <span className="faq-q">{item.q}</span>
+                      <ChevronDown className="faq-chevron" size={20} />
+                    </button>
+                    <div className="faq-a-wrap">
+                      <span className="faq-a">{item.a}</span>
+                    </div>
+                  </li>
+                </RevealOnScroll>
+              );
+            })}
+          </ul>
         </div>
-        <ul className="faq-list faq-grid">
-          {faqs.map((item, i) => (
-            <RevealOnScroll key={item.q} delay={i * 0.08} amount={0.08} variant="fadeIn">
-              <li className="faq-item">
-                <div className="faq-item-inner">
-                  <div className="faq-q-row">
-                    <span className="faq-q">{item.q}</span>
-                    <ChevronDown className="faq-chevron" size={20} />
-                  </div>
-                  <span className="faq-a">{item.a}</span>
-                </div>
-            </li>
-            </RevealOnScroll>
-          ))}
-        </ul>
       </div>
     </section>
   );

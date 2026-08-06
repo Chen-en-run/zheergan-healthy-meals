@@ -97,12 +97,8 @@ const ShinyText = ({
     if (pauseOnHover) setIsPaused(false);
   }, [pauseOnHover]);
 
-  const gradientStyle = {
-    backgroundImage: `linear-gradient(${spread}deg, ${color} 0%, ${color} 35%, ${shineColor} 50%, ${color} 65%, ${color} 100%)`,
-    backgroundSize: '200% auto',
-    WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-    WebkitTextFillColor: 'transparent'
+  const plainStyle = {
+    color
   };
 
   if (reveal) {
@@ -112,7 +108,7 @@ const ShinyText = ({
           <motion.span
             key={i}
             className={`shiny-text shiny-char ${className}`}
-            style={{ ...gradientStyle, backgroundPosition, display: 'inline-block' }}
+            style={{ ...plainStyle, display: 'inline-block' }}
             initial={{ opacity: 0, y: revealY }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -128,7 +124,7 @@ const ShinyText = ({
   return (
     <motion.span
       className={`shiny-text ${className}`}
-      style={{ ...gradientStyle, backgroundPosition }}
+      style={plainStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
