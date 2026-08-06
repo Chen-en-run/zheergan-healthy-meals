@@ -4748,6 +4748,7 @@ summary:focus-visible {
   padding: 14px;
   border-radius: var(--r-lg);
   background: #fff;
+  border: 1px solid rgba(43, 31, 20, 0.1);
   box-shadow: 0 20px 52px rgba(43, 31, 20, 0.22);
   opacity: 0;
   visibility: hidden;

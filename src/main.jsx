@@ -1434,20 +1434,26 @@ function PricingInline() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginTop: 'auto',
-                  minHeight: '54px', padding: '14px 26px', borderRadius: '999px',
-                  color: '#fff',
-                  border: '1px solid rgba(255,255,255,0.55)',
-                  background: 'linear-gradient(135deg, rgba(110,231,183,0.85), rgba(5,150,105,0.9))',
-                  fontWeight: 700, fontSize: '16px', textDecoration: 'none',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(5,150,105,0.3)',
-                }}
-              >
-                {plan.cta}
-              </a>
+              <div className="download-btn-group" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
+                <a
+                  href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    minHeight: '54px', padding: '14px 26px', borderRadius: '999px',
+                    color: '#fff',
+                    border: '1px solid rgba(255,255,255,0.55)',
+                    background: 'linear-gradient(135deg, rgba(110,231,183,0.85), rgba(5,150,105,0.9))',
+                    fontWeight: 700, fontSize: '16px', textDecoration: 'none',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.6), 0 16px 38px rgba(5,150,105,0.3)',
+                  }}
+                >
+                  {plan.cta}
+                </a>
+                <div className="download-qr-pop">
+                  <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                  <span>手机扫码下载</span>
+                </div>
+              </div>
             </article>
             </RevealOnScroll>
           ))}
