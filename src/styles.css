@@ -7019,31 +7019,35 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   justify-content: center;
 }
 
-/* ── 两张对话截图，左右并排 ── */
-.dialogue-v-stack {
+/* ── 三张对话截图，扇形排列 ── */
+.dialogue-fan {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .dialogue-img {
-  width: 260px;
+  width: 270px;
   border-radius: 20px;
   object-fit: contain;
   box-shadow:
     0 16px 48px rgba(43,31,20,0.18),
     0 6px 16px rgba(43,31,20,0.1);
-  transition: transform 0.3s ease;
 }
 
-.dialogue-img--top {
-  transform: rotate(-2deg);
+.dialogue-img--left {
+  transform: rotate(-5deg) translateY(8px);
 }
 
-.dialogue-img--bot {
-  transform: rotate(2deg);
+.dialogue-img--mid {
+  transform: translateY(-12px);
+  z-index: 2;
+}
+
+.dialogue-img--right {
+  transform: rotate(5deg) translateY(8px);
 }
 
 /* ── 新版三步流程：左文右卡，等高对齐 ── */
