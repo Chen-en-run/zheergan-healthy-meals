@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { flushSync } from 'react-dom';
 import {
@@ -726,9 +726,9 @@ function HotChainHero() {
         <span className="hc-blob hc-blob--2" />
         <span className="hc-blob hc-blob--3" />
       </div>
-      <div className="hotchain-grid max-frame">
-        {/* ========== 左栏：品牌宣传区 ========== */}
-        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left">
+      <div className="hotchain-grid hotchain-grid--center max-frame">
+        {/* ========== 居中品牌宣传区 ========== */}
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left hotchain-left--center">
           {/* 主标题 */}
           <h1 className="hotchain-title">
             <span className="hotchain-title-main">
@@ -781,413 +781,12 @@ function HotChainHero() {
           </div>
         </RevealOnScroll>
 
-        {/* ========== 右栏：AI 聊天演示区 ========== */}
-        <div className="hotchain-right">
-          <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
-          <div className={`chat-card${phase === 'detail' ? ' chat-card--detail' : ''}`}>
-            {/* 顶部信息栏 */}
-            <div className="chat-topbar">
-              {phase === 'detail' ? (
-                <>
-                  <span className="chat-name">食谱详情</span>
-                </>
-              ) : (
-                <>
-                  <div className="chat-topbar-info chat-topbar-info--center">
-                    <span className="chat-name">小折（基于你的身体数据计算）</span>
-                    <span className="chat-status">
-                      <span className="chat-status-dot" />
-                      在线 · 随时为你服务
-                    </span>
-                  </div>
-                </>
-              )}
-            </div>
-
-            {phase === 'detail' ? (
-              /* ===== 月计划 详情页 ===== */
-              <div className="detail-view">
-                <button
-                  className="chat-back-btn chat-back-btn--overlay"
-                  onClick={() => setPhase('chat')}
-                  aria-label="返回"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="15 18 9 12 15 6" />
-                  </svg>
-                </button>
-                <div
-                  className="detail-hero detail-hero--premium"
-                  ref={heroRef}
-                  onMouseMove={(e) => {
-                    if (!heroRef.current) return;
-                    const rect = heroRef.current.getBoundingClientRect();
-                    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 ~ 1
-                    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-                    setHeroTilt({ x: y * 6, y: x * -6 });
-                  }}
-                  onMouseLeave={() => setHeroTilt({ x: 0, y: 0 })}
-                  style={{ transform: `perspective(600px) rotateX(${heroTilt.x}deg) rotateY(${heroTilt.y}deg)`, transition: heroTilt.x === 0 ? 'transform 0.4s ease-out' : 'none' }}
-                >
-                  <img src={plan.hero} alt={plan.title} />
-                  <span className="detail-tag">热链配送 · 70°C 恒温直达</span>
-                </div>
-
-                <div className="detail-body">
-                  <div className="detail-header">
-                    <h3 className="detail-title"><SplitText>{plan.title}</SplitText></h3>
-                    <p className="detail-subtitle">{plan.sub}</p>
-                  </div>
-
-                  {/* 周期/详情折叠 */}
-                  <div className="detail-accordion">
-                    <button
-                      className={`detail-accordion-trigger ${detailOpen ? 'is-open' : ''}`}
-                      onClick={() => setDetailOpen(v => !v)}
-                    >
-                      <span>周期/详情</span>
-                      <ChevronDown size={16} />
-                    </button>
-                    {detailOpen && (
-                      <div className="detail-accordion-content">
-                        <p>{plan.desc}</p>
-                        <ul>
-                          <li>周期：{plan.cycle}</li>
-                          <li>服务：{detailPlan === '30' ? '营养师 1 对 1 咨询' : '标准食谱配送'}</li>
-                          <li>目标：{detailPlan === '30' ? '长期体重管理 / 1 对 1 营养师咨询' : detailPlan === '7' ? '高性价比 / 每周口味调优' : '低成本体验服务流程'}</li>
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* 阿折评估 */}
-                  <div className="detail-assessment">
-                    <div className="detail-section-label">阿折评估</div>
-                    <div className="detail-assessment-card">
-                      <div className="detail-assessment-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="22 12 16 18 10 12 2 6" />
-                        </svg>
-                      </div>
-                      <div className="detail-assessment-main">
-                        <p>为您选用 <strong>{energyOption.kcal} 千卡</strong> 规格</p>
-                        <p>预计体重 <strong className="detail-assessment-highlight">{weightChange}</strong></p>
-                      </div>
-                      <p className="detail-assessment-desc">
-                        根据你的身体数据与目标，该方案能有效在维持代谢的同时实现合理热量管理。
-                      </p>
-                      <button className="detail-assessment-report">
-                        详细评估报告
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="9 18 15 12 9 6" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* 能量规格 */}
-                  <div className="detail-energy">
-                    <div className="detail-section-label">能量规格</div>
-                    <div className="detail-energy-card">
-                      <strong>能量（单选）</strong>
-                      <p>建议选择 <strong>{recommendedOption.kcal} 千卡</strong> 规格，不低于 <strong>{minKcal} 千卡</strong>，不高于 <strong>{maxKcal} 千卡</strong>。</p>
-                      <div className="detail-energy-options">
-                        {activeEnergyData.options.map((opt) => (
-                          <label
-                            key={opt.kcal}
-                            className={`detail-energy-option${currentEnergy === opt.kcal ? ' is-active' : ''}`}
-                            onClick={() => setSelectedEnergy(opt.kcal)}
-                          >
-                            <input type="radio" name="energy-spec" value={opt.kcal} checked={currentEnergy === opt.kcal} readOnly />
-                            <span>{opt.label}</span>
-                          </label>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 每日餐单 */}
-                  <div className="detail-days">
-                    <div className="detail-section-label">每日餐单</div>
-                    <div className="detail-days-list">
-                      {Array.from({ length: plan.days }, (_, i) => i + 1).map((day) => {
-                        const isOpen = openDay === day;
-                        const meals = {
-                          breakfast: energyOption.meals.breakfast[day % energyOption.meals.breakfast.length],
-                          lunch: energyOption.meals.lunch[day % energyOption.meals.lunch.length],
-                          dinner: energyOption.meals.dinner[day % energyOption.meals.dinner.length],
-                        };
-                        return (
-                          <div key={day} className={`detail-day ${isOpen ? 'is-open' : ''}`}>
-                            <button
-                              className="detail-day-trigger"
-                              onClick={() => setOpenDay(isOpen ? null : day)}
-                            >
-                              <span>第 {day} 天</span>
-                              <ChevronDown size={15} />
-                            </button>
-                            {isOpen && (
-                              <div className="detail-day-content">
-                                <div className="detail-meal"><span>早餐</span>{meals.breakfast}</div>
-                                <div className="detail-meal"><span>午餐</span>{meals.lunch}</div>
-                                <div className="detail-meal"><span>晚餐</span>{meals.dinner}</div>
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* 食谱参数 */}
-                  <div className="detail-params">
-                    <div className="detail-section-label">食谱参数</div>
-                    <div className="detail-params-card">
-                      <div className="detail-params-row">
-                        <div className="detail-params-cell">
-                          <span>周期</span>
-                          <strong>{plan.cycle}</strong>
-                        </div>
-                        <div className="detail-params-cell">
-                          <span>估算单餐</span>
-                          <strong className="detail-params-price">{energyOption.unit}</strong>
-                        </div>
-                      </div>
-                      <div className="detail-params-cell detail-params-cell--full">
-                        <span>适宜人群</span>
-                        <strong>{plan.suit}</strong>
-                      </div>
-                      <div className="detail-params-cell detail-params-cell--full">
-                        <span>禁忌说明</span>
-                        <p>{plan.taboo}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 底部下单栏 */}
-                  <div className="detail-bottom detail-bottom--sticky">
-                    <div className="detail-price">
-                      <span className="detail-price-label">合计</span>
-                      <span className="detail-price-num">¥{energyOption.priceNum}<span>{energyOption.priceDec}</span></span>
-                    </div>
-                    <button className="detail-order-btn">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="9 18 15 12 9 6" />
-                      </svg>
-                      立即定制
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <>
-                {/* 聊天记录 — 逐条动画冒出 */}
-                <div className="chat-messages" ref={chatScrollRef} onClick={(e) => { if (e.target.closest('.chat-meal-card')) setPhase('detail'); }}>
-                  {chatSequence.slice(0, visibleCount).map((msg, i) => {
-                    if (msg.role === 'cards-30') {
-                      return (
-                        <div key={i} className="chat-msg chat-msg--ai chat-msg--pop">
-                          <div className="chat-meal-cards">
-                            <button
-                              className="chat-meal-card-standalone"
-                              onClick={() => { setDetailPlan('30'); setPhase('detail'); }}
-                              aria-label="查看月计划详情"
-                            >
-                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="月计划" />
-                              <div className="chat-meal-card-standalone-body">
-                                <strong>月计划</strong>
-                                <span>1 对 1 营养师 · 长期管理</span>
-                                <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">¥1792</span>
-                                  <span className="chat-meal-day-tag">28 天</span>
-                                </div>
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    }
-                    if (msg.role === 'cards') {
-                      return (
-                        <div key={i} className="chat-msg chat-msg--ai chat-msg--pop">
-                          <div className="chat-meal-cards">
-                            <button
-                              className="chat-meal-card-standalone"
-                              onClick={() => { setDetailPlan('1'); setPhase('detail'); }}
-                              aria-label="查看体验装详情"
-                            >
-                              <img src="/zheergan-healthy-meals/images/food-7.png" alt="体验装" />
-                              <div className="chat-meal-card-standalone-body">
-                                <strong>体验装</strong>
-                                <span>新用户 · 低成本体验</span>
-                                <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">¥228</span>
-                                  <span className="chat-meal-day-tag">3 天</span>
-                                </div>
-                              </div>
-                            </button>
-                            <button
-                              className="chat-meal-card-standalone"
-                              onClick={() => { setDetailPlan('7'); setPhase('detail'); }}
-                              aria-label="查看七日营养餐食谱详情"
-                            >
-                              <img src="/zheergan-healthy-meals/images/food-8.png" alt="周计划" />
-                              <div className="chat-meal-card-standalone-body">
-                                <strong>周计划</strong>
-                                <span>最划算 · 每周口味调优</span>
-                                <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">¥476</span>
-                                  <span className="chat-meal-day-tag">7 天</span>
-                                </div>
-                              </div>
-                            </button>
-                            <button
-                              className="chat-meal-card-standalone"
-                              onClick={() => { setDetailPlan('30'); setPhase('detail'); }}
-                              aria-label="查看月计划详情"
-                            >
-                              <img src="/zheergan-healthy-meals/images/food-9.png" alt="月计划" />
-                              <div className="chat-meal-card-standalone-body">
-                                <strong>月计划</strong>
-                                <span>1 对 1 营养师 · 长期管理</span>
-                                <div className="chat-meal-card-standalone-tags">
-                                  <span className="chat-meal-price-tag">¥1792</span>
-                                  <span className="chat-meal-day-tag">28 天</span>
-                                </div>
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    }
-                    return (
-                      <div
-                        key={i}
-                        className={`chat-msg ${msg.role === 'user' ? 'chat-msg--user' : 'chat-msg--ai'} chat-msg--pop`}
-                      >
-                        <div className="chat-msg-main">
-                          {msg.label && (
-                            <span className={`chat-msg-label ${msg.label === '分析' ? 'chat-msg-label--ai' : 'chat-msg-label--rec'}`}>
-                              {msg.label}
-                            </span>
-                          )}
-                          <div className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble--user' : 'chat-bubble--ai'}`}>
-                            {msg.text}
-                          </div>
-                          {msg.role === 'user' && (() => { const d = new Date(); const hh = String(d.getHours()).padStart(2, '0'); const mm = String(d.getMinutes()).padStart(2, '0'); return <span className="chat-msg-time">{`${hh}:${mm}`}</span>; })()}
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                  {/* 正在输入指示器 */}
-                  {typing && visibleCount < chatSequence.length && chatSequence[visibleCount].role === 'agent' && (
-                    <div className="chat-msg chat-msg--ai chat-msg--pop">
-                      <div className="chat-typing">
-                        <span className="chat-typing-text">AI正在思考中...</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* 查看食谱详情入口 */}
-                  {phase === 'entry' && (
-                    <div className="chat-msg chat-msg--ai chat-msg--pop">
-                      <div className="chat-bubble chat-bubble--entry">
-                        <span className="chat-entry-icon">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14 2 14 8 20 8" />
-                            <line x1="16" y1="13" x2="8" y2="13" />
-                            <line x1="16" y1="17" x2="8" y2="17" />
-                          </svg>
-                        </span>
-                        <span className="chat-entry-text">
-                          <strong>查看食谱详情</strong>
-                          <span>规格选择 · 立即下单</span>
-                        </span>
-                        <svg className="chat-entry-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="9 18 15 12 9 6" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
-
-                </div>
-
-                {/* 底部输入栏 */}
-                <div className="chat-input-bar">
-                  <div className="chat-input-field">
-                    <span className="chat-input-placeholder">告诉 Agent 你的需求...</span>
-                  </div>
-                  <button className="chat-send-btn" aria-label="发送">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="22" y1="2" x2="11" y2="13" />
-                      <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
-          </RevealOnScroll>
-        </div>
+        {/* ========== 右栏：AI 聊天演示区已移除 ========== */}
       </div>
     </section>
   );
 }
 
-function Hero() {
-  return (
-    <section className="hero section-panel panel-cream hero--liquid" aria-label="健康餐 App 首页">
-      {/* 液态玻璃:流动暖色光斑,作为玻璃层背后的"折射内容" */}
-      <div className="hero-blobs" aria-hidden="true">
-        <span className="blob blob-1" />
-        <span className="blob blob-2" />
-        <span className="blob blob-3" />
-        <span className="blob blob-4" />
-      </div>
-      <div className="texture" />
-      <div className="hero-grid max-frame">
-        <RevealOnScroll variant="fadeUp" amount={0.1} className="hero-copy">
-          <h1>
-            <ShinyText text="美味健康餐，真不贵" color="#2b1f14" shineColor="#059669" speed={3} spread={110} direction="left" reveal />
-          </h1>
-          <p className="hero-lede"><SplitText stagger={0.012}>
-            算法按你的身体数据定制餐单，合作餐厅每日现炒热送。<br />
-            不是水煮鸡胸，不是草沙拉——<br />
-            是锅气十足、荤素搭配的家常好味道。
-          </SplitText></p>
-        </RevealOnScroll>
-
-        <FoodBanner />
-
-        <RevealOnScroll variant="fadeUp" delay={0.1} className="hero-actions">
-          <div className="download-btn-group">
-            <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.96 5.96 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
-              Android 下载
-            </a>
-            <div className="download-qr-pop">
-              <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
-              <span>手机扫码下载</span>
-            </div>
-          </div>
-          <div className="download-btn-group">
-            <a className="hero-dl-btn" href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer">
-              <img src="/zheergan-healthy-meals/images/icon-apple.svg" alt="" style={{width:20,height:20,filter:'brightness(0) invert(1)'}} />
-              iOS 下载
-            </a>
-            <div className="download-qr-pop">
-              <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
-              <span>手机扫码下载</span>
-            </div>
-          </div>
-        </RevealOnScroll>
-
-      </div>
-    </section>
-  );
-}
 
 /* ================================================================
    FoodBanner — Hero 内的健康轻食产品展示轮播
@@ -1423,7 +1022,7 @@ const agentCaps = [
   },
   {
     icon: Activity,
-    title: '看懂 BMI',
+    title: '看懂BMI',
     desc: 'BMI偏瘦，推增重方案；BMI超重，推减重方案。不靠问卷猜，靠数据算。',
   },
   {
@@ -1460,7 +1059,8 @@ function AgentSection() {
           </SplitText></p>
         </RevealOnScroll>
 
-        <div className="agent-grid agent-grid--four">
+        <div className="agent-split">
+          <div className="agent-grid agent-grid--four">
           {agentCaps.map((cap, i) => {
             const I = cap.icon;
             return (
@@ -1475,6 +1075,101 @@ function AgentSection() {
               </RevealOnScroll>
             );
           })}
+          </div>
+
+          {/* 右侧：1:1 还原首页 Hero 的折耳根小助手聊天卡片 */}
+          <aside className="agent-aside">
+            <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
+              <div className="chat-card">
+                <div className="chat-topbar">
+                  <div className="chat-topbar-info chat-topbar-info--center">
+                    <span className="chat-name">折耳根小助手</span>
+                    <span className="chat-status">
+                      <span className="chat-status-dot" />
+                      在线 · 随时为你服务
+                    </span>
+                  </div>
+                </div>
+
+                <div className="chat-messages">
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
+                        最近感觉胖了，你有什么推荐的健康餐吗？
+                      </div>
+                      <span className="chat-msg-time">20:07</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        为你推荐折耳根的三档定制餐：
+                        <br /><br />
+                        1. 体验装：¥228 起，约 ¥38/餐，AI 定制 3 日餐单，午晚双餐热链配送，随时暂停无违约金。
+                        <br />
+                        2. 周计划：¥476，约 ¥34/餐，含体验装全部功能，每周口味学习调优，免配送费，最划算。
+                        <br />
+                        3. 月计划：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。
+                        <br /><br />
+                        下方为您推荐一款健康餐，点击可查看详情。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-meal-cards">
+                      <button className="chat-meal-card-standalone" aria-label="查看体验装详情">
+                        <img src="/zheergan-healthy-meals/images/food-7.png" alt="体验装" />
+                        <div className="chat-meal-card-standalone-body">
+                          <strong>体验装</strong>
+                          <span>新用户 · 低成本体验</span>
+                          <div className="chat-meal-card-standalone-tags">
+                            <span className="chat-meal-price-tag">¥228</span>
+                            <span className="chat-meal-day-tag">3 天</span>
+                          </div>
+                        </div>
+                      </button>
+                      <button className="chat-meal-card-standalone" aria-label="查看七日营养餐食谱详情">
+                        <img src="/zheergan-healthy-meals/images/food-8.png" alt="周计划" />
+                        <div className="chat-meal-card-standalone-body">
+                          <strong>周计划</strong>
+                          <span>最划算 · 每周口味调优</span>
+                          <div className="chat-meal-card-standalone-tags">
+                            <span className="chat-meal-price-tag">¥476</span>
+                            <span className="chat-meal-day-tag">7 天</span>
+                          </div>
+                        </div>
+                      </button>
+                      <button className="chat-meal-card-standalone" aria-label="查看月计划详情">
+                        <img src="/zheergan-healthy-meals/images/food-9.png" alt="月计划" />
+                        <div className="chat-meal-card-standalone-body">
+                          <strong>月计划</strong>
+                          <span>1 对 1 营养师 · 长期管理</span>
+                          <div className="chat-meal-card-standalone-tags">
+                            <span className="chat-meal-price-tag">¥1792</span>
+                            <span className="chat-meal-day-tag">28 天</span>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="chat-input-bar">
+                  <div className="chat-input-field">
+                    <span className="chat-input-placeholder">告诉 Agent 你的需求...</span>
+                  </div>
+                  <button className="chat-send-btn" aria-label="发送">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13" />
+                      <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </RevealOnScroll>
+          </aside>
         </div>
       </div>
     </section>

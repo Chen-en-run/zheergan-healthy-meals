@@ -1835,9 +1835,9 @@ img {
 .ingredient-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  gap: 36px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1240px;
   margin-top: 56px;
 }
 
@@ -1848,7 +1848,7 @@ img {
   text-align: left;
   padding: 0;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 24px;
   background: #ffffff;
   border: 1px solid rgba(43, 31, 20, 0.06);
   box-shadow: 0 10px 30px rgba(43, 31, 20, 0.06);
@@ -1862,7 +1862,7 @@ img {
 
 /* 左侧食材特写图 */
 .ingredient-img {
-  flex: 0 0 44%;
+  flex: 0 0 48%;
   align-self: stretch;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -1884,13 +1884,13 @@ img {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: 24px 24px 24px 26px;
+  padding: 36px 36px 36px 38px;
   min-width: 0;
 }
 
 .ingredient-name {
   margin: 0;
-  font-size: 22px;
+  font-size: 27px;
   font-weight: 700;
   color: var(--ink-cream);
   letter-spacing: 0.01em;
@@ -1898,24 +1898,24 @@ img {
 
 .ingredient-desc {
   display: block;
-  margin: 6px 0 0;
-  font-size: 13px;
+  margin: 9px 0 0;
+  font-size: 15px;
   color: var(--muted-cream);
 }
 
 .ingredient-nutri {
-  margin-top: 16px;
-  padding-top: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px dashed rgba(43, 31, 20, 0.12);
 }
 
 .ingredient-nutri-label {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: #119e6b;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .ingredient-nutri ul {
@@ -1925,21 +1925,9 @@ img {
 }
 
 .ingredient-nutri li {
-  position: relative;
-  font-size: 14px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.95;
   color: var(--ink-cream);
-  padding-left: 20px;
-}
-
-.ingredient-nutri li::before {
-  content: '✔';
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 12px;
-  line-height: 1.85;
-  color: #34D399;
 }
 
 /* 超小屏：单列堆叠，图片在上、文字在下 */
@@ -1958,6 +1946,72 @@ img {
   }
   .ingredient-body {
     padding: 20px;
+  }
+}
+
+/* ── 食材供应链：左侧 2×2 网格 + 右侧折耳根小助手卡片 ── */
+/* ── Agent 模块：左侧单列能力卡 + 右侧折耳根小助手卡片 ── */
+.agent-split {
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(588px, 1fr);
+  gap: 48px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 56px auto 0;
+  align-items: stretch;
+}
+
+.agent-split .agent-grid--four {
+  margin: 0;
+  margin-left: -140px;
+  max-width: none;
+  gap: 14px;
+}
+
+/* 右侧：1:1 还原的折耳根小助手聊天卡片（沿用 Hero 的 chat-card 样式） */
+.agent-aside {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-self: center;
+  width: 100%;
+}
+
+.agent-aside .chat-card-shell {
+  margin-left: auto;
+  margin-right: -140px;
+  width: 100%;
+  max-width: 588px;
+}
+
+/* 宽度、高度与首页 Hero 的聊天卡片完全一致 */
+.agent-aside .chat-card {
+  width: 560px;
+  max-width: 560px;
+  height: 760px;
+}
+
+/* 中等屏：小助手卡片移到下方，整行铺满 */
+@media (max-width: 1024px) {
+  .agent-split {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+  .agent-aside {
+    margin-top: 4px;
+    justify-content: center;
+    align-self: center;
+  }
+  .agent-aside .chat-card-shell {
+    margin-left: 0;
+  }
+}
+
+/* 超小屏：单列堆叠 */
+@media (max-width: 720px) {
+  .agent-split {
+    gap: 20px;
+    max-width: 460px;
   }
 }
 
@@ -5084,6 +5138,33 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   max-width: 620px;
 }
 
+/* 去掉右侧聊天卡片后，左栏文案整体居中铺满 */
+.hotchain-grid--center {
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-items: center;
+  gap: 28px;
+}
+
+.hotchain-left--center {
+  max-width: 760px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.hotchain-left--center .hotchain-title {
+  justify-content: center;
+}
+
+.hotchain-left--center .hero-actions {
+  justify-content: center;
+}
+
+.hotchain-left--center .hotchain-sells {
+  justify-content: center;
+}
+
 /* 胶囊标签 */
 .hotchain-tag {
   display: inline-flex;
@@ -6623,15 +6704,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
    美食展示 — 通栏大图 + 标题居中叠加（图2）
    ================================================================ */
 /* ================================================================
-   食材供应链 — 左文右四图 2×2 网格（图4）
+   食材供应链 — 2×2 网格（图4）
    ================================================================ */
-.ingredient-split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 64px;
-  align-items: center;
-}
-
 .ingredient-left {
   display: flex;
   flex-direction: column;
@@ -6856,31 +6930,42 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* AI 区块: 田字格 2×2 大卡片 + 完整占满视口 */
 .agent-grid--four {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  max-width: 900px;
-  margin: 0 auto;
-  gap: 24px;
+  grid-template-columns: 1fr !important;
+  max-width: 540px;
+  margin: 0;
+  gap: 14px;
 }
 
 .agent-grid--four .agent-card {
-  padding: 40px 36px 36px;
-  min-height: 220px;
+  padding: 24px 24px 24px;
+  min-height: 190px;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 16px;
 }
 
 .agent-grid--four .agent-card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
-  margin-bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.agent-grid--four .agent-card-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .agent-grid--four .agent-card h3 {
-  font-size: 22px;
+  font-size: 19px;
+  margin-bottom: 8px;
 }
 
 .agent-grid--four .agent-card p {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 15.5px;
+  line-height: 1.6;
 }
 
 /* 确保各区块足够高，完整展示 */
