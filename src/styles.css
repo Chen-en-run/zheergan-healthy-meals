@@ -7084,16 +7084,16 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .steps-new-text h3 {
   margin: 0;
-  font-size: clamp(18px, 1.3vw, 22px);
+  font-size: clamp(20px, 1.5vw, 25px);
   font-weight: 700;
   color: var(--ink-cream);
 }
 
 .steps-new-text p {
-  margin: 6px 0 0;
-  font-size: clamp(13px, 0.85vw, 15px);
+  margin: 8px 0 0;
+  font-size: clamp(14px, 0.95vw, 17px);
   color: var(--ink-body);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* 右栏：切换展示对应步骤图片 */
