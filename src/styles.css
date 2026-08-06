@@ -1816,10 +1816,24 @@ img {
 
 .ingredient-head h2 {
   margin: 0;
-  font-size: var(--fs-h2, 40px);
-  font-weight: 680;
-  line-height: 1.12;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  color: transparent;
+  background: linear-gradient(95deg, #ffffff 0%, var(--acid) 62%, var(--mint) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ingredient-head h2 .shiny-text {
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .ingredient-head p {
