@@ -1488,6 +1488,10 @@ function TrustSection() {
 
 const faqs = [
   {
+    q: 'AI 怎么算出我该吃多少？',
+    a: '你告诉它性别、年龄、身高、体重和活动量，它会用 Mifflin-St Jeor 公式算出你的基础代谢，再结合活动量得出每日总消耗，并据此给出热量与蛋白质、碳水、脂肪三大营养素的目标配比——不是凭经验猜，是算出来的。',
+  },
+  {
     q: '配送范围覆盖哪些城市？',
     a: '目前已覆盖上海、北京、深圳、杭州、成都的主城区，并在持续拓展。下单前 App 会根据你的收货地址自动校验能否送达。',
   },
@@ -1506,28 +1510,43 @@ const faqs = [
 ];
 
 function FaqSection() {
+  const [openSet, setOpenSet] = useState([]);
   return (
     <section className="faq section-panel panel-cream" id="faq" aria-label="常见问题">
-<div className="story-inner faq-inner">
-        <div className="faq-head">
-          <h2 className="faq-title"><SplitText>常见问题</SplitText></h2>
-          <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材与营养成分，这里回答了你能想到的</SplitText></p>
+      <div className="story-inner faq-inner">
+        <div className="faq-split">
+          <div className="faq-head">
+            <h2 className="faq-title"><SplitText>常见问题</SplitText></h2>
+            <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材与营养成分，这里回答了你能想到的</SplitText></p>
+          </div>
+          <ul className="faq-list">
+            {faqs.map((item, i) => {
+              const open = openSet.includes(i);
+              return (
+                <RevealOnScroll key={item.q} delay={i * 0.06} amount={0.08} variant="fadeIn">
+                  <li className={`faq-item${open ? ' is-open' : ''}`}>
+                    <button
+                      type="button"
+                      className="faq-q-row"
+                      aria-expanded={open}
+                      onClick={() =>
+                        setOpenSet((prev) =>
+                          open ? prev.filter((x) => x !== i) : [...prev, i]
+                        )
+                      }
+                    >
+                      <span className="faq-q">{item.q}</span>
+                      <ChevronDown className="faq-chevron" size={20} />
+                    </button>
+                    <div className="faq-a-wrap">
+                      <span className="faq-a">{item.a}</span>
+                    </div>
+                  </li>
+                </RevealOnScroll>
+              );
+            })}
+          </ul>
         </div>
-        <ul className="faq-list faq-grid">
-          {faqs.map((item, i) => (
-            <RevealOnScroll key={item.q} delay={i * 0.08} amount={0.08} variant="fadeIn">
-              <li className="faq-item">
-                <div className="faq-item-inner">
-                  <div className="faq-q-row">
-                    <span className="faq-q">{item.q}</span>
-                    <ChevronDown className="faq-chevron" size={20} />
-                  </div>
-                  <span className="faq-a">{item.a}</span>
-                </div>
-            </li>
-            </RevealOnScroll>
-          ))}
-        </ul>
       </div>
     </section>
   );
