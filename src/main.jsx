@@ -1253,6 +1253,7 @@ function StepsSection() {
         {/* 标题 */}
         <div className="steps-new-head">
           <h2><ShinyText text="三步，每天准时开饭" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></h2>
+          <p className="steps-new-sub">填一次数据、确认偏好、准时就餐——把吃饭这件麻烦事，交给小折全程托管。</p>
         </div>
 
         {/* 左右双栏 */}

@@ -7034,6 +7034,15 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   margin: 0;
 }
 
+.steps-new-sub {
+  max-width: 620px;
+  margin: 22px auto 0;
+  color: var(--ink-body);
+  font-size: clamp(15px, 1.05vw, 19px);
+  line-height: 1.85;
+  text-align: center;
+}
+
 .steps-new-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
