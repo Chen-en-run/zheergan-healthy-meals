@@ -726,25 +726,16 @@ function HotChainHero() {
         <span className="hc-blob hc-blob--2" />
         <span className="hc-blob hc-blob--3" />
       </div>
-      <div className="hotchain-grid hotchain-grid--center max-frame">
-        {/* ========== 居中品牌宣传区 ========== */}
-        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left hotchain-left--center">
-          {/* 标题+描述统一对齐块 */}
+      <div className="hotchain-grid max-frame">
+        {/* ========== 品牌宣传区 ========== */}
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left">
+          {/* 标题+描述 */}
           <div className="hotchain-hero-text">
-            <h1 className="hotchain-title hotchain-title--compact">
-              <span className="hotchain-title-main">
-                <ShinyText text="把吃饭交给小折" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
-              </span>
-              <span className="hotchain-title-main">
-                <ShinyText text="健康不必自己算" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
-              </span>
+            <h1 className="hotchain-title hotchain-title--plain">
+              你的身体数据<br />决定你的每一餐
             </h1>
-
             <p className="hotchain-desc hotchain-desc--wide">
-              告诉小折你的身体数据，它算出该吃多少、该吃什么。你确认，餐送到手。
-            </p>
-            <p className="hotchain-desc hotchain-desc--wide hotchain-desc--sub">
-              不用看食谱，不用算热量，不用纠结吃什么。
+              告诉小折你的身体数据，它配好餐送到你手上
             </p>
           </div>
 
@@ -785,7 +776,21 @@ function HotChainHero() {
           </div>
         </RevealOnScroll>
 
-        {/* ========== 右栏：AI 聊天演示区已移除 ========== */}
+        {/* ========== 右栏：两张对话截图轻微交错 ========== */}
+        <div className="hotchain-right">
+          <div className="dialogue-v-stack">
+            <img
+              className="dialogue-img dialogue-img--top"
+              src="/zheergan-healthy-meals/images/dialog-1.jpg"
+              alt="对话"
+            />
+            <img
+              className="dialogue-img dialogue-img--bot"
+              src="/zheergan-healthy-meals/images/dialog-2.jpg"
+              alt="对话"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
