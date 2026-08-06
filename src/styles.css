@@ -880,9 +880,7 @@ img {
 
 .menu-head-copy h2 span {
   display: block;
-  color: transparent;
-  background: linear-gradient(95deg, #ffffff 0%, var(--mint) 55%, var(--acid) 100%);
-  background-clip: text;
+  color: #ffffff;
 }
 
 .menu-head-copy p {
@@ -1691,9 +1689,7 @@ img {
 }
 
 .story-pain-title span {
-  color: transparent;
-  background: linear-gradient(95deg, #ffffff 0%, var(--acid) 62%, var(--mint) 100%);
-  background-clip: text;
+  color: #ffffff;
 }
 
 /* ── PainSplit：左图右文 ── */
@@ -1822,18 +1818,14 @@ img {
   letter-spacing: 0;
   text-align: center;
   font-family: var(--font-display);
-  color: transparent;
-  background: linear-gradient(95deg, #ffffff 0%, var(--acid) 62%, var(--mint) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 
 .ingredient-head h2 .shiny-text {
-  background: inherit;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentcolor;
 }
 
 .ingredient-head p {
@@ -2498,9 +2490,7 @@ img {
   font-size: clamp(42px, 4vw, 66px);
   font-weight: 700;
   line-height: 1;
-  color: transparent;
-  background: linear-gradient(120deg, var(--acid), var(--mint));
-  background-clip: text;
+  color: var(--mint);
 }
 
 .step-card h3 {
@@ -2632,9 +2622,7 @@ img {
   font-size: clamp(34px, 3.4vw, 58px);
   font-weight: 700;
   line-height: 1;
-  color: transparent;
-  background: linear-gradient(120deg, var(--acid), var(--mint));
-  background-clip: text;
+  color: var(--mint);
 }
 
 /* ── TrustStrip：横向数据条 ── */
@@ -2995,9 +2983,7 @@ img {
   font-size: 52px;
   font-weight: 680;
   line-height: 1;
-  color: transparent;
-  background: linear-gradient(135deg, #ffffff 0%, var(--ember) 100%);
-  background-clip: text;
+  color: #ffffff;
 }
 
 .proof-card-label {
@@ -5305,22 +5291,16 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   white-space: nowrap;
 }
 
-/* AI 紫粉渐变字(暖橙色调适配版) */
+/* AI 实色字 */
 .hc-grad-ai {
-  background: linear-gradient(135deg, #34D399 0%, #059669 50%, #10B981 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #059669;
   font-weight: 780;
   letter-spacing: -0.02em;
 }
 
-/* Agent 橙粉渐变字 */
+/* Agent 实色字 */
 .hc-grad-agent {
-  background: linear-gradient(135deg, #10B981 0%, #A7F3D0 50%, #047857 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #047857;
   font-weight: 780;
   letter-spacing: -0.02em;
 }
@@ -6949,12 +6929,6 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   font-size: clamp(28px, 2.8vw, 48px);
   font-weight: 680;
   color: #2b1f14;
-  background: linear-gradient(90deg, #2b1f14 0%, #34D399 50%, #2b1f14 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: hero-flash-once 2.5s ease-in-out 1 forwards;
 }
 
 @keyframes hero-flash-once {
