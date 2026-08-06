@@ -143,7 +143,7 @@ img {
 .menu-head-copy h2,
 .story-pain-title,
 .answer-line,
-.steps-head h2,
+.steps-new-head h2,
 .trust-head h2,
 .belief-line,
 .faq-title {
@@ -872,7 +872,7 @@ img {
 
 .menu-head-copy h2 {
   margin: 22px 0 0;
-  font-size: var(--fs-h1);
+  font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 0.94;
   letter-spacing: 0;
@@ -1681,7 +1681,7 @@ img {
 .story-pain-title {
   margin: 24px auto 0;
   max-width: 900px;
-  font-size: clamp(48px, 5.6vw, 96px);
+  font-size: var(--fs-h2);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: 0;
@@ -1812,7 +1812,7 @@ img {
 
 .ingredient-head h2 {
   margin: 0;
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: var(--fs-h2);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: 0;
@@ -3104,7 +3104,7 @@ img {
   }
 
   .story-pain-title {
-    font-size: clamp(28px, 6vw, 42px);
+    font-size: clamp(30px, 8vw, 42px);
   }
 
   .pain-split {
@@ -3130,7 +3130,7 @@ img {
   }
 
   .trust-head h2 {
-    font-size: clamp(30px, 9vw, 50px);
+    font-size: clamp(30px, 8vw, 42px);
   }
 
   .trust-strip {
@@ -3314,7 +3314,7 @@ img {
 
 .faq-title {
   margin: 0;
-  font-size: clamp(40px, 4.4vw, 64px);
+  font-size: var(--fs-h2);
   font-weight: 700;
   line-height: 1.06;
   letter-spacing: -0.01em;
@@ -7027,7 +7027,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .steps-new-head h2 {
-  font-size: clamp(48px, 5.6vw, 96px);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
   font-weight: 700;
   margin: 0;
 }
