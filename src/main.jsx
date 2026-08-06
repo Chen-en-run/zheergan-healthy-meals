@@ -1026,21 +1026,31 @@ const agentCaps = [
   {
     icon: Activity,
     title: '看懂BMI',
-    desc: 'BMI偏瘦，推增重方案；BMI超重，推减重方案。不靠问卷猜，靠数据算。',
+    desc: '用 BMI 判定增重还是减重，方案数据说了算。',
   },
   {
     icon: RefreshCw,
     title: '动态调整',
-    desc: '体重变了、目标改了，推荐自动跟着调。不用重新填，不用反复说。',
+    desc: '你只管变化，餐单它自己跟上，零重复操作。',
   },
   {
     icon: MessageSquareText,
     title: '直接回答',
-    desc: '你问"我的BMI是多少"，它直接给数值；你问"什么是BMI"，它给定义。不反问，不废话。',
+    desc: '像真人助理，问什么答什么，不绕弯。',
   },
 ];
 
 function AgentSection() {
+  const [chatTimes] = useState(() => {
+    const fmt = (d) =>
+      d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', hour12: false });
+    const base = new Date();
+    return [6, 4, 2, 0].map((m) => {
+      const d = new Date(base.getTime() - m * 60 * 1000);
+      return fmt(d);
+    });
+  });
+
   return (
     <section
       className="story-section story-agent section-panel panel-cream"
@@ -1098,9 +1108,60 @@ function AgentSection() {
                   <div className="chat-msg chat-msg--user chat-msg--pop">
                     <div className="chat-msg-main">
                       <div className="chat-bubble chat-bubble--user">
+                        女，身高 165，体重 60，平时坐办公室很少动。
+                      </div>
+                      <span className="chat-msg-time">{chatTimes[0]}</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        收到，先替你算一下：你的 BMI 约 22.0，属于正常范围；按你的活动量，每天建议摄入约 1650 kcal。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
+                        那我的 BMI 怎么算出来的？
+                      </div>
+                      <span className="chat-msg-time">{chatTimes[1]}</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        BMI = 体重(kg) ÷ 身高(m)²。你的是 60 ÷ 1.65² ≈ 22.0。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
+                        要是之后我体重变了，餐单要重填吗？
+                      </div>
+                      <span className="chat-msg-time">{chatTimes[2]}</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--ai chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--ai">
+                        不用。
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chat-msg chat-msg--user chat-msg--pop">
+                    <div className="chat-msg-main">
+                      <div className="chat-bubble chat-bubble--user">
                         最近感觉胖了，你有什么推荐的健康餐吗？
                       </div>
-                      <span className="chat-msg-time">20:07</span>
+                      <span className="chat-msg-time">{chatTimes[3]}</span>
                     </div>
                   </div>
 
@@ -1115,7 +1176,6 @@ function AgentSection() {
                         <br />
                         3. 月计划：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。
                         <br /><br />
-                        下方为您推荐一款健康餐，点击可查看详情。
                       </div>
                     </div>
                   </div>
