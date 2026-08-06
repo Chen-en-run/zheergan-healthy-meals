@@ -729,20 +729,24 @@ function HotChainHero() {
       <div className="hotchain-grid hotchain-grid--center max-frame">
         {/* ========== 居中品牌宣传区 ========== */}
         <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left hotchain-left--center">
-          {/* 主标题 */}
-          <h1 className="hotchain-title">
-            <span className="hotchain-title-main">
-              <ShinyText text="小折" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
-            </span>
-            <span className="hotchain-title-sub">
-              <span className="hc-grad-text-dark">你的 AI 健康餐助手</span>
-            </span>
-          </h1>
+          {/* 标题+描述统一对齐块 */}
+          <div className="hotchain-hero-text">
+            <h1 className="hotchain-title hotchain-title--compact">
+              <span className="hotchain-title-main">
+                <ShinyText text="把吃饭交给小折" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
+              </span>
+              <span className="hotchain-title-main">
+                <ShinyText text="健康不必自己算" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
+              </span>
+            </h1>
 
-          {/* 副标题 */}
-          <p className="hotchain-desc">
-            一个能帮你决定"吃什么"的 AI。你告诉它你的身体数据，它算出你该吃多少热量、匹配什么餐。你确认，餐配送到手。不用算，不用选，不用纠结
-          </p>
+            <p className="hotchain-desc hotchain-desc--wide">
+              告诉小折你的身体数据，它算出该吃多少、该吃什么。你确认，餐送到手。
+            </p>
+            <p className="hotchain-desc hotchain-desc--wide hotchain-desc--sub">
+              不用看食谱，不用算热量，不用纠结吃什么。
+            </p>
+          </div>
 
           {/* 按钮：照搬原 Hero 的下载按钮 */}
           <div className="hero-actions">
@@ -896,9 +900,8 @@ function PainSection() {
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          <ShinyText text="你缺的不是意志力" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /><br />
-          <span className="pain-line2"><ShinyText text="是有人帮你搞定" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></span><br />
-          <span className="pain-line3"><ShinyText text="每天吃什么" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></span>
+          <ShinyText text="缺的不是自律" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /><br />
+          <span className="pain-line2"><ShinyText text="是一顿省心的饭" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></span>
         </h2>
         <p className="story-pain-sub"><SplitText stagger={0.012}>每个人想好好吃饭的人，都卡在这一关</SplitText></p>
         <PainSplit />
@@ -1177,37 +1180,42 @@ function AgentSection() {
 }
 
 const steps = [
-  { no: '①', title: '填数据', desc: '性别、身高、体重、活动量——填一次，不用再填。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '填写身体数据' },
-  { no: '②', title: '小折配餐', desc: '匹配餐单，你确认就行。不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: 'AI智能配餐' },
-  { no: '③', title: '热链送达', desc: '餐厅现做，到手≥60℃，开盖即食。口口有锅气。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '热链配送直达' },
+  { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '填写身体数据' },
+  { no: '02', title: '小折配餐', desc: '匹配偏好，确认执行，不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: 'AI智能配餐' },
+  { no: '03', title: '热链送达', desc: '每日现做，准时送达，入口新鲜。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '热链配送直达' },
 ];
 
 function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
   return (
     <section className="story-section story-steps section-panel panel-cream" id="steps" aria-label="使用流程">
-<RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-steps-inner">
-        <div className="steps-head">
+      <div className="story-inner steps-new-layout">
+        {/* 标题 */}
+        <div className="steps-new-head">
           <h2><ShinyText text="三步，每天准时开饭" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></h2>
-          <p className="steps-sub"><SplitText stagger={0.012}>填数据 → 小折配餐 → 热链送达，每天不重样</SplitText></p>
         </div>
-        <div className="steps-split">
-          <div className="steps-split-left">
+
+        {/* 左右双栏 */}
+        <div className="steps-new-grid">
+          {/* 左栏：三步流程 */}
+          <div className="steps-new-left">
             {steps.map((step, i) => (
               <div
                 key={step.no}
-                className={`steps-item${i === activeStep ? ' is-active' : ''}`}
+                className={`steps-new-item${i === activeStep ? ' is-active' : ''}`}
                 onMouseEnter={() => setActiveStep(i)}
               >
-                <span className="steps-item-no">{step.no}</span>
-                <div className="steps-item-text">
-                  <h3><SplitText>{step.title}</SplitText></h3>
+                <span className="steps-new-no">{step.no}</span>
+                <div className="steps-new-text">
+                  <h3>{step.title}</h3>
                   <p>{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="steps-split-right">
+
+          {/* 右栏：切换展示对应步骤图片 */}
+          <div className="steps-new-right">
             <div className="steps-stage">
               {steps.map((step, i) => (
                 <div key={step.no} className={`steps-slide${i === activeStep ? ' is-active' : ''}`}>
@@ -1227,7 +1235,7 @@ function StepsSection() {
             </div>
           </div>
         </div>
-      </RevealOnScroll>
+      </div>
     </section>
   );
 }
