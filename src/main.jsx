@@ -726,25 +726,16 @@ function HotChainHero() {
         <span className="hc-blob hc-blob--2" />
         <span className="hc-blob hc-blob--3" />
       </div>
-      <div className="hotchain-grid hotchain-grid--center max-frame">
-        {/* ========== 居中品牌宣传区 ========== */}
-        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left hotchain-left--center">
-          {/* 标题+描述统一对齐块 */}
+      <div className="hotchain-grid max-frame">
+        {/* ========== 品牌宣传区 ========== */}
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left">
+          {/* 标题+描述 */}
           <div className="hotchain-hero-text">
-            <h1 className="hotchain-title hotchain-title--compact">
-              <span className="hotchain-title-main">
-                <ShinyText text="把吃饭交给小折" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
-              </span>
-              <span className="hotchain-title-main">
-                <ShinyText text="健康不必自己算" color="#2b1f14" shineColor="#34D399" speed={4} spread={130} direction="left" reveal />
-              </span>
+            <h1 className="hotchain-title hotchain-title--plain">
+              你的身体数据<br />决定你每一餐
             </h1>
-
             <p className="hotchain-desc hotchain-desc--wide">
-              告诉小折你的身体数据，它算出该吃多少、该吃什么。你确认，餐送到手。
-            </p>
-            <p className="hotchain-desc hotchain-desc--wide hotchain-desc--sub">
-              不用看食谱，不用算热量，不用纠结吃什么。
+              告诉小折你的身体数据，它配好餐送到你手上
             </p>
           </div>
 
@@ -785,7 +776,14 @@ function HotChainHero() {
           </div>
         </RevealOnScroll>
 
-        {/* ========== 右栏：AI 聊天演示区已移除 ========== */}
+        {/* ========== 右栏：三张对话截图扇形排列 ========== */}
+        <div className="hotchain-right">
+          <div className="dialogue-fan">
+            <img className="dialogue-img dialogue-img--left" src="/zheergan-healthy-meals/images/dialog-1.jpg" alt="对话" />
+            <img className="dialogue-img dialogue-img--mid" src="/zheergan-healthy-meals/images/dialog-2.jpg" alt="对话" />
+            <img className="dialogue-img dialogue-img--right" src="/zheergan-healthy-meals/images/dialog-3.jpg" alt="对话" />
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -900,8 +898,8 @@ function PainSection() {
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          <ShinyText text="缺的不是自律" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /><br />
-          <span className="pain-line2"><ShinyText text="是一顿省心的饭" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></span>
+          缺的不是自律<br />
+          <span className="pain-line2">是一顿省心的饭</span>
         </h2>
         <p className="story-pain-sub"><SplitText stagger={0.012}>每个人想好好吃饭的人，都卡在这一关</SplitText></p>
         <PainSplit />
@@ -939,7 +937,7 @@ function AnswerSection() {
         <div className="ingredient-head">
           <RevealOnScroll variant="fadeIn" amount={0.1}>
             <h2>
-              <ShinyText text="饭要天天吃，食材不能含糊" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
+              饭要天天吃，食材不能含糊
             </h2>
             <p>每一份食材标明产地、供应商，来源透明。</p>
           </RevealOnScroll>
@@ -1065,7 +1063,7 @@ function AgentSection() {
       <div className="story-inner agent-inner">
         <RevealOnScroll variant="fadeUp" amount={0.1}>
           <h2 className="agent-title">
-            <SplitText>能对话，</SplitText><ShinyText text="就能吃对" color="#2b1f14" shineColor="#059669" speed={3} spread={120} direction="left" reveal />
+            <SplitText>能对话，就能吃对</SplitText>
           </h2>
           <p className="agent-lede"><SplitText stagger={0.012}>
             折耳根 AI 不只是聊天。从听懂身体到直接回答，它把"吃什么"全程接管。
@@ -1252,7 +1250,7 @@ function StepsSection() {
       <div className="story-inner steps-new-layout">
         {/* 标题 */}
         <div className="steps-new-head">
-          <h2><ShinyText text="三步，每天准时开饭" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal /></h2>
+          <h2>三步，每天准时开饭</h2>
           <p className="steps-new-sub">填一次数据、确认偏好、准时就餐——把吃饭这件麻烦事，交给小折全程托管。</p>
         </div>
 
@@ -1396,7 +1394,7 @@ function PricingInline() {
     <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格方案">
       <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
         <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '12px' }}>
-          <ShinyText text="一顿外卖的价，吃定制健康餐" color="#2b1f14" shineColor="#34D399" speed={5} spread={110} direction="left" reveal />
+          一顿外卖的价，吃定制健康餐
         </h2>
         <p style={{ textAlign: 'center', color: 'var(--muted-cream)', fontSize: 'var(--fs-lede)', marginBottom: '52px', lineHeight: 1.6 }}>
           订得越长，单餐越省
