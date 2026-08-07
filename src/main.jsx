@@ -1650,21 +1650,15 @@ function Footer() {
         <div className="footer-new-links">
           <a href="#/company">公司简介</a>
           <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">商务合作</a>
+          <a href="/zheergan-healthy-meals/隐私政策.html" target="_blank" rel="noopener">隐私政策</a>
           <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">隐私政策</a>
+          <a href="/zheergan-healthy-meals/服务协议.html" target="_blank" rel="noopener">服务协议</a>
           <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">服务协议</a>
+          <a href="/zheergan-healthy-meals/版权投诉.html" target="_blank" rel="noopener">版权投诉</a>
           <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">权利声明</a>
+          <a href="/zheergan-healthy-meals/帮助中心.html" target="_blank" rel="noopener">帮助中心</a>
           <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">版本更新</a>
-          <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">帮助中心</a>
-          <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">版权投诉</a>
-          <span className="footer-new-sep">|</span>
-          <a href="javascript:void(0)">备案信息</a>
+          <a href="/zheergan-healthy-meals/版本更新.html" target="_blank" rel="noopener">版本更新</a>
         </div>
         {/* 下层:版权区 */}
         <div className="footer-new-copy">
@@ -1672,7 +1666,6 @@ function Footer() {
           <span>京ICP备2020042663号</span>
           <span>京网文[2026]2102-100号</span>
           <span>©2026 Ergen 折耳根健康餐</span>
-          <a href="javascript:void(0)">证照信息 ›</a>
         </div>
       </RevealOnScroll>
     </footer>
