@@ -7100,11 +7100,12 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .steps-new-no {
   font-size: clamp(72px, 8vw, 120px);
   font-weight: 680;
-  color: rgba(5, 150, 105, 0.16);
+  color: rgba(5, 150, 105, 0.28);
   line-height: 1;
   flex-shrink: 0;
   width: 130px;
   text-align: left;
+  transition: color 0.2s var(--ease-std);
 }
 
 .steps-new-text h3 {
@@ -7140,6 +7141,10 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   margin-left: -16px;
   padding-right: 16px;
   margin-right: -16px;
+}
+
+.steps-new-item.is-active .steps-new-no {
+  color: rgba(5, 150, 105, 0.42);
 }
 
 @media (max-width: 860px) {

@@ -1287,7 +1287,7 @@ function StepsSection() {
             <div className="steps-stage">
               {steps.map((step, i) => (
                 <div key={step.no} className={`steps-slide${i === activeStep ? ' is-active' : ''}`}>
-                  <img src={step.image} alt={step.imageAlt} loading="lazy" />
+                  <img src={step.image} alt={step.imageAlt} width="800" height="600" loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
