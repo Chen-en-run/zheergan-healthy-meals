@@ -1960,7 +1960,7 @@ img {
 .agent-split {
   display: grid;
   grid-template-columns: minmax(0, 600px) minmax(588px, 1fr);
-  gap: 48px;
+  gap: 16px;
   width: 100%;
   max-width: 1240px;
   margin: 56px auto 0;
