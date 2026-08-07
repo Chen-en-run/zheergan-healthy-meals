@@ -79,79 +79,79 @@ const meals = [
     title: '烟熏三文鱼平衡碗',
     kcal: '486 kcal',
     protein: '36g 蛋白质',
-    image: '/zheergan-healthy-meals/images/salmon.jpg',
+    image: '/zheergan-healthy-meals/images/salmon.webp',
   },
   {
     title: '柑香鸡肉谷物碗',
     kcal: '532 kcal',
     protein: '42g 蛋白质',
-    image: '/zheergan-healthy-meals/images/chicken.jpg',
+    image: '/zheergan-healthy-meals/images/chicken.webp',
   },
   {
     title: '牛油果绿蔬蛋碗',
     kcal: '418 kcal',
     protein: '28g 蛋白质',
-    image: '/zheergan-healthy-meals/images/avocado.jpg',
+    image: '/zheergan-healthy-meals/images/avocado.webp',
   },
   {
     title: '藜麦能量碗',
     kcal: '462 kcal',
     protein: '24g 蛋白质',
-    image: '/zheergan-healthy-meals/images/quinoa.jpg',
+    image: '/zheergan-healthy-meals/images/quinoa.webp',
   },
   {
     title: '金枪鱼波奇碗',
     kcal: '508 kcal',
     protein: '38g 蛋白质',
-    image: '/zheergan-healthy-meals/images/tuna.jpg',
+    image: '/zheergan-healthy-meals/images/tuna.webp',
   },
   {
     title: '黑椒牛肉能量盘',
     kcal: '568 kcal',
     protein: '44g 蛋白质',
-    image: '/zheergan-healthy-meals/images/dish-14.jpg',
+    image: '/zheergan-healthy-meals/images/dish-14.webp',
   },
   {
     title: '田园时蔬沙拉',
     kcal: '320 kcal',
     protein: '18g 蛋白质',
-    image: '/zheergan-healthy-meals/images/salad.jpg',
+    image: '/zheergan-healthy-meals/images/salad.webp',
   },
   {
     title: '香煎鸡胸藜麦饭',
     kcal: '448 kcal',
     protein: '40g 蛋白质',
-    image: '/zheergan-healthy-meals/images/dish-07.jpg',
+    image: '/zheergan-healthy-meals/images/dish-07.webp',
   },
   {
     title: '泰式青咖喱虾仁',
     kcal: '392 kcal',
     protein: '32g 蛋白质',
-    image: '/zheergan-healthy-meals/images/dish-08.jpg',
+    image: '/zheergan-healthy-meals/images/dish-08.webp',
   },
   {
     title: '日式照烧三文鱼',
     kcal: '475 kcal',
     protein: '35g 蛋白质',
-    image: '/zheergan-healthy-meals/images/dish-09.jpg',
+    image: '/zheergan-healthy-meals/images/dish-09.webp',
   },
   {
     title: '番茄牛腩糙米饭',
     kcal: '542 kcal',
     protein: '38g 蛋白质',
-    image: '/zheergan-healthy-meals/images/dish-10.jpg',
+    image: '/zheergan-healthy-meals/images/dish-10.webp',
   },
   {
     title: '柠檬蒜香鸡腿肉',
     kcal: '498 kcal',
     protein: '42g 蛋白质',
-    image: '/zheergan-healthy-meals/images/dish-11.jpg',
+    image: '/zheergan-healthy-meals/images/dish-11.webp',
   },
   {
     title: '麻辣香锅素菜碗',
     kcal: '365 kcal',
     protein: '22g 蛋白质',
-    image: '/zheergan-healthy-meals/images/dish-12.jpg',
+    image: '/zheergan-healthy-meals/images/dish-12.webp',
   },
 ];
 
@@ -617,7 +617,7 @@ function HotChainHero() {
     '1': {
       title: '体验装',
       sub: '¥228 起 · AI 定制 3 日餐单',
-      hero: '/zheergan-healthy-meals/images/food-7.png',
+      hero: '/zheergan-healthy-meals/images/food-7.webp',
       days: 3,
       price: '¥228', priceNum: '228', priceDec: '',
       unit: '¥38.0',
@@ -629,7 +629,7 @@ function HotChainHero() {
     '7': {
       title: '周计划',
       sub: '最划算 · 每周口味学习调优',
-      hero: '/zheergan-healthy-meals/images/food-8.png',
+      hero: '/zheergan-healthy-meals/images/food-8.webp',
       days: 7,
       price: '¥476', priceNum: '476', priceDec: '',
       unit: '¥34.0',
@@ -641,7 +641,7 @@ function HotChainHero() {
     '30': {
       title: '月计划',
       sub: '深度定制 · 1 对 1 营养师咨询',
-      hero: '/zheergan-healthy-meals/images/food-9.png',
+      hero: '/zheergan-healthy-meals/images/food-9.webp',
       days: 28,
       price: '¥1792', priceNum: '1792', priceDec: '',
       unit: '¥32.0',
@@ -756,7 +756,7 @@ function HotChainHero() {
                 Android 下载
               </a>
               <div className="download-qr-pop">
-                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <img src="/zheergan-healthy-meals/images/qrcode.webp" alt="扫码下载" />
                 <span>手机扫码下载</span>
               </div>
             </div>
@@ -766,7 +766,7 @@ function HotChainHero() {
                 iOS 下载
               </a>
               <div className="download-qr-pop">
-                <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                <img src="/zheergan-healthy-meals/images/qrcode.webp" alt="扫码下载" />
                 <span>手机扫码下载</span>
               </div>
             </div>
@@ -788,9 +788,9 @@ function HotChainHero() {
         {/* ========== 右栏：三张对话截图扇形排列 ========== */}
         <div className="hotchain-right">
           <div className="dialogue-fan">
-            <img className="dialogue-img dialogue-img--left" src="/zheergan-healthy-meals/images/dialog-1.jpg" alt="对话" />
-            <img className="dialogue-img dialogue-img--mid" src="/zheergan-healthy-meals/images/dialog-2.jpg" alt="对话" />
-            <img className="dialogue-img dialogue-img--right" src="/zheergan-healthy-meals/images/dialog-3.jpg" alt="对话" />
+            <img className="dialogue-img dialogue-img--left" src="/zheergan-healthy-meals/images/dialog-1.webp" alt="对话" />
+            <img className="dialogue-img dialogue-img--mid" src="/zheergan-healthy-meals/images/dialog-2.webp" alt="对话" />
+            <img className="dialogue-img dialogue-img--right" src="/zheergan-healthy-meals/images/dialog-3.webp" alt="对话" />
           </div>
         </div>
       </div>
@@ -805,10 +805,10 @@ function HotChainHero() {
    ================================================================ */
 
 const foodSlides = [
-  { src: '/zheergan-healthy-meals/images/food/1.png', tag: '低卡轻食 · 营养均衡' },
-  { src: '/zheergan-healthy-meals/images/food/2.png', tag: '鲜蔬蛋白 · 元气满满' },
-  { src: '/zheergan-healthy-meals/images/food/3.png', tag: '高蛋白餐 · 增肌优选' },
-  { src: '/zheergan-healthy-meals/images/food/4.png', tag: '抗氧化碗 · 活力一天' },
+  { src: '/zheergan-healthy-meals/images/food/1.webp', tag: '低卡轻食 · 营养均衡' },
+  { src: '/zheergan-healthy-meals/images/food/2.webp', tag: '鲜蔬蛋白 · 元气满满' },
+  { src: '/zheergan-healthy-meals/images/food/3.webp', tag: '高蛋白餐 · 增肌优选' },
+  { src: '/zheergan-healthy-meals/images/food/4.webp', tag: '抗氧化碗 · 活力一天' },
 ];
 
 function FoodBanner() {
@@ -858,9 +858,9 @@ function FoodBanner() {
 }
 
 const painPoints = [
-  { keyword: '外卖重油重盐', tag: '饮食困境', desc: '吃完心里难受，罪恶感爆棚', image: '/zheergan-healthy-meals/images/pain-takeout.png' },
-  { keyword: '自己做费时费力', tag: '时间成本', desc: '买菜洗切炒刷碗，没时间也没精力', image: '/zheergan-healthy-meals/images/pain-headache.png' },
-  { keyword: '减脂餐难吃', tag: '恶性循环', desc: '坚持不过第三天，最后还是炸鸡奶茶兜底', image: '/zheergan-healthy-meals/images/pain-friedchicken.png' },
+  { keyword: '外卖重油重盐', tag: '饮食困境', desc: '吃完心里难受，罪恶感爆棚', image: '/zheergan-healthy-meals/images/pain-takeout.webp' },
+  { keyword: '自己做费时费力', tag: '时间成本', desc: '买菜洗切炒刷碗，没时间也没精力', image: '/zheergan-healthy-meals/images/pain-headache.webp' },
+  { keyword: '减脂餐难吃', tag: '恶性循环', desc: '坚持不过第三天，最后还是炸鸡奶茶兜底', image: '/zheergan-healthy-meals/images/pain-friedchicken.webp' },
 ];
 
 function PainSplit() {
@@ -920,17 +920,17 @@ function PainSection() {
 
 const answerVisuals_old = [
   {
-    src: '/zheergan-healthy-meals/images/answer-nutrition.jpg',
+    src: '/zheergan-healthy-meals/images/answer-nutrition.webp',
     alt: '营养均衡的健康碗 — 蛋白质、碳水、脂肪已配平',
     caption: '算法替你算好热量',
   },
   {
-    src: '/zheergan-healthy-meals/images/answer-chef.jpg',
+    src: '/zheergan-healthy-meals/images/answer-chef.webp',
     alt: '商家主厨调味的健康餐 — 好吃才能坚持',
     caption: '主厨替你管好味道',
   },
   {
-    src: '/zheergan-healthy-meals/images/answer-delivery.jpg',
+    src: '/zheergan-healthy-meals/images/answer-delivery.webp',
     alt: '保温箱送到门口的健康餐 — 开盖热气扑脸',
     caption: '骑手替你保温送到',
   },
@@ -954,7 +954,7 @@ function AnswerSection() {
         <div className="ingredient-grid">
           {[
             {
-              img: '/zheergan-healthy-meals/images/salad.jpg',
+              img: '/zheergan-healthy-meals/images/salad.webp',
               name: '蔬果',
               desc: '每日直采·新鲜到店',
               nutrition: [
@@ -964,7 +964,7 @@ function AnswerSection() {
               ],
             },
             {
-              img: '/zheergan-healthy-meals/images/quinoa.jpg',
+              img: '/zheergan-healthy-meals/images/quinoa.webp',
               name: '杂粮',
               desc: '产地直供·可溯源',
               nutrition: [
@@ -974,7 +974,7 @@ function AnswerSection() {
               ],
             },
             {
-              img: '/zheergan-healthy-meals/images/tuna.jpg',
+              img: '/zheergan-healthy-meals/images/tuna.webp',
               name: '海鲜蛋奶',
               desc: '当日到货·不囤货',
               nutrition: [
@@ -984,7 +984,7 @@ function AnswerSection() {
               ],
             },
             {
-              img: '/zheergan-healthy-meals/images/chicken.jpg',
+              img: '/zheergan-healthy-meals/images/chicken.webp',
               name: '肉类',
               desc: '资质定期复查',
               nutrition: [
@@ -1190,7 +1190,7 @@ function AgentSection() {
                   <div className="chat-msg chat-msg--ai chat-msg--pop">
                     <div className="chat-meal-cards">
                       <button className="chat-meal-card-standalone" aria-label="查看体验装详情">
-                        <img src="/zheergan-healthy-meals/images/food-7.png" alt="体验装" />
+                        <img src="/zheergan-healthy-meals/images/food-7.webp" alt="体验装" />
                         <div className="chat-meal-card-standalone-body">
                           <strong>体验装</strong>
                           <span>新用户 · 低成本体验</span>
@@ -1201,7 +1201,7 @@ function AgentSection() {
                         </div>
                       </button>
                       <button className="chat-meal-card-standalone" aria-label="查看七日营养餐食谱详情">
-                        <img src="/zheergan-healthy-meals/images/food-8.png" alt="周计划" />
+                        <img src="/zheergan-healthy-meals/images/food-8.webp" alt="周计划" />
                         <div className="chat-meal-card-standalone-body">
                           <strong>周计划</strong>
                           <span>最划算 · 每周口味调优</span>
@@ -1212,7 +1212,7 @@ function AgentSection() {
                         </div>
                       </button>
                       <button className="chat-meal-card-standalone" aria-label="查看月计划详情">
-                        <img src="/zheergan-healthy-meals/images/food-9.png" alt="月计划" />
+                        <img src="/zheergan-healthy-meals/images/food-9.webp" alt="月计划" />
                         <div className="chat-meal-card-standalone-body">
                           <strong>月计划</strong>
                           <span>1 对 1 营养师 · 长期管理</span>
@@ -1247,9 +1247,9 @@ function AgentSection() {
 }
 
 const steps = [
-  { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。', image: '/zheergan-healthy-meals/images/step-body2.png', imageAlt: '填写身体数据' },
-  { no: '02', title: '小折配餐', desc: '匹配偏好，确认执行，不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/step-tdee2.png', imageAlt: 'AI智能配餐' },
-  { no: '03', title: '热链送达', desc: '每日现做，准时送达，入口新鲜。', image: '/zheergan-healthy-meals/images/step-delivery2.png', imageAlt: '热链配送直达' },
+  { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。', image: '/zheergan-healthy-meals/images/step-body2.webp', imageAlt: '填写身体数据' },
+  { no: '02', title: '小折配餐', desc: '匹配偏好，确认执行，不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/step-tdee2.webp', imageAlt: 'AI智能配餐' },
+  { no: '03', title: '热链送达', desc: '每日现做，准时送达，入口新鲜。', image: '/zheergan-healthy-meals/images/step-delivery2.webp', imageAlt: '热链配送直达' },
 ];
 
 function StepsSection() {
@@ -1458,7 +1458,7 @@ function PricingInline() {
                   {plan.cta}
                 </a>
                 <div className="download-qr-pop">
-                  <img src="/zheergan-healthy-meals/images/qrcode.png" alt="扫码下载" />
+                  <img src="/zheergan-healthy-meals/images/qrcode.webp" alt="扫码下载" />
                   <span>手机扫码下载</span>
                 </div>
               </div>
@@ -1569,8 +1569,8 @@ function FaqSection() {
 const downloadPlatforms = [
   { img: '/zheergan-healthy-meals/images/icon-win.svg', label: 'Windows', dl: '点击下载 Windows 版' },
   { img: '/zheergan-healthy-meals/images/icon-apple.svg', label: 'Mac OS', dl: '点击下载 Mac 版' },
-  { img: '/zheergan-healthy-meals/images/icon-phone.svg', label: '手机', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
-  { img: '/zheergan-healthy-meals/images/icon-tablet.svg', label: '平板', qr: '/zheergan-healthy-meals/images/qrcode-dl.png' },
+  { img: '/zheergan-healthy-meals/images/icon-phone.svg', label: '手机', qr: '/zheergan-healthy-meals/images/qrcode-dl.webp' },
+  { img: '/zheergan-healthy-meals/images/icon-tablet.svg', label: '平板', qr: '/zheergan-healthy-meals/images/qrcode-dl.webp' },
 ];
 
 function DownloadSection() {

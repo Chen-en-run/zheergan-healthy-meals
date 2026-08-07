@@ -1,0 +1,9 @@
+ProcessError: From https://github.com/Chen-en-run/zheergan-healthy-meals
+   7270824..605cd1a  feature/chenenrun/web -> origin/feature/chenenrun/web
+error: fetching ref refs/remotes/origin/feature/chenenrun/web failed: incorrect old value provided
+
+    at ChildProcess.<anonymous> (D:\web_ergen\node_modules\gh-pages\lib\git.js:42:16)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5)
+DEPLOY_FAILED Command failed: npx gh-pages -d dist --nojekyll -m "deploy: web updates"
