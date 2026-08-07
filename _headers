@@ -1,0 +1,16 @@
+# 安全响应头配置
+# 适用范围：Netlify / Cloudflare Pages（放到部署根目录即生效）
+# GitHub Pages 目前不支持自定义响应头，若需生效请迁移到上述平台或自托管 CDN。
+# 部署路径前缀为 /zheergan-healthy-meals/，故对子路径做匹配。
+
+/zheergan-healthy-meals/*
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' https://github.com
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
