@@ -731,7 +731,16 @@ function HotChainHero() {
         <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left">
           {/* 标题+描述 */}
           <div className="hotchain-hero-text">
-            <h1 className="hotchain-title hotchain-title--plain">
+            <h1
+              className="hotchain-title hotchain-title--plain"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'var(--fs-h2)',
+                fontWeight: 680,
+                lineHeight: 1.04,
+                letterSpacing: '-0.01em',
+              }}
+            >
               你的身体数据<br />决定你每一餐
             </h1>
             <p className="hotchain-desc hotchain-desc--wide">
@@ -936,7 +945,7 @@ function AnswerSection() {
       <div className="story-inner story-answer-inner" aria-label="食材供应链">
         <div className="ingredient-head">
           <RevealOnScroll variant="fadeIn" amount={0.1}>
-            <h2>
+            <h2 style={{ color: '#000000' }}>
               饭要天天吃，食材不能含糊
             </h2>
             <p>每一份食材标明产地、供应商，来源透明。</p>
