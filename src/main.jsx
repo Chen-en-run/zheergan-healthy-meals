@@ -866,14 +866,46 @@ const painPoints = [
 function PainSplit() {
   const [activeImg, setActiveImg] = useState(0);
   const [direction, setDirection] = useState(1); /* 1=向下转入, -1=向上转出 */
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(true);
+  const wrapRef = useRef(null);
 
   const switchTo = (i) => {
     setDirection(i > activeImg ? 1 : -1);
     setActiveImg(i);
   };
 
+  /* 只有区块进入视口时才轮播，省性能 */
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  /* 自动轮播：3.5s 切一张，鼠标悬停/减动偏好时暂停 */
+  useEffect(() => {
+    if (paused || !inView) return;
+    if (typeof window !== 'undefined'
+      && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    const timer = setInterval(() => {
+      setDirection(1);
+      setActiveImg((prev) => (prev + 1) % painPoints.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [paused, inView]);
+
   return (
-    <div className="pain-split">
+    <div
+      className="pain-split"
+      ref={wrapRef}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="pain-split-left">
         <div className="pain-split-stage">
           {painPoints.map((point, i) => (
