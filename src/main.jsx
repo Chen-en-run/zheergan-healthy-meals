@@ -1070,34 +1070,25 @@ function AgentSection() {
         <span className="agent-blob agent-blob--3" />
       </div>
       <div className="story-inner agent-inner">
-        <RevealOnScroll variant="fadeUp" amount={0.1}>
-          <h2 className="agent-title">
-            <SplitText>能对话，就能吃对</SplitText>
-          </h2>
-          <p className="agent-lede"><SplitText stagger={0.012}>
-            折耳根 AI 不只是聊天。从听懂身体到直接回答，它把"吃什么"全程接管。
-          </SplitText></p>
-        </RevealOnScroll>
-
         <div className="agent-split">
-          <div className="agent-grid agent-grid--four">
-          {agentCaps.map((cap, i) => {
-            const I = cap.icon;
-            return (
-              <RevealOnScroll key={cap.title} delay={i * 0.08} amount={0.08} variant="popUp" className="agent-card-cell">
-                <article className="agent-card">
-                  <span className="agent-card-icon">
-                    <I size={24} />
-                  </span>
-                  <h3><SplitText>{cap.title}</SplitText></h3>
-                  <p>{cap.desc}</p>
-                </article>
-              </RevealOnScroll>
-            );
-          })}
+          <div className="agent-left">
+            <h2 className="agent-title"><SplitText>能对话，就能吃对</SplitText></h2>
+            <p className="agent-lede"><SplitText stagger={0.012}>
+              折耳根 AI 不只是聊天。从听懂身体到直接回答，它把"吃什么"全程接管。
+            </SplitText></p>
+            <div className="agent-mini-grid">
+              {agentCaps.map((cap, i) => {
+                const I = cap.icon;
+                return (
+                  <article key={cap.title} className="agent-mini-card">
+                    <span className="agent-mini-icon"><I size={20} /></span>
+                    <h4>{cap.title}</h4>
+                    <p>{cap.desc}</p>
+                  </article>
+                );
+              })}
+            </div>
           </div>
-
-          {/* 右侧：1:1 还原首页 Hero 的折耳根小助手聊天卡片 */}
           <aside className="agent-aside">
             <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
               <div className="chat-card">
@@ -1413,7 +1404,7 @@ function PricingInline() {
             <RevealOnScroll key={plan.name} delay={i * 0.12} amount={0.1} variant="scaleIn" style={{ height: '100%' }}>
               <article
               style={{
-                display: 'flex', flexDirection: 'column', padding: '40px 60px 38px', height: '100%',
+                display: 'flex', flexDirection: 'column', padding: 'clamp(24px, 3vw, 40px) clamp(24px, 3.5vw, 60px) 38px', height: '100%',
                 border: '1px solid rgba(43,31,20,0.06)',
                 borderRadius: 'var(--r-2xl)',
                 background: '#ffffff',
