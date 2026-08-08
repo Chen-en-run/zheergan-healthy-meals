@@ -1247,62 +1247,135 @@ function AgentSection() {
 }
 
 const steps = [
-  { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。', image: '/zheergan-healthy-meals/images/step-body2.webp', imageAlt: '填写身体数据' },
-  { no: '02', title: '小折配餐', desc: '匹配偏好，确认执行，不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/step-tdee2.webp', imageAlt: 'AI智能配餐' },
-  { no: '03', title: '热链送达', desc: '每日现做，准时送达，入口新鲜。', image: '/zheergan-healthy-meals/images/step-delivery2.webp', imageAlt: '热链配送直达' },
+  { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。' },
+  { no: '02', title: '小折配餐', desc: '匹配偏好，确认执行，不用算，不用选，不用纠结。' },
+  { no: '03', title: '热链送达', desc: '每日现做，准时送达，入口新鲜。' },
 ];
+
+/* 手机界面示意：纯 CSS，去掉真实日期、产品化 UI */
+function PhoneScreen({ step }) {
+  return (
+    <div className="phone-mock" aria-hidden="true">
+      <div className="phone-notch" />
+      <div className="phone-screen">
+        {step === 0 && (
+          <div className="phone-ui">
+            <div className="phone-ui-head">身体数据</div>
+            <div className="phone-field"><span>性别</span><b>女</b></div>
+            <div className="phone-field"><span>年龄</span><b>28</b></div>
+            <div className="phone-field"><span>身高</span><b>165 cm</b></div>
+            <div className="phone-field"><span>体重</span><b>58 kg</b></div>
+            <div className="phone-field"><span>活动量</span><b>久坐</b></div>
+            <div className="phone-pill">AI 已识别你的基础代谢</div>
+          </div>
+        )}
+        {step === 1 && (
+          <div className="phone-ui">
+            <div className="phone-ui-head">今日配餐</div>
+            <div className="phone-meal"><span>早餐</span><b>燕麦杯 · 鸡蛋 · 蓝莓</b></div>
+            <div className="phone-meal"><span>午餐</span><b>糙米 · 鸡胸 · 西兰花</b></div>
+            <div className="phone-meal"><span>晚餐</span><b>藜麦 · 三文鱼 · 时蔬</b></div>
+            <div className="phone-stat">
+              <div><b>1480</b><span>kcal</span></div>
+              <div><b>92g</b><span>蛋白质</span></div>
+            </div>
+          </div>
+        )}
+        {step === 2 && (
+          <div className="phone-ui">
+            <div className="phone-ui-head">配送追踪</div>
+            <div className="phone-track">
+              <div className="phone-track-dot done" />
+              <div className="phone-track-line done" />
+              <div className="phone-track-dot done" />
+              <div className="phone-track-line" />
+              <div className="phone-track-dot" />
+            </div>
+            <div className="phone-track-label">商家已接单，正在制作</div>
+            <div className="phone-eta">预计送达 <b>12:30</b></div>
+            <div className="phone-pill">准时 · 入口新鲜</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
+  const blockRefs = useRef([]);
+
+  /* 滚动驱动：每个步骤块滚到视口中部时切换右侧手机图 */
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number(entry.target.dataset.idx);
+            setActiveStep(idx);
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+    blockRefs.current.forEach((el) => el && obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <section className="story-section story-steps section-panel panel-cream" id="steps" aria-label="使用流程">
-      <div className="story-inner steps-new-layout">
+    <section
+      className="story-section story-steps section-panel panel-cream"
+      id="steps"
+      aria-label="使用流程"
+    >
+      <div className="story-inner steps-sticky-layout">
         {/* 标题 */}
         <div className="steps-new-head">
           <h2>三步，每天准时开饭</h2>
           <p className="steps-new-sub">填一次数据、确认偏好、准时就餐——把吃饭这件麻烦事，交给小折全程托管。</p>
         </div>
 
-        {/* 左右双栏 */}
-        <div className="steps-new-grid">
-          {/* 左栏：三步流程 */}
-          <div className="steps-new-left">
+        {/* 左栏滚动步骤 + 右栏钉住手机图 */}
+        <div className="steps-scroll-wrap">
+          <div className="steps-scroll-left">
             {steps.map((step, i) => (
               <div
                 key={step.no}
-                className={`steps-new-item${i === activeStep ? ' is-active' : ''}`}
-                onMouseEnter={() => setActiveStep(i)}
+                ref={(el) => (blockRefs.current[i] = el)}
+                data-idx={i}
+                className={`steps-scroll-block${i === activeStep ? ' is-active' : ''}`}
               >
-                <span className="steps-new-no">{step.no}</span>
                 <div className="steps-new-text">
-                  <h3>{step.title}</h3>
+                  <div className="steps-title-row">
+                    <span className="steps-new-no">{step.no}</span>
+                    <h3>{step.title}</h3>
+                  </div>
                   <p>{step.desc}</p>
+                </div>
+                {/* 移动端：每步下方直接带一张手机图（成对展示） */}
+                <div className="steps-mobile-phone">
+                  <PhoneScreen step={i} />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* 右栏：切换展示对应步骤图片 */}
-          <div className="steps-new-right">
-            <div className="steps-stage">
+          {/* 右栏：sticky 钉住的手机图，随滚动切换 */}
+          <div className="steps-sticky-right">
+            <div className="steps-sticky-phone">
               {steps.map((step, i) => (
-                <div key={step.no} className={`steps-slide${i === activeStep ? ' is-active' : ''}`}>
-                  <img src={step.image} alt={step.imageAlt} width="800" height="600" loading="lazy" decoding="async" />
+                <div
+                  key={step.no}
+                  className={`steps-slide${i === activeStep ? ' is-active' : ''}`}
+                  aria-hidden={i !== activeStep}
+                >
+                  <PhoneScreen step={i} />
                 </div>
-              ))}
-            </div>
-            <div className="steps-dots">
-              {steps.map((_, i) => (
-                <button
-                  key={i}
-                  className={`steps-dot${i === activeStep ? ' is-active' : ''}`}
-                  onClick={() => setActiveStep(i)}
-                  aria-label={`第 ${i + 1} 步`}
-                />
               ))}
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
