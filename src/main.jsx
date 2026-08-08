@@ -978,7 +978,7 @@ function AnswerSection() {
         <div className="ingredient-head">
           <RevealOnScroll variant="fadeIn" amount={0.1}>
             <h2 style={{ color: '#000000' }}>
-              饭要天天吃，食材不能含糊
+              饭要天天吃<br />食材不能含糊
             </h2>
             <p>每一份食材标明产地、供应商，来源透明。</p>
           </RevealOnScroll>
