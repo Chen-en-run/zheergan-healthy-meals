@@ -2724,7 +2724,7 @@ img {
 
 /* ── TrustStrip：横向数据条 ── */
 .trust-sub {
-  margin: 16px auto 0;
+  margin: 20px auto 0;
   text-align: center;
   color: #000;
   font-size: 20px;
@@ -3421,7 +3421,7 @@ img {
 
 .faq-sub {
   max-width: 360px;
-  margin: 22px 0 0;
+  margin: 20px 0 0;
   color: #000;
   font-size: 20px;
   line-height: 1.85;
@@ -3734,7 +3734,7 @@ img {
 }
 
 .story-pain-sub {
-  margin: 16px auto 0;
+  margin: 20px auto 0;
   text-align: center;
   color: #000;
   font-size: 20px;
@@ -5267,7 +5267,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* 朴素标题，两行，无动画 */
 .hotchain-title--plain {
-  margin: 0 0 12px !important;
+  margin: 0 0 20px !important;
   font-size: var(--fs-h2);
   font-weight: 700;
   color: var(--ink-cream);
@@ -7177,7 +7177,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .steps-new-sub {
   max-width: 620px;
-  margin: 22px auto 0;
+  margin: 20px auto 0;
   color: #000;
   font-size: 20px;
   line-height: 1.85;
