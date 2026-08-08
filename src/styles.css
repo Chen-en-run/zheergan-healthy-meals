@@ -1793,6 +1793,7 @@ img {
 }
 
 
+
 /* --- 我们的答案 --- */
 .story-answer-inner {
   display: flex;
@@ -1831,8 +1832,8 @@ img {
 .ingredient-head p {
   max-width: 680px;
   margin: 20px auto 0;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede, 18px);
+  color: #000;
+  font-size: 20px;
   line-height: 1.85;
   font-weight: 400;
 }
@@ -2316,6 +2317,82 @@ img {
   object-fit: cover;
 }
 
+/* ===== 滚动驱动 sticky 布局（桌面端） ===== */
+.steps-scroll-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.steps-scroll-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.steps-scroll-block {
+  padding: 56px 0;
+  opacity: 0.45;
+  transition: opacity 0.3s var(--ease-std);
+}
+
+/* 数字与标题横向并排 */
+.steps-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.steps-scroll-block.is-active {
+  opacity: 1;
+}
+
+/* 右栏：钉住，滚动时图随左侧进度切换 */
+.steps-sticky-right {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.steps-sticky-phone {
+  position: relative;
+  width: 300px;
+  height: 620px;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.steps-sticky-phone .steps-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-std);
+}
+
+.steps-sticky-phone .steps-slide.is-active {
+  opacity: 1;
+}
+
+.steps-sticky-phone .steps-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 移动端每步下方图片：默认隐藏（桌面用 sticky） */
+.steps-mobile-phone {
+  display: none;
+}
+
+.steps-mobile-phone img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
 /* 指示点 */
 .steps-dots {
   display: flex;
@@ -2348,6 +2425,29 @@ img {
 
   .steps-item {
     padding: 16px 18px;
+  }
+
+  /* 移动端：关闭 sticky，改单列 + 每步成对手机图 */
+  .steps-scroll-wrap {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .steps-sticky-right {
+    display: none;
+  }
+
+  .steps-scroll-block {
+    opacity: 1;
+    border-left: none;
+    padding: 24px 0;
+    border-top: 1px solid rgba(43, 31, 20, 0.1);
+  }
+
+  .steps-mobile-phone {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
   }
 }
 
@@ -2627,10 +2727,11 @@ img {
 
 /* ── TrustStrip：横向数据条 ── */
 .trust-sub {
-  margin: 16px auto 0;
+  margin: 20px auto 0;
   text-align: center;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede);
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .trust-strip {
@@ -3323,10 +3424,11 @@ img {
 
 .faq-sub {
   max-width: 360px;
-  margin: 22px 0 0;
-  color: var(--ink-body);
-  font-size: var(--fs-lede);
+  margin: 20px 0 0;
+  color: #000;
+  font-size: 20px;
   line-height: 1.85;
+  font-weight: 400;
 }
 
 /* 右侧垂直手风琴 */
@@ -3635,10 +3737,11 @@ img {
 }
 
 .story-pain-sub {
-  margin: 16px auto 0;
+  margin: 20px auto 0;
   text-align: center;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede);
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 /* 痛点卡片:文字 + 左侧强调线(玻璃背景由全局玻璃卡 selector 接管) */
@@ -5167,7 +5270,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* 朴素标题，两行，无动画 */
 .hotchain-title--plain {
-  margin: 0 0 12px !important;
+  margin: 0 0 20px !important;
   font-size: var(--fs-h2);
   font-weight: 700;
   color: var(--ink-cream);
@@ -5189,23 +5292,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   line-height: 1.1;
 }
 
-/* 副标题，单行展示 */
-.hotchain-desc--wide {
-  max-width: none;
-  white-space: nowrap;
-  margin: 0 !important;
-  font-size: 18px;
-  text-align: left;
-}
 
-/* 副标题第二行，稍轻，紧贴上方 */
-.hotchain-desc--sub {
-  max-width: none;
-  white-space: nowrap;
-  font-size: 18px;
-  color: var(--muted-cream);
-  margin: 0 !important;
-}
 
 .hotchain-left--center .hero-actions {
   justify-content: center;
@@ -5324,6 +5411,27 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   color: var(--ink-body);
   font-size: var(--fs-lede);
   line-height: 1.9;
+}
+
+/* 副标题，单行展示（放在 .hotchain-desc 之后避免被覆盖） */
+.hotchain-desc--wide {
+  max-width: none;
+  white-space: nowrap;
+  margin: 0 !important;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  text-align: left;
+}
+
+/* 副标题第二行，稍轻，紧贴上方 */
+.hotchain-desc--sub {
+  max-width: none;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  margin: 0 !important;
 }
 
 /* 按钮区：复用 hero-actions，微调间距 */
@@ -6660,6 +6768,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   color: var(--muted-cream);
   font-size: var(--fs-lede);
   line-height: 1.7;
+  font-weight: 400;
 }
 
 /* ── AI能力：标题 + 田字格 左 | 聊天卡片 右 ── */
@@ -7146,10 +7255,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .steps-new-sub {
   max-width: 620px;
-  margin: 22px auto 0;
-  color: var(--ink-body);
-  font-size: clamp(15px, 1.05vw, 19px);
+  margin: 20px auto 0;
+  color: #000;
+  font-size: 20px;
   line-height: 1.85;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -7176,26 +7286,28 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .steps-new-no {
-  font-size: clamp(72px, 8vw, 120px);
+  font-size: clamp(56px, 6vw, 80px);
   font-weight: 680;
   color: rgba(5, 150, 105, 0.28);
   line-height: 1;
   flex-shrink: 0;
-  width: 130px;
+  width: 100px;
   text-align: left;
   transition: color 0.2s var(--ease-std);
 }
 
 .steps-new-text h3 {
   margin: 0;
-  font-size: clamp(20px, 1.5vw, 25px);
-  font-weight: 700;
+  font-size: clamp(40px, 4.5vw, 60px);
+  font-weight: 680;
   color: var(--ink-cream);
+  line-height: 1;
 }
 
 .steps-new-text p {
   margin: 8px 0 0;
-  font-size: clamp(14px, 0.95vw, 17px);
+  font-size: clamp(16px, 1.1vw, 20px);
+  line-height: 1.7;
   color: var(--ink-body);
   line-height: 1.65;
 }
@@ -7232,8 +7344,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   }
 
   .steps-new-no {
-    font-size: 56px;
-    width: 80px;
+    font-size: 48px;
+    width: 72px;
   }
 
   .steps-new-layout {

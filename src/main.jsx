@@ -866,14 +866,46 @@ const painPoints = [
 function PainSplit() {
   const [activeImg, setActiveImg] = useState(0);
   const [direction, setDirection] = useState(1); /* 1=向下转入, -1=向上转出 */
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(true);
+  const wrapRef = useRef(null);
 
   const switchTo = (i) => {
     setDirection(i > activeImg ? 1 : -1);
     setActiveImg(i);
   };
 
+  /* 只有区块进入视口时才轮播，省性能 */
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  /* 自动轮播：3.5s 切一张，鼠标悬停/减动偏好时暂停 */
+  useEffect(() => {
+    if (paused || !inView) return;
+    if (typeof window !== 'undefined'
+      && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    const timer = setInterval(() => {
+      setDirection(1);
+      setActiveImg((prev) => (prev + 1) % painPoints.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [paused, inView]);
+
   return (
-    <div className="pain-split">
+    <div
+      className="pain-split"
+      ref={wrapRef}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="pain-split-left">
         <div className="pain-split-stage">
           {painPoints.map((point, i) => (
@@ -946,7 +978,7 @@ function AnswerSection() {
         <div className="ingredient-head">
           <RevealOnScroll variant="fadeIn" amount={0.1}>
             <h2 style={{ color: '#000000' }}>
-              饭要天天吃，食材不能含糊
+              饭要天天吃<br />食材不能含糊
             </h2>
             <p>每一份食材标明产地、供应商，来源透明。</p>
           </RevealOnScroll>
@@ -1238,62 +1270,95 @@ function AgentSection() {
 }
 
 const steps = [
-  { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。', image: '/zheergan-healthy-meals/images/step-body2.webp', imageAlt: '填写身体数据' },
-  { no: '02', title: '小折配餐', desc: '匹配偏好，确认执行，不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/step-tdee2.webp', imageAlt: 'AI智能配餐' },
-  { no: '03', title: '热链送达', desc: '每日现做，准时送达，入口新鲜。', image: '/zheergan-healthy-meals/images/step-delivery2.webp', imageAlt: '热链配送直达' },
+  { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。', image: '/zheergan-healthy-meals/images/dialog-1.webp' },
+  { no: '02', title: '小折配餐', desc: '匹配偏好，确认执行，不用算，不用选，不用纠结。', image: '/zheergan-healthy-meals/images/dialog-2.webp' },
+  { no: '03', title: '热链送达', desc: '每日现做，准时送达，入口新鲜。', image: '/zheergan-healthy-meals/images/dialog-3.webp' },
 ];
 
 function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
+  const blockRefs = useRef([]);
+  const sectionRef = useRef(null);
+
+  /* 滚动驱动：按整个区块的滚动进度均分 3 段切换，避免跳过 02 */
+  useEffect(() => {
+    const onScroll = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      // 区块顶部到达视口中线时开始，底部离开中线时结束
+      const start = vh * 0.5;
+      const total = rect.height - vh * 0.5 + start;
+      const scrolled = start - rect.top;
+      const progress = Math.min(Math.max(scrolled / total, 0), 1);
+      const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+      setActiveStep(idx);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
   return (
-    <section className="story-section story-steps section-panel panel-cream" id="steps" aria-label="使用流程">
-      <div className="story-inner steps-new-layout">
+    <section
+      ref={sectionRef}
+      className="story-section story-steps section-panel panel-cream"
+      id="steps"
+      aria-label="使用流程"
+    >
+      <div className="story-inner steps-sticky-layout">
         {/* 标题 */}
         <div className="steps-new-head">
           <h2>三步，每天准时开饭</h2>
           <p className="steps-new-sub">填一次数据、确认偏好、准时就餐——把吃饭这件麻烦事，交给小折全程托管。</p>
         </div>
 
-        {/* 左右双栏 */}
-        <div className="steps-new-grid">
-          {/* 左栏：三步流程 */}
-          <div className="steps-new-left">
+        {/* 左栏滚动步骤 + 右栏钉住手机图 */}
+        <div className="steps-scroll-wrap">
+          <div className="steps-scroll-left">
             {steps.map((step, i) => (
               <div
                 key={step.no}
-                className={`steps-new-item${i === activeStep ? ' is-active' : ''}`}
-                onMouseEnter={() => setActiveStep(i)}
+                ref={(el) => (blockRefs.current[i] = el)}
+                data-idx={i}
+                className={`steps-scroll-block${i === activeStep ? ' is-active' : ''}`}
               >
-                <span className="steps-new-no">{step.no}</span>
                 <div className="steps-new-text">
-                  <h3>{step.title}</h3>
+                  <div className="steps-title-row">
+                    <span className="steps-new-no">{step.no}</span>
+                    <h3>{step.title}</h3>
+                  </div>
                   <p>{step.desc}</p>
+                </div>
+                {/* 移动端：每步下方直接带一张图（成对展示） */}
+                <div className="steps-mobile-phone">
+                  <img src={step.image} alt={`${step.title}示意`} width="240" height="496" loading="lazy" decoding="async" />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* 右栏：切换展示对应步骤图片 */}
-          <div className="steps-new-right">
-            <div className="steps-stage">
+          {/* 右栏：sticky 钉住的图片，随滚动切换 */}
+          <div className="steps-sticky-right">
+            <div className="steps-sticky-phone">
               {steps.map((step, i) => (
-                <div key={step.no} className={`steps-slide${i === activeStep ? ' is-active' : ''}`}>
-                  <img src={step.image} alt={step.imageAlt} width="800" height="600" loading="lazy" decoding="async" />
+                <div
+                  key={step.no}
+                  className={`steps-slide${i === activeStep ? ' is-active' : ''}`}
+                  aria-hidden={i !== activeStep}
+                >
+                  <img src={step.image} alt={`${step.title}示意`} width="300" height="620" loading="lazy" decoding="async" />
                 </div>
-              ))}
-            </div>
-            <div className="steps-dots">
-              {steps.map((_, i) => (
-                <button
-                  key={i}
-                  className={`steps-dot${i === activeStep ? ' is-active' : ''}`}
-                  onClick={() => setActiveStep(i)}
-                  aria-label={`第 ${i + 1} 步`}
-                />
               ))}
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
@@ -1393,10 +1458,10 @@ function PricingInline() {
   return (
     <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格方案">
       <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '12px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
-        <p style={{ textAlign: 'center', color: 'var(--muted-cream)', fontSize: 'var(--fs-lede)', marginBottom: '52px', lineHeight: 1.6 }}>
+        <p style={{ textAlign: 'center', color: '#000', fontSize: '20px', fontWeight: 400, marginBottom: '52px', lineHeight: 1.6 }}>
           订得越长，单餐越省
         </p>
         <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto', alignItems: 'stretch' }}>
