@@ -96,7 +96,7 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  max-width: 100vw;
+  max-width: 100%;
 }
 
 a {
@@ -167,7 +167,7 @@ img {
 
 .max-frame {
   width: min(1700px, calc(100% - 80px));
-  max-width: 100vw;
+  max-width: 100%;
   margin: 0 auto;
 }
 
