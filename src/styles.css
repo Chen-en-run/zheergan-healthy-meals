@@ -2330,8 +2330,6 @@ img {
   padding: 56px 0;
   opacity: 0.45;
   transition: opacity 0.3s var(--ease-std);
-  border-left: 3px solid transparent;
-  padding-left: 20px;
 }
 
 /* 数字与标题横向并排 */
@@ -2343,7 +2341,6 @@ img {
 
 .steps-scroll-block.is-active {
   opacity: 1;
-  border-left-color: var(--ember-600);
 }
 
 /* 右栏：钉住，滚动时图随左侧进度切换 */

@@ -1304,26 +1304,35 @@ function PhoneScreen({ step }) {
 function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
   const blockRefs = useRef([]);
+  const sectionRef = useRef(null);
 
-  /* 滚动驱动：每个步骤块滚到视口中部时切换右侧手机图 */
+  /* 滚动驱动：按整个区块的滚动进度均分 3 段切换，避免跳过 02 */
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number(entry.target.dataset.idx);
-            setActiveStep(idx);
-          }
-        });
-      },
-      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
-    );
-    blockRefs.current.forEach((el) => el && obs.observe(el));
-    return () => obs.disconnect();
+    const onScroll = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      // 区块顶部到达视口中线时开始，底部离开中线时结束
+      const start = vh * 0.5;
+      const total = rect.height - vh * 0.5 + start;
+      const scrolled = start - rect.top;
+      const progress = Math.min(Math.max(scrolled / total, 0), 1);
+      const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+      setActiveStep(idx);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   return (
     <section
+      ref={sectionRef}
       className="story-section story-steps section-panel panel-cream"
       id="steps"
       aria-label="使用流程"
