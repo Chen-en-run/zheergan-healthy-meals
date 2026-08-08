@@ -1829,8 +1829,8 @@ img {
 .ingredient-head p {
   max-width: 680px;
   margin: 20px auto 0;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede, 18px);
+  color: #000;
+  font-size: 20px;
   line-height: 1.85;
   font-weight: 400;
 }
@@ -2726,8 +2726,9 @@ img {
 .trust-sub {
   margin: 16px auto 0;
   text-align: center;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede);
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .trust-strip {
@@ -3421,9 +3422,10 @@ img {
 .faq-sub {
   max-width: 360px;
   margin: 22px 0 0;
-  color: var(--ink-body);
-  font-size: var(--fs-lede);
+  color: #000;
+  font-size: 20px;
   line-height: 1.85;
+  font-weight: 400;
 }
 
 /* 右侧垂直手风琴 */
@@ -3734,8 +3736,9 @@ img {
 .story-pain-sub {
   margin: 16px auto 0;
   text-align: center;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede);
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 /* 痛点卡片:文字 + 左侧强调线(玻璃背景由全局玻璃卡 selector 接管) */
@@ -5286,23 +5289,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   line-height: 1.1;
 }
 
-/* 副标题，单行展示 */
-.hotchain-desc--wide {
-  max-width: none;
-  white-space: nowrap;
-  margin: 0 !important;
-  font-size: 18px;
-  text-align: left;
-}
 
-/* 副标题第二行，稍轻，紧贴上方 */
-.hotchain-desc--sub {
-  max-width: none;
-  white-space: nowrap;
-  font-size: 18px;
-  color: var(--muted-cream);
-  margin: 0 !important;
-}
 
 .hotchain-left--center .hero-actions {
   justify-content: center;
@@ -5421,6 +5408,27 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   color: var(--ink-body);
   font-size: var(--fs-lede);
   line-height: 1.9;
+}
+
+/* 副标题，单行展示（放在 .hotchain-desc 之后避免被覆盖） */
+.hotchain-desc--wide {
+  max-width: none;
+  white-space: nowrap;
+  margin: 0 !important;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  text-align: left;
+}
+
+/* 副标题第二行，稍轻，紧贴上方 */
+.hotchain-desc--sub {
+  max-width: none;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  margin: 0 !important;
 }
 
 /* 按钮区：复用 hero-actions，微调间距 */
@@ -6753,9 +6761,10 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .agent-lede {
   max-width: 720px;
   margin: 0 auto 64px;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede);
+  color: #000;
+  font-size: 20px;
   line-height: 1.7;
+  font-weight: 400;
 }
 
 .agent-grid {
@@ -7169,9 +7178,10 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .steps-new-sub {
   max-width: 620px;
   margin: 22px auto 0;
-  color: var(--ink-body);
-  font-size: clamp(15px, 1.05vw, 19px);
+  color: #000;
+  font-size: 20px;
   line-height: 1.85;
+  font-weight: 400;
   text-align: center;
 }
 
