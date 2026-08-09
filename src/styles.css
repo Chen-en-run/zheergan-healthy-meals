@@ -5499,9 +5499,20 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   backdrop-filter: blur(22px) saturate(1.8);
   border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-    0 24px 64px rgba(43, 31, 20, 0.12);
+    0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 16px 48px rgba(43, 31, 20, 0.1),
+    0 4px 16px rgba(43, 31, 20, 0.06);
+}
+/* 外层光环 */
+.chat-card-shell::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: calc(var(--r-2xl) + 22px);
+  background: rgba(5, 150, 105, 0.04);
+  border: 1px solid rgba(5, 150, 105, 0.08);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ── 聊天顶部信息栏 ── */
