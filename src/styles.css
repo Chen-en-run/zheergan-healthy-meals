@@ -6765,12 +6765,13 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 /* ── AI能力：标题 + 田字格 左 | 聊天卡片 右 ── */
 .agent-split {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 48px !important;
-  align-items: center !important;
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(588px, 1fr);
+  gap: 16px;
+  width: 100%;
   max-width: 1240px;
-  margin: 0 auto;
+  margin: 56px auto 0;
+  align-items: stretch;
 }
 
 .agent-left {
