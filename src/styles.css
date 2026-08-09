@@ -5476,12 +5476,12 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   flex-direction: column;
   border-radius: var(--r-2xl);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.88) 100%);
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  border: none;
+  outline: none;
   overflow: hidden;
 }
 
-/* 卡片外圈的液态玻璃层：透明光晕框完整包裹白卡，不被白卡盖住 */
+/* 卡片外圈的液态玻璃层 */
 .chat-card-shell {
   position: relative;
   width: 100%;
@@ -5496,6 +5496,16 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     inset 0 0 0 1px rgba(255, 255, 255, 0.3),
     0 24px 64px rgba(43, 31, 20, 0.12);
+}
+/* 外圈光环：确保透明框可见且高于白卡 */
+.chat-card-shell::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: var(--r-2xl);
+  border: 2px solid rgba(5, 150, 105, 0.13);
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* ── 聊天顶部信息栏 ── */
