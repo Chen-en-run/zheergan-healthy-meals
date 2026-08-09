@@ -1993,9 +1993,9 @@ img {
 
 /* 宽度、高度与首页 Hero 的聊天卡片完全一致 */
 .agent-aside .chat-card {
-  width: 100%;
-  max-width: 100%;
-  min-height: 400px;
+  width: 560px;
+  max-width: 560px;
+  height: 760px;
 }
 
 /* 中等屏：小助手卡片移到下方，整行铺满 */
@@ -5471,8 +5471,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .chat-card {
   width: 100%;
   max-width: 560px;
-  height: auto;
-  min-height: 400px;
+  height: 760px;
   display: flex;
   flex-direction: column;
   border-radius: var(--r-2xl);
@@ -5483,7 +5482,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   box-shadow:
     0 24px 56px rgba(43, 31, 20, 0.14),
     0 8px 24px rgba(43, 31, 20, 0.08);
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* 卡片外圈的液态玻璃层 */
@@ -5498,8 +5497,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   backdrop-filter: blur(22px) saturate(1.8);
   border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.45),
-    0 20px 52px rgba(43, 31, 20, 0.1);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 24px 64px rgba(43, 31, 20, 0.12);
 }
 
 /* ── 聊天顶部信息栏 ── */
