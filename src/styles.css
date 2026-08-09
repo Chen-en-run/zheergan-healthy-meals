@@ -6802,14 +6802,15 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .agent-mini-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;
   width: 100%;
   container-type: inline-size;
 }
 
 .agent-mini-card {
+  position: relative;
   background: #fff;
-  border-radius: 1.1rem;
+  border-radius: 1.2rem;
   padding: 22% 16% 18%;
   text-align: center;
   border: 1px solid rgba(43,31,20,0.06);
@@ -6819,10 +6820,28 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   justify-content: center;
   box-shadow: 0 2px 12px rgba(43,31,20,0.04);
   transition: box-shadow 220ms ease, transform 220ms ease;
+  z-index: 1;
+}
+/* 外层透明光环 */
+.agent-mini-card::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 1.8rem;
+  background: rgba(5, 150, 105, 0.04);
+  border: 1px solid rgba(5, 150, 105, 0.08);
+  z-index: -1;
+  pointer-events: none;
+  transition: background 220ms ease, border-color 220ms ease, inset 220ms ease;
 }
 .agent-mini-card:hover {
   box-shadow: 0 8px 28px rgba(5,150,105,0.13);
   transform: translateY(-2px);
+}
+.agent-mini-card:hover::before {
+  inset: -16px;
+  background: rgba(5, 150, 105, 0.07);
+  border-color: rgba(5, 150, 105, 0.16);
 }
 
 .agent-mini-icon {
