@@ -6795,23 +6795,24 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  max-width: 520px;
+  max-width: 540px;
 }
 
 .agent-mini-card {
   background: #fff;
-  border-radius: 18px;
-  padding: 38px 26px;
+  border-radius: 20px;
+  padding: 40px 28px;
   text-align: center;
-  box-shadow: 0 3px 16px rgba(43,31,20,0.05);
+  border: 1px solid rgba(43,31,20,0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1;
+  transition: box-shadow 220ms var(--ease-std);
 }
 .agent-mini-card:hover {
-  box-shadow: 0 6px 24px rgba(43,31,20,0.1);
+  box-shadow: 0 6px 24px rgba(5,150,105,0.12);
 }
 
 .agent-mini-icon {
@@ -6819,12 +6820,13 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   height: 72px;
   margin-bottom: 16px;
   color: #fff;
-  background: var(--ember-600);
+  background: linear-gradient(135deg, var(--ember), var(--ember-600));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(5,150,105,0.25);
 }
 .agent-mini-card h4 {
   font-size: 28px;
