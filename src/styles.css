@@ -6775,7 +6775,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .agent-split {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
-  gap: 24px !important;
+  gap: 48px !important;
   align-items: center !important;
 }
 
@@ -6801,7 +6801,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .agent-mini-card {
   background: #fff;
   border-radius: 18px;
-  padding: 42px 30px;
+  padding: 38px 26px;
   text-align: center;
   box-shadow: 0 3px 16px rgba(43,31,20,0.05);
   display: flex;
@@ -6815,19 +6815,25 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .agent-mini-icon {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 14px;
-  color: var(--ember-600);
+  width: 72px;
+  height: 72px;
+  margin-bottom: 16px;
+  color: #fff;
+  background: var(--ember-600);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 .agent-mini-card h4 {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
   margin: 0 0 10px;
   color: var(--ink-cream);
 }
 .agent-mini-card p {
-  font-size: 22px;
+  font-size: 17px;
   line-height: 1.55;
   margin: 0;
   color: var(--ink-body);
@@ -6840,6 +6846,17 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 .agent-aside .chat-card-shell {
   width: 100%;
+}
+
+/* 左栏整体向左微调 */
+.agent-left {
+  margin-left: -20px;
+}
+
+@media (max-width: 1024px) {
+  .agent-left {
+    margin-left: 0;
+  }
 }
 
 .agent-grid {

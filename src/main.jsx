@@ -1113,7 +1113,7 @@ function AgentSection() {
                 const I = cap.icon;
                 return (
                   <article key={cap.title} className="agent-mini-card">
-                    <span className="agent-mini-icon"><I size={20} /></span>
+                    <span className="agent-mini-icon"><I size={32} /></span>
                     <h4>{cap.title}</h4>
                     <p>{cap.desc}</p>
                   </article>
