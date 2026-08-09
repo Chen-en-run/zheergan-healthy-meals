@@ -6815,19 +6815,19 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .agent-mini-icon {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   margin-bottom: 14px;
   color: var(--ember-600);
 }
 .agent-mini-card h4 {
-  font-size: 21px;
+  font-size: 30px;
   font-weight: 700;
   margin: 0 0 10px;
   color: var(--ink-cream);
 }
 .agent-mini-card p {
-  font-size: 15px;
+  font-size: 19px;
   line-height: 1.55;
   margin: 0;
   color: var(--ink-body);
