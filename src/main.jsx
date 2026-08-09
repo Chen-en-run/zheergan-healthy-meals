@@ -843,16 +843,6 @@ function FoodBanner() {
           </div>
         ))}
       </div>
-      <div className="food-banner-dots">
-        {foodSlides.map((_, i) => (
-          <button
-            key={i}
-            className={`food-banner-dot${i === active ? ' is-active' : ''}`}
-            onClick={() => setActive(i)}
-            aria-label={`第 ${i + 1} 张`}
-          />
-        ))}
-      </div>
     </RevealOnScroll>
   );
 }
