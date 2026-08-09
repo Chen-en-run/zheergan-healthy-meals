@@ -1708,12 +1708,6 @@ function Footer() {
           <a href="/zheergan-healthy-meals/隐私政策.html" target="_blank" rel="noopener">隐私政策</a>
           <span className="footer-new-sep">|</span>
           <a href="/zheergan-healthy-meals/服务协议.html" target="_blank" rel="noopener">服务协议</a>
-          <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/版权投诉.html" target="_blank" rel="noopener">版权投诉</a>
-          <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/帮助中心.html" target="_blank" rel="noopener">帮助中心</a>
-          <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/版本更新.html" target="_blank" rel="noopener">版本更新</a>
         </div>
         {/* 下层:版权区 */}
         <div className="footer-new-copy">
