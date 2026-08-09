@@ -4902,6 +4902,15 @@ summary:focus-visible {
   display: none !important;
 }
 
+/* 价格模块三张卡片下载按钮:悬浮反馈(仅加亮) */
+#pricing .download-btn-group > a {
+  transition: filter 0.18s ease;
+  cursor: pointer;
+}
+#pricing .download-btn-group > a:hover {
+  filter: brightness(1.06);
+}
+
 /* ── 统一下载按钮:暖橙玻璃(两按钮同色) ── */
 .hero-dl-btn {
   display: inline-flex;
