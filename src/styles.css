@@ -6802,31 +6802,36 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .agent-mini-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: max(10px, 1.2vw);
+  gap: 16px;
   width: 100%;
+  container-type: inline-size;
 }
 
 .agent-mini-card {
   background: #fff;
-  border-radius: clamp(14px, 1.4vw, 20px);
-  padding: clamp(24px, 3.2vw, 42px) clamp(18px, 2.4vw, 32px);
+  border-radius: 1.1rem;
+  padding: 22% 16% 18%;
   text-align: center;
   border: 1px solid rgba(43,31,20,0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 220ms var(--ease-std), transform 220ms var(--ease-std);
+  box-shadow: 0 2px 12px rgba(43,31,20,0.04);
+  transition: box-shadow 220ms ease, transform 220ms ease;
 }
 .agent-mini-card:hover {
-  box-shadow: 0 clamp(4px, 0.6vw, 8px) clamp(16px, 2vw, 28px) rgba(5,150,105,0.13);
+  box-shadow: 0 8px 28px rgba(5,150,105,0.13);
   transform: translateY(-2px);
 }
 
 .agent-mini-icon {
-  width: clamp(52px, 5.6vw, 72px);
-  height: clamp(52px, 5.6vw, 72px);
-  margin-bottom: clamp(10px, 1.2vw, 18px);
+  width: 28%;
+  height: auto;
+  aspect-ratio: 1;
+  max-width: 88px;
+  min-width: 48px;
+  margin-bottom: 0.75rem;
   color: #fff;
   background: linear-gradient(135deg, var(--ember), var(--ember-600));
   border-radius: 50%;
@@ -6834,17 +6839,21 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 clamp(2px, 0.4vw, 6px) clamp(10px, 1.4vw, 20px) rgba(5,150,105,0.28);
+  box-shadow: 0 3px 14px rgba(5,150,105,0.22);
+}
+.agent-mini-icon svg {
+  width: 44%;
+  height: 44%;
 }
 .agent-mini-card h4 {
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(18px, 5.6cqi, 26px);
   font-weight: 700;
-  margin: 0 0 clamp(6px, 0.8vw, 12px);
+  margin: 0 0 0.5em;
   color: var(--ink-cream);
 }
 .agent-mini-card p {
-  font-size: clamp(14px, 1.2vw, 17px);
-  line-height: 1.55;
+  font-size: clamp(13px, 3.2cqi, 16px);
+  line-height: 1.5;
   margin: 0;
   color: var(--ink-body);
 }
