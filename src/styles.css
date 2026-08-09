@@ -4897,6 +4897,11 @@ summary:focus-visible {
   pointer-events: auto;
 }
 
+/* 仅隐藏价格模块(一顿外卖的价)三张卡片按钮的二维码气泡 */
+#pricing .download-qr-pop {
+  display: none !important;
+}
+
 /* ── 统一下载按钮:暖橙玻璃(两按钮同色) ── */
 .hero-dl-btn {
   display: inline-flex;
