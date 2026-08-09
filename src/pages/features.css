@@ -643,6 +643,59 @@
   }
 
   /* 小屏导航保留核心三项 */
+
+/* 公司简介页：左上角返回首页按钮 */
+.company-back-btn {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  z-index: 9999;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px 12px 16px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+  transition: filter 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+}
+.company-back-btn:hover {
+  filter: brightness(1.25);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 3px 8px rgba(0, 0, 0, 0.22);
+}
+.company-back-btn svg {
+  display: block;
+  color: #000000 !important;
+  flex: none;
+}
+.company-back-btn span {
+  color: #000000 !important;
+  white-space: nowrap;
+}
+
+/* 公司简介页：背景与隐私政策子页一致(极浅近白 #fdfdfd) */
+.site-shell.company-page {
+  background: #fdfdfd !important;
+  background-image: none !important;
+  background-attachment: scroll !important;
+}
+.site-shell.company-page .company-page-body {
+  background: transparent !important;
+}
+/* 隐藏 features 装饰彩色 blob,使公司页呈现纯色背景 */
+.site-shell.company-page .features-hero-blobs {
+  display: none !important;
+}
   .features-nav .nav-links a:nth-child(3) {
     display: none;
   }
@@ -692,7 +745,8 @@
 .company-page-inner {
   position: relative;
   z-index: 1;
-  width: min(900px, calc(100% - 80px));
+  width: min(36em, calc(100% - 48px)) !important;
+  max-width: 36em;
   margin: 0 auto;
   padding: 48px 0 0;
 }
@@ -703,14 +757,16 @@
 }
 
 .company-hero-head h1 {
-  font-size: var(--fs-h2);
-  font-weight: 680;
+  font-size: 40px;
+  font-weight: 800;
+  color: #000000;
 }
 
 .company-hero-sub {
-  margin-top: 16px;
-  color: var(--muted-cream);
-  font-size: var(--fs-lede);
+  margin-top: 18px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .company-section {
@@ -726,17 +782,18 @@
 }
 
 .company-section h3 {
-  margin: 0 0 16px;
-  font-size: clamp(22px, 1.6vw, 28px);
-  font-weight: 680;
-  color: var(--ink-cream);
+  margin: 1.4em 0 0.6em;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
 }
 
 .company-section p {
-  font-size: clamp(15px, 1vw, 17px);
-  color: var(--ink-body);
-  line-height: 1.85;
-  margin: 0;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 1em 0;
 }
 
 @media (max-width: 760px) {

@@ -1707,7 +1707,7 @@ function Footer() {
           <span className="footer-new-sep">|</span>
           <a href="/zheergan-healthy-meals/隐私政策.html" target="_blank" rel="noopener">隐私政策</a>
           <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/服务协议.html" target="_blank" rel="noopener">服务协议</a>
+          <a href="/zheergan-healthy-meals/用户协议.html" target="_blank" rel="noopener">用户协议</a>
         </div>
         {/* 下层:版权区 */}
         <div className="footer-new-copy">
