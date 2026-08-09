@@ -843,16 +843,6 @@ function FoodBanner() {
           </div>
         ))}
       </div>
-      <div className="food-banner-dots">
-        {foodSlides.map((_, i) => (
-          <button
-            key={i}
-            className={`food-banner-dot${i === active ? ' is-active' : ''}`}
-            onClick={() => setActive(i)}
-            aria-label={`第 ${i + 1} 张`}
-          />
-        ))}
-      </div>
     </RevealOnScroll>
   );
 }
@@ -1717,13 +1707,7 @@ function Footer() {
           <span className="footer-new-sep">|</span>
           <a href="/zheergan-healthy-meals/隐私政策.html" target="_blank" rel="noopener">隐私政策</a>
           <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/服务协议.html" target="_blank" rel="noopener">服务协议</a>
-          <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/版权投诉.html" target="_blank" rel="noopener">版权投诉</a>
-          <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/帮助中心.html" target="_blank" rel="noopener">帮助中心</a>
-          <span className="footer-new-sep">|</span>
-          <a href="/zheergan-healthy-meals/版本更新.html" target="_blank" rel="noopener">版本更新</a>
+          <a href="/zheergan-healthy-meals/用户协议.html" target="_blank" rel="noopener">用户协议</a>
         </div>
         {/* 下层:版权区 */}
         <div className="footer-new-copy">

@@ -2069,6 +2069,25 @@ img {
   display: none;
 }
 
+/* 全局隐藏页面主滚动条 */
+html, body {
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome / Edge / Safari */
+}
+
+/* 兜底:隐藏任何容器级滚动条(含价格模块等局部溢出) */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .food-card {
   flex-shrink: 0;
   width: calc(25% - 6px);
@@ -4876,6 +4895,20 @@ summary:focus-visible {
   visibility: visible;
   transform: translateX(-50%) translateY(0);
   pointer-events: auto;
+}
+
+/* 仅隐藏价格模块(一顿外卖的价)三张卡片按钮的二维码气泡 */
+#pricing .download-qr-pop {
+  display: none !important;
+}
+
+/* 价格模块三张卡片下载按钮:悬浮反馈(仅加亮) */
+#pricing .download-btn-group > a {
+  transition: filter 0.18s ease;
+  cursor: pointer;
+}
+#pricing .download-btn-group > a:hover {
+  filter: brightness(1.06);
 }
 
 /* ── 统一下载按钮:暖橙玻璃(两按钮同色) ── */
