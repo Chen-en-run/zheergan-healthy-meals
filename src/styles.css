@@ -1660,7 +1660,7 @@ img {
 .story-pain { padding: 0 0 10px; }
 .story-answer { padding: 0 0 20px; }
 .story-agent { padding: 0 0 20px; }
-.story-steps { padding: 20px 0 20px; }
+.story-steps { padding: 20px 0 0; }
 #pricing { padding: 0 0 50px; }
 #faq { padding: 20px 0 60px; }
 
@@ -2349,7 +2349,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   /* 末尾留白：让最后一步(03)的文字块能滚到屏幕正中才结束，
      确保双向滚动时 03 都能完整显示，且不影响 01/02/03 之间的间距 */
-  padding-bottom: 45vh;
+  padding-bottom: 80px;
 }
 
 .steps-scroll-block {
