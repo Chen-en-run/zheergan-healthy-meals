@@ -1270,22 +1270,40 @@ function StepsSection() {
   const blockRefs = useRef([]);
   const sectionRef = useRef(null);
 
-  /* 滚动驱动：按整个区块的滚动进度均分 3 段切换，避免跳过 02 */
+  /* 滚动驱动（方案A，支持双向滚动）：哪一步的文字块离屏幕正中央最近，
+     就显示对应的图。上滚、下滚都会实时重算，不会卡在某一张。 */
   useEffect(() => {
-    const onScroll = () => {
-      const el = sectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
+    let ticking = false;
+    const update = () => {
+      const section = sectionRef.current;
+      const blocks = blockRefs.current;
+      if (!section || !blocks.length) return;
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      // 区块顶部到达视口中线时开始，底部离开中线时结束
-      const start = vh * 0.5;
-      const total = rect.height - vh * 0.5 + start;
-      const scrolled = start - rect.top;
-      const progress = Math.min(Math.max(scrolled / total, 0), 1);
-      const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length));
-      setActiveStep(idx);
+      const center = vh / 2;
+
+      // 选「中心离屏幕正中央最近」的那一步作为当前步（上滚下滚都适用）
+      let best = 0;
+      let bestDist = Infinity;
+      blocks.forEach((b, i) => {
+        if (!b) return;
+        const r = b.getBoundingClientRect();
+        const blockCenter = r.top + r.height / 2;
+        const dist = Math.abs(blockCenter - center);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      });
+      setActiveStep(best);
+      ticking = false;
     };
-    onScroll();
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     return () => {

@@ -2347,6 +2347,9 @@ body::-webkit-scrollbar {
 .steps-scroll-left {
   display: flex;
   flex-direction: column;
+  /* 末尾留白：让最后一步(03)的文字块能滚到屏幕正中才结束，
+     确保双向滚动时 03 都能完整显示，且不影响 01/02/03 之间的间距 */
+  padding-bottom: 45vh;
 }
 
 .steps-scroll-block {
@@ -2369,7 +2372,8 @@ body::-webkit-scrollbar {
 /* 右栏：钉住，滚动时图随左侧进度切换 */
 .steps-sticky-right {
   position: sticky;
-  top: 100px;
+  /* 顶部留出固定导航栏(92px)余量，避免手机图上半部分被遮挡 */
+  top: 150px;
   display: flex;
   justify-content: center;
 }
