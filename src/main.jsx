@@ -1269,6 +1269,7 @@ function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
   const blockRefs = useRef([]);
   const sectionRef = useRef(null);
+  const activeRef = useRef(0);
 
   /* 滚动驱动（方案A，支持双向滚动）：哪一步的文字块离屏幕正中央最近，
      就显示对应的图。上滚、下滚都会实时重算，不会卡在某一张。 */
@@ -1310,6 +1311,34 @@ function StepsSection() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
+  }, []);
+
+  /* 同步当前步到 ref，供滚轮劫持读取最新值 */
+  useEffect(() => {
+    activeRef.current = activeStep;
+  }, [activeStep]);
+
+  /* 滚动劫持：切到 02 时锁住页面不滚动，向下滚动累积到阈值才切到 03，
+     切到 03 后释放，页面恢复正常向下滑动。仅桌面端生效。 */
+  useEffect(() => {
+    let accum = 0;
+    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+    const onWheel = (e) => {
+      if (isMobile()) return;
+      // 仅在显示 02 且继续向下滚时劫持
+      if (activeRef.current === 1 && e.deltaY > 0) {
+        e.preventDefault();
+        accum += e.deltaY;
+        if (accum >= 160) {
+          accum = 0;
+          setActiveStep(2);
+        }
+      } else {
+        accum = 0;
+      }
+    };
+    window.addEventListener('wheel', onWheel, { passive: false });
+    return () => window.removeEventListener('wheel', onWheel);
   }, []);
 
   return (
