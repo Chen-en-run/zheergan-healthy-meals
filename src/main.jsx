@@ -1498,7 +1498,7 @@ function PricingInline() {
         <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
-        <p style={{ textAlign: 'center', color: '#000', fontSize: 'var(--fs-subtitle)', fontWeight: 400, marginBottom: '52px', lineHeight: 1.6 }}>
+        <p style={{ textAlign: 'center', color: '#000', fontSize: 'var(--fs-lede)', fontWeight: 400, marginBottom: '52px', lineHeight: 1.6 }}>
           订得越长，单餐越省
         </p>
         <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto', alignItems: 'stretch' }}>
@@ -1524,12 +1524,12 @@ function PricingInline() {
                 </div>
                 <div style={{ marginTop: '10px' }}>
                   <span style={{ display: 'inline-block', padding: '6px 14px', color: 'var(--ink-cream)', borderRadius: '999px', background: 'rgba(43,31,20,0.06)', fontSize: '14px', fontWeight: 700 }}>{plan.per}</span>
-                  <span style={{ display: 'block', marginTop: '10px', color: 'var(--muted-cream)', fontSize: '15px' }}>{plan.spec}</span>
+                  <span style={{ display: 'block', marginTop: '10px', color: '#000', fontSize: '15px' }}>{plan.spec}</span>
                 </div>
               </div>
               <ul style={{ listStyle: 'none', margin: '0 0 28px', padding: '20px 0 0', borderTop: '1px solid var(--line-cream)', display: 'grid', gap: '14px' }}>
                 {plan.feats.map((f) => (
-                  <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--ink-body)', fontSize: '16px', lineHeight: 1.5 }}>
+                  <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#000', fontSize: '16px', lineHeight: 1.5 }}>
                     <Check size={17} style={{ flex: 'none', marginTop: '2px', color: 'var(--ink-cream)' }} />
                     {f}
                   </li>

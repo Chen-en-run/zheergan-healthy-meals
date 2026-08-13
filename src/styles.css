@@ -1775,8 +1775,9 @@ img {
   overflow: hidden;
   opacity: 0;
   transform: translateY(-8px);
-  font-size: var(--fs-subtitle);
-  color: var(--ink-body);
+  font-size: var(--fs-lede);
+  color: #000;
+  font-weight: 400;
   line-height: 1.55;
   padding-top: 0;
   transition:
@@ -1908,8 +1909,9 @@ img {
 .ingredient-desc {
   display: block;
   margin: 9px 0 0;
-  font-size: var(--fs-subtitle);
-  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+  color: #000;
+  font-weight: 400;
 }
 
 .ingredient-nutri {
@@ -2520,9 +2522,9 @@ body::-webkit-scrollbar {
 
 .step-desc {
   margin: 6px 0 0;
-  color: var(--ink-body);
-  font-size: var(--fs-subtitle);
-  font-weight: 500;
+  color: #000;
+  font-size: var(--fs-lede);
+  font-weight: 400;
   line-height: 1.55;
 }
 
@@ -6028,8 +6030,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .detail-subtitle {
   margin: 0;
-  font-size: var(--fs-subtitle);
-  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+  color: #000;
+  font-weight: 400;
 }
 
 .detail-section-label {
@@ -6136,8 +6139,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .detail-assessment-desc {
   grid-column: 1 / -1;
   margin: 0;
-  font-size: var(--fs-subtitle);
-  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+  color: #000;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -6802,7 +6806,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .agent-lede {
   max-width: 720px;
   margin: 0 auto 48px;
-  color: var(--muted-cream);
+  color: #000;
   font-size: var(--fs-lede);
   line-height: 1.7;
   font-weight: 400;
@@ -7123,7 +7127,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .trust-dark .trust-sub {
-  color: var(--muted-cream);
+  color: #000;
 }
 
 .trust-dark .trust-strip-item strong {
@@ -7131,11 +7135,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .trust-dark .trust-strip-label {
-  color: var(--ink-cream);
+  color: #000;
 }
 
 .trust-dark .trust-strip-desc {
-  color: var(--muted-cream);
+  color: #000;
 }
 
 /* ================================================================
