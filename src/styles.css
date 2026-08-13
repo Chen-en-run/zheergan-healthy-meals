@@ -138,7 +138,7 @@ img {
   background-size: 160px 160px;
 }
 
-/* 展示字体:拉丁/数字走 Fraunces 衬线,中文按 --font-display 回退栈渲染 */
+/* 主标题字体:统一使用与副标题一致的 --font-sans(无衬线) */
 .hero-copy h1,
 .download-copy h2,
 .menu-head-copy h2,
@@ -148,7 +148,7 @@ img {
 .trust-head h2,
 .belief-line,
 .faq-title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
 }
 
 .step-no,
@@ -1583,7 +1583,7 @@ img {
 
 .meal-showcase-title {
   margin: 12px 0 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 640;
   color: var(--ink-cream);
@@ -1818,7 +1818,7 @@ img {
   line-height: 1.08;
   letter-spacing: 0;
   text-align: center;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   color: #ffffff;
 }
 
@@ -4172,7 +4172,7 @@ body::-webkit-scrollbar {
 
 .download-baidu-title {
   margin: 0 0 64px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   color: #000;
@@ -5389,7 +5389,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 720;
   line-height: 1.12;
@@ -5413,7 +5413,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   align-items: baseline;
   gap: 10px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.12;
@@ -6783,7 +6783,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .agent-title {
   margin: 0 0 20px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.04;
@@ -6996,7 +6996,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .ingredient-left h2 {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.1;

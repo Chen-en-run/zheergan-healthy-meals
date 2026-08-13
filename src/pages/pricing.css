@@ -15,7 +15,7 @@
 
 .pricing-hero-inner h1 {
   margin: 22px 0 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h1);
   font-weight: 680;
   line-height: 1.1;

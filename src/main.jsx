@@ -734,7 +734,7 @@ function HotChainHero() {
             <h1
               className="hotchain-title hotchain-title--plain"
               style={{
-                fontFamily: 'var(--font-display)',
+                fontFamily: 'var(--font-sans)',
                 fontSize: 'var(--fs-h2)',
                 fontWeight: 680,
                 lineHeight: 1.04,
@@ -1495,7 +1495,7 @@ function PricingInline() {
   return (
     <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格方案">
       <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
+        <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
         <p style={{ textAlign: 'center', color: '#000', fontSize: '20px', fontWeight: 400, marginBottom: '52px', lineHeight: 1.6 }}>
