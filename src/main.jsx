@@ -1498,7 +1498,7 @@ function PricingInline() {
         <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
-        <p style={{ textAlign: 'center', color: '#000', fontSize: '20px', fontWeight: 400, marginBottom: '52px', lineHeight: 1.6 }}>
+        <p style={{ textAlign: 'center', color: '#000', fontSize: 'var(--fs-subtitle)', fontWeight: 400, marginBottom: '52px', lineHeight: 1.6 }}>
           订得越长，单餐越省
         </p>
         <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto', alignItems: 'stretch' }}>

@@ -82,6 +82,8 @@
   --fs-lede: clamp(17px, 1.15vw, 22px); /* 引导正文 */
   --fs-body: clamp(16px, 1.05vw, 19px); /* 正文 */
   --fs-sm: clamp(14px, 0.95vw, 16px); /* 辅助文字 */
+  /* 全站统一副标题（区块/卡片说明文案）字号，单一数据源 */
+  --fs-subtitle: clamp(15px, 1.05vw, 19px);
 }
 
 * {
@@ -1773,7 +1775,7 @@ img {
   overflow: hidden;
   opacity: 0;
   transform: translateY(-8px);
-  font-size: clamp(16px, 1.1vw, 19px);
+  font-size: var(--fs-subtitle);
   color: var(--ink-body);
   line-height: 1.55;
   padding-top: 0;
@@ -1833,7 +1835,7 @@ img {
   max-width: 680px;
   margin: 20px auto 0;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
 }
@@ -1906,7 +1908,7 @@ img {
 .ingredient-desc {
   display: block;
   margin: 9px 0 0;
-  font-size: 15px;
+  font-size: var(--fs-subtitle);
   color: var(--muted-cream);
 }
 
@@ -2519,7 +2521,7 @@ body::-webkit-scrollbar {
 .step-desc {
   margin: 6px 0 0;
   color: var(--ink-body);
-  font-size: clamp(14px, 0.9vw, 16px);
+  font-size: var(--fs-subtitle);
   font-weight: 500;
   line-height: 1.55;
 }
@@ -2626,7 +2628,7 @@ body::-webkit-scrollbar {
 .step-desc {
   margin: 14px 0 0;
   color: var(--ink-cream);
-  font-size: clamp(16px, 1.05vw, 19px);
+  font-size: var(--fs-subtitle);
   font-weight: 600;
   line-height: 1.55;
 }
@@ -2753,7 +2755,7 @@ body::-webkit-scrollbar {
   margin: 20px auto 0;
   text-align: center;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   font-weight: 400;
 }
 
@@ -2803,7 +2805,7 @@ body::-webkit-scrollbar {
   display: block;
   margin-top: 8px;
   color: var(--muted-cream);
-  font-size: clamp(14px, 0.9vw, 16px);
+  font-size: var(--fs-subtitle);
   line-height: 1.5;
 }
 
@@ -3449,7 +3451,7 @@ body::-webkit-scrollbar {
   max-width: 360px;
   margin: 20px 0 0;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
 }
@@ -3763,7 +3765,8 @@ body::-webkit-scrollbar {
   margin: 20px auto 0;
   text-align: center;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
+  line-height: 1.7;
   font-weight: 400;
 }
 
@@ -5455,7 +5458,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   max-width: none;
   white-space: nowrap;
   margin: 0 !important;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   font-weight: 400;
   color: #000;
   text-align: left;
@@ -5465,7 +5468,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .hotchain-desc--sub {
   max-width: none;
   white-space: nowrap;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   font-weight: 400;
   color: #000;
   margin: 0 !important;
@@ -6025,7 +6028,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .detail-subtitle {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--fs-subtitle);
   color: var(--muted-cream);
 }
 
@@ -6133,7 +6136,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .detail-assessment-desc {
   grid-column: 1 / -1;
   margin: 0;
-  font-size: 13px;
+  font-size: var(--fs-subtitle);
   color: var(--muted-cream);
   line-height: 1.7;
 }
@@ -6634,8 +6637,13 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   }
 
   .hotchain-desc {
-    font-size: 15px;
+    font-size: var(--fs-lede);
     margin-top: 20px;
+  }
+
+  .hotchain-desc--wide {
+    white-space: normal;
+    text-align: center;
   }
 
   .hotchain-left .hero-actions {
@@ -6825,7 +6833,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 .agent-left .agent-lede {
   margin-bottom: 20px !important;
-  font-size: 14px;
+  font-size: var(--fs-lede);
 }
 
 /* 田字格 2×2 */
@@ -7314,7 +7322,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   max-width: 620px;
   margin: 20px auto 0;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
   text-align: center;
