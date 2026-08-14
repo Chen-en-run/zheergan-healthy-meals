@@ -3536,8 +3536,9 @@ body::-webkit-scrollbar {
   display: block;
   margin: 0;
   padding: 0 34px 32px;
-  color: var(--ink-body);
-  font-size: clamp(15px, 1.05vw, 18px);
+  color: #000;
+  font-size: var(--fs-lede);
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -5495,7 +5496,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--ink-body);
+  color: #000;
 }
 
 .hotchain-sell-item svg {
