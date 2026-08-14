@@ -3458,12 +3458,15 @@ body::-webkit-scrollbar {
 }
 
 .faq-sub {
-  max-width: 360px;
+  max-width: none;
   margin: 20px 0 0;
   color: #000;
   font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  transform: translateX(-120px);
 }
 
 /* 右侧垂直手风琴 */
@@ -7359,13 +7362,14 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .steps-new-sub {
-  max-width: 620px;
+  max-width: none;
   margin: 20px auto 0;
   color: #000;
   font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
   text-align: center;
+  white-space: nowrap;
 }
 
 .steps-new-grid {
