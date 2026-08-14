@@ -5320,6 +5320,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   line-height: 1.2;
   letter-spacing: 0;
   text-align: left;
+  white-space: nowrap;
 }
 
 /* 紧凑双行标题 */
@@ -5355,8 +5356,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .hotchain-left--center .hotchain-desc--wide {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
 }
 
 /* 单列居中布局下，右栏 3 张对话图居中排在文字区下方 */
