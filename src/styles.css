@@ -3548,8 +3548,8 @@ body::-webkit-scrollbar {
   margin: 0;
   padding: 0 34px 32px;
   color: #000;
-  font-size: var(--fs-lede);
-  font-weight: 400;
+  font-size: var(--fs-sm);
+  font-weight: 380;
   line-height: 1.8;
 }
 
@@ -5494,8 +5494,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   max-width: none;
   white-space: nowrap;
   margin: 0 !important;
-  font-size: var(--fs-lede);
-  font-weight: 400;
+  font-size: var(--fs-h3);
+  font-weight: 500;
   color: #000;
   text-align: left;
 }

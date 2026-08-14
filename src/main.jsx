@@ -735,8 +735,8 @@ function HotChainHero() {
               className="hotchain-title hotchain-title--plain"
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontSize: 'var(--fs-h2)',
-                fontWeight: 680,
+                fontSize: 'var(--fs-h1)',
+                fontWeight: 700,
                 lineHeight: 1.04,
                 letterSpacing: '-0.01em',
               }}
