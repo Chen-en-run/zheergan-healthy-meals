@@ -772,17 +772,6 @@ function HotChainHero() {
             </div>
           </div>
 
-          {/* 底部卖点 */}
-          <div className="hotchain-sells">
-            <div className="hotchain-sell-item">
-              <Check size={16} />
-              <span>源头食材可查</span>
-            </div>
-            <div className="hotchain-sell-item">
-              <Check size={16} />
-              <span>到手≥60℃</span>
-            </div>
-          </div>
         </RevealOnScroll>
 
         {/* ========== 右栏：三张对话截图扇形排列 ========== */}
@@ -1117,10 +1106,7 @@ function AgentSection() {
                 <div className="chat-topbar">
                   <div className="chat-topbar-info chat-topbar-info--center">
                     <span className="chat-name">折耳根小助手</span>
-                    <span className="chat-status">
-                      <span className="chat-status-dot" />
-                      在线 · 随时为你服务
-                    </span>
+                    <span className="chat-status"></span>
                   </div>
                 </div>
 
@@ -1200,43 +1186,6 @@ function AgentSection() {
                     </div>
                   </div>
 
-                  <div className="chat-msg chat-msg--ai chat-msg--pop">
-                    <div className="chat-meal-cards">
-                      <button className="chat-meal-card-standalone" aria-label="查看体验装详情">
-                        <img src="/zheergan-healthy-meals/images/food-7.webp" alt="体验装" />
-                        <div className="chat-meal-card-standalone-body">
-                          <strong>体验装</strong>
-                          <span>新用户 · 低成本体验</span>
-                          <div className="chat-meal-card-standalone-tags">
-                            <span className="chat-meal-price-tag">¥228</span>
-                            <span className="chat-meal-day-tag">3 天</span>
-                          </div>
-                        </div>
-                      </button>
-                      <button className="chat-meal-card-standalone" aria-label="查看七日营养餐食谱详情">
-                        <img src="/zheergan-healthy-meals/images/food-8.webp" alt="周计划" />
-                        <div className="chat-meal-card-standalone-body">
-                          <strong>周计划</strong>
-                          <span>最划算 · 每周口味调优</span>
-                          <div className="chat-meal-card-standalone-tags">
-                            <span className="chat-meal-price-tag">¥476</span>
-                            <span className="chat-meal-day-tag">7 天</span>
-                          </div>
-                        </div>
-                      </button>
-                      <button className="chat-meal-card-standalone" aria-label="查看月计划详情">
-                        <img src="/zheergan-healthy-meals/images/food-9.webp" alt="月计划" />
-                        <div className="chat-meal-card-standalone-body">
-                          <strong>月计划</strong>
-                          <span>1 对 1 营养师 · 长期管理</span>
-                          <div className="chat-meal-card-standalone-tags">
-                            <span className="chat-meal-price-tag">¥1792</span>
-                            <span className="chat-meal-day-tag">28 天</span>
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="chat-input-bar">
