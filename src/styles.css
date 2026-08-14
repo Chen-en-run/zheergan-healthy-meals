@@ -1701,7 +1701,7 @@ img {
 .pain-split {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap: 72px;
+  gap: 20px;
   align-items: center;
   max-width: 1180px;
   margin: 56px auto 0;
@@ -1743,7 +1743,7 @@ img {
 .pain-split-right {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
 }
 
 .pain-split-row {
@@ -1795,7 +1795,7 @@ img {
   max-height: 72px;
   opacity: 1;
   transform: translateY(0);
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 
