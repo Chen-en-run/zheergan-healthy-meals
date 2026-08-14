@@ -74,6 +74,8 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
   --space-4xl: 96px;
+  /* 区块间统一垂直间距(大厂标准:相邻模块间距恒定) */
+  --section-gap: 96px;
   /* 展示字号阶梯(P1 排版收敛引用;3 级大标题统一缩放曲线) */
   --fs-display: clamp(64px, 7.4vw, 138px); /* Hero / 下载 主视觉 */
   --fs-h1: clamp(46px, 5.4vw, 104px); /* 章节大标题 */
@@ -82,6 +84,8 @@
   --fs-lede: clamp(17px, 1.15vw, 22px); /* 引导正文 */
   --fs-body: clamp(16px, 1.05vw, 19px); /* 正文 */
   --fs-sm: clamp(14px, 0.95vw, 16px); /* 辅助文字 */
+  /* 全站统一副标题（区块/卡片说明文案）字号，单一数据源 */
+  --fs-subtitle: clamp(15px, 1.05vw, 19px);
 }
 
 * {
@@ -138,7 +142,7 @@ img {
   background-size: 160px 160px;
 }
 
-/* 展示字体:拉丁/数字走 Fraunces 衬线,中文按 --font-display 回退栈渲染 */
+/* 主标题字体:统一使用与副标题一致的 --font-sans(无衬线) */
 .hero-copy h1,
 .download-copy h2,
 .menu-head-copy h2,
@@ -148,7 +152,7 @@ img {
 .trust-head h2,
 .belief-line,
 .faq-title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
 }
 
 .step-no,
@@ -1159,6 +1163,7 @@ img {
 .download {
   display: grid;
   place-items: center;
+  padding: var(--section-gap) 0;
 }
 
 .download-bg {
@@ -1583,7 +1588,7 @@ img {
 
 .meal-showcase-title {
   margin: 12px 0 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 640;
   color: var(--ink-cream);
@@ -1646,6 +1651,9 @@ img {
 .story-section {
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* 区块间统一垂直间距:相邻模块间距恒定 */
+  padding: var(--section-gap) 0;
 }
 
 .story-inner {
@@ -1653,20 +1661,14 @@ img {
   z-index: 1;
   width: min(1180px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 96px 0;
+  padding: 0;
 }
 
-/* 区块间距收紧 */
-.story-pain { padding: 0 0 10px; }
-.story-answer { padding: 0 0 20px; }
-.story-agent { padding: 0 0 20px; }
-.story-steps { padding: 20px 0 20px; }
-#pricing { padding: 0 0 50px; }
-#faq { padding: 20px 0 60px; }
+/* 区块间距统一:由 .story-section / .faq / .download / .trust-dark 的 padding: var(--section-gap) 0 控制 */
 
 /* 确保导航跳转时区块完整展示 + 价格等大 */
 #answer .story-inner { min-height: 75vh; }
-#pricing .story-inner { min-height: 80vh; padding-top: 28px; padding-bottom: 80px; }
+#pricing .story-inner { min-height: 80vh; }
 .price-grid-inline { align-items: stretch !important; }
 .price-grid-inline article { height: 100% !important; }
 
@@ -1678,17 +1680,19 @@ img {
 /* --- 痛点共鸣(液态玻璃版)--- */
 
 .story-pain-inner {
-  padding: 48px 0 56px;
+  padding: 0;
 }
 
 .story-pain-title {
-  margin: 24px auto 0;
-  max-width: 900px;
+  margin: 24px 0 0;
+  width: 100%;
+  box-sizing: border-box;
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.08;
   letter-spacing: 0;
-  text-align: center;
+  text-align: center !important;
+  white-space: nowrap;
 }
 
 
@@ -1696,10 +1700,10 @@ img {
 .pain-split {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap: 72px;
+  gap: 20px;
   align-items: center;
   max-width: 1180px;
-  margin: 56px auto 0;
+  margin: 20px auto 0;
   min-height: 480px;
 }
 
@@ -1738,7 +1742,7 @@ img {
 .pain-split-right {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
 }
 
 .pain-split-row {
@@ -1773,8 +1777,9 @@ img {
   overflow: hidden;
   opacity: 0;
   transform: translateY(-8px);
-  font-size: clamp(16px, 1.1vw, 19px);
-  color: var(--ink-body);
+  font-size: var(--fs-lede);
+  color: #000;
+  font-weight: 400;
   line-height: 1.55;
   padding-top: 0;
   transition:
@@ -1789,7 +1794,7 @@ img {
   max-height: 72px;
   opacity: 1;
   transform: translateY(0);
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 
@@ -1800,13 +1805,13 @@ img {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 40px 0 80px;
+  padding: 0;
   width: min(1500px, calc(100% - 24px));
 }
 
 /* ── 食材供应链：标题居中 + 4 张卡片横向排列 ── */
 .ingredient-head {
-  max-width: 760px;
+  max-width: none;
   margin: 0 auto;
   text-align: center;
 }
@@ -1818,8 +1823,12 @@ img {
   line-height: 1.08;
   letter-spacing: 0;
   text-align: center;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   color: #ffffff;
+}
+
+.story-answer-title {
+  white-space: nowrap;
 }
 
 .ingredient-head h2 .shiny-text {
@@ -1833,7 +1842,7 @@ img {
   max-width: 680px;
   margin: 20px auto 0;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
 }
@@ -1899,7 +1908,7 @@ img {
   margin: 0;
   font-size: 28px;
   font-weight: 700;
-  color: var(--ink-cream);
+  color: #000;
   letter-spacing: 0.01em;
 }
 
@@ -2349,6 +2358,9 @@ body::-webkit-scrollbar {
 .steps-scroll-left {
   display: flex;
   flex-direction: column;
+  /* 末尾留白：让最后一步(03)的文字块能滚到屏幕正中才结束，
+     确保双向滚动时 03 都能完整显示，且不影响 01/02/03 之间的间距 */
+  padding-bottom: 80px;
 }
 
 .steps-scroll-block {
@@ -2371,7 +2383,8 @@ body::-webkit-scrollbar {
 /* 右栏：钉住，滚动时图随左侧进度切换 */
 .steps-sticky-right {
   position: sticky;
-  top: 100px;
+  /* 顶部留出固定导航栏(92px)余量，避免手机图上半部分被遮挡 */
+  top: 150px;
   display: flex;
   justify-content: center;
 }
@@ -2516,9 +2529,9 @@ body::-webkit-scrollbar {
 
 .step-desc {
   margin: 6px 0 0;
-  color: var(--ink-body);
-  font-size: clamp(14px, 0.9vw, 16px);
-  font-weight: 500;
+  color: #000;
+  font-size: var(--fs-lede);
+  font-weight: 400;
   line-height: 1.55;
 }
 
@@ -2624,7 +2637,7 @@ body::-webkit-scrollbar {
 .step-desc {
   margin: 14px 0 0;
   color: var(--ink-cream);
-  font-size: clamp(16px, 1.05vw, 19px);
+  font-size: var(--fs-subtitle);
   font-weight: 600;
   line-height: 1.55;
 }
@@ -2751,7 +2764,7 @@ body::-webkit-scrollbar {
   margin: 20px auto 0;
   text-align: center;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   font-weight: 400;
 }
 
@@ -2801,7 +2814,7 @@ body::-webkit-scrollbar {
   display: block;
   margin-top: 8px;
   color: var(--muted-cream);
-  font-size: clamp(14px, 0.9vw, 16px);
+  font-size: var(--fs-subtitle);
   line-height: 1.5;
 }
 
@@ -3227,6 +3240,7 @@ body::-webkit-scrollbar {
 
   .story-pain-title {
     font-size: clamp(30px, 8vw, 42px);
+    white-space: normal;
   }
 
   .pain-split {
@@ -3413,12 +3427,13 @@ body::-webkit-scrollbar {
 /* --- FAQ --- */
 .faq {
   display: block;
+  padding: var(--section-gap) 0;
 }
 
 .faq-inner {
   width: min(1180px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 88px 0 104px;
+  padding: 0;
 }
 
 /* 左右分栏：左侧标题区 + 右侧手风琴 */
@@ -3444,12 +3459,15 @@ body::-webkit-scrollbar {
 }
 
 .faq-sub {
-  max-width: 360px;
+  max-width: none;
   margin: 20px 0 0;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  transform: translateX(-120px);
 }
 
 /* 右侧垂直手风琴 */
@@ -3530,8 +3548,9 @@ body::-webkit-scrollbar {
   display: block;
   margin: 0;
   padding: 0 34px 32px;
-  color: var(--ink-body);
-  font-size: clamp(15px, 1.05vw, 18px);
+  color: #000;
+  font-size: var(--fs-sm);
+  font-weight: 380;
   line-height: 1.8;
 }
 
@@ -3761,7 +3780,8 @@ body::-webkit-scrollbar {
   margin: 20px auto 0;
   text-align: center;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
+  line-height: 1.7;
   font-weight: 400;
 }
 
@@ -4164,13 +4184,13 @@ body::-webkit-scrollbar {
 .download-baidu-inner {
   max-width: 960px;
   margin: 0 auto;
-  padding: 80px 0 88px;
+  padding: 0;
   text-align: center;
 }
 
 .download-baidu-title {
   margin: 0 0 64px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   color: #000;
@@ -5312,6 +5332,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   line-height: 1.2;
   letter-spacing: 0;
   text-align: left;
+  white-space: nowrap;
 }
 
 /* 紧凑双行标题 */
@@ -5335,6 +5356,27 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .hotchain-left--center .hotchain-sells {
   justify-content: center;
+}
+
+/* 居中模式下，标题与描述也水平居中 */
+.hotchain-left--center .hotchain-hero-text {
+  text-align: center;
+}
+
+.hotchain-left--center .hotchain-title--plain {
+  text-align: center;
+}
+
+.hotchain-left--center .hotchain-desc--wide {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* 单列居中布局下，右栏 3 张对话图居中排在文字区下方 */
+.hotchain-grid--center .hotchain-right {
+  width: 100%;
+  margin-top: 8px;
 }
 
 /* 胶囊标签 */
@@ -5387,7 +5429,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 720;
   line-height: 1.12;
@@ -5411,7 +5453,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   align-items: baseline;
   gap: 10px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.12;
@@ -5453,8 +5495,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   max-width: none;
   white-space: nowrap;
   margin: 0 !important;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: var(--fs-h3);
+  font-weight: 500;
   color: #000;
   text-align: left;
 }
@@ -5463,7 +5505,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .hotchain-desc--sub {
   max-width: none;
   white-space: nowrap;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   font-weight: 400;
   color: #000;
   margin: 0 !important;
@@ -5488,7 +5530,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--ink-body);
+  color: #000;
 }
 
 .hotchain-sell-item svg {
@@ -6023,8 +6065,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .detail-subtitle {
   margin: 0;
-  font-size: 13px;
-  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+  color: #000;
+  font-weight: 400;
 }
 
 .detail-section-label {
@@ -6131,8 +6174,9 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .detail-assessment-desc {
   grid-column: 1 / -1;
   margin: 0;
-  font-size: 13px;
-  color: var(--muted-cream);
+  font-size: var(--fs-lede);
+  color: #000;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -6632,8 +6676,13 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   }
 
   .hotchain-desc {
-    font-size: 15px;
+    font-size: var(--fs-lede);
     margin-top: 20px;
+  }
+
+  .hotchain-desc--wide {
+    white-space: normal;
+    text-align: center;
   }
 
   .hotchain-left .hero-actions {
@@ -6781,7 +6830,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .agent-title {
   margin: 0 0 20px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.04;
@@ -6792,7 +6841,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .agent-lede {
   max-width: 720px;
   margin: 0 auto 48px;
-  color: var(--muted-cream);
+  color: #000;
   font-size: var(--fs-lede);
   line-height: 1.7;
   font-weight: 400;
@@ -6900,7 +6949,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   font-size: clamp(15px, 3.6cqi, 18px);
   line-height: 1.55;
   margin: 0;
-  color: var(--ink-body);
+  color: #000;
 }
 @media (max-width: 900px) {
   .agent-body {
@@ -7049,7 +7098,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .ingredient-left h2 {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.1;
@@ -7118,6 +7167,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   color: var(--muted-cream);
 }
 
+.ingredient-card .ingredient-desc,
+.ingredient-card .ingredient-nutri-label {
+  color: #000;
+}
+
 @media (max-width: 860px) {
   .ingredient-split {
     grid-template-columns: 1fr;
@@ -7156,7 +7210,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .trust-dark {
   background: var(--cream);
   background-attachment: fixed;
-  padding: 100px 0;
+  padding: var(--section-gap) 0;
 }
 
 .trust-dark .trust-head h2 {
@@ -7168,7 +7222,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .trust-dark .trust-sub {
-  color: var(--muted-cream);
+  color: #000;
 }
 
 .trust-dark .trust-strip-item strong {
@@ -7176,11 +7230,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .trust-dark .trust-strip-label {
-  color: var(--ink-cream);
+  color: #000;
 }
 
 .trust-dark .trust-strip-desc {
-  color: var(--muted-cream);
+  color: #000;
 }
 
 /* ================================================================
@@ -7364,13 +7418,14 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .steps-new-sub {
-  max-width: 620px;
+  max-width: none;
   margin: 20px auto 0;
   color: #000;
-  font-size: 20px;
+  font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
   text-align: center;
+  white-space: nowrap;
 }
 
 .steps-new-grid {
@@ -7418,7 +7473,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   margin: 8px 0 0;
   font-size: clamp(16px, 1.1vw, 20px);
   line-height: 1.7;
-  color: var(--ink-body);
+  color: #000;
   line-height: 1.65;
 }
 

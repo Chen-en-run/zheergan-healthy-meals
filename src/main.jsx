@@ -729,22 +729,22 @@ function HotChainHero() {
         <span className="hc-blob hc-blob--2" />
         <span className="hc-blob hc-blob--3" />
       </div>
-      <div className="hotchain-grid max-frame">
+      <div className="hotchain-grid hotchain-grid--center max-frame">
         {/* ========== 品牌宣传区 ========== */}
-        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left">
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left hotchain-left--center">
           {/* 标题+描述 */}
           <div className="hotchain-hero-text">
             <h1
               className="hotchain-title hotchain-title--plain"
               style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'var(--fs-h2)',
-                fontWeight: 680,
+                fontFamily: 'var(--font-sans)',
+                fontSize: 'var(--fs-h1)',
+                fontWeight: 700,
                 lineHeight: 1.04,
                 letterSpacing: '-0.01em',
               }}
             >
-              你的身体数据<br />决定你每一餐
+              你的身体数据，决定你每一餐
             </h1>
             <p className="hotchain-desc hotchain-desc--wide">
               告诉小折你的身体数据，它配好餐送到你手上
@@ -775,17 +775,6 @@ function HotChainHero() {
             </div>
           </div>
 
-          {/* 底部卖点 */}
-          <div className="hotchain-sells">
-            <div className="hotchain-sell-item">
-              <Check size={16} />
-              <span>源头食材可查</span>
-            </div>
-            <div className="hotchain-sell-item">
-              <Check size={16} />
-              <span>到手≥60℃</span>
-            </div>
-          </div>
         </RevealOnScroll>
 
         {/* ========== 右栏：三张对话截图扇形排列 ========== */}
@@ -1089,10 +1078,7 @@ function AgentSection() {
                 <div className="chat-topbar">
                   <div className="chat-topbar-info chat-topbar-info--center">
                     <span className="chat-name">折耳根小助手</span>
-                    <span className="chat-status">
-                      <span className="chat-status-dot" />
-                      在线 · 随时为你服务
-                    </span>
+                    <span className="chat-status"></span>
                   </div>
                 </div>
 
@@ -1191,29 +1177,76 @@ function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
   const blockRefs = useRef([]);
   const sectionRef = useRef(null);
+  const activeRef = useRef(0);
 
-  /* 滚动驱动：按整个区块的滚动进度均分 3 段切换，避免跳过 02 */
+  /* 滚动驱动（方案A，支持双向滚动）：哪一步的文字块离屏幕正中央最近，
+     就显示对应的图。上滚、下滚都会实时重算，不会卡在某一张。 */
   useEffect(() => {
-    const onScroll = () => {
-      const el = sectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
+    let ticking = false;
+    const update = () => {
+      const section = sectionRef.current;
+      const blocks = blockRefs.current;
+      if (!section || !blocks.length) return;
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      // 区块顶部到达视口中线时开始，底部离开中线时结束
-      const start = vh * 0.5;
-      const total = rect.height - vh * 0.5 + start;
-      const scrolled = start - rect.top;
-      const progress = Math.min(Math.max(scrolled / total, 0), 1);
-      const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length));
-      setActiveStep(idx);
+      const center = vh / 2;
+
+      // 选「中心离屏幕正中央最近」的那一步作为当前步（上滚下滚都适用）
+      let best = 0;
+      let bestDist = Infinity;
+      blocks.forEach((b, i) => {
+        if (!b) return;
+        const r = b.getBoundingClientRect();
+        const blockCenter = r.top + r.height / 2;
+        const dist = Math.abs(blockCenter - center);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      });
+      setActiveStep(best);
+      ticking = false;
     };
-    onScroll();
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
+  }, []);
+
+  /* 同步当前步到 ref，供滚轮劫持读取最新值 */
+  useEffect(() => {
+    activeRef.current = activeStep;
+  }, [activeStep]);
+
+  /* 滚动劫持：切到 02 时锁住页面不滚动，向下滚动累积到阈值才切到 03，
+     切到 03 后释放，页面恢复正常向下滑动。仅桌面端生效。 */
+  useEffect(() => {
+    let accum = 0;
+    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+    const onWheel = (e) => {
+      if (isMobile()) return;
+      // 仅在显示 02 且继续向下滚时劫持
+      if (activeRef.current === 1 && e.deltaY > 0) {
+        e.preventDefault();
+        accum += e.deltaY;
+        if (accum >= 160) {
+          accum = 0;
+          setActiveStep(2);
+        }
+      } else {
+        accum = 0;
+      }
+    };
+    window.addEventListener('wheel', onWheel, { passive: false });
+    return () => window.removeEventListener('wheel', onWheel);
   }, []);
 
   return (
@@ -1370,7 +1403,7 @@ function PricingInline() {
   return (
     <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格">
       <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
+        <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
         <p style={{ textAlign: 'center', color: 'var(--ink-body)', fontSize: '18px', margin: '0 0 44px' }}>
@@ -1399,7 +1432,7 @@ function PricingInline() {
                 </div>
                 <div style={{ marginTop: '10px' }}>
                   <span style={{ display: 'inline-block', padding: '6px 14px', color: 'var(--ink-cream)', borderRadius: '999px', background: 'rgba(43,31,20,0.06)', fontSize: '14px', fontWeight: 700 }}>{plan.per}</span>
-                  <span style={{ display: 'block', marginTop: '10px', color: 'var(--muted-cream)', fontSize: '15px' }}>{plan.spec}</span>
+                  <span style={{ display: 'block', marginTop: '10px', color: '#000', fontSize: '15px' }}>{plan.spec}</span>
                 </div>
               </div>
               <div style={{ marginTop: '20px', padding: '16px 0', borderTop: '1px solid var(--line-cream)', color: 'var(--ink-body)', fontSize: '15px', lineHeight: 1.6 }}>
