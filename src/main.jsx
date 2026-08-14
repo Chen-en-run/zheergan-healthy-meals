@@ -211,11 +211,11 @@ function HomePage() {
           </a>
           {[
             { id: 'pain', label: '饮食痛点' },
-            { id: 'answer', label: '食材供应链' },
-            { id: 'agent', label: 'AI 能力' },
-            { id: 'steps', label: '使用流程' },
-            { id: 'pricing', label: '价格方案' },
-            { id: 'trust', label: '数据口碑' },
+            { id: 'answer', label: '食材溯源' },
+            { id: 'agent', label: 'AI能力' },
+            { id: 'steps', label: '怎么吃' },
+            { id: 'pricing', label: '价格' },
+            { id: 'trust', label: '口碑' },
             { id: 'faq', label: '常见问题' },
           ].map((item) => (
             <a
@@ -553,6 +553,66 @@ const chatSequence = [
   },
 ];
 
+
+// 三档套餐详情数据（模块级，供 HotChainHero 与 AgentSection 共用）
+const ENERGY_DATA = {
+  '7': {
+    days: 7,
+    options: [
+      { kcal: 1500, label: '1500 千卡', priceNum: '476', priceDec: '', unit: '¥34.0', meals: { breakfast: ['燕麦蓝莓碗·小','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
+      { kcal: 1900, label: '1900 千卡', priceNum: '536', priceDec: '', unit: '¥38.3', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
+      { kcal: 2300, label: '2300 千卡', priceNum: '596', priceDec: '', unit: '¥42.6', meals: { breakfast: ['燕麦蓝莓碗·大','全麦三明治·加倍','紫薯牛奶羹·大','杂粮粥配双蛋','酸奶水果杯·大'], lunch: ['香煎鸡胸糙米饭·大','黑椒牛肉意面·加量','清蒸鲈鱼藜麦·大','番茄牛腩饭·加量','凉拌鸡丝荞麦面·大'], dinner: ['白灼虾配时蔬·大','豆腐蔬菜汤·大','南瓜鸡胸肉沙拉·大','菌菇瘦肉粥·大','蒸蛋羹配双西兰花'] } },
+    ],
+  },
+  '30': {
+    days: 30,
+    options: [
+      { kcal: 1500, label: '1500 千卡', priceNum: '1792', priceDec: '', unit: '¥32.0', meals: { breakfast: ['燕麦蓝莓碗·小','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
+      { kcal: 1900, label: '1900 千卡', priceNum: '1972', priceDec: '', unit: '¥35.2', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
+      { kcal: 2300, label: '2300 千卡', priceNum: '2172', priceDec: '', unit: '¥38.8', meals: { breakfast: ['燕麦蓝莓碗·大','全麦三明治·加倍','紫薯牛奶羹·大','杂粮粥配双蛋','酸奶水果杯·大'], lunch: ['香煎鸡胸糙米饭·大','黑椒牛肉意面·加量','清蒸鲈鱼藜麦·大','番茄牛腩饭·加量','凉拌鸡丝荞麦面·大'], dinner: ['白灼虾配时蔬·大','豆腐蔬菜汤·大','南瓜鸡胸肉沙拉·大','菌菇瘦肉粥·大','蒸蛋羹配双西兰花'] } },
+    ],
+  },
+};
+
+// 三个套餐的详情数据
+const PLANS = {
+  '1': {
+    title: '体验装',
+    sub: '¥228 起 · AI 定制 3 日餐单',
+    hero: '/zheergan-healthy-meals/images/food-7.webp',
+    days: 3,
+    price: '¥228', priceNum: '228', priceDec: '',
+    unit: '¥38.0',
+    cycle: '3 天',
+    suit: '想低成本体验的新用户',
+    taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
+    desc: '¥228 起，约 ¥38/餐，3 天 6 餐。AI 定制 3 日餐单，午晚双餐热链配送，忌口/过敏标记，随时暂停无违约金。',
+  },
+  '7': {
+    title: '周计划',
+    sub: '最划算 · 每周口味学习调优',
+    hero: '/zheergan-healthy-meals/images/food-8.webp',
+    days: 7,
+    price: '¥476', priceNum: '476', priceDec: '',
+    unit: '¥34.0',
+    cycle: '7 天',
+    suit: '追求高性价比的多数人',
+    taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
+    desc: '¥476，约 ¥34/餐，7 天 14 餐。含体验装全部功能，每周口味学习调优，营养师周报，免配送费。',
+  },
+  '30': {
+    title: '月计划',
+    sub: '深度定制 · 1 对 1 营养师咨询',
+    hero: '/zheergan-healthy-meals/images/food-9.webp',
+    days: 28,
+    price: '¥1792', priceNum: '1792', priceDec: '',
+    unit: '¥32.0',
+    cycle: '28 天',
+    suit: '追求长期体重管理者',
+    taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
+    desc: '¥1792，约 ¥32/餐，28 天 56 餐。含周计划全部，1 对 1 营养师咨询，体重体脂追踪，优先配送时段。',
+  },
+};
 function HotChainHero() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [typing, setTyping] = useState(false);
@@ -564,24 +624,6 @@ function HotChainHero() {
   const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
   const heroRef = useRef(null);
 
-  const ENERGY_DATA = {
-    '7': {
-      days: 7,
-      options: [
-        { kcal: 1500, label: '1500 千卡', priceNum: '476', priceDec: '', unit: '¥34.0', meals: { breakfast: ['燕麦蓝莓碗·小','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
-        { kcal: 1900, label: '1900 千卡', priceNum: '536', priceDec: '', unit: '¥38.3', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
-        { kcal: 2300, label: '2300 千卡', priceNum: '596', priceDec: '', unit: '¥42.6', meals: { breakfast: ['燕麦蓝莓碗·大','全麦三明治·加倍','紫薯牛奶羹·大','杂粮粥配双蛋','酸奶水果杯·大'], lunch: ['香煎鸡胸糙米饭·大','黑椒牛肉意面·加量','清蒸鲈鱼藜麦·大','番茄牛腩饭·加量','凉拌鸡丝荞麦面·大'], dinner: ['白灼虾配时蔬·大','豆腐蔬菜汤·大','南瓜鸡胸肉沙拉·大','菌菇瘦肉粥·大','蒸蛋羹配双西兰花'] } },
-      ],
-    },
-    '30': {
-      days: 30,
-      options: [
-        { kcal: 1500, label: '1500 千卡', priceNum: '1792', priceDec: '', unit: '¥32.0', meals: { breakfast: ['燕麦蓝莓碗·小','全麦三明治·半','紫薯牛奶羹','杂粮粥','酸奶水果杯·小'], lunch: ['香煎鸡胸糙米饭·小','黑椒牛肉意面·减半','清蒸鲈鱼藜麦·小','番茄牛腩饭·半碗','凉拌鸡丝荞麦面·小'], dinner: ['白灼虾时蔬·小','豆腐蔬菜汤','南瓜鸡胸沙拉·小','菌菇瘦肉粥·半碗','蒸蛋羹西兰花·小'] } },
-        { kcal: 1900, label: '1900 千卡', priceNum: '1972', priceDec: '', unit: '¥35.2', meals: { breakfast: ['燕麦蓝莓碗','全麦三明治','紫薯牛奶羹','杂粮粥配鸡蛋','酸奶水果杯'], lunch: ['香煎鸡胸糙米饭','黑椒牛肉意面','清蒸鲈鱼配藜麦','番茄牛腩饭','凉拌鸡丝荞麦面'], dinner: ['白灼虾配时蔬','豆腐蔬菜汤','南瓜鸡胸肉沙拉','菌菇瘦肉粥','蒸蛋羹配西兰花'] } },
-        { kcal: 2300, label: '2300 千卡', priceNum: '2172', priceDec: '', unit: '¥38.8', meals: { breakfast: ['燕麦蓝莓碗·大','全麦三明治·加倍','紫薯牛奶羹·大','杂粮粥配双蛋','酸奶水果杯·大'], lunch: ['香煎鸡胸糙米饭·大','黑椒牛肉意面·加量','清蒸鲈鱼藜麦·大','番茄牛腩饭·加量','凉拌鸡丝荞麦面·大'], dinner: ['白灼虾配时蔬·大','豆腐蔬菜汤·大','南瓜鸡胸肉沙拉·大','菌菇瘦肉粥·大','蒸蛋羹配双西兰花'] } },
-      ],
-    },
-  };
 
   const activeEnergyData = ENERGY_DATA[detailPlan] || ENERGY_DATA['30'];
   const planDays = activeEnergyData.days;
@@ -612,45 +654,6 @@ function HotChainHero() {
     return `热量接近维持水平（每日仅差 ${absDiff} kcal），维持当前体重，均衡饮食不易反弹。`;
   };
 
-  // 三个套餐的详情数据
-  const PLANS = {
-    '1': {
-      title: '体验装',
-      sub: '¥228 起 · AI 定制 3 日餐单',
-      hero: '/zheergan-healthy-meals/images/food-7.webp',
-      days: 3,
-      price: '¥228', priceNum: '228', priceDec: '',
-      unit: '¥38.0',
-      cycle: '3 天',
-      suit: '想低成本体验的新用户',
-      taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
-      desc: '¥228 起，约 ¥38/餐，3 天 6 餐。AI 定制 3 日餐单，午晚双餐热链配送，忌口/过敏标记，随时暂停无违约金。',
-    },
-    '7': {
-      title: '周计划',
-      sub: '最划算 · 每周口味学习调优',
-      hero: '/zheergan-healthy-meals/images/food-8.webp',
-      days: 7,
-      price: '¥476', priceNum: '476', priceDec: '',
-      unit: '¥34.0',
-      cycle: '7 天',
-      suit: '追求高性价比的多数人',
-      taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
-      desc: '¥476，约 ¥34/餐，7 天 14 餐。含体验装全部功能，每周口味学习调优，营养师周报，免配送费。',
-    },
-    '30': {
-      title: '月计划',
-      sub: '深度定制 · 1 对 1 营养师咨询',
-      hero: '/zheergan-healthy-meals/images/food-9.webp',
-      days: 28,
-      price: '¥1792', priceNum: '1792', priceDec: '',
-      unit: '¥32.0',
-      cycle: '28 天',
-      suit: '追求长期体重管理者',
-      taboo: '忌口/过敏可标记；如对特定坚果或海鲜过敏请咨询营养师。',
-      desc: '¥1792，约 ¥32/餐，28 天 56 餐。含周计划全部，1 对 1 营养师咨询，体重体脂追踪，优先配送时段。',
-    },
-  };
   const plan = PLANS[detailPlan] || PLANS['30'];
   const chatScrollRef = useRef(null);
   const sectionRef = useRef(null);
@@ -929,10 +932,8 @@ function PainSection() {
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          缺的不是自律<br />
-          <span className="pain-line2">是一顿省心的饭</span>
+          每天三顿饭，三件烦心事
         </h2>
-        <p className="story-pain-sub"><SplitText stagger={0.012}>每个人想好好吃饭的人，都卡在这一关</SplitText></p>
         <PainSplit />
       </RevealOnScroll>
     </section>
@@ -964,11 +965,13 @@ function AnswerSection() {
       className="story-section story-answer section-panel panel-cream"
       id="answer"
     >
-      <div className="story-inner story-answer-inner" aria-label="食材供应链">
+      <div className="story-inner story-answer-inner" aria-label="食材溯源">
         <div className="ingredient-head">
           <RevealOnScroll variant="fadeIn" amount={0.1}>
             <h2 style={{ color: '#000000' }}>
-              饭要天天吃<br />食材不能含糊
+              你吃的每一口
+              <br />
+              都有来处
             </h2>
             <p>每一份食材标明产地、供应商，来源透明。</p>
           </RevealOnScroll>
@@ -977,43 +980,27 @@ function AnswerSection() {
           {[
             {
               img: '/zheergan-healthy-meals/images/salad.webp',
-              name: '蔬果',
-              desc: '每日直采·新鲜到店',
-              nutrition: [
-                '富含维C，抗氧化、增强免疫',
-                '膳食纤维促进肠道蠕动',
-                '低热量高水分，控体更轻盈',
-              ],
+              name: '新鲜蔬果',
+              desc: '当日直采·不囤货',
+              source: '餐厅当天采购、当天使用',
             },
             {
               img: '/zheergan-healthy-meals/images/quinoa.webp',
-              name: '杂粮',
+              name: '优质杂粮',
               desc: '产地直供·可溯源',
-              nutrition: [
-                '完整蛋白，含9种必需氨基酸',
-                'B族维生素助力能量代谢',
-                '慢碳水稳血糖、耐饥饿',
-              ],
+              source: '源头可查，品质稳定',
             },
             {
               img: '/zheergan-healthy-meals/images/tuna.webp',
               name: '海鲜蛋奶',
-              desc: '当日到货·不囤货',
-              nutrition: [
-                'Omega-3 守护心脑与视力',
-                '高钙强健骨骼与牙齿',
-                '优质蛋白易吸收、低负担',
-              ],
+              desc: '冷链直达·每日到货',
+              source: '当天到货、当天使用',
             },
             {
               img: '/zheergan-healthy-meals/images/chicken.webp',
-              name: '肉类',
+              name: '新鲜肉类',
               desc: '资质定期复查',
-              nutrition: [
-                '易吸收铁，改善气血不足',
-                '瘦肉蛋白修复肌肉组织',
-                '锌元素提升免疫与活力',
-              ],
+              source: '正规屠场宰杀，可追溯',
             },
           ].map((item, i) => (
             <RevealOnScroll key={item.name} delay={i * 0.08} amount={0.1} variant="popUp">
@@ -1025,12 +1012,8 @@ function AnswerSection() {
                   <h4 className="ingredient-name">{item.name}</h4>
                   <span className="ingredient-desc">{item.desc}</span>
                   <div className="ingredient-nutri">
-                    <span className="ingredient-nutri-label">营养价值</span>
-                    <ul>
-                      {item.nutrition.map((n) => (
-                        <li key={n}>{n}</li>
-                      ))}
-                    </ul>
+                    <span className="ingredient-nutri-label">来源说明</span>
+                    <p>{item.source}</p>
                   </div>
                 </div>
               </article>
@@ -1050,7 +1033,7 @@ const agentCaps = [
   {
     icon: MessageSquareText,
     title: '听懂身体',
-    desc: '你告诉它性别、身高、体重、活动量——它算出你每天该吃多少热量。不是猜，是算。',
+    desc: '你告诉它性别、年龄、身高、体重、活动量——它算出你每天该吃多少热量。不是猜，是算。',
   },
   {
     icon: Activity,
@@ -1060,7 +1043,7 @@ const agentCaps = [
   {
     icon: RefreshCw,
     title: '动态调整',
-    desc: '你只管变化，餐单它自己跟上，零重复操作。',
+    desc: '瘦了5斤？在档案页更新体重，小折推荐自动同步。',
   },
   {
     icon: MessageSquareText,
@@ -1074,7 +1057,7 @@ function AgentSection() {
     const fmt = (d) =>
       d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', hour12: false });
     const base = new Date();
-    return [6, 4, 2, 0].map((m) => {
+    return [6, 4].map((m) => {
       const d = new Date(base.getTime() - m * 60 * 1000);
       return fmt(d);
     });
@@ -1098,19 +1081,8 @@ function AgentSection() {
             <p className="agent-lede"><SplitText stagger={0.012}>
               折耳根 AI 不只是聊天。从听懂身体到直接回答，它把"吃什么"全程接管。
             </SplitText></p>
-            <div className="agent-mini-grid">
-              {agentCaps.map((cap, i) => {
-                const I = cap.icon;
-                return (
-                  <article key={cap.title} className="agent-mini-card">
-                    <span className="agent-mini-icon"><I /></span>
-                    <h4>{cap.title}</h4>
-                    <p>{cap.desc}</p>
-                  </article>
-                );
-              })}
-            </div>
           </div>
+          <div className="agent-body">
           <aside className="agent-aside">
             <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
               <div className="chat-card">
@@ -1128,7 +1100,7 @@ function AgentSection() {
                   <div className="chat-msg chat-msg--user chat-msg--pop">
                     <div className="chat-msg-main">
                       <div className="chat-bubble chat-bubble--user">
-                        女，身高 165，体重 60，平时坐办公室很少动。
+                        女，26岁，身高165，体重60，平时坐办公室。
                       </div>
                       <span className="chat-msg-time">{chatTimes[0]}</span>
                     </div>
@@ -1137,7 +1109,7 @@ function AgentSection() {
                   <div className="chat-msg chat-msg--ai chat-msg--pop">
                     <div className="chat-msg-main">
                       <div className="chat-bubble chat-bubble--ai">
-                        收到，先替你算一下：你的 BMI 约 22.0，属于正常范围；按你的活动量，每天建议摄入约 1650 kcal。
+                        收到。BMI 22.0，正常范围；每天建议摄入约 1650 kcal。
                       </div>
                     </div>
                   </div>
@@ -1145,7 +1117,7 @@ function AgentSection() {
                   <div className="chat-msg chat-msg--user chat-msg--pop">
                     <div className="chat-msg-main">
                       <div className="chat-bubble chat-bubble--user">
-                        那我的 BMI 怎么算出来的？
+                        有什么推荐的健康餐吗？
                       </div>
                       <span className="chat-msg-time">{chatTimes[1]}</span>
                     </div>
@@ -1154,65 +1126,12 @@ function AgentSection() {
                   <div className="chat-msg chat-msg--ai chat-msg--pop">
                     <div className="chat-msg-main">
                       <div className="chat-bubble chat-bubble--ai">
-                        BMI = 体重(kg) ÷ 身高(m)²。你的是 60 ÷ 1.65² ≈ 22.0。
+                        推荐 7 天周计划，1500 kcal 规格。想看看详细餐单吗？
                       </div>
                     </div>
                   </div>
-
-                  <div className="chat-msg chat-msg--user chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--user">
-                        要是之后我体重变了，餐单要重填吗？
-                      </div>
-                      <span className="chat-msg-time">{chatTimes[2]}</span>
-                    </div>
-                  </div>
-
-                  <div className="chat-msg chat-msg--ai chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--ai">
-                        不用。
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="chat-msg chat-msg--user chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--user">
-                        最近感觉胖了，你有什么推荐的健康餐吗？
-                      </div>
-                      <span className="chat-msg-time">{chatTimes[3]}</span>
-                    </div>
-                  </div>
-
-                  <div className="chat-msg chat-msg--ai chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--ai">
-                        为你推荐折耳根的三档定制餐：
-                        <br /><br />
-                        1. 体验装：¥228 起，约 ¥38/餐，AI 定制 3 日餐单，午晚双餐热链配送，随时暂停无违约金。
-                        <br />
-                        2. 周计划：¥476，约 ¥34/餐，含体验装全部功能，每周口味学习调优，免配送费，最划算。
-                        <br />
-                        3. 月计划：¥1792，约 ¥32/餐，含 1 对 1 营养师咨询、体重体脂追踪、优先配送时段。
-                        <br /><br />
-                      </div>
-                    </div>
-                  </div>
-
                   <div className="chat-msg chat-msg--ai chat-msg--pop">
                     <div className="chat-meal-cards">
-                      <button className="chat-meal-card-standalone" aria-label="查看体验装详情">
-                        <img src="/zheergan-healthy-meals/images/food-7.webp" alt="体验装" />
-                        <div className="chat-meal-card-standalone-body">
-                          <strong>体验装</strong>
-                          <span>新用户 · 低成本体验</span>
-                          <div className="chat-meal-card-standalone-tags">
-                            <span className="chat-meal-price-tag">¥228</span>
-                            <span className="chat-meal-day-tag">3 天</span>
-                          </div>
-                        </div>
-                      </button>
                       <button className="chat-meal-card-standalone" aria-label="查看七日营养餐食谱详情">
                         <img src="/zheergan-healthy-meals/images/food-8.webp" alt="周计划" />
                         <div className="chat-meal-card-standalone-body">
@@ -1224,19 +1143,9 @@ function AgentSection() {
                           </div>
                         </div>
                       </button>
-                      <button className="chat-meal-card-standalone" aria-label="查看月计划详情">
-                        <img src="/zheergan-healthy-meals/images/food-9.webp" alt="月计划" />
-                        <div className="chat-meal-card-standalone-body">
-                          <strong>月计划</strong>
-                          <span>1 对 1 营养师 · 长期管理</span>
-                          <div className="chat-meal-card-standalone-tags">
-                            <span className="chat-meal-price-tag">¥1792</span>
-                            <span className="chat-meal-day-tag">28 天</span>
-                          </div>
-                        </div>
-                      </button>
                     </div>
                   </div>
+
                 </div>
 
                 <div className="chat-input-bar">
@@ -1253,6 +1162,19 @@ function AgentSection() {
               </div>
             </RevealOnScroll>
           </aside>
+          <div className="agent-mini-grid">
+            {agentCaps.map((cap, i) => {
+              const I = cap.icon;
+              return (
+                <article key={cap.title} className="agent-mini-card">
+                  <span className="agent-mini-icon"><I /></span>
+                  <h4>{cap.title}</h4>
+                  <p>{cap.desc}</p>
+                </article>
+              );
+            })}
+          </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1439,20 +1361,20 @@ const testimonials = [
 ];
 
  const pricingPlans = [
-  { name: '3天尝鲜', price: 228, per: '≈¥38/餐', spec: '3天·6餐', feats: ['AI 定制 3 日餐单', '午晚双餐热链配送', '忌口与过敏原标记'], cta: '试3天' },
-  { name: '7天周计划', price: 476, per: '≈¥34/餐', spec: '7天·14餐', feats: ['含体验装全部', '每周口味学习调优', '营养师周报', '免配送费'], cta: '最划算', hot: true },
-  { name: '28天月计划', price: 1792, per: '≈¥32/餐', spec: '28天·56餐', feats: ['含周计划全部', '1对1营养师咨询', '体重体脂追踪', '优先配送时段'], cta: '深度定制' },
+  { name: '3天尝鲜', price: 228, per: '≈¥38/餐', spec: '3天·6餐', cta: '试3天' },
+  { name: '7天周计划', price: 476, per: '≈¥34/餐', spec: '7天·14餐', cta: '最划算', hot: true },
+  { name: '28天月计划', price: 1792, per: '≈¥32/餐', spec: '28天·56餐', cta: '深度定制' },
 ];
 
 function PricingInline() {
   return (
-    <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格方案">
+    <section className="story-section section-panel panel-cream" id="pricing" aria-label="价格">
       <div className="story-inner" style={{ paddingBottom: '80px', width: 'min(1320px, calc(100% - 40px))' }}>
         <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
-        <p style={{ textAlign: 'center', color: '#000', fontSize: '20px', fontWeight: 400, marginBottom: '52px', lineHeight: 1.6 }}>
-          订得越长，单餐越省
+        <p style={{ textAlign: 'center', color: 'var(--ink-body)', fontSize: '18px', margin: '0 0 44px' }}>
+          订得越长，单餐越省。
         </p>
         <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto', alignItems: 'stretch' }}>
           {pricingPlans.map((plan, i) => (
@@ -1480,14 +1402,11 @@ function PricingInline() {
                   <span style={{ display: 'block', marginTop: '10px', color: 'var(--muted-cream)', fontSize: '15px' }}>{plan.spec}</span>
                 </div>
               </div>
-              <ul style={{ listStyle: 'none', margin: '0 0 28px', padding: '20px 0 0', borderTop: '1px solid var(--line-cream)', display: 'grid', gap: '14px' }}>
-                {plan.feats.map((f) => (
-                  <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--ink-body)', fontSize: '16px', lineHeight: 1.5 }}>
-                    <Check size={17} style={{ flex: 'none', marginTop: '2px', color: 'var(--ink-cream)' }} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
+              <div style={{ marginTop: '20px', padding: '16px 0', borderTop: '1px solid var(--line-cream)', color: 'var(--ink-body)', fontSize: '15px', lineHeight: 1.6 }}>
+                  <p style={{ margin: '0 0 8px', fontWeight: 600, color: 'var(--ink-cream)' }}>每份餐均含：</p>
+                  <p style={{ margin: '0 0 4px' }}>✓ AI 定制餐单</p>
+                  <p style={{ margin: '0' }}>✓ 热链配送到手</p>
+                </div>
               <div className="download-btn-group" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
                 <a
                   href="https://github.com/xiaolinlin360/.github.io/releases/download/%E6%8A%98%E8%80%B3%E6%A0%B9%E5%81%A5%E5%BA%B7%E9%A4%90v0.0.1/app-debug.apk" target="_blank" rel="noreferrer"
@@ -1519,7 +1438,7 @@ function PricingInline() {
 
 function TrustSection() {
   return (
-    <section className="story-section story-trust trust-dark" id="trust" aria-label="为什么信任我们">
+    <section className="story-section story-trust trust-dark" id="trust" aria-label="口碑">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-trust-inner">
         <div className="trust-head">
           <h2>
@@ -1548,24 +1467,24 @@ function TrustSection() {
 
 const faqs = [
   {
-    q: 'AI 怎么算出我该吃多少？',
-    a: '你告诉它性别、年龄、身高、体重和活动量，它会用 Mifflin-St Jeor 公式算出你的基础代谢，再结合活动量得出每日总消耗，并据此给出热量与蛋白质、碳水、脂肪三大营养素的目标配比——不是凭经验猜，是算出来的。',
+    q: 'AI怎么算出我该吃多少？',
+    a: '你告诉它性别、年龄、身高、体重和活动量，小折帮你算出每天该吃多少热量——这不是猜的，是基于你的真实数据算出来的。然后根据你的口味偏好和饮食目标，匹配最适合你的餐。你确认，餐送到手。',
   },
   {
     q: '配送范围覆盖哪些城市？',
-    a: '目前已覆盖上海、北京、深圳、杭州、成都的主城区，并在持续拓展。下单前 App 会根据你的收货地址自动校验能否送达。',
-  },
-  {
-    q: '多少钱一餐？',
-    a: '体验装约 38 元/餐，月计划低至 32 元/餐。先试 3 天，觉得合适再续。',
-  },
-  {
-    q: '食材哪里来的？',
-    a: '餐厅当天采购、当天使用，不囤货。供应商资质定期复查。',
+    a: '目前已覆盖上海、北京、深圳、杭州、成都的主城区，并在持续拓展。下单前App会根据你的收货地址自动校验能否送达。',
   },
   {
     q: '能看到每餐的热量和营养成分吗？',
-    a: '当然能。每份餐都标注了热量、蛋白质、碳水和脂肪含量，App 里还能按天查看三大营养素占比，比你自己做笔记还清楚。',
+    a: '当然能。每份餐都标注了热量、蛋白质、碳水和脂肪含量，App里还能按天查看三大营养素占比，比你自己做笔记还清楚。',
+  },
+  {
+    q: '配送怎么保证到手还是热的？',
+    a: '合作餐厅现做后直接装入保温箱，由骑手专送，到手中心温度≥60℃，开盖即食，不用微波炉加热。冷天配送有保温袋，确保你拿到的每一餐都是烫的。',
+  },
+  {
+    q: '吃这个真的能瘦/增重吗？',
+    a: '取决于你实际摄入与消耗的热量差。小折推荐的热量是基于你的TEE和BMI算出来的——选低于TEE的规格会减重，选高于TEE的规格会增重。但长期效果也取决于你每餐是否按时吃、中间有没有额外加餐或漏餐。小折会按你选的方案持续推进，你吃满一个周期，效果自然看得到。',
   },
 ];
 
@@ -1577,7 +1496,7 @@ function FaqSection() {
         <div className="faq-split">
           <div className="faq-head">
             <h2 className="faq-title"><SplitText>常见问题</SplitText></h2>
-            <p className="faq-sub"><SplitText stagger={0.012}>关于配送、价格、食材与营养成分，这里回答了你能想到的</SplitText></p>
+            <p className="faq-sub"><SplitText stagger={0.012}>关于配送、热量、效果，这里回答了你能想到的</SplitText></p>
           </div>
           <ul className="faq-list">
             {faqs.map((item, i) => {
