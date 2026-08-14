@@ -1648,6 +1648,7 @@ img {
 .story-section {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .story-inner {
@@ -1684,13 +1685,15 @@ img {
 }
 
 .story-pain-title {
-  margin: 24px auto 0;
-  max-width: 900px;
+  margin: 24px 0 0;
+  width: 100%;
+  box-sizing: border-box;
   font-size: var(--fs-h2);
   font-weight: 680;
   line-height: 1.08;
   letter-spacing: 0;
-  text-align: center;
+  text-align: center !important;
+  white-space: nowrap;
 }
 
 
@@ -1809,7 +1812,7 @@ img {
 
 /* ── 食材供应链：标题居中 + 4 张卡片横向排列 ── */
 .ingredient-head {
-  max-width: 760px;
+  max-width: none;
   margin: 0 auto;
   text-align: center;
 }
@@ -1823,6 +1826,10 @@ img {
   text-align: center;
   font-family: var(--font-sans);
   color: #ffffff;
+}
+
+.story-answer-title {
+  white-space: nowrap;
 }
 
 .ingredient-head h2 .shiny-text {
@@ -3233,6 +3240,7 @@ body::-webkit-scrollbar {
 
   .story-pain-title {
     font-size: clamp(30px, 8vw, 42px);
+    white-space: normal;
   }
 
   .pain-split {

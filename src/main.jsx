@@ -918,8 +918,7 @@ function PainSection() {
     <section className="story-section story-pain section-panel panel-cream" id="pain" aria-label="健康饮食的困扰">
 <RevealOnScroll variant="fadeUp" amount={0.1} className="story-inner story-pain-inner">
         <h2 className="story-pain-title">
-          缺的不是自律<br />
-          <span className="pain-line2">是一顿省心的饭</span>
+          缺的不是自律，是一顿省心的饭
         </h2>
         <p className="story-pain-sub"><SplitText stagger={0.012}>每个人想好好吃饭的人，都卡在这一关</SplitText></p>
         <PainSplit />
@@ -956,8 +955,8 @@ function AnswerSection() {
       <div className="story-inner story-answer-inner" aria-label="食材供应链">
         <div className="ingredient-head">
           <RevealOnScroll variant="fadeIn" amount={0.1}>
-            <h2 style={{ color: '#000000' }}>
-              饭要天天吃<br />食材不能含糊
+            <h2 className="story-answer-title" style={{ color: '#000000' }}>
+              饭要天天吃，食材不能含糊
             </h2>
             <p>每一份食材标明产地、供应商，来源透明。</p>
           </RevealOnScroll>
