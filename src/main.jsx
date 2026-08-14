@@ -726,9 +726,9 @@ function HotChainHero() {
         <span className="hc-blob hc-blob--2" />
         <span className="hc-blob hc-blob--3" />
       </div>
-      <div className="hotchain-grid max-frame">
+      <div className="hotchain-grid hotchain-grid--center max-frame">
         {/* ========== 品牌宣传区 ========== */}
-        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left">
+        <RevealOnScroll variant="fadeUp" amount={0.1} className="hotchain-left hotchain-left--center">
           {/* 标题+描述 */}
           <div className="hotchain-hero-text">
             <h1
@@ -741,7 +741,7 @@ function HotChainHero() {
                 letterSpacing: '-0.01em',
               }}
             >
-              你的身体数据<br />决定你每一餐
+              你的身体数据，决定你每一餐
             </h1>
             <p className="hotchain-desc hotchain-desc--wide">
               告诉小折你的身体数据，它配好餐送到你手上

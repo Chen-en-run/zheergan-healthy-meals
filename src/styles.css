@@ -5345,6 +5345,26 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   justify-content: center;
 }
 
+/* 居中模式下，标题与描述也水平居中 */
+.hotchain-left--center .hotchain-hero-text {
+  text-align: center;
+}
+
+.hotchain-left--center .hotchain-title--plain {
+  text-align: center;
+}
+
+.hotchain-left--center .hotchain-desc--wide {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 单列居中布局下，右栏 3 张对话图居中排在文字区下方 */
+.hotchain-grid--center .hotchain-right {
+  width: 100%;
+  margin-top: 8px;
+}
+
 /* 胶囊标签 */
 .hotchain-tag {
   display: inline-flex;
