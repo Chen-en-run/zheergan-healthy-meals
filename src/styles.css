@@ -74,6 +74,8 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
   --space-4xl: 96px;
+  /* 区块间统一垂直间距(大厂标准:相邻模块间距恒定) */
+  --section-gap: 96px;
   /* 展示字号阶梯(P1 排版收敛引用;3 级大标题统一缩放曲线) */
   --fs-display: clamp(64px, 7.4vw, 138px); /* Hero / 下载 主视觉 */
   --fs-h1: clamp(46px, 5.4vw, 104px); /* 章节大标题 */
@@ -1161,6 +1163,7 @@ img {
 .download {
   display: grid;
   place-items: center;
+  padding: var(--section-gap) 0;
 }
 
 .download-bg {
@@ -1649,6 +1652,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* 区块间统一垂直间距:相邻模块间距恒定 */
+  padding: var(--section-gap) 0;
 }
 
 .story-inner {
@@ -1656,20 +1661,14 @@ img {
   z-index: 1;
   width: min(1180px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 96px 0;
+  padding: 0;
 }
 
-/* 区块间距收紧 */
-.story-pain { padding: 0 0 10px; }
-.story-answer { padding: 0 0 20px; }
-.story-agent { padding: 0 0 20px; }
-.story-steps { padding: 20px 0 0; }
-#pricing { padding: 0 0 50px; }
-#faq { padding: 20px 0 60px; }
+/* 区块间距统一:由 .story-section / .faq / .download / .trust-dark 的 padding: var(--section-gap) 0 控制 */
 
 /* 确保导航跳转时区块完整展示 + 价格等大 */
 #answer .story-inner { min-height: 75vh; }
-#pricing .story-inner { min-height: 80vh; padding-top: 28px; padding-bottom: 80px; }
+#pricing .story-inner { min-height: 80vh; }
 .price-grid-inline { align-items: stretch !important; }
 .price-grid-inline article { height: 100% !important; }
 
@@ -1681,7 +1680,7 @@ img {
 /* --- 痛点共鸣(液态玻璃版)--- */
 
 .story-pain-inner {
-  padding: 48px 0 56px;
+  padding: 0;
 }
 
 .story-pain-title {
@@ -1704,7 +1703,7 @@ img {
   gap: 20px;
   align-items: center;
   max-width: 1180px;
-  margin: 56px auto 0;
+  margin: 20px auto 0;
   min-height: 480px;
 }
 
@@ -1806,7 +1805,7 @@ img {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 40px 0 80px;
+  padding: 0;
   width: min(1500px, calc(100% - 24px));
 }
 
@@ -1855,7 +1854,7 @@ img {
   gap: 36px;
   width: 100%;
   max-width: 1240px;
-  margin-top: 56px;
+  margin-top: 20px;
 }
 
 .ingredient-card.split {
@@ -3427,12 +3426,13 @@ body::-webkit-scrollbar {
 /* --- FAQ --- */
 .faq {
   display: block;
+  padding: var(--section-gap) 0;
 }
 
 .faq-inner {
   width: min(1180px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 88px 0 104px;
+  padding: 0;
 }
 
 /* 左右分栏：左侧标题区 + 右侧手风琴 */
@@ -4183,7 +4183,7 @@ body::-webkit-scrollbar {
 .download-baidu-inner {
   max-width: 960px;
   margin: 0 auto;
-  padding: 80px 0 88px;
+  padding: 0;
   text-align: center;
 }
 
@@ -7154,7 +7154,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .trust-dark {
   background: var(--cream);
   background-attachment: fixed;
-  padding: 100px 0;
+  padding: var(--section-gap) 0;
 }
 
 .trust-dark .trust-head h2 {
