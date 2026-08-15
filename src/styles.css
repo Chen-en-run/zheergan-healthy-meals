@@ -1656,6 +1656,15 @@ img {
   padding: var(--section-gap) 0;
 }
 
+/* steps↔pricing 与 pricing↔trust 间距拉近(仅这两处):#pricing 上下 padding 减半,#steps 取消底部 */
+#steps.story-section {
+  padding-bottom: 0;
+}
+#pricing.story-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
 .story-inner {
   position: relative;
   z-index: 1;
