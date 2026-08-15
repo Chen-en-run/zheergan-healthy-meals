@@ -1852,9 +1852,9 @@ img {
 .ingredient-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 40px;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1180px;
   margin-top: 48px;
 }
 
@@ -1865,7 +1865,7 @@ img {
   text-align: left;
   padding: 0;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 26px;
   background: #ffffff;
   border: 1px solid rgba(43, 31, 20, 0.06);
   box-shadow: 0 10px 30px rgba(43, 31, 20, 0.06);
@@ -1879,7 +1879,7 @@ img {
 
 /* 左侧食材特写图 */
 .ingredient-img {
-  flex: 0 0 42%;
+  flex: 0 0 44%;
   align-self: stretch;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -1901,13 +1901,13 @@ img {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: clamp(18px, 2vw, 28px) clamp(16px, 2vw, 30px);
+  padding: clamp(20px, 2.2vw, 32px) clamp(19px, 2.2vw, 34px);
   min-width: 0;
 }
 
 .ingredient-name {
   margin: 0;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
   color: #000;
   letter-spacing: 0.01em;
@@ -3577,7 +3577,7 @@ body::-webkit-scrollbar {
 }
 
 .footer-l1-label {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--soft-cream);
 }
 
@@ -3621,7 +3621,7 @@ body::-webkit-scrollbar {
 
 .footer-l2-col h3 {
   margin: 0 0 30px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 650;
   color: var(--ink-cream);
   letter-spacing: 0.02em;
@@ -3629,7 +3629,7 @@ body::-webkit-scrollbar {
 
 .footer-l2-col a {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--soft-cream);
   margin-bottom: 18px;
   transition: color 0.18s ease;
@@ -3649,7 +3649,7 @@ body::-webkit-scrollbar {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--ember-ink);
   letter-spacing: 0.02em;
@@ -3672,12 +3672,12 @@ body::-webkit-scrollbar {
   gap: 6px 16px;
   padding-top: 16px;
   border-top: 1px solid rgba(43, 31, 20, 0.06);
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
 }
 
 .footer-l3 a {
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
   transition: color 0.18s ease;
 }
@@ -5189,11 +5189,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .site-footer { }
 .footer-new { width: 100%; padding: 24px 20px; text-align: center; }
 .footer-new-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; margin-bottom: 14px; }
-.footer-new-links a { color: #374151; font-size: 14px; text-decoration: none; transition: color 0.15s; }
+.footer-new-links a { color: #374151; font-size: 15px; text-decoration: none; transition: color 0.15s; }
 .footer-new-links a:hover { color: var(--ember-ink); }
-.footer-new-sep { color: #d1d5db; font-size: 13px; margin: 0 10px; user-select: none; }
-.footer-new-copy { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; color: #9ca3af; font-size: 12px; }
-.footer-new-copy a { color: #9ca3af; font-size: 12px; text-decoration: none; transition: color 0.15s; }
+.footer-new-sep { color: #d1d5db; font-size: 14px; margin: 0 10px; user-select: none; }
+.footer-new-copy { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; color: #9ca3af; font-size: 13px; }
+.footer-new-copy a { color: #9ca3af; font-size: 13px; text-decoration: none; transition: color 0.15s; }
 .footer-new-copy a:hover { color: var(--ember-ink); }
 
 
