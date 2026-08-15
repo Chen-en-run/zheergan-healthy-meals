@@ -1430,7 +1430,7 @@ function PricingInline() {
                   <strong style={{ fontSize: 'clamp(50px, 4vw, 66px)', fontWeight: 700, lineHeight: 1, color: '#000' }}>{plan.price}</strong>
                 </div>
                 <div style={{ marginTop: '10px' }}>
-                  <span style={{ display: 'inline-block', padding: '6px 14px', color: '#000', borderRadius: '999px', background: 'rgba(43,31,20,0.06)', fontSize: '14px', fontWeight: 700 }}>{plan.per}</span>
+                  <span className="price-per-glass">{plan.per}</span>
                   <span style={{ display: 'block', marginTop: '10px', color: '#000', fontSize: '15px' }}>{plan.spec}</span>
                 </div>
               </div>
