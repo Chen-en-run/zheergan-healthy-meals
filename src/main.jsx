@@ -959,9 +959,7 @@ function AnswerSection() {
         <div className="ingredient-head">
           <RevealOnScroll variant="fadeIn" amount={0.1}>
             <h2 style={{ color: '#000000' }}>
-              你吃的每一口
-              <br />
-              都有来处
+              你吃的每一口，都有来处
             </h2>
             <p>每一份食材标明产地、供应商，来源透明。</p>
           </RevealOnScroll>
@@ -1407,7 +1405,7 @@ function PricingInline() {
         <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
-        <p style={{ textAlign: 'center', color: 'var(--ink-body)', fontSize: '18px', margin: '0 0 44px' }}>
+        <p style={{ textAlign: 'center', color: '#000', fontSize: 'var(--fs-lede)', fontWeight: 400, margin: '0 0 44px' }}>
           订得越长，单餐越省。
         </p>
         <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto', alignItems: 'stretch' }}>
@@ -1426,18 +1424,18 @@ function PricingInline() {
               }}
             >
               <div style={{ marginBottom: '20px' }}>
-                <h3 style={{ margin: 0, fontSize: '22px', fontWeight: 700, color: 'var(--ink-cream)' }}><SplitText>{plan.name}</SplitText></h3>
+                <h3 style={{ margin: 0, fontSize: '22px', fontWeight: 700, color: '#000' }}><SplitText>{plan.name}</SplitText></h3>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginTop: '18px' }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '24px', color: 'var(--ink-cream)' }}>¥</span>
-                  <strong style={{ fontSize: 'clamp(50px, 4vw, 66px)', fontWeight: 700, lineHeight: 1, color: 'var(--ink-cream)' }}>{plan.price}</strong>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '24px', color: '#000' }}>¥</span>
+                  <strong style={{ fontSize: 'clamp(50px, 4vw, 66px)', fontWeight: 700, lineHeight: 1, color: '#000' }}>{plan.price}</strong>
                 </div>
                 <div style={{ marginTop: '10px' }}>
-                  <span style={{ display: 'inline-block', padding: '6px 14px', color: 'var(--ink-cream)', borderRadius: '999px', background: 'rgba(43,31,20,0.06)', fontSize: '14px', fontWeight: 700 }}>{plan.per}</span>
+                  <span style={{ display: 'inline-block', padding: '6px 14px', color: '#000', borderRadius: '999px', background: 'rgba(43,31,20,0.06)', fontSize: '14px', fontWeight: 700 }}>{plan.per}</span>
                   <span style={{ display: 'block', marginTop: '10px', color: '#000', fontSize: '15px' }}>{plan.spec}</span>
                 </div>
               </div>
-              <div style={{ marginTop: '20px', padding: '16px 0', borderTop: '1px solid var(--line-cream)', color: 'var(--ink-body)', fontSize: '15px', lineHeight: 1.6 }}>
-                  <p style={{ margin: '0 0 8px', fontWeight: 600, color: 'var(--ink-cream)' }}>每份餐均含：</p>
+              <div style={{ marginTop: '20px', padding: '16px 0', borderTop: '1px solid var(--line-cream)', color: '#000', fontSize: '15px', lineHeight: 1.6 }}>
+                  <p style={{ margin: '0 0 8px', fontWeight: 600, color: '#000' }}>每份餐均含：</p>
                   <p style={{ margin: '0 0 4px' }}>✓ AI 定制餐单</p>
                   <p style={{ margin: '0' }}>✓ 热链配送到手</p>
                 </div>

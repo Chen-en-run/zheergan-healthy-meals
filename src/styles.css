@@ -1825,6 +1825,7 @@ img {
   text-align: center;
   font-family: var(--font-sans);
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .story-answer-title {
@@ -6874,8 +6875,8 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 .agent-left .agent-lede {
   margin-bottom: 8px !important;
-  font-size: clamp(18px, 1.5vw, 22px);
-  font-weight: 500;
+  font-size: var(--fs-lede);
+  font-weight: 400;
 }
 
 .agent-body {
