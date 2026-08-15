@@ -963,7 +963,7 @@ function AnswerSection() {
               <br />
               都有来处
             </h2>
-            <p>每一份食材标明产地、供应商，来源透明。</p>
+            <p>每一份食材标明产地、供应商，来源透明</p>
           </RevealOnScroll>
         </div>
         <div className="ingredient-grid">
@@ -1066,13 +1066,6 @@ function AgentSection() {
       </div>
       <div className="story-inner agent-inner">
         <div className="agent-split">
-          <div className="agent-left">
-            <h2 className="agent-title"><SplitText>能对话，就能吃对</SplitText></h2>
-            <p className="agent-lede"><SplitText stagger={0.012}>
-              折耳根 AI 不只是聊天。从听懂身体到直接回答，它把"吃什么"全程接管。
-            </SplitText></p>
-          </div>
-          <div className="agent-body">
           <aside className="agent-aside">
             <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
               <div className="chat-card">
@@ -1149,6 +1142,13 @@ function AgentSection() {
               </div>
             </RevealOnScroll>
           </aside>
+          <div className="agent-body">
+          <div className="agent-left">
+            <h2 className="agent-title"><SplitText>能对话，就能吃对</SplitText></h2>
+            <p className="agent-lede"><SplitText stagger={0.012}>
+              折耳根 AI 不只是聊天，从听懂身体到直接回答，它把"吃什么"全程接管
+            </SplitText></p>
+          </div>
           <div className="agent-mini-grid">
             {agentCaps.map((cap, i) => {
               const I = cap.icon;
@@ -1258,15 +1258,13 @@ function StepsSection() {
       aria-label="使用流程"
     >
       <div className="story-inner steps-sticky-layout">
-        {/* 标题 */}
-        <div className="steps-new-head">
-          <h2>三步，每天准时开饭</h2>
-          <p className="steps-new-sub">填一次数据、确认偏好、准时就餐——把吃饭这件麻烦事，交给小折全程托管。</p>
-        </div>
-
-        {/* 左栏滚动步骤 + 右栏钉住手机图 */}
+        {/* 左栏：标题 + 三个步骤 | 右栏：钉住手机图 */}
         <div className="steps-scroll-wrap">
           <div className="steps-scroll-left">
+        <div className="steps-new-head">
+          <h2>三步，每天准时开饭</h2>
+          <p className="steps-new-sub">填一次数据、确认偏好、准时就餐——把吃饭这件麻烦事，交给小折全程托管</p>
+        </div>
             {steps.map((step, i) => (
               <div
                 key={step.no}
@@ -1407,8 +1405,8 @@ function PricingInline() {
         <h2 style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-h2)', fontWeight: 680, textAlign: 'center', marginBottom: '20px' }}>
           一顿外卖的价，吃定制健康餐
         </h2>
-        <p style={{ textAlign: 'center', color: 'var(--ink-body)', fontSize: '18px', margin: '0 0 44px' }}>
-          订得越长，单餐越省。
+        <p style={{ textAlign: 'center', color: '#000', fontSize: 'var(--fs-lede)', lineHeight: 1.85, fontWeight: 400, maxWidth: 680, margin: '0 auto 44px' }}>
+          订得越长，单餐越省
         </p>
         <div className="price-grid-inline" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px', margin: '0 auto', alignItems: 'stretch' }}>
           {pricingPlans.map((plan, i) => (
@@ -1503,10 +1501,6 @@ const faqs = [
   {
     q: 'AI怎么算出我该吃多少？',
     a: '你告诉它性别、年龄、身高、体重和活动量，小折帮你算出每天该吃多少热量——这不是猜的，是基于你的真实数据算出来的。然后根据你的口味偏好和饮食目标，匹配最适合你的餐。你确认，餐送到手。',
-  },
-  {
-    q: '配送范围覆盖哪些城市？',
-    a: '目前已覆盖上海、北京、深圳、杭州、成都的主城区，并在持续拓展。下单前App会根据你的收货地址自动校验能否送达。',
   },
   {
     q: '能看到每餐的热量和营养成分吗？',

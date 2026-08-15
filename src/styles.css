@@ -2350,7 +2350,7 @@ body::-webkit-scrollbar {
 /* ===== 滚动驱动 sticky 布局（桌面端） ===== */
 .steps-scroll-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 60px;
   align-items: start;
 }
@@ -2364,7 +2364,7 @@ body::-webkit-scrollbar {
 }
 
 .steps-scroll-block {
-  padding: 56px 0;
+  padding: 32px 0;
   opacity: 0.45;
   transition: opacity 0.3s var(--ease-std);
 }
@@ -2382,11 +2382,9 @@ body::-webkit-scrollbar {
 
 /* 右栏：钉住，滚动时图随左侧进度切换 */
 .steps-sticky-right {
-  position: sticky;
-  /* 顶部留出固定导航栏(92px)余量，避免手机图上半部分被遮挡 */
-  top: 150px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .steps-sticky-phone {
@@ -2761,10 +2759,12 @@ body::-webkit-scrollbar {
 
 /* ── TrustStrip：横向数据条 ── */
 .trust-sub {
+  max-width: 680px;
   margin: 20px auto 0;
   text-align: center;
   color: #000;
   font-size: var(--fs-lede);
+  line-height: 1.85;
   font-weight: 400;
 }
 
@@ -3459,15 +3459,13 @@ body::-webkit-scrollbar {
 }
 
 .faq-sub {
-  max-width: none;
+  max-width: 680px;
   margin: 20px 0 0;
   color: #000;
   font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
-  white-space: nowrap;
-  text-align: center;
-  transform: translateX(-120px);
+  text-align: left;
 }
 
 /* 右侧垂直手风琴 */
@@ -3777,11 +3775,12 @@ body::-webkit-scrollbar {
 }
 
 .story-pain-sub {
+  max-width: 680px;
   margin: 20px auto 0;
   text-align: center;
   color: #000;
   font-size: var(--fs-lede);
-  line-height: 1.7;
+  line-height: 1.85;
   font-weight: 400;
 }
 
@@ -6839,22 +6838,23 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .agent-lede {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto 48px;
   color: #000;
   font-size: var(--fs-lede);
-  line-height: 1.7;
+  line-height: 1.85;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 /* ── AI能力：标题 + 田字格 左 | 聊天卡片 右 ── */
 .agent-split {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 360px 1fr;
   align-items: center;
-  gap: 44px;
+  gap: 48px;
   width: 100%;
-  max-width: 1240px;
+  max-width: 1120px;
   margin: 56px auto 0;
 }
 
@@ -6870,32 +6870,30 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   }
 }
 .agent-left .agent-title {
-  margin-bottom: 6px !important;
+  margin-bottom: 20px !important;
 }
 .agent-left .agent-lede {
   margin-bottom: 8px !important;
-  font-size: clamp(18px, 1.5vw, 22px);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .agent-body {
-  display: grid;
-  grid-template-columns: 360px 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 44px;
-  align-items: stretch;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  padding-left: 40px;
 }
 
 /* 田字格 2×2 */
 .agent-mini-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: 20px;
   width: 100%;
-  height: 100%;
   container-type: inline-size;
 }
 
@@ -6952,15 +6950,16 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   color: #000;
 }
 @media (max-width: 900px) {
-  .agent-body {
+  .agent-split {
     grid-template-columns: 1fr;
     justify-items: center;
-    gap: 36px;
+    gap: 40px;
+  }
+  .agent-body {
+    padding-left: 0;
   }
   .agent-mini-grid {
     max-width: 560px;
-    grid-template-rows: auto auto;
-    height: auto;
   }
 }
 
@@ -6969,7 +6968,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  align-self: stretch;
+  align-self: center;
   width: 100%;
 }
 .agent-aside .chat-card-shell {
@@ -7408,17 +7407,17 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .steps-new-head {
   text-align: center;
-  margin-bottom: 52px;
+  margin-bottom: 28px;
 }
 
 .steps-new-head h2 {
   font-size: var(--fs-h2);
   font-weight: 680;
   margin: 0;
+  white-space: nowrap;
 }
 
 .steps-new-sub {
-  max-width: none;
   margin: 20px auto 0;
   color: #000;
   font-size: var(--fs-lede);
@@ -7451,7 +7450,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 
 .steps-new-no {
-  font-size: clamp(56px, 6vw, 80px);
+  font-size: clamp(40px, 4.2vw, 56px);
   font-weight: 680;
   color: rgba(5, 150, 105, 0.28);
   line-height: 1;
@@ -7463,7 +7462,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 
 .steps-new-text h3 {
   margin: 0;
-  font-size: clamp(40px, 4.5vw, 60px);
+  font-size: clamp(28px, 3.15vw, 42px);
   font-weight: 680;
   color: var(--ink-cream);
   line-height: 1;
