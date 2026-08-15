@@ -160,7 +160,7 @@ function HomePage() {
   const clickLockRef = useRef(0);
 
   useEffect(() => {
-    const ids = ['pain', 'answer', 'agent', 'steps', 'pricing', 'trust', 'faq'];
+    const ids = ['pain', 'answer', 'steps', 'pricing', 'trust', 'faq'];
     const observer = new IntersectionObserver(
       (entries) => {
         if (Date.now() < clickLockRef.current) return;
@@ -212,7 +212,6 @@ function HomePage() {
           {[
             { id: 'pain', label: '饮食痛点' },
             { id: 'answer', label: '食材溯源' },
-            { id: 'agent', label: 'AI能力' },
             { id: 'steps', label: '怎么吃' },
             { id: 'pricing', label: '价格' },
             { id: 'trust', label: '口碑' },
@@ -246,7 +245,6 @@ function HomePage() {
       <HotChainHero />
       <PainSection />
       <AnswerSection />
-      <AgentSection />
       <StepsSection />
       <PricingInline />
       <TrustSection />
@@ -1014,157 +1012,8 @@ function AnswerSection() {
 }
 
 /* ================================================================
-   AgentSection — 折耳根 AI 健康管家能力模块
-   首页新增:展示 Agent 能为用户做的 6 件事
+   AgentSection — 已移除（原折耳根 AI 健康管家能力模块）
    ================================================================ */
-const agentCaps = [
-  {
-    icon: MessageSquareText,
-    title: '听懂身体',
-    desc: '你告诉它性别、年龄、身高、体重、活动量——它算出你每天该吃多少热量。不是猜，是算。',
-  },
-  {
-    icon: Activity,
-    title: '看懂BMI',
-    desc: '用 BMI 判定增重还是减重，方案数据说了算。',
-  },
-  {
-    icon: RefreshCw,
-    title: '动态调整',
-    desc: '瘦了5斤？在档案页更新体重，小折推荐自动同步。',
-  },
-  {
-    icon: MessageSquareText,
-    title: '直接回答',
-    desc: '像真人助理，问什么答什么，不绕弯。',
-  },
-];
-
-function AgentSection() {
-  const [chatTimes] = useState(() => {
-    const fmt = (d) =>
-      d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', hour12: false });
-    const base = new Date();
-    return [6, 4].map((m) => {
-      const d = new Date(base.getTime() - m * 60 * 1000);
-      return fmt(d);
-    });
-  });
-
-  return (
-    <section
-      className="story-section story-agent section-panel panel-cream"
-      id="agent"
-      aria-label="折耳根 AI 智能体"
-    >
-      <div className="agent-bg-blobs" aria-hidden="true">
-        <span className="agent-blob agent-blob--1" />
-        <span className="agent-blob agent-blob--2" />
-        <span className="agent-blob agent-blob--3" />
-      </div>
-      <div className="story-inner agent-inner">
-        <div className="agent-split">
-          <div className="agent-left">
-            <h2 className="agent-title"><SplitText>能对话，就能吃对</SplitText></h2>
-            <p className="agent-lede"><SplitText stagger={0.012}>
-              折耳根 AI 不只是聊天。从听懂身体到直接回答，它把"吃什么"全程接管。
-            </SplitText></p>
-          </div>
-          <div className="agent-body">
-          <aside className="agent-aside">
-            <RevealOnScroll variant="fadeIn" amount={0.1} className="chat-card-shell">
-              <div className="chat-card">
-                <div className="chat-topbar">
-                  <div className="chat-topbar-info chat-topbar-info--center">
-                    <span className="chat-name">折耳根小助手</span>
-                    <span className="chat-status"></span>
-                  </div>
-                </div>
-
-                <div className="chat-messages">
-                  <div className="chat-msg chat-msg--user chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--user">
-                        女，26岁，身高165，体重60，平时坐办公室。
-                      </div>
-                      <span className="chat-msg-time">{chatTimes[0]}</span>
-                    </div>
-                  </div>
-
-                  <div className="chat-msg chat-msg--ai chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--ai">
-                        收到。BMI 22.0，正常范围；每天建议摄入约 1650 kcal。
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="chat-msg chat-msg--user chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--user">
-                        有什么推荐的健康餐吗？
-                      </div>
-                      <span className="chat-msg-time">{chatTimes[1]}</span>
-                    </div>
-                  </div>
-
-                  <div className="chat-msg chat-msg--ai chat-msg--pop">
-                    <div className="chat-msg-main">
-                      <div className="chat-bubble chat-bubble--ai">
-                        推荐 7 天周计划，1500 kcal 规格。想看看详细餐单吗？
-                      </div>
-                    </div>
-                  </div>
-                  <div className="chat-msg chat-msg--ai chat-msg--pop">
-                    <div className="chat-meal-cards">
-                      <button className="chat-meal-card-standalone" aria-label="查看七日营养餐食谱详情">
-                        <img src="/zheergan-healthy-meals/images/food-8.webp" alt="周计划" />
-                        <div className="chat-meal-card-standalone-body">
-                          <strong>周计划</strong>
-                          <span>最划算 · 每周口味调优</span>
-                          <div className="chat-meal-card-standalone-tags">
-                            <span className="chat-meal-price-tag">¥476</span>
-                            <span className="chat-meal-day-tag">7 天</span>
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div className="chat-input-bar">
-                  <div className="chat-input-field">
-                    <span className="chat-input-placeholder">告诉 Agent 你的需求...</span>
-                  </div>
-                  <button className="chat-send-btn" aria-label="发送">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="22" y1="2" x2="11" y2="13" />
-                      <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </RevealOnScroll>
-          </aside>
-          <div className="agent-mini-grid">
-            {agentCaps.map((cap, i) => {
-              const I = cap.icon;
-              return (
-                <article key={cap.title} className="agent-mini-card">
-                  <span className="agent-mini-icon"><I /></span>
-                  <h4>{cap.title}</h4>
-                  <p>{cap.desc}</p>
-                </article>
-              );
-            })}
-          </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 const steps = [
   { no: '01', title: '填数据', desc: '性别、年龄、身高、体重、活动量——填一次，有变化才改。', image: '/zheergan-healthy-meals/images/dialog-1.webp' },
