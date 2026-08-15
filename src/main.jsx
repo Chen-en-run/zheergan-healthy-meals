@@ -923,6 +923,7 @@ function PainSection() {
         <h2 className="story-pain-title">
           每天三顿饭，三件烦心事
         </h2>
+        <p className="story-pain-sub">每件都在让你放弃好好吃饭</p>
         <PainSplit />
       </RevealOnScroll>
     </section>
