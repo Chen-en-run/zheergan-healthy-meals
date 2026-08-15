@@ -1656,6 +1656,15 @@ img {
   padding: var(--section-gap) 0;
 }
 
+/* steps↔pricing 与 pricing↔trust 间距拉近(仅这两处):#pricing 上下 padding 减半,#steps 取消底部 */
+#steps.story-section {
+  padding-bottom: 0;
+}
+#pricing.story-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
 .story-inner {
   position: relative;
   z-index: 1;
@@ -1669,6 +1678,38 @@ img {
 /* 确保导航跳转时区块完整展示 + 价格等大 */
 #answer .story-inner { min-height: 75vh; }
 #pricing .story-inner { min-height: 80vh; }
+
+/* 价格卡片 per 标签(≈¥38/餐等):浅色液态玻璃 + 黑字(加深边框与投影提升存在感) */
+.price-per-glass {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 6px 14px;
+  color: #000;
+  border-radius: var(--r-pill);
+  font-size: 14px;
+  font-weight: 700;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.92), rgba(236, 240, 238, 0.72));
+  border: 1px solid rgba(43, 31, 20, 0.16);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  backdrop-filter: blur(24px) saturate(1.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 6px 18px rgba(43, 31, 20, 0.14);
+}
+
+/* 磨砂噪点层:给玻璃叠加颗粒粗糙感 */
+.price-per-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 .price-grid-inline { align-items: stretch !important; }
 .price-grid-inline article { height: 100% !important; }
 
@@ -1825,6 +1866,7 @@ img {
   text-align: center;
   font-family: var(--font-sans);
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .story-answer-title {
@@ -1851,9 +1893,9 @@ img {
 .ingredient-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 40px;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1180px;
   margin-top: 48px;
 }
 
@@ -1864,7 +1906,7 @@ img {
   text-align: left;
   padding: 0;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 26px;
   background: #ffffff;
   border: 1px solid rgba(43, 31, 20, 0.06);
   box-shadow: 0 10px 30px rgba(43, 31, 20, 0.06);
@@ -1878,7 +1920,7 @@ img {
 
 /* 左侧食材特写图 */
 .ingredient-img {
-  flex: 0 0 42%;
+  flex: 0 0 44%;
   align-self: stretch;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -1900,13 +1942,13 @@ img {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: clamp(18px, 2vw, 28px) clamp(16px, 2vw, 30px);
+  padding: clamp(20px, 2.2vw, 32px) clamp(19px, 2.2vw, 34px);
   min-width: 0;
 }
 
 .ingredient-name {
   margin: 0;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
   color: #000;
   letter-spacing: 0.01em;
@@ -3465,7 +3507,9 @@ body::-webkit-scrollbar {
   font-size: var(--fs-lede);
   line-height: 1.85;
   font-weight: 400;
-  text-align: left;
+  white-space: nowrap;
+  text-align: center;
+  transform: translateX(-80px);
 }
 
 /* 右侧垂直手风琴 */
@@ -3574,7 +3618,7 @@ body::-webkit-scrollbar {
 }
 
 .footer-l1-label {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--soft-cream);
 }
 
@@ -3618,7 +3662,7 @@ body::-webkit-scrollbar {
 
 .footer-l2-col h3 {
   margin: 0 0 30px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 650;
   color: var(--ink-cream);
   letter-spacing: 0.02em;
@@ -3626,7 +3670,7 @@ body::-webkit-scrollbar {
 
 .footer-l2-col a {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--soft-cream);
   margin-bottom: 18px;
   transition: color 0.18s ease;
@@ -3646,7 +3690,7 @@ body::-webkit-scrollbar {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--ember-ink);
   letter-spacing: 0.02em;
@@ -3669,12 +3713,12 @@ body::-webkit-scrollbar {
   gap: 6px 16px;
   padding-top: 16px;
   border-top: 1px solid rgba(43, 31, 20, 0.06);
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
 }
 
 .footer-l3 a {
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
   transition: color 0.18s ease;
 }
@@ -5187,11 +5231,11 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 .site-footer { }
 .footer-new { width: 100%; padding: 24px 20px; text-align: center; }
 .footer-new-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0; margin-bottom: 14px; }
-.footer-new-links a { color: #374151; font-size: 14px; text-decoration: none; transition: color 0.15s; }
+.footer-new-links a { color: #374151; font-size: 15px; text-decoration: none; transition: color 0.15s; }
 .footer-new-links a:hover { color: var(--ember-ink); }
-.footer-new-sep { color: #d1d5db; font-size: 13px; margin: 0 10px; user-select: none; }
-.footer-new-copy { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; color: #9ca3af; font-size: 12px; }
-.footer-new-copy a { color: #9ca3af; font-size: 12px; text-decoration: none; transition: color 0.15s; }
+.footer-new-sep { color: #d1d5db; font-size: 14px; margin: 0 10px; user-select: none; }
+.footer-new-copy { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; color: #9ca3af; font-size: 13px; }
+.footer-new-copy a { color: #9ca3af; font-size: 13px; text-decoration: none; transition: color 0.15s; }
 .footer-new-copy a:hover { color: var(--ember-ink); }
 
 
@@ -6874,6 +6918,7 @@ p, .faq-a, .step-detail, .testimonial-text { text-wrap: pretty; }
 }
 .agent-left .agent-lede {
   margin-bottom: 8px !important;
+  font-size: var(--fs-lede);
   font-weight: 400;
 }
 
